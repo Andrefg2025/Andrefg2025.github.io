@@ -2,9 +2,11 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DESENVOLVIMENTO DE SISTEMAS</title>
+
+    <title>Plataforma de Estudo</title>
 
     <link rel="icon" type="image/png" href="ico.png">
 
@@ -14,54 +16,287 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Remove o sublinhado dos links da logo e do título */
-        .logo,
-        .titulo-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: inherit;
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
         }
 
-        .logo:hover,
+        body{
+            font-family:'Poppins',sans-serif;
+            background:#1f1f1f;
+            color:#ffffff;
+        }
+
+        /* ==================================
+                    CABEÇALHO
+        ================================== */
+
+        header{
+
+            background:#ff6f00;
+
+            display:grid;
+
+            grid-template-columns:100px 1fr 100px;
+
+            align-items:center;
+
+            padding:10px 30px;
+
+        }
+
+        .logo-esquerda,
+        .logo-direita{
+
+            text-decoration:none;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+        }
+
+        .logo-img{
+
+            width:75px;
+
+            height:75px;
+
+            object-fit:contain;
+
+        }
+
+        /* ==================================
+                    TÍTULO
+        ================================== */
+
+        .titulo-link{
+
+            text-decoration:none;
+
+            text-align:center;
+
+        }
+
         .titulo-link:hover,
-        .logo:visited,
         .titulo-link:visited,
-        .logo:active,
-        .titulo-link:active {
-            text-decoration: none;
-            color: inherit;
+        .titulo-link:active{
+
+            text-decoration:none;
+
+            color:inherit;
+
         }
 
-        .titulo-barra {
-            margin: 0;
-            color: #ffffff;
-            text-decoration: none;
+        .titulo-barra{
+
+            color:#ffffff;
+
+            font-size:42px;
+
+            margin:0;
+
+            font-weight:700;
+
+            letter-spacing:1px;
+
         }
 
-        .logo-img {
-            height: 60px;
-            width: auto;
+        /* ==================================
+                    MENU
+        ================================== */
+
+        nav{
+
+            background:#111111;
+
+            padding:15px;
+
         }
+
+        nav ul{
+
+            list-style:none;
+
+            display:flex;
+
+            justify-content:center;
+
+            gap:50px;
+
+        }
+
+        nav ul li a{
+
+            color:#ffffff;
+
+            text-decoration:none;
+
+            font-size:20px;
+
+            transition:.3s;
+
+        }
+
+        nav ul li a:hover{
+
+            color:#ff6f00;
+
+        }
+
+        /* ==================================
+                    CONTEÚDO
+        ================================== */
+
+        main{
+
+            width:90%;
+
+            max-width:1200px;
+
+            margin:40px auto;
+
+            line-height:1.8;
+
+        }
+
+        h1{
+
+            margin-bottom:20px;
+
+            font-size:42px;
+
+            color:#ffffff;
+
+            text-align:center;
+
+        }
+
+        h2{
+
+            margin-top:35px;
+
+            margin-bottom:15px;
+
+            color:#ff6f00;
+
+        }
+
+        h3{
+
+            margin-top:25px;
+
+            margin-bottom:10px;
+
+            color:#ff6f00;
+
+        }
+
+        p{
+
+            text-align:justify;
+
+            margin-bottom:15px;
+
+            color:#d8d8d8;
+
+        }
+
+        ul{
+
+            margin-left:35px;
+
+            margin-bottom:20px;
+
+        }
+
+        li{
+
+            margin-bottom:8px;
+
+        }
+
+        /* ==================================
+                    RODAPÉ
+        ================================== */
+
+        footer{
+
+            background:#111111;
+
+            padding:25px;
+
+            margin-top:50px;
+
+            text-align:center;
+
+        }
+
+        .social{
+
+            margin-bottom:15px;
+
+        }
+
+        .social a{
+
+            color:#ffffff;
+
+            text-decoration:none;
+
+            margin:0 20px;
+
+            transition:.3s;
+
+        }
+
+        .social a:hover{
+
+            color:#ff6f00;
+
+        }
+
     </style>
 
 </head>
 
 <body>
 
-    <!-- ===============================
-         CABEÇALHO
-    ================================ -->
+    <!-- ==================================
+                CABEÇALHO
+    =================================== -->
 
     <header>
 
-        <!-- Logo clicável -->
-        <a href="index.html" class="logo">
+        <!-- Logo esquerda -->
+
+        <a href="index.html" class="logo-esquerda">
 
             <img src="l.png"
                  alt="Logo Principal"
                  class="logo-img">
+
+        </a>
+
+        <!-- Título -->
+
+        <a href="index.html" class="titulo-link">
+
+            <h1 class="titulo-barra">
+
+                PLATAFORMA DE ESTUDO
+
+            </h1>
+
+        </a>
+
+        <!-- Logo direita -->
+
+        <a href="index.html" class="logo-direita">
 
             <img src="DS.png"
                  alt="Logo Desenvolvimento de Sistemas"
@@ -69,99 +304,89 @@
 
         </a>
 
-        <!-- Título clicável -->
-        <a href="index.html" class="titulo-link">
-
-            <h1 class="titulo-barra">
-                PLATAFORMA DE ESTUDO
-            </h1>
-
-        </a>
-
-        <!-- Menu -->
-
-        <nav>
-
-            <ul>
-                <li>
-                    <a href="1ºsistemas.html">1º Sistema</a>
-                </li>
-
-                <li>
-                    <a href="2ºsistemas.html">2º Sistema</a>
-                </li>
-
-                <li>
-                    <a href="3ºsistemas.html">3º Sistema</a>
-                </li>
-
-            </ul>
-
-        </nav>
-
     </header>
 
-    <!-- ===============================
-         CONTEÚDO PRINCIPAL
-    ================================ -->
+    <!-- ==================================
+                    MENU
+    =================================== -->
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="1ºsistemas.html">1º Sistema</a>
+            </li>
+
+            <li>
+                <a href="2ºsistemas.html">2º Sistema</a>
+            </li>
+
+            <li>
+                <a href="3ºsistemas.html">3º Sistema</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- ==================================
+                  CONTEÚDO
+    =================================== -->
 
     <main>
 
-        <section class="intro">
+        <h1>DESENVOLVIMENTO DE SISTEMAS</h1>
 
-            <h1>DESENVOLVIMENTO DE SISTEMAS</h1>
+        <p>
 
-            <p>
-                O Desenvolvimento de Sistemas é a área responsável por criar,
-                manter e otimizar softwares, aplicativos e plataformas digitais
-                para resolver problemas específicos.
+            O Desenvolvimento de Sistemas é a área responsável por criar,
+            manter e otimizar softwares, aplicativos e plataformas digitais
+            para resolver problemas específicos.
 
-                Envolve desde o levantamento de requisitos com o cliente até a
-                programação, modelagem de banco de dados, testes e implantação.
-            </p>
+            Envolve desde o levantamento de requisitos com o cliente até a
+            programação, modelagem de banco de dados, testes e implantação.
 
-            <h2>Faixa Salarial no Brasil</h2>
+        </p>
 
-            <p>
-                O salário de um Desenvolvedor de Sistemas pode variar conforme
-                experiência, região do país e especialização tecnológica.
-            </p>
+        <h2>Faixa Salarial no Brasil</h2>
 
-            <h3>Por Senioridade</h3>
+        <p>
 
-            <ul>
+            O salário de um Desenvolvedor de Sistemas pode variar conforme
+            experiência, região do país e especialização tecnológica.
 
-                <li>Júnior: R$ 3.000 a R$ 5.500</li>
+        </p>
 
-                <li>Pleno: R$ 6.900 a R$ 9.000</li>
+        <h3>Por Senioridade</h3>
 
-                <li>Sênior: R$ 10.000 a R$ 18.000 ou mais</li>
+        <ul>
 
-            </ul>
+            <li>Júnior: R$ 3.000 a R$ 5.500</li>
 
-            <h3>Por Especialidade</h3>
+            <li>Pleno: R$ 6.900 a R$ 9.000</li>
 
-            <ul>
+            <li>Sênior: R$ 10.000 a R$ 18.000 ou mais</li>
 
-                <li>Front-End / Back-End: R$ 5.000 a R$ 19.000</li>
+        </ul>
 
-                <li>Inteligência Artificial / Machine Learning:
-                    R$ 10.000 a R$ 16.000
-                </li>
+        <h3>Por Especialidade</h3>
 
-                <li>Arquitetura de Soluções:
-                    R$ 14.000 a R$ 18.000
-                </li>
+        <ul>
 
-            </ul>
+            <li>Front-End / Back-End: R$ 5.000 a R$ 19.000</li>
 
-        </section>
+            <li>Inteligência Artificial / Machine Learning: R$ 10.000 a R$ 16.000</li>
+
+            <li>Arquitetura de Soluções: R$ 14.000 a R$ 18.000</li>
+
+        </ul>
 
     </main>
 
-    <!-- ===============================
-         RODAPÉ
-    ================================ -->
+    <!-- ==================================
+                    RODAPÉ
+    =================================== -->
 
     <footer>
 
@@ -175,9 +400,12 @@
 
         </div>
 
-        <p>
+        <p style="text-align:center;">
+
             © 2026 - Desenvolvimento de Sistemas.
+
             Todos os direitos reservados.
+
         </p>
 
     </footer>
@@ -185,4 +413,3 @@
 </body>
 
 </html>
-
