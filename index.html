@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -12,36 +13,80 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Remove o sublinhado dos links da logo e do título */
+        .logo,
+        .titulo-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo:hover,
+        .titulo-link:hover,
+        .logo:visited,
+        .titulo-link:visited,
+        .logo:active,
+        .titulo-link:active {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .titulo-barra {
+            margin: 0;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+    </style>
+
 </head>
 
 <body>
 
-    <!-- ==========================
+    <!-- ===============================
          CABEÇALHO
-    =========================== -->
+    ================================ -->
 
     <header>
 
-        <!-- Logo (volta para a página inicial) -->
+        <!-- Logo clicável -->
         <a href="index.html" class="logo">
-            <img class="logo-img" src="ico.png" alt="Logo">
-            <img class="logo-img" src="DS.png" alt="Desenvolvimento de Sistemas">
+
+            <img src="ico.png"
+                 alt="Logo Principal"
+                 class="logo-img">
+
+            <img src="DS.png"
+                 alt="Logo Desenvolvimento de Sistemas"
+                 class="logo-img">
+
         </a>
 
-        <!-- Título (também retorna para a página inicial) -->
+        <!-- Título clicável -->
         <a href="index.html" class="titulo-link">
+
             <h1 class="titulo-barra">
                 DESENVOLVIMENTO DE SISTEMAS
             </h1>
+
         </a>
 
         <!-- Menu -->
+
         <nav>
 
             <ul>
 
                 <li>
-                    <a href="index.html"> Início</a>
+                    <a href="index.html">Início</a>
                 </li>
 
                 <li>
@@ -62,9 +107,9 @@
 
     </header>
 
-    <!-- ==========================
+    <!-- ===============================
          CONTEÚDO PRINCIPAL
-    =========================== -->
+    ================================ -->
 
     <main>
 
@@ -78,41 +123,51 @@
                 para resolver problemas específicos.
 
                 Envolve desde o levantamento de requisitos com o cliente até a
-                programação, modelagem de banco de dados e testes.
+                programação, modelagem de banco de dados, testes e implantação.
             </p>
 
             <h2>Faixa Salarial no Brasil</h2>
 
             <p>
-                O salário de um desenvolvedor de sistemas no Brasil varia de
-                aproximadamente <strong>R$ 3.000</strong> até mais de
-                <strong>R$ 18.000</strong>, dependendo da experiência,
-                especialização e empresa contratante.
+                O salário de um Desenvolvedor de Sistemas pode variar conforme
+                experiência, região do país e especialização tecnológica.
             </p>
 
             <h3>Por Senioridade</h3>
 
             <ul>
+
                 <li>Júnior: R$ 3.000 a R$ 5.500</li>
+
                 <li>Pleno: R$ 6.900 a R$ 9.000</li>
-                <li>Sênior: R$ 10.000 a R$ 18.000+</li>
+
+                <li>Sênior: R$ 10.000 a R$ 18.000 ou mais</li>
+
             </ul>
 
             <h3>Por Especialidade</h3>
 
             <ul>
+
                 <li>Front-End / Back-End: R$ 5.000 a R$ 19.000</li>
-                <li>Inteligência Artificial / Machine Learning: R$ 10.000 a R$ 16.000</li>
-                <li>Arquitetura de Soluções: R$ 14.000 a R$ 18.000</li>
+
+                <li>Inteligência Artificial / Machine Learning:
+                    R$ 10.000 a R$ 16.000
+                </li>
+
+                <li>Arquitetura de Soluções:
+                    R$ 14.000 a R$ 18.000
+                </li>
+
             </ul>
 
         </section>
 
     </main>
 
-    <!-- ==========================
+    <!-- ===============================
          RODAPÉ
-    =========================== -->
+    ================================ -->
 
     <footer>
 
@@ -136,3 +191,4 @@
 </body>
 
 </html>
+
