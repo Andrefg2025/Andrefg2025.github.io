@@ -10,70 +10,75 @@
 
     <link rel="icon" type="image/png" href="ico.png">
 
-    <!-- Fonte -->
+    <!-- Fonte Google -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- CSS Principal -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Remove sublinhado da logo e do título */
 
-        .logo,
-        .titulo-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: inherit;
+        /* Logo */
+
+        .logo{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            text-decoration:none;
         }
 
-        .logo:hover,
+        .logo-img{
+            height:60px;
+            width:auto;
+        }
+
+        /* Link do título */
+
+        .titulo-link{
+            text-decoration:none;
+            color:#ffffff;
+        }
+
         .titulo-link:hover,
-        .logo:visited,
         .titulo-link:visited,
-        .logo:active,
-        .titulo-link:active {
-            text-decoration: none;
-            color: inherit;
+        .titulo-link:active{
+            text-decoration:none;
+            color:#ffffff;
         }
 
-        .titulo-barra {
-            margin: 0;
-            color: #ffffff;
+        .titulo-barra{
+            margin:0;
+            color:#ffffff;
+            cursor:pointer;
         }
 
-        .logo-img {
-            height: 60px;
-            width: auto;
-        }
     </style>
 
 </head>
 
 <body>
 
-    <!-- ===========================
-         CABEÇALHO
-    ============================ -->
+    <!-- =====================================
+                CABEÇALHO
+    ====================================== -->
 
     <header>
 
-        <!-- Logo -->
+        <!-- Logos -->
 
         <a href="index.html" class="logo">
 
             <img src="ico.png"
-                 alt="Logo"
+                 alt="Logo Principal"
                  class="logo-img">
 
             <img src="DS.png"
-                 alt="Desenvolvimento de Sistemas"
+                 alt="Logo Desenvolvimento de Sistemas"
                  class="logo-img">
 
         </a>
 
-        <!-- Título -->
+        <!-- Título clicável -->
 
         <a href="index.html" class="titulo-link">
 
@@ -111,9 +116,9 @@
 
     </header>
 
-    <!-- ===========================
-         CONTEÚDO
-    ============================ -->
+    <!-- =====================================
+                CONTEÚDO
+    ====================================== -->
 
     <main>
 
@@ -122,10 +127,15 @@
             <h1>1º Sistema</h1>
 
             <p>
-                Bem-vindo ao ambiente do <strong>1º Sistema</strong>.
-                Nesta página serão disponibilizados materiais didáticos,
-                atividades, projetos e recursos voltados para o desenvolvimento
-                das competências técnicas da primeira etapa do curso.
+
+                Bem-vindo ao ambiente do
+                <strong>1º Sistema</strong>.
+
+                Nesta página serão disponibilizados materiais
+                didáticos, atividades, projetos e recursos para
+                apoiar o desenvolvimento das competências técnicas
+                da primeira etapa do curso.
+
             </p>
 
             <h2>Conteúdos Sugeridos</h2>
@@ -144,7 +154,7 @@
 
                 <li>Banco de Dados Básico</li>
 
-                <li>Desenvolvimento Web Inicial</li>
+                <li>Desenvolvimento Web</li>
 
             </ul>
 
@@ -152,11 +162,11 @@
 
             <ul>
 
-                <li>Lista de Exercícios</li>
+                <li>Exercícios Práticos</li>
 
                 <li>Quiz Interativo</li>
 
-                <li>Projetos Práticos</li>
+                <li>Projetos</li>
 
                 <li>Desafios Semanais</li>
 
@@ -165,18 +175,21 @@
             <h2>Objetivo</h2>
 
             <p>
-                Desenvolver o raciocínio lógico e proporcionar uma base sólida
-                para o aprendizado das tecnologias utilizadas no curso de
-                Desenvolvimento de Sistemas.
+
+                Desenvolver o raciocínio lógico,
+                incentivar a resolução de problemas e fornecer
+                uma base sólida para o aprendizado das tecnologias
+                utilizadas no curso de Desenvolvimento de Sistemas.
+
             </p>
 
         </section>
 
     </main>
 
-    <!-- ===========================
-         RODAPÉ
-    ============================ -->
+    <!-- =====================================
+                RODAPÉ
+    ====================================== -->
 
     <footer>
 
@@ -191,21 +204,14 @@
         </div>
 
         <p>
+
             © 2026 - Desenvolvimento de Sistemas.
+
             Todos os direitos reservados.
+
         </p>
 
     </footer>
-
-    <script>
-
-        function logout() {
-
-            alert("Você saiu da plataforma.");
-
-        }
-
-    </script>
 
 </body>
 
