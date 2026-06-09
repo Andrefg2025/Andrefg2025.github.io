@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -13,9 +14,11 @@
     <!-- Fonte Google -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
-
     <style>
+
+        /* ===============================
+                CONFIGURAÇÕES GERAIS
+        =============================== */
 
         *{
             margin:0;
@@ -24,14 +27,20 @@
         }
 
         body{
+
             font-family:'Poppins',sans-serif;
+
             background:#1f1f1f;
+
             color:#ffffff;
+
+            line-height:1.8;
+
         }
 
-        /* ==================================
-                    CABEÇALHO
-        ================================== */
+        /* ===============================
+                  CABEÇALHO
+        =============================== */
 
         header{
 
@@ -39,18 +48,22 @@
 
             display:grid;
 
-            grid-template-columns:100px 1fr 100px;
+            grid-template-columns:80px 1fr 80px;
 
             align-items:center;
 
-            padding:10px 10px;
+            padding:6px 20px;
+
+            box-shadow:0 2px 8px rgba(0,0,0,.25);
 
         }
 
+        /* ===============================
+                    LOGOS
+        =============================== */
+
         .logo-esquerda,
         .logo-direita{
-
-            text-decoration:none;
 
             display:flex;
 
@@ -58,21 +71,31 @@
 
             align-items:center;
 
+            text-decoration:none;
+
         }
 
         .logo-img{
 
-            width:75px;
+            width:55px;
 
-            height:75px;
+            height:55px;
 
             object-fit:contain;
 
+            transition:.3s;
+
         }
 
-        /* ==================================
+        .logo-img:hover{
+
+            transform:scale(1.05);
+
+        }
+
+        /* ===============================
                     TÍTULO
-        ================================== */
+        =============================== */
 
         .titulo-link{
 
@@ -96,25 +119,27 @@
 
             color:#ffffff;
 
-            font-size:42px;
-
-            margin:0;
+            font-size:30px;
 
             font-weight:700;
 
             letter-spacing:1px;
 
+            margin:0;
+
         }
 
-        /* ==================================
+        /* ===============================
                     MENU
-        ================================== */
+        =============================== */
 
         nav{
 
             background:#111111;
 
-            padding:15px;
+            padding:8px 0;
+
+            box-shadow:0 2px 5px rgba(0,0,0,.25);
 
         }
 
@@ -126,17 +151,19 @@
 
             justify-content:center;
 
-            gap:50px;
+            gap:35px;
 
         }
 
         nav ul li a{
 
-            color:#ffffff;
-
             text-decoration:none;
 
-            font-size:20px;
+            color:#ffffff;
+
+            font-size:17px;
+
+            font-weight:500;
 
             transition:.3s;
 
@@ -144,55 +171,53 @@
 
         nav ul li a:hover{
 
-            color:#ff6f00;
+            color:#ffb347;
 
         }
 
-        /* ==================================
-                    CONTEÚDO
-        ================================== */
+        /* ===============================
+                CONTEÚDO PRINCIPAL
+        =============================== */
 
         main{
 
-            width:90%;
-
             max-width:1200px;
+
+            width:90%;
 
             margin:40px auto;
 
-            line-height:1.8;
-
         }
 
-        h1{
-
-            margin-bottom:20px;
-
-            font-size:42px;
-
-            color:#ffffff;
+        main h1{
 
             text-align:center;
+
+            font-size:38px;
+
+            margin-bottom:25px;
+
+            color:#ffffff;
 
         }
 
         h2{
 
+            color:#ff6f00;
+
             margin-top:35px;
 
             margin-bottom:15px;
-
-            color:#ff6f00;
 
         }
 
         h3{
 
+            color:#ff6f00;
+
             margin-top:25px;
 
             margin-bottom:10px;
-
-            color:#ff6f00;
 
         }
 
@@ -200,15 +225,17 @@
 
             text-align:justify;
 
-            margin-bottom:15px;
+            color:#dddddd;
 
-            color:#d8d8d8;
+            margin-bottom:18px;
+
+            text-indent:2em;
 
         }
 
         ul{
 
-            margin-left:35px;
+            margin-left:40px;
 
             margin-bottom:20px;
 
@@ -220,17 +247,17 @@
 
         }
 
-        /* ==================================
+        /* ===============================
                     RODAPÉ
-        ================================== */
+        =============================== */
 
         footer{
 
             background:#111111;
 
-            padding:25px;
-
             margin-top:50px;
+
+            padding:18px;
 
             text-align:center;
 
@@ -238,7 +265,7 @@
 
         .social{
 
-            margin-bottom:15px;
+            margin-bottom:10px;
 
         }
 
@@ -248,7 +275,7 @@
 
             text-decoration:none;
 
-            margin:0 20px;
+            margin:0 15px;
 
             transition:.3s;
 
@@ -260,15 +287,77 @@
 
         }
 
+        footer p{
+
+            text-align:center;
+
+            text-indent:0;
+
+            margin:0;
+
+            color:#cccccc;
+
+        }
+
+        /* ===============================
+                RESPONSIVIDADE
+        =============================== */
+
+        @media(max-width:768px){
+
+            header{
+
+                grid-template-columns:60px 1fr 60px;
+
+                padding:6px 10px;
+
+            }
+
+            .titulo-barra{
+
+                font-size:20px;
+
+            }
+
+            .logo-img{
+
+                width:45px;
+
+                height:45px;
+
+            }
+
+            nav ul{
+
+                gap:15px;
+
+                flex-wrap:wrap;
+
+            }
+
+            nav ul li a{
+
+                font-size:15px;
+
+            }
+
+            main h1{
+
+                font-size:30px;
+
+            }
+
+        }
+
     </style>
 
 </head>
 
 <body>
 
-    <!-- ==================================
+    <!-- ===============================
                 CABEÇALHO
-    =================================== -->
+    =============================== -->
 
     <header>
 
@@ -306,33 +395,27 @@
 
     </header>
 
-    <!-- ==================================
+    <!-- ===============================
                     MENU
-    =================================== -->
+    =============================== -->
 
     <nav>
 
         <ul>
 
-            <li>
-                <a href="1ºsistemas.html">1º Sistema</a>
-            </li>
+            <li><a href="1ºsistemas.html">1º Sistema</a></li>
 
-            <li>
-                <a href="2ºsistemas.html">2º Sistema</a>
-            </li>
+            <li><a href="2ºsistemas.html">2º Sistema</a></li>
 
-            <li>
-                <a href="3ºsistemas.html">3º Sistema</a>
-            </li>
+            <li><a href="3ºsistemas.html">3º Sistema</a></li>
 
         </ul>
 
     </nav>
 
-    <!-- ==================================
-                  CONTEÚDO
-    =================================== -->
+    <!-- ===============================
+                CONTEÚDO
+    =============================== -->
 
     <main>
 
@@ -342,10 +425,9 @@
 
             O Desenvolvimento de Sistemas é a área responsável por criar,
             manter e otimizar softwares, aplicativos e plataformas digitais
-            para resolver problemas específicos.
-
-            Envolve desde o levantamento de requisitos com o cliente até a
-            programação, modelagem de banco de dados, testes e implantação.
+            para resolver problemas específicos. Envolve desde o levantamento
+            de requisitos até a programação, modelagem de banco de dados,
+            testes e implantação das soluções.
 
         </p>
 
@@ -353,8 +435,8 @@
 
         <p>
 
-            O salário de um Desenvolvedor de Sistemas pode variar conforme
-            experiência, região do país e especialização tecnológica.
+            A remuneração varia conforme a experiência profissional,
+            especialização tecnológica e região do país.
 
         </p>
 
@@ -384,9 +466,9 @@
 
     </main>
 
-    <!-- ==================================
-                    RODAPÉ
-    =================================== -->
+    <!-- ===============================
+                RODAPÉ
+    =============================== -->
 
     <footer>
 
@@ -400,7 +482,7 @@
 
         </div>
 
-        <p style="text-align:center;">
+        <p>
 
             © 2026 - Desenvolvimento de Sistemas.
 
@@ -413,3 +495,4 @@
 </body>
 
 </html>
+```
