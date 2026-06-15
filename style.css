@@ -1,283 +1,366 @@
-
- /* ===============================
-   Reset Geral
-   =============================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* =====================================
+   RESET GERAL
+===================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* ===============================
-   Corpo da Página
-   =============================== */
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #1e1e1e;
-  color: #ffffff;
-  overflow-x: hidden;
-  line-height: 1.7;
+/* =====================================
+   CORPO DA PÁGINA
+===================================== */
+body{
+    font-family:'Poppins',sans-serif;
+    background:#1f1f1f;
+    color:#ffffff;
+    line-height:1.7;
+    overflow-x:hidden;
 }
 
-/* ===============================
-   Cabeçalho
-   =============================== */
-header {
-  background-color: #FF6F00;
-  padding: 10px 40px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* =====================================
+   CABEÇALHO
+===================================== */
+header{
+    background:#ff6f00;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 40px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
 }
 
-/* Logo */
-.logo-img {
-  height: 60px;
-  width: auto;
-  border-radius: 50%;
-  background-color: #ffffff;
+/* =====================================
+   LOGO
+===================================== */
+.logo,
+.logo-esquerda,
+.logo-direita{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    text-decoration:none;
 }
 
-/* ===============================
-   Navegação
-   =============================== */
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
+.logo-img{
+    width:60px;
+    height:60px;
+    object-fit:contain;
+    border-radius:50%;
+    background:#ffffff;
+    transition:.3s;
 }
 
-nav ul li a {
-  color: #ffffff;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.3s ease;
+.logo-img:hover{
+    transform:scale(1.05);
 }
 
-nav ul li a:hover {
-  color: #FFCC00;
+/* =====================================
+   TÍTULO
+===================================== */
+.titulo-link{
+    text-decoration:none;
+    color:#ffffff;
+    text-align:center;
 }
 
-/* ===============================
-   Área de Login
-   =============================== */
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 50vh;
-  padding: 20px;
+.titulo-link:hover,
+.titulo-link:visited,
+.titulo-link:active{
+    color:#ffffff;
+    text-decoration:none;
 }
 
-.login-box {
-  background: #111111;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-  width: 100%;
-  max-width: 350px;
-  text-align: center;
+.titulo-barra{
+    margin:0;
+    color:#ffffff;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:1px;
+    cursor:pointer;
 }
 
-.login-box img {
-  width: 60px;
-  margin-bottom: 15px;
+/* =====================================
+   MENU DE NAVEGAÇÃO
+===================================== */
+nav{
+    background:#111111;
+    padding:10px 0;
+    box-shadow:0 1px 4px rgba(0,0,0,.25);
 }
 
-.login-box h2 {
-  margin-bottom: 20px;
-  color: #FF6F00;
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    gap:35px;
 }
 
-.login-box input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 8px;
-  outline: none;
+nav ul li a{
+    color:#ffffff;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:500;
+    transition:.3s;
 }
 
-.login-box button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  background: #FF6F00;
-  color: #ffffff;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+nav ul li a:hover{
+    color:#ffcc00;
 }
 
-.login-box button:hover {
-  background: #FFCC00;
-  color: #000000;
+/* =====================================
+   CONTAINER LOGIN
+===================================== */
+.login-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:50vh;
+    padding:20px;
 }
 
-/* ===============================
-   Conteúdo Principal
-   =============================== */
-main {
-  max-width: 1200px;
-  margin: 30px auto;
-  padding: 30px;
-  animation: fadeIn 1s ease-out;
-  text-align: justify;
+.login-box{
+    background:#111111;
+    padding:40px;
+    width:100%;
+    max-width:350px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.6);
 }
 
-h1 {
-  font-size: 2.2rem;
-  color: #ffffff;
-  margin-bottom: 20px;
-  text-align: center;
+.login-box img{
+    width:60px;
+    margin-bottom:15px;
+}
+
+.login-box h2{
+    color:#ff6f00;
+    margin-bottom:20px;
+}
+
+.login-box input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+    outline:none;
+}
+
+.login-box button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#ff6f00;
+    color:#ffffff;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-box button:hover{
+    background:#ffcc00;
+    color:#000000;
+}
+
+/* =====================================
+   CONTEÚDO PRINCIPAL
+===================================== */
+main{
+    max-width:1200px;
+    width:90%;
+    margin:40px auto;
+    padding:30px;
+    animation:fadeIn 1s ease-out;
+}
+
+main h1{
+    text-align:center;
+    font-size:38px;
+    color:#ffffff;
+    margin-bottom:25px;
 }
 
 h2,
 h3,
 h4,
 h5,
-h6 {
-  color: #FF6F00;
-  margin: 20px 0 10px;
+h6{
+    color:#ff6f00;
+    margin-top:25px;
+    margin-bottom:10px;
 }
 
-p {
-  font-size: 1rem;
-  color: #cccccc;
-  margin-bottom: 15px;
-  text-align: justify;
-  text-indent: 2em;
+p{
+    color:#dddddd;
+    text-align:justify;
+    text-indent:2em;
+    margin-bottom:18px;
 }
 
-/* ===============================
-   Fórum
-   =============================== */
-.forum {
-  margin-top: 30px;
-  background-color: #333333;
-  padding: 20px;
-  border-radius: 8px;
+ul{
+    margin-left:40px;
+    margin-bottom:20px;
 }
 
-.topico {
-  margin-bottom: 15px;
-  background-color: #222222;
-  padding: 15px;
-  border-radius: 8px;
+li{
+    margin-bottom:8px;
 }
 
-.topico h3 {
-  color: #FFCC00;
-  margin-bottom: 10px;
+/* =====================================
+   FÓRUM
+===================================== */
+.forum{
+    margin-top:30px;
+    background:#333333;
+    padding:20px;
+    border-radius:8px;
 }
 
-.topico p {
-  color: #dddddd;
-  text-indent: 0;
+.topico{
+    background:#222222;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:15px;
 }
 
-.topico textarea {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  resize: vertical;
-  outline: none;
-  font-family: inherit;
+.topico h3{
+    color:#ffcc00;
+    margin-bottom:10px;
 }
 
-.topico button {
-  margin-top: 10px;
-  background-color: #FF6F00;
-  color: #ffffff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
+.topico p{
+    color:#dddddd;
+    text-indent:0;
 }
 
-.topico button:hover {
-  background-color: #FFCC00;
-  color: #000000;
+.topico textarea{
+    width:100%;
+    margin-top:10px;
+    padding:10px;
+    border:none;
+    border-radius:6px;
+    resize:vertical;
+    outline:none;
+    font-family:inherit;
 }
 
-/* ===============================
-   Rodapé
-   =============================== */
-footer {
-  background-color: #121212;
-  color: #ffffff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  width: 100%;
+.topico button{
+    margin-top:10px;
+    padding:10px 15px;
+    border:none;
+    border-radius:5px;
+    background:#ff6f00;
+    color:#ffffff;
+    cursor:pointer;
+    transition:.3s;
 }
 
-footer p {
-  text-align: center;
-  text-indent: 0;
-  margin-bottom: 10px;
+.topico button:hover{
+    background:#ffcc00;
+    color:#000000;
 }
 
-footer .social a {
-  color: #ffffff;
-  margin: 0 10px;
-  text-decoration: none;
-  transition: color 0.3s ease;
+/* =====================================
+   REDES SOCIAIS
+===================================== */
+.social{
+    margin-bottom:10px;
 }
 
-footer .social a:hover {
-  color: #FF6F00;
+.social a{
+    color:#ffffff;
+    text-decoration:none;
+    margin:0 15px;
+    transition:.3s;
 }
 
-/* ===============================
-   Animação
-   =============================== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.social a:hover{
+    color:#ff6f00;
 }
 
-/* ===============================
-   Responsividade
-   =============================== */
-@media (max-width: 768px) {
+/* =====================================
+   RODAPÉ
+===================================== */
+footer{
+    background:#111111;
+    color:#ffffff;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+}
 
-  header {
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-  }
+footer p{
+    text-align:center;
+    text-indent:0;
+    margin:0;
+    color:#cccccc;
+}
 
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
+/* =====================================
+   ANIMAÇÕES
+===================================== */
+@keyframes fadeIn{
 
-  main {
-    padding: 20px;
-  }
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
 
-  h1 {
-    font-size: 1.8rem;
-  }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 
-  .login-box {
-    padding: 30px 20px;
-  }
-  }
+}
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+        padding:20px;
+    }
+
+    .titulo-barra{
+        font-size:20px;
+    }
+
+    .logo-img{
+        width:45px;
+        height:45px;
+    }
+
+    nav ul{
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+    }
+
+    nav ul li a{
+        font-size:15px;
+    }
+
+    main{
+        width:95%;
+        padding:20px;
+    }
+
+    main h1{
+        font-size:30px;
+    }
+
+    .login-box{
+        padding:30px 20px;
+    }
+
+}
