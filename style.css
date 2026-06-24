@@ -113,63 +113,6 @@ nav ul li a:hover{
 }
 
 /* =====================================
-   CONTAINER LOGIN
-===================================== */
-.login-container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:50vh;
-    padding:20px;
-}
-
-.login-box{
-    background:#111111;
-    padding:40px;
-    width:100%;
-    max-width:350px;
-    border-radius:12px;
-    text-align:center;
-    box-shadow:0 4px 15px rgba(0,0,0,.6);
-}
-
-.login-box img{
-    width:60px;
-    margin-bottom:15px;
-}
-
-.login-box h2{
-    color:#ff6f00;
-    margin-bottom:20px;
-}
-
-.login-box input{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:none;
-    border-radius:8px;
-    outline:none;
-}
-
-.login-box button{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    background:#ff6f00;
-    color:#ffffff;
-    font-size:16px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.login-box button:hover{
-    background:#ffcc00;
-    color:#000000;
-}
-
-/* =====================================
    CONTEÚDO PRINCIPAL
 ===================================== */
 main{
@@ -187,102 +130,11 @@ main h1{
     margin-bottom:25px;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6{
-    color:#ff6f00;
-    margin-top:25px;
-    margin-bottom:10px;
-}
-
 p{
     color:#dddddd;
     text-align:justify;
     text-indent:2em;
     margin-bottom:18px;
-}
-
-ul{
-    margin-left:40px;
-    margin-bottom:20px;
-}
-
-li{
-    margin-bottom:8px;
-}
-
-/* =====================================
-   FÓRUM
-===================================== */
-.forum{
-    margin-top:30px;
-    background:#333333;
-    padding:20px;
-    border-radius:8px;
-}
-
-.topico{
-    background:#222222;
-    padding:15px;
-    border-radius:8px;
-    margin-bottom:15px;
-}
-
-.topico h3{
-    color:#ffcc00;
-    margin-bottom:10px;
-}
-
-.topico p{
-    color:#dddddd;
-    text-indent:0;
-}
-
-.topico textarea{
-    width:100%;
-    margin-top:10px;
-    padding:10px;
-    border:none;
-    border-radius:6px;
-    resize:vertical;
-    outline:none;
-    font-family:inherit;
-}
-
-.topico button{
-    margin-top:10px;
-    padding:10px 15px;
-    border:none;
-    border-radius:5px;
-    background:#ff6f00;
-    color:#ffffff;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.topico button:hover{
-    background:#ffcc00;
-    color:#000000;
-}
-
-/* =====================================
-   REDES SOCIAIS
-===================================== */
-.social{
-    margin-bottom:10px;
-}
-
-.social a{
-    color:#ffffff;
-    text-decoration:none;
-    margin:0 15px;
-    transition:.3s;
-}
-
-.social a:hover{
-    color:#ff6f00;
 }
 
 /* =====================================
@@ -357,10 +209,6 @@ footer p{
 
     main h1{
         font-size:30px;
-    }
-
-    .login-box{
-        padding:30px 20px;
     }
 
 }
