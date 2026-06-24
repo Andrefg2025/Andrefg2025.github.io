@@ -2,84 +2,38 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>2º Sistema - Desenvolvimento de Sistemas</title>
+    <title>Plataforma de Estudo</title>
 
-    <link rel="icon" type="image/png" href="ico.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Fonte Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <style>
-
-        /* Logo */
-
-        .logo{
-            display:flex;
-            align-items:center;
-            gap:10px;
-            text-decoration:none;
-        }
-
-        .logo-img{
-            height:60px;
-            width:auto;
-        }
-
-        /* Link do título */
-
-        .titulo-link{
-            text-decoration:none;
-            color:#ffffff;
-        }
-
-        .titulo-link:hover,
-        .titulo-link:visited,
-        .titulo-link:active{
-            text-decoration:none;
-            color:#ffffff;
-        }
-
-        .titulo-barra{
-            margin:0;
-            color:#ffffff;
-            cursor:pointer;
-        }
-
-    </style>
-
 </head>
 
 <body>
 
-    <!-- =====================================
+   
+    <!-- ===============================
                 CABEÇALHO
-    ====================================== -->
+    =============================== -->
 
     <header>
 
-        <!-- Logos -->
+        <!-- Logo esquerda -->
+        <a href="index.html" class="logo-esquerda">
 
-        <a href="index.html" class="logo">
-
-            <img src="ico.png"
+            <img src="l.png"
                  alt="Logo Principal"
-                 class="logo-img">
-
-            <img src="DS.png"
-                 alt="Logo Desenvolvimento de Sistemas"
                  class="logo-img">
 
         </a>
 
-        <!-- Título clicável -->
-
+        <!-- Título -->
         <a href="index.html" class="titulo-link">
 
             <h1 class="titulo-barra">
@@ -88,7 +42,18 @@
 
         </a>
 
-       <!-- MENU -->
+        <!-- Logo direita -->
+        <a href="index.html" class="logo-direita">
+
+            <img src="DS.png"
+                 alt="Logo Desenvolvimento de Sistemas"
+                 class="logo-img">
+
+        </a>
+
+    </header>
+
+    <!-- MENU -->
      <nav>
     <ul>
         <li><a href="index.html">Início</a></li>
@@ -97,90 +62,54 @@
         <li><a href="3ºsistemas.html">3º Sistemas</a></li>
     </ul>
 </nav>
-    </header>
-
-    <!-- =====================================
-                CONTEÚDO
-    ====================================== -->
-
+    <!-- CONTEÚDO -->
     <main>
 
-        <section class="intro">
+        <h1>Bem-vindo à Plataforma de Estudo</h1>
 
-            <h1>2º Sistema</h1>
+        <p>
+            O Desenvolvimento de Sistemas é a área responsável por criar, manter e otimizar softwares, aplicativos e plataformas digitais para resolver problemas específicos. Envolve desde o levantamento de requisitos até a programação, modelagem de banco de dados, testes e implantação das soluções.
 
-            <p>
+O que faz um Desenvolvedor de Sistemas?
+O profissional de Desenvolvimento de Sistemas projeta, desenvolve, testa e mantém softwares utilizados por empresas e usuários. Ele trabalha com linguagens de programação, bancos de dados, frameworks e metodologias ágeis para criar soluções eficientes.
 
-                Bem-vindo ao ambiente do
-                <strong>2º Sistema</strong>.
+Áreas de Atuação
+Desenvolvimento Web
+Desenvolvimento Mobile
+Desenvolvimento Desktop
+Banco de Dados
+Inteligência Artificial
+Machine Learning
+Segurança da Informação
+DevOps
+Arquitetura de Software
+Faixa Salarial no Brasil
+A remuneração varia conforme a experiência profissional, especialização tecnológica e região do país.
 
-
-            </p>
-
-            <h2>TEMAS DAS AULAS</h2>
-
-            <ul>
-                <li>Algoritmos e Estrutura de dados</li>
-                <li> 1. Introdução à disciplina, revisão de conceitos anteriores
-<p> 2. Introdução à Análise de Algoritmos </p>
-<p>• Dimensões de complexidade (tempo, espaço)</p>
-<p>• Técnicas de análise</p>
-<p>• Análise de recorrência</p>
-<p>3. Divisão e Conquista</p>
-<p>4. Algoritmos de Ordenação/Classificação</p>
-<p>• Insertion Sort</p>
-<p>• Selection Sort</p>
-<p>• Merge Sort</p>
-<p>• Quick Sort</p>
-<p>5. Abstração de dados, tipos abstratos de dados</p>
-<p>6. Estruturas de Dados Elementares</p>
-<p>• Listas</p>
-<p>• Pilhas</p>
-<p>• Filas</p>
-<p>• Filas de prioridade (heaps)</p>
-<p>7. Estruturas de Dicionário com Árvores</p>
-<p>• Conceito de Árvores</p>
-<p>• Árvores de Pesquisa Binária</p>
-<p>• Árvores auto-balanceadas (AVL, Vermelho-e-Preta)</p>
-</li>
-
-                <li>Arquitetura de Sistemas</li>
-
-                <li>Desenvolvimento Front-End I</li>
-            </ul>
-
-            <h2>Atividades</h2>
-
-            <ul>
-
-                <li>Exercícios Práticos</li>
-
-                <li>Quiz Interativo</li>
-
-                <li>Projetos</li>
-
-                <li>Desafios Semanais</li>
-
-            </ul>
-
-            <h2>Objetivo</h2>
-
-            <p>
-
-                Desenvolver o raciocínio lógico,
-                incentivar a resolução de problemas e fornecer
-                uma base sólida para o aprendizado das tecnologias
-                utilizadas no curso de Desenvolvimento de Sistemas.
-
-            </p>
-
-        </section>
+Por Senioridade
+Júnior: R$ 3.000 a R$ 5.500
+Pleno: R$ 6.900 a R$ 9.000
+Sênior: R$ 10.000 a R$ 18.000 ou mais
+Por Especialidade
+Front-End / Back-End: R$ 5.000 a R$ 19.000
+Inteligência Artificial / Machine Learning: R$ 10.000 a R$ 16.000
+Arquitetura de Soluções: R$ 14.000 a R$ 18.000
+Tecnologias Mais Utilizadas
+HTML5
+CSS3
+JavaScript
+PHP
+Python
+Java
+C#
+MySQL
+PostgreSQL
+Git e GitHub
+Mercado de Trabalho
+O mercado de tecnologia continua em crescimento constante. Empresas de todos os setores necessitam de sistemas para automatizar processos, analisar dados e melhorar seus serviços. Isso torna o Desenvolvedor de Sistemas um dos profissionais mais procurados da atualidade.
+        </p>
 
     </main>
-
-    <!-- =====================================
-                RODAPÉ
-    ====================================== -->
 
     <!-- RODAPÉ -->
     <footer>
@@ -188,5 +117,4 @@
     </footer>
 
 </body>
-
 </html>
