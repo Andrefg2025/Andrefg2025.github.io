@@ -2,78 +2,185 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>1º Sistemas - Plataforma de Estudo</title>
+    <title>1º Sistema - Desenvolvimento de Sistemas</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="ico.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonte Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* Logo */
+
+        .logo{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            text-decoration:none;
+        }
+
+        .logo-img{
+            height:60px;
+            width:auto;
+        }
+
+        /* Link do título */
+
+        .titulo-link{
+            text-decoration:none;
+            color:#ffffff;
+        }
+
+        .titulo-link:hover,
+        .titulo-link:visited,
+        .titulo-link:active{
+            text-decoration:none;
+            color:#ffffff;
+        }
+
+        .titulo-barra{
+            margin:0;
+            color:#ffffff;
+            cursor:pointer;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-    <!-- ===============================
+    <!-- =====================================
                 CABEÇALHO
-    =============================== -->
+    ====================================== -->
 
     <header>
 
-        <!-- Logo esquerda -->
-        <a href="index.html" class="logo-esquerda">
-            <img src="l.png"
+        <!-- Logos -->
+
+        <a href="index.html" class="logo">
+
+            <img src="ico.png"
                  alt="Logo Principal"
                  class="logo-img">
-        </a>
 
-        <!-- Título -->
-        <a href="index.html" class="titulo-link">
-            <h1 class="titulo-barra">
-                PLATAFORMA DE ESTUDO
-            </h1>
-        </a>
-
-        <!-- Logo direita -->
-        <a href="index.html" class="logo-direita">
             <img src="DS.png"
                  alt="Logo Desenvolvimento de Sistemas"
                  class="logo-img">
+
         </a>
 
+        <!-- Título clicável -->
+
+        <a href="index.html" class="titulo-link">
+
+            <h1 class="titulo-barra">
+                PLATAFORMA DE ESTUDO
+            </h1>
+
+        </a>
+
+       <!-- MENU -->
+     <nav>
+    <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="1°sistemas.html">1º Sistemas</a></li>
+        <li><a href="2°sistemas.html">2º Sistemas</a></li>
+        <li><a href="3°sistemas.html">3º Sistemas</a></li>
+    </ul>
+</nav>
     </header>
 
-    <!-- MENU -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="1°sistemas.html">1º Sistemas</a></li>
-            <li><a href="2°sistemas.html">2º Sistemas</a></li>
-            <li><a href="3°sistemas.html">3º Sistemas</a></li>
-        </ul>
-    </nav>
+    <!-- =====================================
+                CONTEÚDO
+    ====================================== -->
 
-    <!-- CONTEÚDO -->
     <main>
 
-        <h1>1º Sistemas</h1>
+        <section class="intro">
 
-        <p>
-            O curso de Desenvolvimento de Sistemas no 1º ano tem como objetivo apresentar os fundamentos da área de tecnologia da informação. O aluno começa a entender como funcionam os sistemas computacionais, lógica de programação e os primeiros conceitos de desenvolvimento de software.
+            <h1>1º Sistema</h1>
 
-            <br><br>
+            <p>
 
-            Durante esta etapa, são estudados temas como algoritmos, estruturas básicas de programação, introdução a linguagens como HTML, CSS e JavaScript, além de noções de banco de dados e funcionamento da internet.
+                Bem-vindo ao ambiente do
+                <strong>2º Sistema</strong>.
 
-            <br><br>
 
-            O foco principal é construir uma base sólida para que o estudante possa evoluir nos próximos anos, desenvolvendo projetos simples e entendendo a lógica por trás dos sistemas digitais que usamos no dia a dia.
-        </p>
+            </p>
+
+            <h2>TEMAS DAS AULAS</h2>
+
+            <ul>
+                <li>Algoritmos e Estrutura de dados</li>
+                <li> 1. Introdução à disciplina, revisão de conceitos anteriores
+<p> 2. Introdução à Análise de Algoritmos </p>
+<p>• Dimensões de complexidade (tempo, espaço)</p>
+<p>• Técnicas de análise</p>
+<p>• Análise de recorrência</p>
+<p>3. Divisão e Conquista</p>
+<p>4. Algoritmos de Ordenação/Classificação</p>
+<p>• Insertion Sort</p>
+<p>• Selection Sort</p>
+<p>• Merge Sort</p>
+<p>• Quick Sort</p>
+<p>5. Abstração de dados, tipos abstratos de dados</p>
+<p>6. Estruturas de Dados Elementares</p>
+<p>• Listas</p>
+<p>• Pilhas</p>
+<p>• Filas</p>
+<p>• Filas de prioridade (heaps)</p>
+<p>7. Estruturas de Dicionário com Árvores</p>
+<p>• Conceito de Árvores</p>
+<p>• Árvores de Pesquisa Binária</p>
+<p>• Árvores auto-balanceadas (AVL, Vermelho-e-Preta)</p>
+</li>
+
+                <li>Arquitetura de Sistemas</li>
+
+                <li>Desenvolvimento Front-End I</li>
+            </ul>
+
+            <h2>Atividades</h2>
+
+            <ul>
+
+                <li>Exercícios Práticos</li>
+
+                <li>Quiz Interativo</li>
+
+                <li>Projetos</li>
+
+                <li>Desafios Semanais</li>
+
+            </ul>
+
+            <h2>Objetivo</h2>
+
+            <p>
+
+                Desenvolver o raciocínio lógico,
+                incentivar a resolução de problemas e fornecer
+                uma base sólida para o aprendizado das tecnologias
+                utilizadas no curso de Desenvolvimento de Sistemas.
+
+            </p>
+
+        </section>
 
     </main>
+
+    <!-- =====================================
+                RODAPÉ
+    ====================================== -->
 
     <!-- RODAPÉ -->
     <footer>
@@ -81,4 +188,5 @@
     </footer>
 
 </body>
+
 </html>
