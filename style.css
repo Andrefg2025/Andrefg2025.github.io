@@ -5,16 +5,35 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
 /* =====================================
-   CORPO DA PÁGINA
+   VARIÁVEIS DE CORES
+===================================== */
+:root{
+    --laranja:#ff6f00;
+    --laranja-claro:#ff9800;
+    --amarelo:#ffd54f;
+    --preto:#111111;
+    --cinza-escuro:#1f1f1f;
+    --cinza:#2b2b2b;
+    --branco:#ffffff;
+    --texto:#e0e0e0;
+}
+
+/* =====================================
+   CORPO
 ===================================== */
 body{
     font-family:'Poppins',sans-serif;
-    background:#1f1f1f;
-    color:#ffffff;
-    line-height:1.7;
+    background:linear-gradient(
+        180deg,
+        #1a1a1a,
+        #222222
+    );
+    color:var(--texto);
+    line-height:1.8;
     overflow-x:hidden;
 }
 
@@ -22,41 +41,57 @@ body{
    CABEÇALHO
 ===================================== */
 header{
-    background:#ff6f00;
+    background:linear-gradient(
+        90deg,
+        var(--laranja),
+        var(--laranja-claro)
+    );
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:10px 40px;
+
+    padding:12px 40px;
+
     position:sticky;
     top:0;
     z-index:1000;
-    box-shadow:0 2px 8px rgba(0,0,0,.25);
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.4);
 }
 
 /* =====================================
-   LOGO
+   LOGOS
 ===================================== */
-.logo,
 .logo-esquerda,
 .logo-direita{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:10px;
     text-decoration:none;
 }
 
 .logo-img{
-    width:60px;
-    height:60px;
+    width:65px;
+    height:65px;
     object-fit:contain;
+
+    background:white;
     border-radius:50%;
-    background:#ffffff;
+    padding:4px;
+
     transition:.3s;
+
+    box-shadow:
+        0 0 10px rgba(255,255,255,.3);
 }
 
 .logo-img:hover{
-    transform:scale(1.05);
+    transform:scale(1.08) rotate(3deg);
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,.5);
 }
 
 /* =====================================
@@ -64,105 +99,292 @@ header{
 ===================================== */
 .titulo-link{
     text-decoration:none;
-    color:#ffffff;
-    text-align:center;
-}
-
-.titulo-link:hover,
-.titulo-link:visited,
-.titulo-link:active{
-    color:#ffffff;
-    text-decoration:none;
 }
 
 .titulo-barra{
-    margin:0;
-    color:#ffffff;
-    font-size:30px;
+    color:white;
+    font-size:2rem;
     font-weight:700;
-    letter-spacing:1px;
-    cursor:pointer;
+    letter-spacing:2px;
+    text-align:center;
+
+    text-shadow:
+        2px 2px 6px rgba(0,0,0,.4);
+
+    transition:.3s;
+}
+
+.titulo-barra:hover{
+    color:#fff9c4;
 }
 
 /* =====================================
-   MENU DE NAVEGAÇÃO
+   MENU
 ===================================== */
 nav{
-    background:#111111;
-    padding:10px 0;
-    box-shadow:0 1px 4px rgba(0,0,0,.25);
+    background:var(--preto);
+    border-bottom:3px solid var(--laranja);
 }
 
 nav ul{
     list-style:none;
+
     display:flex;
     justify-content:center;
+    align-items:center;
     gap:35px;
+
+    padding:15px;
 }
 
 nav ul li a{
-    color:#ffffff;
+    color:white;
     text-decoration:none;
-    font-size:17px;
+
     font-weight:500;
+    font-size:1rem;
+
+    transition:.3s;
+    position:relative;
+}
+
+nav ul li a::after{
+    content:"";
+    position:absolute;
+
+    width:0;
+    height:2px;
+
+    left:0;
+    bottom:-5px;
+
+    background:var(--amarelo);
+
     transition:.3s;
 }
 
 nav ul li a:hover{
-    color:#ffcc00;
+    color:var(--amarelo);
+}
+
+nav ul li a:hover::after{
+    width:100%;
 }
 
 /* =====================================
-   CONTEÚDO PRINCIPAL
+   CONTEÚDO
 ===================================== */
 main{
-    max-width:1200px;
     width:90%;
+    max-width:1200px;
+
     margin:40px auto;
-    padding:30px;
-    animation:fadeIn 1s ease-out;
+
+    padding:35px;
+
+    background:rgba(255,255,255,.03);
+
+    border-radius:15px;
+
+    backdrop-filter:blur(5px);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.25);
+
+    animation:fadeIn 1s ease;
 }
 
 main h1{
     text-align:center;
-    font-size:38px;
-    color:#ffffff;
+    color:white;
+    font-size:2.5rem;
     margin-bottom:25px;
 }
 
+h2,h3,h4,h5,h6{
+    color:var(--laranja);
+    margin:20px 0 10px;
+}
+
 p{
-    color:#dddddd;
+    color:var(--texto);
     text-align:justify;
-    text-indent:2em;
-    margin-bottom:18px;
+    margin-bottom:15px;
+}
+
+ul{
+    margin-left:30px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+/* =====================================
+   CARDS
+===================================== */
+.card{
+    background:var(--cinza);
+
+    padding:20px;
+    margin:20px 0;
+
+    border-left:5px solid var(--laranja);
+
+    border-radius:10px;
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.35);
+}
+
+/* =====================================
+   BOTÕES
+===================================== */
+button,
+.btn{
+    background:var(--laranja);
+
+    color:white;
+
+    border:none;
+    border-radius:8px;
+
+    padding:12px 25px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:600;
+}
+
+button:hover,
+.btn:hover{
+    background:var(--amarelo);
+    color:black;
+}
+
+/* =====================================
+   LOGIN
+===================================== */
+.login-box{
+    background:var(--preto);
+
+    max-width:380px;
+
+    margin:auto;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    box-shadow:
+        0 0 20px rgba(0,0,0,.4);
+}
+
+.login-box h2{
+    text-align:center;
+}
+
+.login-box input{
+    width:100%;
+
+    margin:10px 0;
+
+    padding:12px;
+
+    border:none;
+    border-radius:8px;
+
+    outline:none;
+}
+
+/* =====================================
+   FÓRUM
+===================================== */
+.forum{
+    margin-top:30px;
+}
+
+.topico{
+    background:var(--cinza);
+
+    padding:20px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+    border-left:4px solid var(--laranja);
+}
+
+.topico h3{
+    color:var(--amarelo);
+}
+
+.topico textarea{
+    width:100%;
+    min-height:120px;
+
+    margin-top:10px;
+
+    padding:10px;
+
+    border:none;
+    border-radius:8px;
+
+    resize:vertical;
 }
 
 /* =====================================
    RODAPÉ
 ===================================== */
 footer{
-    background:#111111;
-    color:#ffffff;
+    background:var(--preto);
+
     text-align:center;
-    padding:20px;
+
+    padding:30px;
+
     margin-top:50px;
+
+    border-top:3px solid var(--laranja);
 }
 
 footer p{
-    text-align:center;
-    text-indent:0;
-    margin:0;
     color:#cccccc;
+    margin:0;
+    text-align:center;
 }
 
 /* =====================================
-   ANIMAÇÕES
+   REDES SOCIAIS
+===================================== */
+.social a{
+    color:white;
+    margin:0 10px;
+    font-size:1.1rem;
+    transition:.3s;
+}
+
+.social a:hover{
+    color:var(--laranja);
+}
+
+/* =====================================
+   ANIMAÇÃO
 ===================================== */
 @keyframes fadeIn{
 
     from{
         opacity:0;
-        transform:translateY(15px);
+        transform:translateY(20px);
     }
 
     to{
@@ -173,33 +395,27 @@ footer p{
 }
 
 /* =====================================
-   RESPONSIVIDADE
+   RESPONSIVO
 ===================================== */
 @media(max-width:768px){
 
     header{
         flex-direction:column;
         gap:15px;
-        padding:20px;
     }
 
     .titulo-barra{
-        font-size:20px;
-    }
-
-    .logo-img{
-        width:45px;
-        height:45px;
+        font-size:1.4rem;
     }
 
     nav ul{
         flex-direction:column;
-        align-items:center;
-        gap:10px;
+        gap:15px;
     }
 
-    nav ul li a{
-        font-size:15px;
+    .logo-img{
+        width:50px;
+        height:50px;
     }
 
     main{
@@ -208,7 +424,7 @@ footer p{
     }
 
     main h1{
-        font-size:30px;
+        font-size:2rem;
     }
 
 }
