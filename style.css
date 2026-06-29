@@ -404,7 +404,7 @@ footer p{
 }
 
 .accordion summary:hover{
-    background:#ffffff;
+    background:#ff6f00;
 }
 
 .accordion summary::-webkit-details-marker{
@@ -432,7 +432,7 @@ footer p{
 .conteudo{
     padding:20px;
     background:#ff6f00;
-    color:#ff9800;
+    color:#ffd54f;
     border-top:1px solid #ddd;
     animation:abrir .35s ease;
 }
