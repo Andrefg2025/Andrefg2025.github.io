@@ -396,7 +396,7 @@ footer p{
     cursor:pointer;
     padding:18px 20px;
     background:#f28633;
-    color:var(--branco);
+    color:#0a0a0a;
     font-size:20px;
     font-weight:600;
     transition:.3s;
