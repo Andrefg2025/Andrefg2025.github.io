@@ -378,6 +378,87 @@ footer p{
 }
 
 /* =====================================
+   ACCORDION
+===================================== */
+
+.accordion{
+    width:90%;
+    max-width:900px;
+    margin:20px auto;
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--branco);
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
+}
+
+.accordion summary{
+    list-style:none;
+    cursor:pointer;
+    padding:18px 20px;
+    background:#0056b3;
+    color:var(--branco);
+    font-size:20px;
+    font-weight:600;
+    transition:.3s;
+    position:relative;
+}
+
+.accordion summary:hover{
+    background:#003d82;
+}
+
+.accordion summary::-webkit-details-marker{
+    display:none;
+}
+
+/* Ícone (+) */
+
+.accordion summary::after{
+    content:"+";
+    position:absolute;
+    right:20px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:28px;
+    transition:.3s;
+}
+
+/* Ícone (-) */
+
+.accordion[open] summary::after{
+    content:"−";
+}
+
+.conteudo{
+    padding:20px;
+    background:#f8f9fa;
+    color:#333;
+    border-top:1px solid #ddd;
+    animation:abrir .35s ease;
+}
+
+.conteudo p,
+.conteudo li{
+    color:#333;
+    line-height:1.7;
+}
+
+.conteudo ul{
+    margin-left:25px;
+}
+
+@keyframes abrir{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+/* =====================================
    ANIMAÇÃO
 ===================================== */
 @keyframes fadeIn{
