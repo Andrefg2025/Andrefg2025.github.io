@@ -431,15 +431,15 @@ footer p{
 
 .conteudo{
     padding:20px;
-    background:#FFFFFF;
-    color:#333;
+    background:#ff6f00;
+    color:#ff9800;
     border-top:1px solid #ddd;
     animation:abrir .35s ease;
 }
 
 .conteudo p,
 .conteudo li{
-    color:#333;
+    color:c;
     line-height:1.7;
 }
 
