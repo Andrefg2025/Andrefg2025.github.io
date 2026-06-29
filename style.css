@@ -432,7 +432,7 @@ footer p{
 .conteudo{
     padding:20px;
     background:#f5ddcb;
-    color:#f5ddcb;
+    color:#000000;
     border-top:1px solid #ddd;
     animation:abrir .35s ease;
 }
