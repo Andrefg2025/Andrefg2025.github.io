@@ -54,7 +54,7 @@ p,li{color:var(--texto)}
 footer{
     background:var(--preto);
     text-align:center;
-    padding:30px;
+    padding:70px;
     margin-top:50px;
     border-top:3px solid var(--laranja);
 }
