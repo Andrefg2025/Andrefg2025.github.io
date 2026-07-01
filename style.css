@@ -56,7 +56,6 @@ footer{
     text-align:center;
     padding:70px;
     margin-top:50px;
-    position: fixed;
     border-top:3px solid var(--laranja);
 }
 footer p{text-align:center}
