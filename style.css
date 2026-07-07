@@ -130,8 +130,8 @@ nav a:hover{
 main{
     width:100%;
     max-width:1200px;
-    margin:90px auto;
-    padding:70px;
+    margin:60px auto;
+    padding:50px;
     background:rgba(243, 241, 241, 0.03);
     border-radius:15px;
     box-shadow:0 5px 20px rgba(252, 251, 251, 0.25);
