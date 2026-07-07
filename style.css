@@ -1,5 +1,5 @@
 /* =====================================
-   RESET GERAL
+RESET GERAL
 ===================================== */
 *{
     margin:0;
@@ -9,30 +9,30 @@
 }
 
 /* =====================================
-   VARIÁVEIS
+VARIÁVEIS
 ===================================== */
 :root{
     --laranja:#ff6f00;
     --laranja-claro:#ff9800;
     --amarelo:#ffd54f;
-    --preto:#111111;
+    --preto:#faf8f8;
     --cinza:#2b2b2b;
-    --texto:#e0e0e0;
+    --texto:#080000;
     --branco:#ffffff;
 }
 
 /* =====================================
-   BODY
+BODY
 ===================================== */
 body{
     font-family:'Poppins',sans-serif;
-    background:linear-gradient(180deg,#1a1a1a,#222);
+    background:linear-gradient(180deg,#f8f8f8,#f8f7f7);
     color:var(--texto);
     line-height:1.8;
 }
 
 /* =====================================
-   CABEÇALHO
+CABEÇALHO
 ===================================== */
 
 header{
@@ -44,7 +44,7 @@ header{
     position:sticky;
     top:0;
     z-index:1000;
-    box-shadow:0 4px 15px rgba(0,0,0,.4);
+    box-shadow:0 4px 15px rgba(248, 248, 248, 0.966);
 }
 
 /* Logo esquerda */
@@ -100,7 +100,7 @@ header{
 ===================================== */
 
 nav{
-    background:var(--preto);
+    background:var(--branco);
     border-bottom:3px solid var(--laranja);
 }
 
@@ -113,7 +113,7 @@ nav ul{
 }
 
 nav a{
-    color:#fff;
+    color:#0e0000;
     text-decoration:none;
     font-weight:500;
     transition:.3s;
@@ -132,13 +132,13 @@ main{
     max-width:1200px;
     margin:40px auto;
     padding:35px;
-    background:rgba(255,255,255,.03);
+    background:rgba(243, 241, 241, 0.03);
     border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,.25);
+    box-shadow:0 5px 20px rgba(252, 251, 251, 0.25);
 }
 
 main h1{
-    color:#fff;
+    color:#0e0101;
     text-align:center;
     margin-bottom:25px;
 }
@@ -243,7 +243,7 @@ li{
 ===================================== */
 
 footer{
-    background:var(--preto);
+    background:var(--branco);
     text-align:center;
     padding:70px;
     margin-top:50px;
