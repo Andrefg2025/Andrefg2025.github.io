@@ -128,10 +128,10 @@ nav a:hover{
 ===================================== */
 
 main{
-    width:90%;
+    width:100%;
     max-width:1200px;
-    margin:40px auto;
-    padding:35px;
+    margin:90px auto;
+    padding:70px;
     background:rgba(243, 241, 241, 0.03);
     border-radius:15px;
     box-shadow:0 5px 20px rgba(252, 251, 251, 0.25);
@@ -199,8 +199,7 @@ li{
     font-weight:bold;
 }
 
-.accordion details[open] summary::after{
-    content:"−";
+.accordion details[open] summary::after{content:"";
 }
 
 .conteudo{
@@ -246,7 +245,7 @@ li{
 footer{
     background:var(--branco);
     text-align:center;
-    padding:70px;
+    padding:100px;
     margin-top:50px;
     border-top:3px solid var(--laranja);
 }
@@ -264,7 +263,7 @@ footer p{
     header{
         flex-direction:column;
         gap:15px;
-        padding:20px;
+        padding:60px;
     }
 
     .titulo-barra{
@@ -283,7 +282,7 @@ footer p{
 
     main{
         width:95%;
-        padding:20px;
+        padding:60px;
     }
 
 }
