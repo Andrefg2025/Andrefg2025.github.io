@@ -226,7 +226,7 @@ li{
     margin-left:25px;
 }
 .video-container{
-    position:fixed;
+    position:center;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
