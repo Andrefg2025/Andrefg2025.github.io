@@ -238,7 +238,7 @@ li{
 }
 
 .video-container video{
-    width:320px;            /* tamanho do vídeo */
+    width:100px;            /* tamanho do vídeo */
     max-width:90vw;
     height:auto;
     border-radius:12px;
