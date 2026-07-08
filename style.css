@@ -225,20 +225,25 @@ li{
 .conteudo ul{
     margin-left:25px;
 }
-.video-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1; /* Coloca o vídeo atrás de outros elementos */
+.video-container{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:9999;           /* Fica na frente de tudo */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    pointer-events:none;    /* Permite clicar nos elementos atrás */
 }
 
-.video-container video {
-    width:30%;
-    height:30%;
-    object-fit: cover; /* Faz o vídeo preencher a tela mantendo a proporção */
+.video-container video{
+    width:320px;            /* tamanho do vídeo */
+    max-width:90vw;
+    height:auto;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+    object-fit:contain;
 }
 @keyframes abrir{
     from{
