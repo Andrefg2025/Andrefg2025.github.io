@@ -227,16 +227,16 @@ li{
 .video-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 25px auto;
+    margin: 30px auto;
     width: 100%;
 }
 
 .video-container video {
     width: 500px;
-    max-width: 90%;
+    max-width: 85%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Efeito ao passar o mouse */
