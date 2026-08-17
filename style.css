@@ -1,326 +1,480 @@
 /* =====================================
-RESET GERAL
+   RESET GERAL
 ===================================== */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
+
 
 /* =====================================
-VARIÁVEIS
+   VARIÁVEIS
 ===================================== */
-:root{
-    --laranja:#ff6f00;
-    --laranja-claro:#ff9800;
-    --amarelo:#ffd54f;
-    --preto:#faf8f8;
-    --cinza:#2b2b2b;
-    --texto:#080000;
-    --branco:#ffffff;
+
+:root {
+    --laranja: #ff6f00;
+    --laranja-claro: #ff9800;
+    --amarelo: #ffd54f;
+    --preto: #faf8f8;
+    --cinza: #2b2b2b;
+    --texto: #080000;
+    --branco: #ffffff;
 }
+
 
 /* =====================================
-BODY
+   BODY
 ===================================== */
-body{
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(180deg,#f8f8f8,#f8f7f7);
-    color:var(--texto);
-    line-height:1.8;
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #f8f8f8, #f8f7f7);
+    color: var(--texto);
+    line-height: 1.8;
 }
+
 
 /* =====================================
-CABEÇALHO
+   CABEÇALHO
 ===================================== */
 
-header{
-    background:linear-gradient(90deg,var(--laranja),var(--laranja-claro));
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:12px 40px;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 4px 15px rgba(248, 248, 248, 0.966);
+header {
+    background: linear-gradient(
+        90deg,
+        var(--laranja),
+        var(--laranja-claro)
+    );
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 40px;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
+
 
 /* Logo esquerda */
-.logo-esquerda{
-    display:flex;
-    align-items:center;
-    text-decoration:none;
+
+.logo-esquerda {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
+
 
 /* Logo direita */
-.logo-direita{
-    display:flex;
-    align-items:center;
-    text-decoration:none;
+
+.logo-direita {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
+
 
 /* Imagens das logos */
-.logo-img{
-    width:65px;
-    height:65px;
-    object-fit:contain;
-    background:#fff;
-    border-radius:50%;
-    padding:4px;
-    transition:0.3s;
+
+.logo-img {
+    width: 65px;
+    height: 65px;
+
+    object-fit: contain;
+
+    background: #fff;
+    border-radius: 50%;
+
+    padding: 4px;
+
+    transition: 0.3s;
 }
 
-.logo-img:hover{
-    transform:scale(1.08) rotate(3deg);
+.logo-img:hover {
+    transform: scale(1.08) rotate(3deg);
 }
+
 
 /* Link do título */
-.titulo-link{
-    text-decoration:none;
+
+.titulo-link {
+    text-decoration: none;
 }
+
 
 /* Título */
-.titulo-barra{
-    color:#fff;
-    font-size:2rem;
-    font-weight:700;
-    text-align:center;
-    letter-spacing:1px;
-    transition:.3s;
+
+.titulo-barra {
+    color: #fff;
+
+    font-size: 2rem;
+    font-weight: 700;
+
+    text-align: center;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
 }
 
-.titulo-barra:hover{
-    color:var(--amarelo);
+.titulo-barra:hover {
+    color: var(--amarelo);
 }
+
 
 /* =====================================
    MENU
 ===================================== */
 
-nav{
-    background:var(--branco);
-    border-bottom:3px solid var(--laranja);
+nav {
+    background: var(--branco);
+    border-bottom: 3px solid var(--laranja);
 }
 
-nav ul{
-    display:flex;
-    justify-content:center;
-    gap:35px;
-    list-style:none;
-    padding:15px;
+nav ul {
+    display: flex;
+    justify-content: center;
+
+    gap: 35px;
+
+    list-style: none;
+
+    padding: 15px;
 }
 
-nav a{
-    color:#0e0000;
-    text-decoration:none;
-    font-weight:500;
-    transition:.3s;
+nav a {
+    color: #0e0000;
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    transition: 0.3s;
 }
 
-nav a:hover{
-    color:var(--amarelo);
+nav a:hover {
+    color: var(--laranja);
 }
+
 
 /* =====================================
    MAIN
 ===================================== */
 
-main{
-    width:100%;
-    max-width:1200px;
-    margin:20px auto;
-    padding:10px;
-    background:rgba(243, 241, 241, 0.03);
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(252, 251, 251, 0.25);
+main {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 20px auto;
+    padding: 10px;
+
+    background: rgba(243, 241, 241, 0.03);
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
-main h1{
-    color:#0e0101;
-    text-align:center;
-    margin-bottom:25px;
+main h1 {
+    color: #0e0101;
+
+    text-align: center;
+
+    margin-bottom: 25px;
 }
 
-h2,h3,h4,h5,h6{
-    color:var(--laranja);
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--laranja);
 }
 
 p,
-li{
-    color:var(--texto);
-    text-align:justify;
+li {
+    color: var(--texto);
+    text-align: justify;
 }
+
 
 /* =====================================
    ACCORDION
 ===================================== */
 
-.accordion{
-    width:100%;
-    margin-top:25px;
+.accordion {
+    width: 100%;
+    margin-top: 25px;
 }
 
-.accordion details{
-    background:transparent;
-    border:none;
-    margin-bottom:12px;
+.accordion details {
+    background: transparent;
+    border: none;
+
+    margin-bottom: 12px;
 }
 
-.accordion summary{
-    list-style:none;
-    cursor:pointer;
-    background:var(--preto);
-    color:#030303;
-    padding:16px 20px;
-    border-radius:8px;
-    font-size:1.1rem;
-    font-weight:600;
-    position:relative;
-    transition:.3s;
+.accordion summary {
+    list-style: none;
+
+    cursor: pointer;
+
+    background: var(--preto);
+    color: #030303;
+
+    padding: 16px 20px;
+
+    border-radius: 8px;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    position: relative;
+
+    transition: 0.3s;
 }
 
-.accordion summary:hover{
-    background:var(--laranja-claro);
+.accordion summary:hover {
+    background: var(--laranja-claro);
+    color: #fff;
 }
 
-.accordion summary::-webkit-details-marker{
-    display:none;
+.accordion summary::-webkit-details-marker {
+    display: none;
 }
 
-.accordion summary::after{
-    content:"+";
-    position:absolute;
-    right:20px;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:28px;
-    font-weight:bold;
+.accordion summary::after {
+    content: "+";
+
+    position: absolute;
+
+    right: 20px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 28px;
+    font-weight: bold;
 }
 
-.accordion details[open] summary::after{content:"";
+.accordion details[open] summary::after {
+    content: "−";
 }
 
-.conteudo{
-    background:transparent;
-    color:#fff;
-    padding:18px 5px 25px;
-    border:none;
-    animation:abrir .3s ease;
+
+/* =====================================
+   CONTEÚDO
+===================================== */
+
+.conteudo {
+    background: transparent;
+
+    color: #030303;
+
+    padding: 18px 5px 25px;
+
+    border: none;
+
+    animation: abrir 0.3s ease;
 }
 
 .conteudo p,
 .conteudo li,
-.conteudo strong{
-    color:#030303;
+.conteudo strong {
+    color: #030303;
 }
 
 .conteudo h2,
 .conteudo h3,
-.conteudo h4{
-    color:var(--laranja);
+.conteudo h4 {
+    color: var(--laranja);
 }
 
-.conteudo ul{
-    margin-left:25px;
+.conteudo ul {
+    margin-left: 25px;
+}
+
+
+/* =====================================
+   PLAYER DE VÍDEO
+===================================== */
+
 .video-container {
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     width: 100%;
+
     margin: 25px auto;
 }
 
 .video-container video {
     width: 350px;
+
     max-width: 85%;
+
     height: auto;
+
     display: block;
+
     border-radius: 12px;
+
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-/* Efeito ao passar o mouse */
-.video-container:hover{
-    box-shadow: 0 12px 28px rgba(0,0,0,.45);
-    transition: .3s ease;
+
+    transition: 0.3s ease;
 }
 
-/* Responsivo para tablets */
-@media (max-width:768px){
-    .video-container{
-        width: 300px;
-        bottom: 15px;
-        right: 15px;
-    }
+.video-container video:hover {
+    transform: scale(1.02);
+
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsivo para celulares */
-@media (max-width:480px){
-    .video-container{
-        width: calc(100% - 20px);
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-    }
-}
-@keyframes abrir{
-    from{
-        opacity:0;
-        transform:translateY(-8px);
+
+/* =====================================
+   ANIMAÇÃO DO ACCORDION
+===================================== */
+
+@keyframes abrir {
+
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
     }
 
-    to{
-        opacity:1;
-        transform:translateY(0);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+
 }
+
 
 /* =====================================
    RODAPÉ
 ===================================== */
 
-footer{
-    background:var(--branco);
-    text-align:center;
-    padding:100px;
-    margin-top:50px;
-    border-top:3px solid var(--laranja);
+footer {
+    background: var(--branco);
+
+    text-align: center;
+
+    padding: 30px;
+
+    margin-top: 50px;
+
+    border-top: 3px solid var(--laranja);
 }
 
-footer p{
-    text-align:center;
+footer p {
+    text-align: center;
 }
+
 
 /* =====================================
-   RESPONSIVIDADE
+   TABLETS
 ===================================== */
 
-@media(max-width:768px){
+@media (max-width: 768px) {
 
-    header{
-        flex-direction:column;
-        gap:15px;
-        padding:60px;
+    header {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 25px;
     }
 
-    .titulo-barra{
-        font-size:1.4rem;
+    .titulo-barra {
+        font-size: 1.4rem;
     }
 
-    .logo-img{
-        width:50px;
-        height:50px;
+    .logo-img {
+        width: 50px;
+        height: 50px;
     }
 
-    nav ul{
-        flex-direction:column;
-        gap:15px;
+    nav ul {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 15px;
     }
 
-    main{
-        width:95%;
-        padding:60px;
+    main {
+        width: 95%;
+
+        padding: 20px;
+    }
+
+    .video-container video {
+        width: 320px;
+        max-width: 90%;
+    }
+
+}
+
+
+/* =====================================
+   CELULARES
+===================================== */
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 20px;
+    }
+
+    .titulo-barra {
+        font-size: 1.1rem;
+    }
+
+    .logo-img {
+        width: 45px;
+        height: 45px;
+    }
+
+    nav ul {
+        padding: 12px;
+    }
+
+    .accordion summary {
+        font-size: 0.95rem;
+
+        padding: 13px 40px 13px 15px;
+    }
+
+    .conteudo {
+        padding: 10px 5px 20px;
+    }
+
+    .conteudo p {
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+    }
+
+    .video-container {
+        width: 100%;
+
+        margin: 20px auto;
+    }
+
+    .video-container video {
+        width: 280px;
+
+        max-width: 90%;
+    }
+
+    footer {
+        padding: 25px 15px;
     }
 
 }
