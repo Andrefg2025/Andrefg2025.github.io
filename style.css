@@ -478,3 +478,123 @@ footer p {
     }
 
 }
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+/* Ajuste dos cards para combinarem com o tema escuro */
+.card {
+    background: rgba(30, 41, 59, 0.7); /* Fundo cinza-azul escuro translúcido */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f1f5f9;
+    width: 250px;
+    min-height: 110px; 
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    cursor: pointer;
+    overflow: hidden; 
+    border-left: 5px solid transparent; 
+}
+
+/* Informação extra dentro do card */
+.card .info-extra {
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #94a3b8; /* Cor cinza clara suave */
+    transition: all 0.4s ease-in-out;
+}
+
+/* ==================== COMPORTAMENTO DE SELEÇÃO E HOVER DOS CARDS ==================== */
+
+/* Animação de pulsação suave para indicar que é um item interativo (clicável) */
+@keyframes pulsarAtencao {
+    0% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
+        border-color: rgba(99, 102, 241, 0.3); /* Brilha a borda de leve */
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Aplica o efeito de pulsação apenas nos cards que ainda NÃO estão abertos/ativos */
+.card:not(.ativo) {
+    animation: pulsarAtencao 3s infinite ease-in-out;
+}
+
+/* Movimento de subida e sombra neon ao passar o mouse ou estar ativo */
+.card:hover,
+.card.ativo {
+    transform: translateY(-8px) scale(1.05); 
+}
+
+/* Efeito físico de clique real (pressionar para baixo) ao clicar no card */
+.card:active {
+    transform: translateY(-3px) scale(0.98) !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4) !important;
+    transition: transform 0.1s ease !important;
+}
+
+/* APENAS O CLIQUE (.ativo) abre o texto extra */
+.card.ativo .info-extra {
+    opacity: 1;
+    max-height: 300px; 
+    margin-top: 15px; 
+}
+
+/* --- 1. HTML (Primeiro card) --- */
+.card:hover:nth-child(1),
+.card.ativo:nth-child(1) {
+    background-color: rgba(227, 79, 38, 0.15); /* Roxo avermelhado/laranja */
+    border-left: 5px solid #e34f26; 
+    box-shadow: 0 10px 25px rgba(227, 79, 38, 0.3);
+}
+.card:hover:nth-child(1) h3,
+.card.ativo:nth-child(1) h3 {
+    color: #ff6b4a; 
+}
+
+/* --- 2. CSS (Segundo card) --- */
+.card:hover:nth-child(2),
+.card.ativo:nth-child(2) {
+    background-color: rgba(21, 114, 182, 0.2); /* Azul vibrante */
+    border-left: 5px solid #1572b6; 
+    box-shadow: 0 10px 25px rgba(21, 114, 182, 0.3);
+}
+.card:hover:nth-child(2) h3,
+.card.ativo:nth-child(2) h3 {
+    color: #38bdf8; 
+}
+
+/* --- 3. JavaScript (Terceiro card) --- */
+.card:hover:nth-child(3),
+.card.ativo:nth-child(3) {
+    background-color: rgba(247, 223, 30, 0.1); /* Amarelo ouro */
+    border-left: 5px solid #f7df1e; 
+    box-shadow: 0 10px 25px rgba(247, 223, 30, 0.2);
+}
+.card:hover:nth-child(3) h3,
+.card.ativo:nth-child(3) h3 {
+    color: #fef08a; 
+}
+
+/* =================================================================================== */
+
+#quiz {
+    text-align: center;
+}
