@@ -3,28 +3,6 @@
    JAVASCRIPT
 ========================================================= */
 
-
-/* =========================================================
-   VARIÁVEIS GLOBAIS
-========================================================= */
-
-let questoesAtuais = [];
-
-let respostasUsuario = [];
-
-/*
- * Guarda as questões que já foram utilizadas.
- *
- * Enquanto houver questões disponíveis, uma nova atividade
- * não repetirá questões das atividades anteriores.
- */
-let questoesUtilizadas = [];
-
-
-/* =========================================================
-   INICIALIZAÇÃO
-========================================================= */
-
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
@@ -37,18 +15,14 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-
         card.classList.toggle("ativo");
-
 
         const texto =
             card.querySelector(".ver-mais");
 
-
         if (!texto) {
             return;
         }
-
 
         if (card.classList.contains("ativo")) {
 
@@ -59,9 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             texto.textContent =
                 "Clique para ver mais +";
-
         }
-
     };
 
 
@@ -73,31 +45,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       ATIVIDADES
+       ATIVIDADES DA AULA
     ===================================================== */
 
     inicializarAtividades();
 
 
     /* =====================================================
-       GERADOR POR TÓPICO
+       GERADOR GERAL DE ATIVIDADES
     ===================================================== */
 
-    inicializarGeradorPorTopico();
+    inicializarGeradorGeral();
 
 });
 
 
 /* =========================================================
-   MAPA MENTAL AUTOMÁTICO
+   MAPA MENTAL
 ========================================================= */
 
 function gerarMapaMental() {
 
     const mapa =
-        document.getElementById(
-            "mapa-mental"
-        );
+        document.getElementById("mapa-mental");
 
 
     if (!mapa) {
@@ -105,14 +75,8 @@ function gerarMapaMental() {
     }
 
 
-    /*
-     * Procura a aula que contém o mapa.
-     */
-
     const aula =
-        mapa.closest(
-            ".aula-conteudo"
-        );
+        mapa.closest(".aula-conteudo");
 
 
     if (!aula) {
@@ -127,9 +91,9 @@ function gerarMapaMental() {
     }
 
 
-    /*
-     * Tema central.
-     */
+    /* =====================================================
+       TEMA CENTRAL
+    ===================================================== */
 
     const titulo =
         aula.querySelector("h2");
@@ -141,15 +105,16 @@ function gerarMapaMental() {
             : "Algoritmos e Estruturas de Dados";
 
 
-    /*
-     * Localiza os H3.
-     */
+    /* =====================================================
+       TÓPICOS
+    ===================================================== */
 
     const titulos =
         aula.querySelectorAll("h3");
 
 
-    const limite = 14;
+    const limite =
+        14;
 
 
     const topicos =
@@ -162,15 +127,12 @@ function gerarMapaMental() {
             .slice(0, limite);
 
 
-    /*
-     * Se não houver tópicos.
-     */
-
     if (!topicos.length) {
 
         mapa.innerHTML = `
             <p class="carregando-mapa">
-                Nenhum tópico encontrado para gerar o mapa mental.
+                Nenhum tópico encontrado para gerar
+                o mapa mental.
             </p>
         `;
 
@@ -183,7 +145,6 @@ function gerarMapaMental() {
     ===================================================== */
 
     const largura = 1200;
-
     const altura = 700;
 
     const centroX =
@@ -361,7 +322,6 @@ function gerarMapaMental() {
 
         const linhas = [];
 
-
         let linhaAtual = "";
 
 
@@ -370,23 +330,17 @@ function gerarMapaMental() {
 
                 const teste =
                     linhaAtual
-                        ? linhaAtual +
-                          " " +
-                          palavra
+                        ? linhaAtual + " " + palavra
                         : palavra;
 
 
-                if (
-                    teste.length >
-                    limite
-                ) {
+                if (teste.length > limite) {
 
                     if (linhaAtual) {
 
                         linhas.push(
                             linhaAtual
                         );
-
                     }
 
 
@@ -397,7 +351,6 @@ function gerarMapaMental() {
 
                     linhaAtual =
                         teste;
-
                 }
 
             }
@@ -409,7 +362,6 @@ function gerarMapaMental() {
             linhas.push(
                 linhaAtual
             );
-
         }
 
 
@@ -458,8 +410,7 @@ function gerarMapaMental() {
                     (
                         indice -
                         (linhas.length - 1) / 2
-                    ) *
-                    16
+                    ) * 16
                 );
 
 
@@ -484,7 +435,6 @@ function gerarMapaMental() {
 
             }
         );
-
     }
 
 
@@ -574,8 +524,8 @@ function gerarMapaMental() {
 
 
             /* =================================================
-               PROCURAR PRIMEIRO PARÁGRAFO DO TÓPICO
-            ================================================== */
+               PROCURAR PRIMEIRO PARÁGRAFO
+            ================================================= */
 
             let elemento =
                 titulo.nextElementSibling;
@@ -586,9 +536,7 @@ function gerarMapaMental() {
                 if (
                     elemento.tagName === "H3"
                 ) {
-
                     break;
-
                 }
 
 
@@ -644,15 +592,12 @@ function gerarMapaMental() {
 
 
                         break;
-
                     }
-
                 }
 
 
                 elemento =
                     elemento.nextElementSibling;
-
             }
 
         }
@@ -668,7 +613,6 @@ function gerarMapaMental() {
     mapa.appendChild(
         svg
     );
-
 }
 
 
@@ -683,22 +627,20 @@ const bancoQuestoes = [
             "O que é um algoritmo?",
 
         alternativas: [
-
             "Uma sequência lógica e finita de instruções para resolver um problema.",
-
             "Um tipo de computador utilizado para armazenar dados.",
-
             "Um programa responsável apenas pela criação de páginas web.",
-
             "Um dispositivo utilizado para conectar computadores."
-
         ],
 
         resposta: 0,
 
+        topicos: [
+            "algoritmos"
+        ],
+
         explicacao:
             "Um algoritmo é uma sequência organizada e finita de passos utilizada para solucionar um problema."
-
     },
 
 
@@ -707,22 +649,20 @@ const bancoQuestoes = [
             "O que é uma estrutura de dados?",
 
         alternativas: [
-
             "Uma linguagem de programação.",
-
             "Uma forma de organizar, armazenar e manipular dados.",
-
             "Um sistema operacional.",
-
             "Um tipo de navegador."
-
         ],
 
         resposta: 1,
 
+        topicos: [
+            "estruturas"
+        ],
+
         explicacao:
             "Estruturas de dados permitem organizar, armazenar e manipular informações de maneira eficiente."
-
     },
 
 
@@ -731,22 +671,21 @@ const bancoQuestoes = [
             "Qual princípio é utilizado pelas filas?",
 
         alternativas: [
-
             "LIFO",
-
             "FIFO",
-
             "FILO",
-
             "LOOP"
-
         ],
 
         resposta: 1,
 
+        topicos: [
+            "filas",
+            "estruturas"
+        ],
+
         explicacao:
             "FIFO significa First In, First Out: o primeiro elemento inserido é o primeiro a sair."
-
     },
 
 
@@ -755,22 +694,21 @@ const bancoQuestoes = [
             "Qual princípio é utilizado pelas pilhas?",
 
         alternativas: [
-
             "FIFO",
-
             "LIFO",
-
             "FILO",
-
             "HASH"
-
         ],
 
         resposta: 1,
 
+        topicos: [
+            "pilhas",
+            "estruturas"
+        ],
+
         explicacao:
             "LIFO significa Last In, First Out: o último elemento inserido é o primeiro a sair."
-
     },
 
 
@@ -779,22 +717,21 @@ const bancoQuestoes = [
             "Qual estrutura representa informações de maneira hierárquica?",
 
         alternativas: [
-
             "Fila",
-
             "Pilha",
-
             "Árvore",
-
             "Array"
-
         ],
 
         resposta: 2,
 
+        topicos: [
+            "arvores",
+            "estruturas"
+        ],
+
         explicacao:
             "Árvores são estruturas de dados que representam relações hierárquicas."
-
     },
 
 
@@ -803,22 +740,21 @@ const bancoQuestoes = [
             "Em um grafo, o que os vértices representam?",
 
         alternativas: [
-
             "As conexões entre os elementos.",
-
             "Os elementos ou entidades.",
-
             "Os algoritmos utilizados.",
-
             "A quantidade de memória."
-
         ],
 
         resposta: 1,
 
+        topicos: [
+            "grafos",
+            "estruturas"
+        ],
+
         explicacao:
             "Os vértices representam entidades ou elementos do grafo."
-
     },
 
 
@@ -827,22 +763,21 @@ const bancoQuestoes = [
             "Em um grafo, o que as arestas representam?",
 
         alternativas: [
-
             "As conexões entre os elementos.",
-
             "Os elementos principais.",
-
             "Os índices dos arrays.",
-
             "As funções do programa."
-
         ],
 
         resposta: 0,
 
+        topicos: [
+            "grafos",
+            "estruturas"
+        ],
+
         explicacao:
             "As arestas representam as conexões entre os vértices."
-
     },
 
 
@@ -851,22 +786,21 @@ const bancoQuestoes = [
             "Qual estrutura utiliza pares de chave e valor?",
 
         alternativas: [
-
             "Fila",
-
             "Pilha",
-
             "Tabela Hash",
-
             "Lista encadeada"
-
         ],
 
         resposta: 2,
 
+        topicos: [
+            "hash",
+            "estruturas"
+        ],
+
         explicacao:
             "Tabelas Hash normalmente armazenam informações associando uma chave a um valor."
-
     },
 
 
@@ -875,22 +809,21 @@ const bancoQuestoes = [
             "Para que serve um array?",
 
         alternativas: [
-
             "Para armazenar elementos organizados em posições ou índices.",
-
             "Para executar apenas algoritmos recursivos.",
-
             "Para criar exclusivamente bancos de dados.",
-
             "Para conectar computadores em rede."
-
         ],
 
         resposta: 0,
 
+        topicos: [
+            "arrays",
+            "estruturas"
+        ],
+
         explicacao:
             "Arrays armazenam vários elementos que podem ser acessados por índices."
-
     },
 
 
@@ -899,22 +832,21 @@ const bancoQuestoes = [
             "O que caracteriza uma lista encadeada?",
 
         alternativas: [
-
             "Seus elementos não possuem relação entre si.",
-
             "Cada nó pode armazenar um dado e uma referência para outro nó.",
-
             "Todos os dados precisam estar em posições consecutivas.",
-
             "Ela funciona obrigatoriamente como uma fila."
-
         ],
 
         resposta: 1,
 
+        topicos: [
+            "listas",
+            "estruturas"
+        ],
+
         explicacao:
             "Em uma lista encadeada, cada nó pode armazenar um dado e uma referência para outro nó."
-
     },
 
 
@@ -923,22 +855,20 @@ const bancoQuestoes = [
             "Qual é a função de um algoritmo de ordenação?",
 
         alternativas: [
-
             "Excluir todos os dados.",
-
             "Organizar os dados de acordo com determinado critério.",
-
             "Criar uma conexão de internet.",
-
             "Armazenar arquivos de vídeo."
-
         ],
 
         resposta: 1,
 
+        topicos: [
+            "ordenacao"
+        ],
+
         explicacao:
             "Algoritmos de ordenação organizam os dados de acordo com algum critério."
-
     },
 
 
@@ -947,22 +877,20 @@ const bancoQuestoes = [
             "Qual alternativa apresenta algoritmos de ordenação?",
 
         alternativas: [
-
             "HTML, CSS e JavaScript.",
-
             "Bubble Sort, Merge Sort e Quick Sort.",
-
             "FIFO, LIFO e HASH.",
-
             "Windows, Linux e Android."
-
         ],
 
         resposta: 1,
 
+        topicos: [
+            "ordenacao"
+        ],
+
         explicacao:
             "Bubble Sort, Merge Sort e Quick Sort são algoritmos de ordenação."
-
     },
 
 
@@ -971,22 +899,20 @@ const bancoQuestoes = [
             "Para que serve um algoritmo de busca?",
 
         alternativas: [
-
             "Para localizar informações em uma estrutura de dados.",
-
             "Para apagar o sistema operacional.",
-
             "Para criar imagens.",
-
             "Para alterar o hardware."
-
         ],
 
         resposta: 0,
 
+        topicos: [
+            "algoritmos"
+        ],
+
         explicacao:
             "Algoritmos de busca são utilizados para localizar informações."
-
     },
 
 
@@ -995,22 +921,20 @@ const bancoQuestoes = [
             "O que representa a complexidade de tempo?",
 
         alternativas: [
-
             "A quantidade de memória disponível no computador.",
-
             "A quantidade de operações realizadas conforme aumenta a entrada.",
-
             "O tamanho físico do computador.",
-
             "A velocidade da internet."
-
         ],
 
         resposta: 1,
 
+        topicos: [
+            "complexidade"
+        ],
+
         explicacao:
             "A complexidade de tempo analisa como o número de operações cresce conforme aumenta o tamanho da entrada."
-
     },
 
 
@@ -1019,22 +943,20 @@ const bancoQuestoes = [
             "O que representa a complexidade de espaço?",
 
         alternativas: [
-
             "A quantidade de memória necessária para executar um algoritmo.",
-
             "A quantidade de usuários de um sistema.",
-
             "A velocidade do processador.",
-
             "O número de linhas do código HTML."
-
         ],
 
         resposta: 0,
 
+        topicos: [
+            "complexidade"
+        ],
+
         explicacao:
             "A complexidade de espaço analisa a quantidade de memória necessária."
-
     },
 
 
@@ -1043,22 +965,20 @@ const bancoQuestoes = [
             "Para que serve a notação Big O?",
 
         alternativas: [
-
             "Para representar o comportamento de um algoritmo conforme a entrada cresce.",
-
             "Para criar interfaces gráficas.",
-
             "Para definir cores de um site.",
-
             "Para armazenar imagens."
-
         ],
 
         resposta: 0,
 
+        topicos: [
+            "complexidade"
+        ],
+
         explicacao:
             "A notação Big O descreve o crescimento do custo de um algoritmo em relação ao tamanho da entrada."
-
     },
 
 
@@ -1067,22 +987,21 @@ const bancoQuestoes = [
             "Uma busca linear pode apresentar qual complexidade no pior caso?",
 
         alternativas: [
-
             "O(1)",
-
             "O(log n)",
-
             "O(n)",
-
             "O(n²)"
-
         ],
 
         resposta: 2,
 
+        topicos: [
+            "complexidade",
+            "algoritmos"
+        ],
+
         explicacao:
             "No pior caso, uma busca linear pode precisar verificar todos os elementos, resultando em O(n)."
-
     },
 
 
@@ -1091,22 +1010,20 @@ const bancoQuestoes = [
             "O que é recursão?",
 
         alternativas: [
-
             "Quando uma função chama a si própria para solucionar um problema.",
-
             "Quando um programa é executado sem nenhuma instrução.",
-
             "Quando os dados são sempre armazenados em arrays.",
-
             "Quando uma fila é transformada em árvore."
-
         ],
 
         resposta: 0,
 
+        topicos: [
+            "algoritmos"
+        ],
+
         explicacao:
             "Recursão ocorre quando uma função chama a si mesma, normalmente até atingir uma condição de parada."
-
     },
 
 
@@ -1115,22 +1032,21 @@ const bancoQuestoes = [
             "Qual é o objetivo da programação dinâmica?",
 
         alternativas: [
-
             "Evitar computadores lentos.",
-
             "Dividir problemas em subproblemas e reutilizar resultados já calculados.",
-
             "Criar exclusivamente páginas web.",
-
             "Substituir todas as estruturas de dados."
-
         ],
 
         resposta: 1,
 
+        topicos: [
+            "programacao-dinamica",
+            "algoritmos"
+        ],
+
         explicacao:
             "Programação dinâmica utiliza resultados de subproblemas já calculados para evitar trabalho repetido."
-
     },
 
 
@@ -1139,22 +1055,20 @@ const bancoQuestoes = [
             "Qual estrutura é adequada para representar uma hierarquia de pastas?",
 
         alternativas: [
-
             "Árvore",
-
             "Fila",
-
             "Pilha",
-
             "Array simples"
-
         ],
 
         resposta: 0,
 
+        topicos: [
+            "arvores"
+        ],
+
         explicacao:
             "Uma árvore é adequada para representar estruturas hierárquicas, como diretórios e pastas."
-
     },
 
 
@@ -1163,22 +1077,20 @@ const bancoQuestoes = [
             "Qual estrutura pode representar uma rede social?",
 
         alternativas: [
-
             "Fila",
-
             "Grafo",
-
             "Pilha",
-
             "Array"
-
         ],
 
         resposta: 1,
 
+        topicos: [
+            "grafos"
+        ],
+
         explicacao:
             "Uma rede social pode ser representada como um grafo, onde pessoas são vértices e relações são arestas."
-
     },
 
 
@@ -1187,22 +1099,20 @@ const bancoQuestoes = [
             "Qual estrutura é muito utilizada para implementar operações de desfazer (undo)?",
 
         alternativas: [
-
             "Pilha",
-
             "Fila",
-
             "Grafo",
-
             "Tabela Hash"
-
         ],
 
         resposta: 0,
 
+        topicos: [
+            "pilhas"
+        ],
+
         explicacao:
             "Uma pilha é adequada para operações de desfazer porque a última ação realizada geralmente é a primeira a ser desfeita."
-
     },
 
 
@@ -1211,22 +1121,20 @@ const bancoQuestoes = [
             "Qual estrutura pode organizar solicitações de usuários pela ordem de chegada?",
 
         alternativas: [
-
             "Árvore",
-
             "Grafo",
-
             "Fila",
-
             "Tabela Hash"
-
         ],
 
         resposta: 2,
 
+        topicos: [
+            "filas"
+        ],
+
         explicacao:
             "Uma fila organiza elementos pela ordem de chegada utilizando o princípio FIFO."
-
     },
 
 
@@ -1235,22 +1143,20 @@ const bancoQuestoes = [
             "Qual é uma característica importante de uma boa estrutura de dados?",
 
         alternativas: [
-
             "Facilitar o armazenamento e acesso eficiente aos dados.",
-
             "Aumentar sempre o consumo de memória.",
-
             "Impedir a busca de informações.",
-
             "Eliminar a necessidade de algoritmos."
-
         ],
 
         resposta: 0,
 
+        topicos: [
+            "estruturas"
+        ],
+
         explicacao:
             "Uma boa estrutura de dados deve facilitar operações sobre as informações de acordo com as necessidades do sistema."
-
     },
 
 
@@ -1259,22 +1165,21 @@ const bancoQuestoes = [
             "Por que algoritmos e estruturas de dados são importantes?",
 
         alternativas: [
-
             "Porque ajudam a criar sistemas mais eficientes, organizados e escaláveis.",
-
             "Porque substituem completamente os computadores.",
-
             "Porque servem somente para criar jogos.",
-
             "Porque eliminam a necessidade de programação."
-
         ],
 
         resposta: 0,
 
+        topicos: [
+            "algoritmos",
+            "estruturas"
+        ],
+
         explicacao:
             "Algoritmos e estruturas de dados são fundamentais para desenvolver soluções eficientes e organizadas."
-
     },
 
 
@@ -1283,34 +1188,44 @@ const bancoQuestoes = [
             "Qual alternativa apresenta apenas estruturas de dados?",
 
         alternativas: [
-
             "HTML, CSS e JavaScript.",
-
             "Fila, pilha, árvore e grafo.",
-
             "Chrome, Firefox e Edge.",
-
             "Python, Java e C++."
-
         ],
 
         resposta: 1,
 
+        topicos: [
+            "estruturas"
+        ],
+
         explicacao:
             "Fila, pilha, árvore e grafo são exemplos de estruturas de dados."
-
     }
 
 ];
 
 
 /* =========================================================
-   EMBARALHAR ARRAY
+   VARIÁVEIS DAS ATIVIDADES
+========================================================= */
+
+let questoesAtuais = [];
+
+let respostasUsuario = [];
+
+let atividadeFinalizada = false;
+
+
+/* =========================================================
+   EMBARALHAR
 ========================================================= */
 
 function embaralhar(array) {
 
-    const copia = [...array];
+    const copia =
+        [...array];
 
 
     for (
@@ -1329,12 +1244,10 @@ function embaralhar(array) {
         [
             copia[i],
             copia[j]
-        ] =
-        [
+        ] = [
             copia[j],
             copia[i]
         ];
-
     }
 
 
@@ -1343,7 +1256,7 @@ function embaralhar(array) {
 
 
 /* =========================================================
-   INICIALIZAR ATIVIDADES
+   INICIALIZAR ATIVIDADES DA AULA
 ========================================================= */
 
 function inicializarAtividades() {
@@ -1354,58 +1267,28 @@ function inicializarAtividades() {
         );
 
 
-    /*
-     * Se não existir o botão,
-     * simplesmente encerra.
-     */
-
     if (!botao) {
         return;
     }
 
 
-    /*
-     * Evita registrar o evento duas vezes.
-     */
-
-    if (
-        botao.dataset.inicializado ===
-        "true"
-    ) {
-
-        return;
-
-    }
-
-
-    botao.dataset.inicializado =
-        "true";
-
-
-    /*
-     * Evento para gerar manualmente.
-     */
+    /* =====================================================
+       EVITA DUPLICAR EVENTO
+    ===================================================== */
 
     botao.addEventListener(
         "click",
         function () {
 
-            /*
-             * Quando o aluno clicar manualmente,
-             * começamos um novo ciclo.
-             */
-
-            gerarAtividades(
-                true
-            );
+            gerarAtividades();
 
         }
     );
 
 
-    /*
-     * Quantidade inicial.
-     */
+    /* =====================================================
+       VALOR PADRÃO
+    ===================================================== */
 
     const quantidade =
         document.getElementById(
@@ -1421,61 +1304,91 @@ function inicializarAtividades() {
         ) {
 
             quantidade.value = 10;
-
         }
-
     }
 
 
-    /*
-     * Gera a primeira atividade.
-     */
+    /* =====================================================
+       GERA A PRIMEIRA ATIVIDADE
+    ===================================================== */
 
-    gerarAtividades(
-        true
-    );
-
+    gerarAtividades();
 }
 
 
 /* =========================================================
-   GERAR ATIVIDADES
+   LIMPAR ATIVIDADE
 ========================================================= */
 
-function gerarAtividades(
-    novaSessao = false
-) {
+function limparAtividade() {
 
-    if (
-        !Array.isArray(
-            bancoQuestoes
-        ) ||
-        bancoQuestoes.length === 0
-    ) {
+    questoesAtuais = [];
+
+    respostasUsuario = [];
+
+    atividadeFinalizada = false;
+
+
+    const lista =
+        document.getElementById(
+            "listaQuestoes"
+        );
+
+
+    if (lista) {
+
+        lista.innerHTML = "";
+    }
+
+
+    const resultado =
+        document.getElementById(
+            "resultadoAtividade"
+        );
+
+
+    if (resultado) {
+
+        resultado.innerHTML = "";
+    }
+
+
+    const status =
+        document.getElementById(
+            "statusAtividade"
+        );
+
+
+    if (status) {
+
+        status.innerHTML = "";
+    }
+}
+
+
+/* =========================================================
+   GERAR ATIVIDADES DA AULA
+========================================================= */
+
+function gerarAtividades() {
+
+    /* =====================================================
+       PRIMEIRO:
+       LIMPA COMPLETAMENTE A ATIVIDADE ANTERIOR
+    ===================================================== */
+
+    limparAtividade();
+
+
+    if (!bancoQuestoes.length) {
 
         console.error(
             "Banco de questões vazio."
         );
 
         return;
-
     }
 
-
-    /* =====================================================
-       SE FOR UMA NOVA SESSÃO
-    ===================================================== */
-
-    if (novaSessao) {
-
-        questoesUtilizadas = [];
-
-    }
-
-
-    /* =====================================================
-       QUANTIDADE
-    ===================================================== */
 
     const quantidadeElemento =
         document.getElementById(
@@ -1493,9 +1406,12 @@ function gerarAtividades(
                 quantidadeElemento.value,
                 10
             );
-
     }
 
+
+    /* =====================================================
+       VALIDAR QUANTIDADE
+    ===================================================== */
 
     if (
         isNaN(quantidade) ||
@@ -1503,7 +1419,6 @@ function gerarAtividades(
     ) {
 
         quantidade = 10;
-
     }
 
 
@@ -1515,121 +1430,16 @@ function gerarAtividades(
 
 
     /* =====================================================
-       IDENTIFICAR QUESTÕES AINDA NÃO UTILIZADAS
-    ===================================================== */
-
-    let disponiveis =
-        bancoQuestoes.filter(
-            function (questao) {
-
-                return !questoesUtilizadas.includes(
-                    questao
-                );
-
-            }
-        );
-
-
-    /*
-     * Se não houver questões suficientes
-     * para montar uma atividade, completamos
-     * utilizando o início de um novo ciclo.
-     */
-
-    if (
-        disponiveis.length <
-        quantidade
-    ) {
-
-        /*
-         * Guarda as questões que ainda existem.
-         */
-
-        const restantes =
-            [...disponiveis];
-
-
-        /*
-         * Reinicia o histórico.
-         */
-
-        questoesUtilizadas = [];
-
-
-        /*
-         * Todas as questões voltam
-         * a ficar disponíveis.
-         */
-
-        disponiveis =
-            [...bancoQuestoes];
-
-
-        /*
-         * Retira as questões que já estavam
-         * reservadas para esta atividade.
-         */
-
-        disponiveis =
-            disponiveis.filter(
-                function (questao) {
-
-                    return !restantes.includes(
-                        questao
-                    );
-
-                }
-            );
-
-
-        /*
-         * Recoloca as restantes no início
-         * da seleção.
-         */
-
-        disponiveis =
-            [
-                ...restantes,
-                ...disponiveis
-            ];
-
-    }
-
-
-    /* =====================================================
        SORTEAR QUESTÕES
     ===================================================== */
 
     questoesAtuais =
         embaralhar(
-            disponiveis
+            bancoQuestoes
         ).slice(
             0,
             quantidade
         );
-
-
-    /* =====================================================
-       REGISTRAR COMO UTILIZADAS
-    ===================================================== */
-
-    questoesAtuais.forEach(
-        function (questao) {
-
-            if (
-                !questoesUtilizadas.includes(
-                    questao
-                )
-            ) {
-
-                questoesUtilizadas.push(
-                    questao
-                );
-
-            }
-
-        }
-    );
 
 
     /* =====================================================
@@ -1642,21 +1452,8 @@ function gerarAtividades(
         ).fill(null);
 
 
-    /* =====================================================
-       LIMPAR RESULTADO
-    ===================================================== */
-
-    const resultado =
-        document.getElementById(
-            "resultadoAtividade"
-        );
-
-
-    if (resultado) {
-
-        resultado.innerHTML = "";
-
-    }
+    atividadeFinalizada =
+        false;
 
 
     /* =====================================================
@@ -1673,18 +1470,16 @@ function gerarAtividades(
 
         status.innerHTML = `
             🎲 ${questoesAtuais.length}
-            questões disponíveis.
+            questões geradas aleatoriamente.
         `;
-
     }
 
 
     /* =====================================================
-       MOSTRAR QUESTÕES
+       MOSTRAR
     ===================================================== */
 
     mostrarQuestoes();
-
 }
 
 
@@ -1707,24 +1502,18 @@ function mostrarQuestoes() {
         );
 
         return;
-
     }
 
 
     container.innerHTML = "";
 
 
-    /* =====================================================
-       CRIAR CADA QUESTÃO
-    ===================================================== */
-
     questoesAtuais.forEach(
         function (questao, indice) {
 
-            /*
-             * Cria alternativas com indicação
-             * de qual é a correta.
-             */
+            /* =============================================
+               EMBARALHAR ALTERNATIVAS
+            ============================================= */
 
             const alternativas =
                 embaralhar(
@@ -1743,15 +1532,14 @@ function mostrarQuestoes() {
                                     questao.resposta
 
                             };
-
                         }
                     )
                 );
 
 
-            /* =================================================
-               DIV DA QUESTÃO
-            ================================================= */
+            /* =============================================
+               CRIAR BLOCO
+            ============================================= */
 
             const div =
                 document.createElement(
@@ -1767,9 +1555,9 @@ function mostrarQuestoes() {
                 indice;
 
 
-            /* =================================================
-               HTML
-            ================================================= */
+            /* =============================================
+               TÍTULO
+            ============================================= */
 
             let html = `
 
@@ -1785,6 +1573,10 @@ function mostrarQuestoes() {
 
             `;
 
+
+            /* =============================================
+               ALTERNATIVAS
+            ============================================= */
 
             alternativas.forEach(
                 function (
@@ -1810,7 +1602,6 @@ function mostrarQuestoes() {
                         </label>
 
                     `;
-
                 }
             );
 
@@ -1836,9 +1627,9 @@ function mostrarQuestoes() {
             );
 
 
-            /* =================================================
+            /* =============================================
                EVENTOS
-            ================================================= */
+            ============================================= */
 
             const inputs =
                 div.querySelectorAll(
@@ -1860,7 +1651,6 @@ function mostrarQuestoes() {
 
                         }
                     );
-
                 }
             );
 
@@ -1899,7 +1689,6 @@ function mostrarQuestoes() {
     container.appendChild(
         botao
     );
-
 }
 
 
@@ -1911,6 +1700,11 @@ function verificarResposta(
     indice,
     valor
 ) {
+
+    if (atividadeFinalizada) {
+        return;
+    }
+
 
     const correta =
         valor === "true";
@@ -1931,10 +1725,19 @@ function verificarResposta(
     }
 
 
+    const questao =
+        questoesAtuais[indice];
+
+
     if (correta) {
 
-        feedback.innerHTML =
-            "✅ Resposta correta!";
+        feedback.innerHTML = `
+            ✅ Resposta correta!
+            <br>
+            <small>
+                ${questao.explicacao}
+            </small>
+        `;
 
 
         feedback.className =
@@ -1942,15 +1745,18 @@ function verificarResposta(
 
     } else {
 
-        feedback.innerHTML =
-            "❌ Resposta incorreta.";
+        feedback.innerHTML = `
+            ❌ Resposta incorreta.
+            <br>
+            <small>
+                ${questao.explicacao}
+            </small>
+        `;
 
 
         feedback.className =
             "feedback incorreto";
-
     }
-
 }
 
 
@@ -1960,27 +1766,14 @@ function verificarResposta(
 
 function finalizarAtividade() {
 
-    /*
-     * Impede finalização duplicada.
-     */
-
-    if (
-        document.body.dataset.finalizando ===
-        "true"
-    ) {
-
+    if (atividadeFinalizada) {
         return;
-
     }
 
 
-    document.body.dataset.finalizando =
-        "true";
+    atividadeFinalizada =
+        true;
 
-
-    /* =====================================================
-       CONTAGEM
-    ===================================================== */
 
     let respondidas = 0;
 
@@ -1990,21 +1783,15 @@ function finalizarAtividade() {
     respostasUsuario.forEach(
         function (resposta) {
 
-            if (
-                resposta !== null
-            ) {
+            if (resposta !== null) {
 
                 respondidas++;
-
             }
 
 
-            if (
-                resposta === true
-            ) {
+            if (resposta === true) {
 
                 acertos++;
-
             }
 
         }
@@ -2018,8 +1805,7 @@ function finalizarAtividade() {
     const percentual =
         total > 0
             ? Math.round(
-                (acertos / total) *
-                100
+                (acertos / total) * 100
             )
             : 0;
 
@@ -2031,23 +1817,17 @@ function finalizarAtividade() {
     let mensagem;
 
 
-    if (
-        percentual >= 90
-    ) {
+    if (percentual >= 90) {
 
         mensagem =
             "🏆 Excelente! Você domina muito bem o conteúdo.";
 
-    } else if (
-        percentual >= 70
-    ) {
+    } else if (percentual >= 70) {
 
         mensagem =
             "👏 Muito bom! Continue praticando.";
 
-    } else if (
-        percentual >= 50
-    ) {
+    } else if (percentual >= 50) {
 
         mensagem =
             "📚 Bom começo! Revise alguns conceitos.";
@@ -2056,7 +1836,6 @@ function finalizarAtividade() {
 
         mensagem =
             "💪 Continue estudando e tente novamente.";
-
     }
 
 
@@ -2071,12 +1850,7 @@ function finalizarAtividade() {
 
 
     if (!resultado) {
-
-        document.body.dataset.finalizando =
-            "false";
-
         return;
-
     }
 
 
@@ -2085,7 +1859,7 @@ function finalizarAtividade() {
         <div class="resultado-box">
 
             <h3>
-                🎯 Resultado da atividade
+                Resultado da atividade
             </h3>
 
             <div class="pontuacao">
@@ -2101,25 +1875,33 @@ function finalizarAtividade() {
 
             <p>
                 Respondidas:
-                <strong>${respondidas}</strong>
+                <strong>
+                    ${respondidas}
+                </strong>
                 de
-                <strong>${total}</strong>
+                <strong>
+                    ${total}
+                </strong>
             </p>
 
             <p>
                 Aproveitamento:
-                <strong>${percentual}%</strong>
+                <strong>
+                    ${percentual}%
+                </strong>
             </p>
 
             <p class="mensagem-resultado">
                 ${mensagem}
             </p>
 
-            <p class="proxima-atividade">
-                🔄 Nova atividade será preparada
-                automaticamente em
-                <strong>4 segundos</strong>.
-            </p>
+            <button
+                type="button"
+                class="btn-gerar"
+                id="btnNovaAtividade"
+            >
+                🎲 Gerar Nova Atividade
+            </button>
 
         </div>
 
@@ -2127,54 +1909,25 @@ function finalizarAtividade() {
 
 
     /* =====================================================
-       DESABILITAR QUESTÕES
+       DESABILITAR RESPOSTAS
     ===================================================== */
 
-    const container =
-        document.getElementById(
-            "listaQuestoes"
+    const inputs =
+        document.querySelectorAll(
+            "#listaQuestoes input[type='radio']"
         );
 
 
-    if (container) {
+    inputs.forEach(
+        function (input) {
 
-        const inputs =
-            container.querySelectorAll(
-                "input"
-            );
-
-
-        inputs.forEach(
-            function (input) {
-
-                input.disabled =
-                    true;
-
-            }
-        );
-
-
-        const botao =
-            container.querySelector(
-                ".btn-finalizar"
-            );
-
-
-        if (botao) {
-
-            botao.disabled =
-                true;
-
-            botao.textContent =
-                "⏳ Preparando nova atividade...";
-
+            input.disabled = true;
         }
-
-    }
+    );
 
 
     /* =====================================================
-       SCROLL
+       MOSTRAR RESULTADO
     ===================================================== */
 
     resultado.scrollIntoView({
@@ -2184,133 +1937,43 @@ function finalizarAtividade() {
 
 
     /* =====================================================
-       CRONÔMETRO DE NOVA ATIVIDADE
+       BOTÃO NOVA ATIVIDADE
     ===================================================== */
 
-    let segundos = 4;
-
-
-    const contador =
-        resultado.querySelector(
-            ".proxima-atividade"
+    const nova =
+        document.getElementById(
+            "btnNovaAtividade"
         );
 
 
-    const intervalo =
-        setInterval(
+    if (nova) {
+
+        nova.addEventListener(
+            "click",
             function () {
 
-                segundos--;
+                /* =========================================
+                   AQUI ESTÁ A CORREÇÃO PRINCIPAL
+                   =========================================
 
+                   Toda vez que clicar em "Gerar Nova
+                   Atividade", tudo é zerado e uma nova
+                   atividade é criada.
+                */
 
-                if (
-                    segundos > 0 &&
-                    contador
-                ) {
+                gerarAtividades();
 
-                    contador.innerHTML = `
-                        🔄 Nova atividade será preparada
-                        automaticamente em
-                        <strong>${segundos} segundos</strong>.
-                    `;
-
-                }
-
-            },
-            1000
+            }
         );
-
-
-    /* =====================================================
-       GERAR NOVA ATIVIDADE
-    ===================================================== */
-
-    setTimeout(
-        function () {
-
-            clearInterval(
-                intervalo
-            );
-
-
-            /* ---------------------------------------------
-               ZERAR
-            --------------------------------------------- */
-
-            questoesAtuais = [];
-
-
-            respostasUsuario = [];
-
-
-            /* ---------------------------------------------
-               LIMPAR QUESTÕES
-            --------------------------------------------- */
-
-            if (container) {
-
-                container.innerHTML =
-                    "";
-
-            }
-
-
-            /* ---------------------------------------------
-               LIMPAR RESULTADO
-            --------------------------------------------- */
-
-            resultado.innerHTML =
-                "";
-
-
-            /* ---------------------------------------------
-               LIBERAR NOVA FINALIZAÇÃO
-            --------------------------------------------- */
-
-            document.body.dataset.finalizando =
-                "false";
-
-
-            /* ---------------------------------------------
-               GERAR NOVA ATIVIDADE
-            --------------------------------------------- */
-
-            gerarAtividades(
-                false
-            );
-
-
-            /* ---------------------------------------------
-               VOLTAR PARA AS QUESTÕES
-            --------------------------------------------- */
-
-            const lista =
-                document.getElementById(
-                    "listaQuestoes"
-                );
-
-
-            if (lista) {
-
-                lista.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            }
-
-        },
-        4000
-    );
-
+    }
 }
 
 
 /* =========================================================
-   GERADOR DE ATIVIDADES POR TÓPICO
+   GERADOR GERAL DE ATIVIDADES
 ========================================================= */
 
-function inicializarGeradorPorTopico() {
+function inicializarGeradorGeral() {
 
     const botao =
         document.getElementById(
@@ -2323,25 +1986,10 @@ function inicializarGeradorPorTopico() {
     }
 
 
-    if (
-        botao.dataset.inicializado ===
-        "true"
-    ) {
-
-        return;
-
-    }
-
-
-    botao.dataset.inicializado =
-        "true";
-
-
     botao.addEventListener(
         "click",
         gerarAtividadePorTopico
     );
-
 }
 
 
@@ -2369,301 +2017,67 @@ function gerarAtividadePorTopico() {
         );
 
 
-    if (
-        !seletor ||
-        !atividade
-    ) {
-
+    if (!seletor || !atividade) {
         return;
-
     }
 
+
+    /* =====================================================
+       LIMPAR ATIVIDADE ANTERIOR
+    ===================================================== */
+
+    atividade.innerHTML = "";
+
+    if (resultado) {
+
+        resultado.innerHTML = "";
+    }
+
+
+    /* =====================================================
+       TÓPICO SELECIONADO
+    ===================================================== */
 
     const topico =
         seletor.value;
 
 
-    let filtradas;
-
-
     /* =====================================================
-       FILTRAR
+       FILTRAR QUESTÕES
     ===================================================== */
 
-    switch (topico) {
+    let bancoFiltrado;
 
-        case "algoritmos":
 
-            filtradas =
-                bancoQuestoes.filter(
-                    function (q) {
+    if (topico === "todos") {
 
-                        return (
-                            q.pergunta
-                                .toLowerCase()
-                                .includes(
-                                    "algoritmo"
-                                )
-                        );
+        bancoFiltrado =
+            [...bancoQuestoes];
 
-                    }
-                );
+    } else {
 
-            break;
+        bancoFiltrado =
+            bancoQuestoes.filter(
+                function (questao) {
 
-
-        case "estruturas":
-
-            filtradas =
-                bancoQuestoes.filter(
-                    function (q) {
-
-                        return (
-                            q.pergunta
-                                .toLowerCase()
-                                .includes(
-                                    "estrutura"
-                                ) ||
-                            q.pergunta
-                                .toLowerCase()
-                                .includes(
-                                    "dados"
-                                )
-                        );
-
-                    }
-                );
-
-            break;
-
-
-        case "arrays":
-
-            filtradas =
-                bancoQuestoes.filter(
-                    function (q) {
-
-                        return q.pergunta
-                            .toLowerCase()
-                            .includes(
-                                "array"
-                            );
-
-                    }
-                );
-
-            break;
-
-
-        case "listas":
-
-            filtradas =
-                bancoQuestoes.filter(
-                    function (q) {
-
-                        return q.pergunta
-                            .toLowerCase()
-                            .includes(
-                                "lista"
-                            );
-
-                    }
-                );
-
-            break;
-
-
-        case "pilhas":
-
-            filtradas =
-                bancoQuestoes.filter(
-                    function (q) {
-
-                        return q.pergunta
-                            .toLowerCase()
-                            .includes(
-                                "pilha"
-                            );
-
-                    }
-                );
-
-            break;
-
-
-        case "filas":
-
-            filtradas =
-                bancoQuestoes.filter(
-                    function (q) {
-
-                        return q.pergunta
-                            .toLowerCase()
-                            .includes(
-                                "fila"
-                            );
-
-                    }
-                );
-
-            break;
-
-
-        case "arvores":
-
-            filtradas =
-                bancoQuestoes.filter(
-                    function (q) {
-
-                        return q.pergunta
-                            .toLowerCase()
-                            .includes(
-                                "árvore"
-                            ) ||
-                            q.pergunta
-                                .toLowerCase()
-                                .includes(
-                                    "arvore"
-                                );
-
-                    }
-                );
-
-            break;
-
-
-        case "grafos":
-
-            filtradas =
-                bancoQuestoes.filter(
-                    function (q) {
-
-                        return q.pergunta
-                            .toLowerCase()
-                            .includes(
-                                "grafo"
-                            );
-
-                    }
-                );
-
-            break;
-
-
-        case "hash":
-
-            filtradas =
-                bancoQuestoes.filter(
-                    function (q) {
-
-                        return q.pergunta
-                            .toLowerCase()
-                            .includes(
-                                "hash"
-                            );
-
-                    }
-                );
-
-            break;
-
-
-        case "ordenacao":
-
-            filtradas =
-                bancoQuestoes.filter(
-                    function (q) {
-
-                        return (
-                            q.pergunta
-                                .toLowerCase()
-                                .includes(
-                                    "ordenação"
-                                ) ||
-                            q.pergunta
-                                .toLowerCase()
-                                .includes(
-                                    "ordenacao"
-                                ) ||
-                            q.pergunta
-                                .toLowerCase()
-                                .includes(
-                                    "sort"
-                                )
-                        );
-
-                    }
-                );
-
-            break;
-
-
-        case "complexidade":
-
-            filtradas =
-                bancoQuestoes.filter(
-                    function (q) {
-
-                        return (
-                            q.pergunta
-                                .toLowerCase()
-                                .includes(
-                                    "complexidade"
-                                ) ||
-                            q.pergunta
-                                .toLowerCase()
-                                .includes(
-                                    "big o"
-                                )
-                        );
-
-                    }
-                );
-
-            break;
-
-
-        case "programacao-dinamica":
-
-            filtradas =
-                bancoQuestoes.filter(
-                    function (q) {
-
-                        return (
-                            q.pergunta
-                                .toLowerCase()
-                                .includes(
-                                    "programação dinâmica"
-                                ) ||
-                            q.pergunta
-                                .toLowerCase()
-                                .includes(
-                                    "programacao dinamica"
-                                )
-                        );
-
-                    }
-                );
-
-            break;
-
-
-        default:
-
-            filtradas =
-                [...bancoQuestoes];
-
+                    return (
+                        Array.isArray(
+                            questao.topicos
+                        ) &&
+                        questao.topicos.includes(
+                            topico
+                        )
+                    );
+                }
+            );
     }
 
 
     /* =====================================================
-       CASO NÃO ENCONTRE QUESTÕES
+       VERIFICAR BANCO
     ===================================================== */
 
-    if (
-        !filtradas ||
-        filtradas.length === 0
-    ) {
+    if (!bancoFiltrado.length) {
 
         atividade.innerHTML = `
 
@@ -2678,17 +2092,7 @@ function gerarAtividadePorTopico() {
 
         `;
 
-
-        if (resultado) {
-
-            resultado.innerHTML =
-                "";
-
-        }
-
-
         return;
-
     }
 
 
@@ -2698,12 +2102,12 @@ function gerarAtividadePorTopico() {
 
     const questao =
         embaralhar(
-            filtradas
+            bancoFiltrado
         )[0];
 
 
     /* =====================================================
-       ALTERNATIVAS
+       EMBARALHAR ALTERNATIVAS
     ===================================================== */
 
     const alternativas =
@@ -2721,21 +2125,23 @@ function gerarAtividadePorTopico() {
                         correta:
                             index ===
                             questao.resposta
-
                     };
-
                 }
             )
         );
 
 
     /* =====================================================
-       MOSTRAR
+       CRIAR ATIVIDADE
     ===================================================== */
 
     let html = `
 
-        <div class="questao-topico">
+        <div class="questao">
+
+            <div class="numero-questao">
+                Questão
+            </div>
 
             <h3>
                 ${questao.pergunta}
@@ -2758,7 +2164,7 @@ function gerarAtividadePorTopico() {
 
                     <input
                         type="radio"
-                        name="questao-topico"
+                        name="atividade-geral"
                         value="${alternativa.correta}"
                     >
 
@@ -2770,7 +2176,6 @@ function gerarAtividadePorTopico() {
                 </label>
 
             `;
-
         }
     );
 
@@ -2779,16 +2184,18 @@ function gerarAtividadePorTopico() {
 
             </div>
 
+            <div
+                id="feedbackGeral"
+                class="feedback"
+            ></div>
+
             <button
                 type="button"
-                class="btn-finalizar-topico"
+                id="btnResponderGeral"
+                class="btn-finalizar"
             >
                 ✅ Responder
             </button>
-
-            <div
-                class="feedback-topico"
-            ></div>
 
         </div>
 
@@ -2800,19 +2207,18 @@ function gerarAtividadePorTopico() {
 
 
     /* =====================================================
-       BOTÃO RESPONDER
+       RESPONDER
     ===================================================== */
 
     const responder =
-        atividade.querySelector(
-            ".btn-finalizar-topico"
+        document.getElementById(
+            "btnResponderGeral"
         );
 
 
-    const feedback =
-        atividade.querySelector(
-            ".feedback-topico"
-        );
+    if (!responder) {
+        return;
+    }
 
 
     responder.addEventListener(
@@ -2821,7 +2227,13 @@ function gerarAtividadePorTopico() {
 
             const selecionada =
                 atividade.querySelector(
-                    'input[name="questao-topico"]:checked'
+                    "input[name='atividade-geral']:checked"
+                );
+
+
+            const feedback =
+                document.getElementById(
+                    "feedbackGeral"
                 );
 
 
@@ -2831,63 +2243,60 @@ function gerarAtividadePorTopico() {
                     "⚠️ Selecione uma alternativa.";
 
                 feedback.className =
-                    "feedback-topico incorreto";
+                    "feedback incorreto";
 
                 return;
-
             }
 
 
             const correta =
-                selecionada.value ===
-                "true";
+                selecionada.value === "true";
 
 
             if (correta) {
 
                 feedback.innerHTML = `
-                    ✅ Correto!
+                    ✅ Resposta correta!
                     <br>
-                    ${questao.explicacao}
-                    <br><br>
-                    🔄 Nova questão será gerada em 3 segundos...
+                    <small>
+                        ${questao.explicacao}
+                    </small>
                 `;
 
+
                 feedback.className =
-                    "feedback-topico correto";
+                    "feedback correto";
 
             } else {
 
                 feedback.innerHTML = `
-                    ❌ Incorreto.
+                    ❌ Resposta incorreta.
                     <br>
-                    ${questao.explicacao}
-                    <br><br>
-                    🔄 Nova questão será gerada em 3 segundos...
+                    <small>
+                        ${questao.explicacao}
+                    </small>
                 `;
 
-                feedback.className =
-                    "feedback-topico incorreto";
 
+                feedback.className =
+                    "feedback incorreto";
             }
 
 
-            /*
-             * Desabilita respostas.
-             */
+            /* =============================================
+               DESABILITAR RESPOSTAS
+            ============================================= */
 
             const inputs =
                 atividade.querySelectorAll(
-                    "input"
+                    "input[type='radio']"
                 );
 
 
             inputs.forEach(
                 function (input) {
 
-                    input.disabled =
-                        true;
-
+                    input.disabled = true;
                 }
             );
 
@@ -2896,20 +2305,31 @@ function gerarAtividadePorTopico() {
                 true;
 
 
-            /*
-             * Nova questão automaticamente.
-             */
+            responder.textContent =
+                "🎲 Gerar outra questão";
 
-            setTimeout(
+
+            /* =============================================
+               TRANSFORMAR BOTÃO EM NOVA QUESTÃO
+            ============================================= */
+
+            responder.addEventListener(
+                "click",
                 function () {
 
                     gerarAtividadePorTopico();
 
                 },
-                3000
+                {
+                    once: true
+                }
             );
 
         }
     );
-
 }
+
+
+/* =========================================================
+   FIM DO JAVASCRIPT
+========================================================= */
