@@ -1,6 +1,5 @@
-```css
 /* =========================================================
-   RESET GERAL
+   RESET
 ========================================================= */
 
 * {
@@ -16,19 +15,23 @@
 ========================================================= */
 
 :root {
+
     --laranja: #ff6f00;
     --laranja-claro: #ff9800;
     --amarelo: #ffd54f;
 
-    --preto: #faf8f8;
-    --cinza: #2b2b2b;
+    --fundo: #f5f7fa;
 
-    --texto: #080000;
     --branco: #ffffff;
+
+    --texto: #171717;
+
+    --cinza: #64748b;
 
     --html: #e34f26;
     --css: #1572b6;
     --javascript: #f7df1e;
+
 }
 
 
@@ -37,35 +40,56 @@
 ========================================================= */
 
 body {
+
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(180deg, #f8f8f8, #f8f7f7);
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8f8f8,
+            #eef2f7
+        );
+
     color: var(--texto);
+
     line-height: 1.8;
+
 }
 
 
 /* =========================================================
-   CABEÇALHO
+   HEADER
 ========================================================= */
 
 header {
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
+    gap: 20px;
 
     padding: 12px 40px;
 
-    background: linear-gradient(
-        90deg,
-        var(--laranja),
-        var(--laranja-claro)
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--laranja),
+            var(--laranja-claro)
+        );
 
     position: sticky;
+
     top: 0;
+
     z-index: 1000;
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.15);
+
 }
 
 
@@ -75,67 +99,100 @@ header {
 
 .logo-esquerda,
 .logo-direita {
+
     display: flex;
+
     align-items: center;
+
     text-decoration: none;
+
 }
 
+
 .logo-img {
+
     width: 65px;
+
     height: 65px;
 
     object-fit: contain;
 
     background: var(--branco);
+
     border-radius: 50%;
 
     padding: 4px;
 
     transition: 0.3s ease;
+
 }
 
+
 .logo-img:hover {
-    transform: scale(1.08) rotate(3deg);
+
+    transform:
+        scale(1.08)
+        rotate(3deg);
+
 }
 
 
 /* =========================================================
-   TÍTULO DO CABEÇALHO
+   TÍTULO
 ========================================================= */
 
 .titulo-link {
+
     text-decoration: none;
+
 }
 
+
 .titulo-barra {
+
     color: var(--branco);
 
     font-size: 2rem;
+
     font-weight: 700;
 
     text-align: center;
+
     letter-spacing: 1px;
 
     transition: 0.3s ease;
+
 }
 
+
 .titulo-barra:hover {
+
     color: var(--amarelo);
+
 }
 
 
 /* =========================================================
-   MENU DE NAVEGAÇÃO
+   MENU
 ========================================================= */
 
 nav {
+
     background: var(--branco);
-    border-bottom: 3px solid var(--laranja);
+
+    border-bottom:
+        3px solid
+        var(--laranja);
+
 }
 
+
 nav ul {
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     gap: 35px;
@@ -143,20 +200,27 @@ nav ul {
     list-style: none;
 
     padding: 15px;
+
 }
 
+
 nav a {
-    color: #0e0000;
+
+    color: #111;
 
     text-decoration: none;
 
     font-weight: 500;
 
     transition: 0.3s ease;
+
 }
 
+
 nav a:hover {
+
     color: var(--laranja);
+
 }
 
 
@@ -165,178 +229,691 @@ nav a:hover {
 ========================================================= */
 
 main {
+
     width: 100%;
+
     max-width: 1200px;
 
-    margin: 20px auto;
-    padding: 10px;
+    margin: 25px auto;
 
-    background: rgba(243, 241, 241, 0.03);
+    padding: 10px 20px;
 
-    border-radius: 15px;
-
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
+
 main h1 {
-    color: #0e0101;
 
     text-align: center;
 
     margin-bottom: 25px;
+
 }
+
 
 h2,
 h3,
 h4,
 h5,
 h6 {
+
     color: var(--laranja);
+
 }
 
 
 /* =========================================================
-   TEXTOS
+   TEXTO
 ========================================================= */
 
 p,
 li {
+
     color: var(--texto);
+
 }
 
+
 p {
+
     text-align: justify;
+
+}
+
+
+.conteudo p,
+.aula-conteudo p {
+
+    margin-bottom: 15px;
+
 }
 
 
 /* =========================================================
-   ACCORDION
+   ACCORDION PRINCIPAL
 ========================================================= */
 
 .accordion {
+
     width: 100%;
-    margin-top: 25px;
+
+    margin-bottom: 15px;
+
 }
 
-.accordion details {
-    background: transparent;
-    border: none;
 
-    margin-bottom: 12px;
-}
+.accordion > summary {
 
-.accordion summary {
     list-style: none;
 
     cursor: pointer;
 
-    background: var(--preto);
-    color: #030303;
+    background:
+        linear-gradient(
+            90deg,
+            var(--laranja),
+            var(--laranja-claro)
+        );
 
-    padding: 16px 20px;
+    color: var(--branco);
 
-    border-radius: 8px;
+    padding: 17px 22px;
 
-    font-size: 1.1rem;
-    font-weight: 600;
+    border-radius: 10px;
+
+    font-size: 1.05rem;
+
+    font-weight: 700;
 
     position: relative;
 
-    transition: 0.3s ease;
+    box-shadow:
+        0 4px 10px
+        rgba(0, 0, 0, 0.12);
+
 }
 
-.accordion summary:hover {
-    background: var(--laranja-claro);
-    color: var(--branco);
-}
 
-.accordion summary::-webkit-details-marker {
+.accordion > summary::-webkit-details-marker {
+
     display: none;
+
 }
 
-.accordion summary::after {
+
+.accordion > summary::after {
+
     content: "+";
 
     position: absolute;
 
     right: 20px;
+
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 25px;
+
 }
 
-.accordion details[open] summary::after {
+
+.accordion[open] > summary::after {
+
     content: "−";
+
 }
 
 
 /* =========================================================
-   CONTEÚDO DO ACCORDION
+   CONTEÚDO
 ========================================================= */
 
 .conteudo {
-    background: transparent;
 
-    color: #030303;
+    padding: 20px 10px;
 
-    padding: 10px 5px 10px;
+    animation:
+        abrir 0.3s ease;
 
-    border: none;
-
-    animation: abrir 0.3s ease;
 }
 
-.conteudo p,
-.conteudo li,
-.conteudo strong {
-    color: #030303;
+
+@keyframes abrir {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
 }
 
 
 /* =========================================================
-   PARÁGRAFOS DO CONTEÚDO
+   AULAS INTERNAS
 ========================================================= */
 
-.conteudo p {
-    text-align: justify;
+.aula {
 
-    margin: 2px 80px;
+    margin-bottom: 12px;
 
-    text-indent: 40px;
 }
 
-.conteudo h2,
-.conteudo h3,
-.conteudo h4 {
-    color: var(--laranja);
+
+.aula > summary {
+
+    list-style: none;
+
+    cursor: pointer;
+
+    background: var(--branco);
+
+    color: #111;
+
+    padding: 15px 20px;
+
+    border-radius: 9px;
+
+    font-weight: 600;
+
+    border-left:
+        5px solid
+        var(--laranja);
+
+    box-shadow:
+        0 3px 10px
+        rgba(0, 0, 0, 0.08);
+
+    position: relative;
+
 }
 
-.conteudo ul {
-    margin-left: 25px;
+
+.aula > summary::-webkit-details-marker {
+
+    display: none;
+
+}
+
+
+.aula > summary::after {
+
+    content: "+";
+
+    position: absolute;
+
+    right: 20px;
+
+    font-size: 24px;
+
+}
+
+
+.aula[open] > summary::after {
+
+    content: "−";
+
+}
+
+
+.aula-conteudo {
+
+    padding: 25px 20px;
+
+    background: var(--branco);
+
+    border-radius: 0 0 10px 10px;
+
 }
 
 
 /* =========================================================
-   PLAYER DE VÍDEO
+   TÍTULOS DA AULA
+========================================================= */
+
+.aula-conteudo h2 {
+
+    text-align: center;
+
+    margin:
+        10px
+        0
+        30px;
+
+    color: var(--laranja);
+
+}
+
+
+.aula-conteudo h3 {
+
+    margin-top: 30px;
+
+    margin-bottom: 10px;
+
+    color: var(--laranja);
+
+    border-left:
+        4px solid
+        var(--laranja);
+
+    padding-left: 10px;
+
+}
+
+
+/* =========================================================
+   LISTAS
+========================================================= */
+
+.aula-conteudo ul {
+
+    margin:
+        10px
+        0
+        20px
+        30px;
+
+}
+
+
+.aula-conteudo li {
+
+    margin-bottom: 7px;
+
+}
+
+
+/* =========================================================
+   CÓDIGO
+========================================================= */
+
+pre {
+
+    background: #1e293b;
+
+    color: #f8fafc;
+
+    padding: 18px;
+
+    margin:
+        20px
+        0;
+
+    border-radius: 10px;
+
+    overflow-x: auto;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.15);
+
+}
+
+
+code {
+
+    font-family:
+        "Courier New",
+        monospace;
+
+}
+
+
+/* =========================================================
+   MAPA MENTAL
+========================================================= */
+
+.mapa-mental-section {
+
+    width: 100%;
+
+    margin:
+        50px
+        auto;
+
+    padding:
+        25px
+        15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f8fafc
+        );
+
+    border-radius: 18px;
+
+    border:
+        2px solid
+        rgba(
+            255,
+            111,
+            0,
+            0.15
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+
+    overflow: hidden;
+
+}
+
+
+.titulo-secao {
+
+    text-align: center;
+
+    color: var(--laranja);
+
+    margin-bottom: 10px;
+
+}
+
+
+.descricao-mapa {
+
+    text-align: center;
+
+    color: #64748b;
+
+    max-width: 800px;
+
+    margin:
+        0
+        auto
+        25px;
+
+}
+
+
+/* =========================================================
+   ÁREA DO MAPA
+========================================================= */
+
+#mapa-mental {
+
+    width: 100%;
+
+    min-height: 650px;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    border-radius: 15px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(
+                255,
+                111,
+                0,
+                0.05
+            ),
+            transparent 60%
+        );
+
+}
+
+
+#mapa-mental svg {
+
+    display: block;
+
+    width: 100%;
+
+    min-width: 1000px;
+
+    height: 650px;
+
+}
+
+
+/* =========================================================
+   LINHAS DO MAPA
+========================================================= */
+
+.linha-mapa {
+
+    fill: none;
+
+    stroke:
+        var(--laranja);
+
+    stroke-width: 3;
+
+    stroke-linecap: round;
+
+    opacity: 0.5;
+
+}
+
+
+/* =========================================================
+   NÓ CENTRAL
+========================================================= */
+
+.no-central {
+
+    fill:
+        var(--laranja);
+
+    stroke:
+        #ffffff;
+
+    stroke-width: 5;
+
+    filter:
+        drop-shadow(
+            0 5px 8px
+            rgba(0, 0, 0, 0.25)
+        );
+
+}
+
+
+/* =========================================================
+   NÓS PRINCIPAIS
+========================================================= */
+
+.no-principal {
+
+    fill:
+        var(--laranja-claro);
+
+    stroke:
+        #ffffff;
+
+    stroke-width: 3;
+
+    filter:
+        drop-shadow(
+            0 4px 7px
+            rgba(0, 0, 0, 0.18)
+        );
+
+}
+
+
+/* =========================================================
+   NÓS SECUNDÁRIOS
+========================================================= */
+
+.no-secundario {
+
+    fill:
+        #ffffff;
+
+    stroke:
+        var(--laranja);
+
+    stroke-width: 2;
+
+    filter:
+        drop-shadow(
+            0 3px 5px
+            rgba(0, 0, 0, 0.15)
+        );
+
+}
+
+
+/* =========================================================
+   TEXTO DO MAPA
+========================================================= */
+
+.texto-central {
+
+    fill: #ffffff;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    text-anchor: middle;
+
+    dominant-baseline: middle;
+
+}
+
+
+.texto-principal {
+
+    fill: #ffffff;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-anchor: middle;
+
+    dominant-baseline: middle;
+
+}
+
+
+.texto-secundario {
+
+    fill: #222;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    text-anchor: middle;
+
+    dominant-baseline: middle;
+
+}
+
+
+/* =========================================================
+   MAPA — HOVER
+========================================================= */
+
+.no-principal,
+.no-secundario {
+
+    transition:
+        filter 0.25s ease;
+
+}
+
+
+.no-principal:hover,
+.no-secundario:hover {
+
+    filter:
+        drop-shadow(
+            0 7px 12px
+            rgba(
+                255,
+                111,
+                0,
+                0.45
+            )
+        );
+
+}
+
+
+/* =========================================================
+   CARREGANDO MAPA
+========================================================= */
+
+.carregando-mapa {
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    color: #64748b;
+
+}
+
+
+/* =========================================================
+   VÍDEOS
 ========================================================= */
 
 .video-container {
+
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     width: 100%;
 
-    margin: 25px auto;
+    margin:
+        30px
+        auto;
+
 }
 
+
 .video-container video {
-    width: 350px;
-    max-width: 85%;
+
+    width: 400px;
+
+    max-width: 90%;
 
     height: auto;
 
@@ -344,55 +921,21 @@ p {
 
     border-radius: 12px;
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow:
+        0 5px 18px
+        rgba(0, 0, 0, 0.2);
 
-    transition: 0.3s ease;
+    transition:
+        0.3s ease;
+
 }
+
 
 .video-container video:hover {
-    transform: scale(1.02);
 
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
-}
+    transform:
+        scale(1.02);
 
-
-/* =========================================================
-   ANIMAÇÃO DO ACCORDION
-========================================================= */
-
-@keyframes abrir {
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================================
-   RODAPÉ
-========================================================= */
-
-footer {
-    background: var(--branco);
-
-    text-align: center;
-
-    padding: 30px;
-
-    margin-top: 50px;
-
-    border-top: 3px solid var(--laranja);
-}
-
-footer p {
-    text-align: center;
-    text-indent: 0;
-    margin: 0;
 }
 
 
@@ -400,133 +943,118 @@ footer p {
    CARDS
 ========================================================= */
 
+#tecnologias {
+
+    margin-top: 50px;
+
+}
+
+
+.instrucao-card {
+
+    text-align: center;
+
+    color: #64748b;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================================
+   CONTAINER DOS CARDS
+========================================================= */
+
 .cards {
+
     display: flex;
 
-    gap: 20px;
+    gap: 25px;
 
     flex-wrap: wrap;
 
     justify-content: center;
+
     align-items: flex-start;
 
-    margin-top: 30px;
 }
 
 
 /* =========================================================
-   CARD PRINCIPAL
+   CARD
 ========================================================= */
 
 .card {
-    width: 250px;
-    min-height: 110px;
 
-    padding: 20px;
+    width: 300px;
 
-    background: rgba(30, 41, 59, 0.7);
+    min-height: 220px;
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-left: 5px solid transparent;
+    padding: 22px;
 
-    border-radius: 12px;
+    background:
+        linear-gradient(
+            145deg,
+            #1e293b,
+            #0f172a
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+    border-left:
+        5px solid
+        var(--laranja);
+
+    border-radius: 14px;
 
     color: #f1f5f9;
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-
-    transition:
-        transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        box-shadow 0.4s ease,
-        background-color 0.4s ease,
-        border-color 0.4s ease;
+    box-shadow:
+        0 5px 18px
+        rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
 
     cursor: pointer;
 
     overflow: hidden;
-}
-
-
-/* =========================================================
-   INFORMAÇÃO EXTRA DO CARD
-========================================================= */
-
-.card .info-extra {
-    opacity: 0;
-
-    max-height: 0;
-
-    overflow: hidden;
-
-    margin: 0;
-    padding: 0;
-
-    font-size: 0.9rem;
-
-    line-height: 1.4;
-
-    color: #94a3b8;
 
     transition:
-        opacity 0.4s ease,
-        max-height 0.4s ease,
-        margin-top 0.4s ease,
-        padding 0.4s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
 }
 
 
 /* =========================================================
-   INFORMAÇÃO EXTRA — CARD ATIVO
-========================================================= */
-
-.card.ativo .info-extra {
-    opacity: 1;
-
-    max-height: 300px;
-
-    margin-top: 15px;
-
-    padding-top: 5px;
-}
-
-
-/* =========================================================
-   ANIMAÇÃO DE PULSAÇÃO DOS CARDS
-========================================================= */
-
-@keyframes pulsarAtencao {
-    0% {
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    50% {
-        box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
-        border-color: rgba(99, 102, 241, 0.3);
-    }
-
-    100% {
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        border-color: rgba(255, 255, 255, 0.1);
-    }
-}
-
-
-/* =========================================================
-   PULSAÇÃO APENAS NOS CARDS INATIVOS
-========================================================= */
-
-.card:not(.ativo) {
-    animation: pulsarAtencao 3s infinite ease-in-out;
-}
-
-
-/* =========================================================
-   HOVER
+   HOVER CARD
 ========================================================= */
 
 .card:hover {
-    transform: translateY(-4px) scale(1.02);
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(
+            255,
+            111,
+            0,
+            0.25
+        );
+
 }
 
 
@@ -535,88 +1063,256 @@ footer p {
 ========================================================= */
 
 .card.ativo {
-    transform: translateY(-8px) scale(1.05);
 
-    animation: none;
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    background:
+        linear-gradient(
+            145deg,
+            #26374d,
+            #172235
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(
+            255,
+            111,
+            0,
+            0.3
+        );
+
 }
 
 
 /* =========================================================
-   EFEITO DE CLIQUE
+   TÍTULO DO CARD
 ========================================================= */
 
-.card:active {
-    transform: translateY(-3px) scale(0.98) !important;
+.card h3 {
 
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4) !important;
+    color:
+        #ff9800;
 
-    transition: transform 0.1s ease !important;
+    margin-bottom:
+        12px;
+
+    font-size:
+        1.1rem;
+
 }
 
 
 /* =========================================================
-   CARD 1 — HTML
+   RESUMO
 ========================================================= */
 
-.card:hover:nth-child(1),
-.card.ativo:nth-child(1) {
-    background-color: rgba(227, 79, 38, 0.15);
+.card .resumo {
 
-    border-left: 5px solid var(--html);
+    color:
+        #e2e8f0;
 
-    box-shadow: 0 10px 25px rgba(227, 79, 38, 0.3);
-}
+    font-size:
+        0.92rem;
 
-.card:hover:nth-child(1) h3,
-.card.ativo:nth-child(1) h3 {
-    color: #ff6b4a;
+    line-height:
+        1.6;
+
+    text-align:
+        left;
+
+    margin: 0;
+
 }
 
 
 /* =========================================================
-   CARD 2 — CSS
+   INFORMAÇÃO EXTRA
 ========================================================= */
 
-.card:hover:nth-child(2),
-.card.ativo:nth-child(2) {
-    background-color: rgba(21, 114, 182, 0.2);
+.card .info-extra {
 
-    border-left: 5px solid var(--css);
+    opacity: 0;
 
-    box-shadow: 0 10px 25px rgba(21, 114, 182, 0.3);
-}
+    max-height: 0;
 
-.card:hover:nth-child(2) h3,
-.card.ativo:nth-child(2) h3 {
-    color: #38bdf8;
+    overflow: hidden;
+
+    margin-top: 0;
+
+    color:
+        #cbd5e1;
+
+    font-size:
+        0.88rem;
+
+    line-height:
+        1.6;
+
+    transition:
+        max-height 0.45s ease,
+        opacity 0.35s ease,
+        margin-top 0.35s ease;
+
 }
 
 
 /* =========================================================
-   CARD 3 — JAVASCRIPT
+   PARÁGRAFOS DA INFORMAÇÃO EXTRA
 ========================================================= */
 
-.card:hover:nth-child(3),
-.card.ativo:nth-child(3) {
-    background-color: rgba(247, 223, 30, 0.1);
+.card .info-extra p {
 
-    border-left: 5px solid var(--javascript);
+    color:
+        #cbd5e1;
 
-    box-shadow: 0 10px 25px rgba(247, 223, 30, 0.2);
+    text-align:
+        left;
+
+    margin-bottom:
+        10px;
+
 }
 
-.card:hover:nth-child(3) h3,
-.card.ativo:nth-child(3) h3 {
-    color: #fef08a;
+
+.card .info-extra strong {
+
+    color:
+        #ffb74d;
+
 }
 
 
 /* =========================================================
-   QUIZ
+   CARD ABERTO
 ========================================================= */
 
-#quiz {
-    text-align: center;
+.card.ativo .info-extra {
+
+    opacity: 1;
+
+    max-height: 500px;
+
+    margin-top: 18px;
+
+}
+
+
+/* =========================================================
+   PULSAÇÃO
+========================================================= */
+
+@keyframes pulsarAtencao {
+
+    0% {
+
+        box-shadow:
+            0 5px 18px
+            rgba(
+                0,
+                0,
+                0,
+                0.25
+            );
+
+    }
+
+    50% {
+
+        box-shadow:
+            0 5px 22px
+            rgba(
+                255,
+                111,
+                0,
+                0.15
+            );
+
+    }
+
+    100% {
+
+        box-shadow:
+            0 5px 18px
+            rgba(
+                0,
+                0,
+                0,
+                0.25
+            );
+
+    }
+
+}
+
+
+.card:not(.ativo) {
+
+    animation:
+        pulsarAtencao
+        3s
+        infinite
+        ease-in-out;
+
+}
+
+
+/* =========================================================
+   ATIVIDADES
+========================================================= */
+
+.conteudo > ul {
+
+    padding:
+        15px
+        30px;
+
+}
+
+
+.conteudo > ul li {
+
+    margin-bottom:
+        8px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    background:
+        var(--branco);
+
+    text-align:
+        center;
+
+    padding:
+        30px;
+
+    margin-top:
+        50px;
+
+    border-top:
+        3px solid
+        var(--laranja);
+
+}
+
+
+footer p {
+
+    text-align:
+        center;
+
+    margin:
+        0;
+
 }
 
 
@@ -626,54 +1322,112 @@ footer p {
 
 @media (max-width: 768px) {
 
+
     header {
-        flex-direction: column;
 
-        gap: 15px;
+        flex-direction:
+            column;
 
-        padding: 25px;
+        gap:
+            12px;
+
+        padding:
+            20px;
+
     }
+
 
     .titulo-barra {
-        font-size: 1.4rem;
+
+        font-size:
+            1.4rem;
+
     }
+
 
     .logo-img {
-        width: 50px;
-        height: 50px;
+
+        width:
+            55px;
+
+        height:
+            55px;
+
     }
+
 
     nav ul {
-        flex-direction: column;
 
-        align-items: center;
+        flex-direction:
+            column;
 
-        gap: 15px;
+        gap:
+            12px;
+
     }
+
 
     main {
-        width: 95%;
 
-        padding: 20px;
+        width:
+            96%;
+
+        padding:
+            5px;
+
     }
 
-    .conteudo p {
-        margin: 2px 40px;
+
+    .aula-conteudo {
+
+        padding:
+            20px 10px;
+
     }
 
-    .video-container video {
-        width: 320px;
 
-        max-width: 90%;
+    .mapa-mental-section {
+
+        padding:
+            15px 5px;
+
     }
+
+
+    #mapa-mental {
+
+        min-height:
+            550px;
+
+    }
+
+
+    #mapa-mental svg {
+
+        min-width:
+            900px;
+
+        height:
+            550px;
+
+    }
+
 
     .cards {
-        gap: 15px;
+
+        gap:
+            18px;
+
     }
 
+
     .card {
-        width: 220px;
+
+        width:
+            280px;
+
     }
+
 }
 
 
@@ -683,98 +1437,169 @@ footer p {
 
 @media (max-width: 480px) {
 
+
     header {
-        padding: 20px;
+
+        padding:
+            15px;
+
     }
+
 
     .titulo-barra {
-        font-size: 1.1rem;
+
+        font-size:
+            1.1rem;
+
     }
+
 
     .logo-img {
-        width: 45px;
-        height: 45px;
+
+        width:
+            45px;
+
+        height:
+            45px;
+
     }
+
 
     nav ul {
-        padding: 12px;
+
+        padding:
+            12px;
+
     }
 
-    .accordion summary {
-        font-size: 0.95rem;
 
-        padding: 13px 40px 13px 15px;
+    .accordion > summary {
+
+        font-size:
+            0.9rem;
+
+        padding:
+            13px
+            40px
+            13px
+            15px;
+
     }
 
-    .conteudo {
-        padding: 10px 5px 20px;
+
+    .aula > summary {
+
+        font-size:
+            0.9rem;
+
+        padding:
+            13px
+            40px
+            13px
+            15px;
+
     }
 
-    .conteudo p {
-        margin: 2px 15px;
 
-        text-align: justify;
+    .aula-conteudo h2 {
 
-        text-indent: 40px;
+        font-size:
+            1.3rem;
+
     }
 
-    .conteudo ul {
-        margin-left: 25px;
-        margin-right: 10px;
+
+    .aula-conteudo h3 {
+
+        font-size:
+            1.05rem;
+
     }
 
-    .video-container {
-        width: 100%;
 
-        margin: 20px auto;
+    .aula-conteudo p {
+
+        text-align:
+            justify;
+
     }
 
-    .video-container video {
-        width: 280px;
 
-        max-width: 90%;
+    pre {
+
+        font-size:
+            0.75rem;
+
     }
+
+
+    .mapa-mental-section {
+
+        margin:
+            30px
+            auto;
+
+    }
+
+
+    #mapa-mental {
+
+        min-height:
+            500px;
+
+    }
+
+
+    #mapa-mental svg {
+
+        min-width:
+            850px;
+
+        height:
+            500px;
+
+    }
+
 
     .cards {
-        flex-direction: column;
 
-        align-items: center;
+        flex-direction:
+            column;
 
-        width: 100%;
+        align-items:
+            center;
+
+        width:
+            100%;
+
     }
+
 
     .card {
-        width: 90%;
-        max-width: 320px;
+
+        width:
+            95%;
+
+        max-width:
+            340px;
+
     }
+
+
+    .video-container video {
+
+        width:
+            280px;
+
+    }
+
 
     footer {
-        padding: 25px 15px;
+
+        padding:
+            25px
+            15px;
+
     }
 
-    footer p {
-        margin: 0;
-        text-indent: 0;
-    }
 }
-```
-
-**Importante:** esse CSS sozinho não faz o card abrir ao clicar. Ele espera que seu JavaScript adicione a classe `.ativo`.
-
-Use este JavaScript junto:
-
-```html
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".card");
-
-    cards.forEach(card => {
-        card.addEventListener("click", () => {
-            card.classList.toggle("ativo");
-        });
-    });
-});
-</script>
-```
-
-Com os dois juntos, a `.info-extra` fica escondida inicialmente e **abre ao clicar no card**, fechando quando clicar novamente.
