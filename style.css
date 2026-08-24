@@ -943,40 +943,14 @@ code {
    CARDS
 ========================================================= */
 
-#tecnologias {
-
-    margin-top: 50px;
-
-}
-
-
-.instrucao-card {
-
-    text-align: center;
-
-    color: #64748b;
-
-    margin-bottom: 25px;
-
-}
-
-
-/* =========================================================
-   CONTAINER DOS CARDS
-========================================================= */
-
 .cards {
-
     display: flex;
-
-    gap: 25px;
-
-    flex-wrap: wrap;
-
     justify-content: center;
-
     align-items: flex-start;
-
+    flex-wrap: wrap;
+    gap: 25px;
+    width: 100%;
+    margin-top: 30px;
 }
 
 
@@ -985,126 +959,261 @@ code {
 ========================================================= */
 
 .card {
+    position: relative;
 
-    width: 300px;
-
-    min-height: 220px;
+    width: 280px;
+    min-height: 180px;
 
     padding: 22px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #1e293b,
-            #0f172a
-        );
+    background: linear-gradient(
+        145deg,
+        #1e293b,
+        #0f172a
+    );
 
-    border:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.1
-        );
-
-    border-left:
-        5px solid
-        var(--laranja);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 5px solid #6366f1;
 
     border-radius: 14px;
 
-    color: #f1f5f9;
+    color: #f8fafc;
 
     box-shadow:
-        0 5px 18px
-        rgba(
-            0,
-            0,
-            0,
-            0.25
-        );
+        0 5px 18px rgba(0, 0, 0, 0.25);
 
     cursor: pointer;
 
     overflow: hidden;
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
 
+    animation: pulsarAtencao 3s infinite ease-in-out;
 }
 
 
 /* =========================================================
-   HOVER CARD
+   HOVER
 ========================================================= */
 
 .card:hover {
-
-    transform:
-        translateY(-8px);
+    transform: translateY(-8px) scale(1.03);
 
     box-shadow:
-        0 12px 28px
-        rgba(
-            255,
-            111,
-            0,
-            0.25
-        );
-
+        0 12px 30px rgba(99, 102, 241, 0.35);
 }
 
 
 /* =========================================================
-   CARD ATIVO
-========================================================= */
-
-.card.ativo {
-
-    transform:
-        translateY(-8px)
-        scale(1.02);
-
-    background:
-        linear-gradient(
-            145deg,
-            #26374d,
-            #172235
-        );
-
-    box-shadow:
-        0 12px 30px
-        rgba(
-            255,
-            111,
-            0,
-            0.3
-        );
-
-}
-
-
-/* =========================================================
-   TÍTULO DO CARD
+   TÍTULO
 ========================================================= */
 
 .card h3 {
+    color: #ffffff;
 
-    color:
-        #ff9800;
+    font-size: 1.15rem;
 
-    margin-bottom:
-        12px;
+    margin-bottom: 12px;
 
-    font-size:
-        1.1rem;
+    text-align: center;
+}
+
+
+/* =========================================================
+   RESUMO
+========================================================= */
+
+.card .resumo {
+    color: #cbd5e1;
+
+    font-size: 0.92rem;
+
+    line-height: 1.6;
+
+    text-align: center;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   INFORMAÇÃO EXTRA
+========================================================= */
+
+.card .info-extra {
+
+    /* ESCONDIDO INICIALMENTE */
+    display: none;
+
+    margin-top: 18px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    color: #e2e8f0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   PARÁGRAFOS DA INFORMAÇÃO EXTRA
+========================================================= */
+
+.card .info-extra p {
+    color: #e2e8f0;
+
+    margin-bottom: 12px;
+
+    text-align: left;
+
+    text-indent: 0;
+}
+
+
+/* =========================================================
+   CARD ABERTO
+========================================================= */
+
+.card.ativo {
+    transform: translateY(-8px);
+
+    background: linear-gradient(
+        145deg,
+        #312e81,
+        #1e1b4b
+    );
+
+    box-shadow:
+        0 15px 35px rgba(99, 102, 241, 0.4);
+}
+
+
+/* =========================================================
+   MOSTRAR INFORMAÇÃO EXTRA
+========================================================= */
+
+.card.ativo .info-extra {
+    display: block;
+
+    animation: aparecerInfo 0.35s ease forwards;
+}
+
+
+/* =========================================================
+   TEXTO "CLIQUE PARA VER MAIS"
+========================================================= */
+
+.ver-mais {
+    display: block;
+
+    margin-top: 15px;
+
+    padding-top: 10px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: #a5b4fc;
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   MUDAR TEXTO QUANDO ABERTO
+========================================================= */
+
+.card.ativo .ver-mais {
+    color: #fbbf24;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DA INFORMAÇÃO
+========================================================= */
+
+@keyframes aparecerInfo {
+
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
 }
 
 
+/* =========================================================
+   ANIMAÇÃO DO CARD
+========================================================= */
+
+@keyframes pulsarAtencao {
+
+    0% {
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 5px 25px rgba(99, 102, 241, 0.22);
+    }
+
+    100% {
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.25);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .cards {
+        gap: 18px;
+    }
+
+    .card {
+        width: 45%;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .cards {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 340px;
+    }
+
+}
 /* =========================================================
    RESUMO
 ========================================================= */
