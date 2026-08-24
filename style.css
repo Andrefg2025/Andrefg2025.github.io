@@ -457,6 +457,11 @@ p {
 
     right: 20px;
 
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
     font-size: 24px;
 
 }
@@ -944,13 +949,21 @@ code {
 ========================================================= */
 
 .cards {
+
     display: flex;
+
     justify-content: center;
+
     align-items: flex-start;
+
     flex-wrap: wrap;
+
     gap: 25px;
+
     width: 100%;
+
     margin-top: 30px;
+
 }
 
 
@@ -959,28 +972,47 @@ code {
 ========================================================= */
 
 .card {
+
     position: relative;
 
     width: 280px;
+
     min-height: 180px;
 
     padding: 22px;
 
-    background: linear-gradient(
-        145deg,
-        #1e293b,
-        #0f172a
-    );
+    background:
+        linear-gradient(
+            145deg,
+            #1e293b,
+            #0f172a
+        );
 
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-left: 5px solid #6366f1;
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
+    border-left:
+        5px solid
+        #6366f1;
 
     border-radius: 14px;
 
     color: #f8fafc;
 
     box-shadow:
-        0 5px 18px rgba(0, 0, 0, 0.25);
+        0 5px 18px
+        rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
 
     cursor: pointer;
 
@@ -991,7 +1023,6 @@ code {
         box-shadow 0.35s ease,
         background 0.35s ease;
 
-    animation: pulsarAtencao 3s infinite ease-in-out;
 }
 
 
@@ -1000,10 +1031,20 @@ code {
 ========================================================= */
 
 .card:hover {
-    transform: translateY(-8px) scale(1.03);
+
+    transform:
+        translateY(-8px)
+        scale(1.03);
 
     box-shadow:
-        0 12px 30px rgba(99, 102, 241, 0.35);
+        0 12px 30px
+        rgba(
+            99,
+            102,
+            241,
+            0.35
+        );
+
 }
 
 
@@ -1012,208 +1053,21 @@ code {
 ========================================================= */
 
 .card h3 {
+
     color: #ffffff;
 
-    font-size: 1.15rem;
+    font-size:
+        1.15rem;
 
-    margin-bottom: 12px;
+    margin-bottom:
+        12px;
 
-    text-align: center;
-}
-
-
-/* =========================================================
-   RESUMO
-========================================================= */
-
-.card .resumo {
-    color: #cbd5e1;
-
-    font-size: 0.92rem;
-
-    line-height: 1.6;
-
-    text-align: center;
-
-    margin: 0;
-}
-
-
-/* =========================================================
-   INFORMAÇÃO EXTRA
-========================================================= */
-
-.card .info-extra {
-
-    /* ESCONDIDO INICIALMENTE */
-    display: none;
-
-    margin-top: 18px;
-
-    padding-top: 15px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-
-    color: #e2e8f0;
-
-    font-size: 0.9rem;
-
-    line-height: 1.6;
-
-    text-align: left;
-}
-
-
-/* =========================================================
-   PARÁGRAFOS DA INFORMAÇÃO EXTRA
-========================================================= */
-
-.card .info-extra p {
-    color: #e2e8f0;
-
-    margin-bottom: 12px;
-
-    text-align: left;
-
-    text-indent: 0;
-}
-
-
-/* =========================================================
-   CARD ABERTO
-========================================================= */
-
-.card.ativo {
-    transform: translateY(-8px);
-
-    background: linear-gradient(
-        145deg,
-        #312e81,
-        #1e1b4b
-    );
-
-    box-shadow:
-        0 15px 35px rgba(99, 102, 241, 0.4);
-}
-
-
-/* =========================================================
-   MOSTRAR INFORMAÇÃO EXTRA
-========================================================= */
-
-.card.ativo .info-extra {
-    display: block;
-
-    animation: aparecerInfo 0.35s ease forwards;
-}
-
-
-/* =========================================================
-   TEXTO "CLIQUE PARA VER MAIS"
-========================================================= */
-
-.ver-mais {
-    display: block;
-
-    margin-top: 15px;
-
-    padding-top: 10px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-
-    color: #a5b4fc;
-
-    font-size: 0.8rem;
-
-    font-weight: 600;
-
-    text-align: center;
-}
-
-
-/* =========================================================
-   MUDAR TEXTO QUANDO ABERTO
-========================================================= */
-
-.card.ativo .ver-mais {
-    color: #fbbf24;
-}
-
-
-/* =========================================================
-   ANIMAÇÃO DA INFORMAÇÃO
-========================================================= */
-
-@keyframes aparecerInfo {
-
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    text-align:
+        center;
 
 }
 
 
-/* =========================================================
-   ANIMAÇÃO DO CARD
-========================================================= */
-
-@keyframes pulsarAtencao {
-
-    0% {
-        box-shadow:
-            0 5px 18px rgba(0, 0, 0, 0.25);
-    }
-
-    50% {
-        box-shadow:
-            0 5px 25px rgba(99, 102, 241, 0.22);
-    }
-
-    100% {
-        box-shadow:
-            0 5px 18px rgba(0, 0, 0, 0.25);
-    }
-
-}
-
-
-/* =========================================================
-   RESPONSIVIDADE
-========================================================= */
-
-@media (max-width: 768px) {
-
-    .cards {
-        gap: 18px;
-    }
-
-    .card {
-        width: 45%;
-    }
-
-}
-
-
-@media (max-width: 480px) {
-
-    .cards {
-        flex-direction: column;
-
-        align-items: center;
-    }
-
-    .card {
-        width: 90%;
-        max-width: 340px;
-    }
-
-}
 /* =========================================================
    RESUMO
 ========================================================= */
@@ -1232,7 +1086,8 @@ code {
     text-align:
         left;
 
-    margin: 0;
+    margin:
+        0;
 
 }
 
@@ -1251,6 +1106,17 @@ code {
 
     margin-top: 0;
 
+    padding-top: 0;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.15
+        );
+
     color:
         #cbd5e1;
 
@@ -1263,7 +1129,8 @@ code {
     transition:
         max-height 0.45s ease,
         opacity 0.35s ease,
-        margin-top 0.35s ease;
+        margin-top 0.35s ease,
+        padding-top 0.35s ease;
 
 }
 
@@ -1298,6 +1165,30 @@ code {
    CARD ABERTO
 ========================================================= */
 
+.card.ativo {
+
+    transform:
+        translateY(-8px);
+
+    background:
+        linear-gradient(
+            145deg,
+            #312e81,
+            #1e1b4b
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(
+            99,
+            102,
+            241,
+            0.4
+        );
+
+}
+
+
 .card.ativo .info-extra {
 
     opacity: 1;
@@ -1306,11 +1197,86 @@ code {
 
     margin-top: 18px;
 
+    padding-top: 15px;
+
 }
 
 
 /* =========================================================
-   PULSAÇÃO
+   TEXTO "CLIQUE PARA VER MAIS"
+========================================================= */
+
+.ver-mais {
+
+    display: block;
+
+    margin-top:
+        15px;
+
+    padding-top:
+        10px;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+    color:
+        #a5b4fc;
+
+    font-size:
+        0.8rem;
+
+    font-weight:
+        600;
+
+    text-align:
+        center;
+
+}
+
+
+.card.ativo .ver-mais {
+
+    color:
+        #fbbf24;
+
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DA INFORMAÇÃO
+========================================================= */
+
+@keyframes aparecerInfo {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DO CARD
 ========================================================= */
 
 @keyframes pulsarAtencao {
@@ -1385,6 +1351,292 @@ code {
 
     margin-bottom:
         8px;
+
+}
+
+
+/* =========================================================
+   ATIVIDADES INTERATIVAS
+========================================================= */
+
+#atividades,
+#atividades-gerador {
+
+    width: 100%;
+
+    margin:
+        30px
+        auto;
+
+    padding:
+        25px;
+
+    background:
+        var(--branco);
+
+    border-radius:
+        15px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+
+}
+
+
+#atividades h2,
+#atividades-gerador h2 {
+
+    color:
+        var(--laranja);
+
+    text-align:
+        center;
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.descricao-atividade {
+
+    color:
+        var(--cinza);
+
+    text-align:
+        center;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+/* =========================================================
+   CONFIGURAÇÃO DAS ATIVIDADES
+========================================================= */
+
+.config-atividade,
+.seletor-atividade {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.config-atividade label,
+.seletor-atividade label {
+
+    font-weight:
+        600;
+
+}
+
+
+.config-atividade select,
+.seletor-atividade select {
+
+    padding:
+        10px
+        14px;
+
+    border:
+        1px solid
+        #cbd5e1;
+
+    border-radius:
+        8px;
+
+    background:
+        #ffffff;
+
+    color:
+        var(--texto);
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+}
+
+
+.config-atividade button,
+.seletor-atividade button {
+
+    padding:
+        10px
+        18px;
+
+    border:
+        none;
+
+    border-radius:
+        8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--laranja),
+            var(--laranja-claro)
+        );
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.3s ease;
+
+}
+
+
+.config-atividade button:hover,
+.seletor-atividade button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 5px 15px
+        rgba(
+            255,
+            111,
+            0,
+            0.3
+        );
+
+}
+
+
+/* =========================================================
+   STATUS DAS ATIVIDADES
+========================================================= */
+
+.status-atividade {
+
+    text-align:
+        center;
+
+    color:
+        var(--cinza);
+
+    margin-bottom:
+        20px;
+
+}
+
+
+/* =========================================================
+   ÁREA DA ATIVIDADE
+========================================================= */
+
+.atividade {
+
+    width: 100%;
+
+    padding:
+        25px;
+
+    background:
+        #f8fafc;
+
+    border-radius:
+        12px;
+
+}
+
+
+.atividade-inicial {
+
+    text-align:
+        center;
+
+    padding:
+        30px
+        10px;
+
+}
+
+
+.atividade-inicial span {
+
+    display: block;
+
+    font-size:
+        3rem;
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.atividade-inicial h3 {
+
+    color:
+        var(--laranja);
+
+    margin-bottom:
+        8px;
+
+}
+
+
+.atividade-inicial p {
+
+    text-align:
+        center;
+
+    color:
+        var(--cinza);
+
+}
+
+
+/* =========================================================
+   RESULTADO
+========================================================= */
+
+.resultado,
+.resultado-atividade {
+
+    margin-top:
+        25px;
+
+    padding:
+        20px;
+
+    border-radius:
+        12px;
+
+    background:
+        #f8fafc;
 
 }
 
@@ -1534,6 +1786,16 @@ footer p {
 
         width:
             280px;
+
+    }
+
+
+    #atividades,
+    #atividades-gerador {
+
+        padding:
+            20px
+            15px;
 
     }
 
@@ -1699,6 +1961,36 @@ footer p {
 
         width:
             280px;
+
+    }
+
+
+    #atividades,
+    #atividades-gerador {
+
+        padding:
+            18px
+            12px;
+
+    }
+
+
+    .config-atividade,
+    .seletor-atividade {
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .config-atividade select,
+    .config-atividade button,
+    .seletor-atividade select,
+    .seletor-atividade button {
+
+        width:
+            100%;
 
     }
 
