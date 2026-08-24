@@ -1013,6 +1013,127 @@
 
             <li>
                 Exercícios Práticos
+                <!-- =========================================================
+     GERADOR DE ATIVIDADES
+========================================================= -->
+
+<section id="atividades-gerador">
+
+    <h2>🎯 Atividades Interativas</h2>
+
+    <p class="descricao-atividade">
+        Selecione um tópico e gere atividades aleatórias para testar
+        seus conhecimentos.
+    </p>
+
+    <!-- SELEÇÃO DO TÓPICO -->
+
+    <div class="seletor-atividade">
+
+        <label for="topico">
+            Escolha o tópico:
+        </label>
+
+        <select id="topico">
+
+            <option value="todos">
+                Todos os tópicos
+            </option>
+
+            <option value="algoritmos">
+                Algoritmos
+            </option>
+
+            <option value="estruturas">
+                Estruturas de Dados
+            </option>
+
+            <option value="arrays">
+                Arrays
+            </option>
+
+            <option value="listas">
+                Listas Encadeadas
+            </option>
+
+            <option value="pilhas">
+                Pilhas
+            </option>
+
+            <option value="filas">
+                Filas
+            </option>
+
+            <option value="arvores">
+                Árvores
+            </option>
+
+            <option value="grafos">
+                Grafos
+            </option>
+
+            <option value="hash">
+                Tabelas Hash
+            </option>
+
+            <option value="ordenacao">
+                Algoritmos de Ordenação
+            </option>
+
+            <option value="complexidade">
+                Complexidade e Big O
+            </option>
+
+            <option value="programacao-dinamica">
+                Programação Dinâmica
+            </option>
+
+        </select>
+
+        <button
+            type="button"
+            onclick="gerarAtividade()"
+        >
+            🎲 Gerar Atividade
+        </button>
+
+    </div>
+
+
+    <!-- ÁREA DA QUESTÃO -->
+
+    <div
+        id="atividade"
+        class="atividade"
+    >
+
+        <div class="atividade-inicial">
+
+            <span>📚</span>
+
+            <h3>
+                Pronto para estudar?
+            </h3>
+
+            <p>
+                Escolha um tópico e clique em
+                <strong>Gerar Atividade</strong>.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- RESULTADO -->
+
+    <div
+        id="resultado"
+        class="resultado"
+    >
+    </div>
+
+</section>
             </li>
 
             <li>
