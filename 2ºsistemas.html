@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -7,10 +8,6 @@
 
     <title>Plataforma de Estudo</title>
 
-    <!-- =====================================================
-         FONTES
-    ====================================================== -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -19,32 +16,1005 @@
         rel="stylesheet"
     >
 
-    <!-- =====================================================
-         CSS
-    ====================================================== -->
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- =====================================================
-         FAVICON
-    ====================================================== -->
-
     <link
         rel="icon"
         type="image/png"
         href="DS.png"
     >
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+
+        /* =====================================================
+           VARIÁVEIS
+        ===================================================== */
+
+        :root {
+            --laranja: #ff6f00;
+            --laranja-claro: #ff9800;
+            --amarelo: #ffd54f;
+
+            --preto: #faf8f8;
+            --texto: #080000;
+            --branco: #ffffff;
+
+            --html: #e34f26;
+            --css: #1572b6;
+            --javascript: #f7df1e;
+        }
+
+
+        /* =====================================================
+           BODY
+        ===================================================== */
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(
+                180deg,
+                #f8f8f8,
+                #f8f7f7
+            );
+
+            color: var(--texto);
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 12px 40px;
+
+            background: linear-gradient(
+                90deg,
+                var(--laranja),
+                var(--laranja-claro)
+            );
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =====================================================
+           LOGOS
+        ===================================================== */
+
+        .logo-esquerda,
+        .logo-direita {
+            display: flex;
+            align-items: center;
+
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 65px;
+            height: 65px;
+
+            object-fit: contain;
+
+            background: var(--branco);
+
+            border-radius: 50%;
+
+            padding: 4px;
+
+            transition: 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform:
+                scale(1.08)
+                rotate(3deg);
+        }
+
+
+        /* =====================================================
+           TÍTULO
+        ===================================================== */
+
+        .titulo-link {
+            text-decoration: none;
+        }
+
+        .titulo-barra {
+            color: var(--branco);
+
+            font-size: 2rem;
+            font-weight: 700;
+
+            text-align: center;
+
+            letter-spacing: 1px;
+
+            transition: 0.3s ease;
+        }
+
+        .titulo-barra:hover {
+            color: var(--amarelo);
+        }
+
+
+        /* =====================================================
+           MENU
+        ===================================================== */
+
+        nav {
+            background: var(--branco);
+
+            border-bottom:
+                3px solid var(--laranja);
+        }
+
+        nav ul {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 35px;
+
+            list-style: none;
+
+            padding: 15px;
+        }
+
+        nav a {
+            color: #0e0000;
+
+            text-decoration: none;
+
+            font-weight: 500;
+
+            transition: 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--laranja);
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        main {
+            width: 100%;
+            max-width: 1200px;
+
+            margin: 20px auto;
+
+            padding: 10px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        main h1 {
+            color: #0e0101;
+
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--laranja);
+        }
+
+
+        /* =====================================================
+           TEXTOS
+        ===================================================== */
+
+        p,
+        li {
+            color: var(--texto);
+        }
+
+        p {
+            text-align: justify;
+        }
+
+
+        /* =====================================================
+           ACCORDION
+        ===================================================== */
+
+        .accordion {
+            width: 100%;
+
+            margin-top: 25px;
+        }
+
+        .accordion details {
+            background: transparent;
+
+            border: none;
+
+            margin-bottom: 12px;
+        }
+
+        .accordion > summary,
+        .conteudo > details > summary {
+            list-style: none;
+
+            cursor: pointer;
+
+            background: var(--preto);
+
+            color: #030303;
+
+            padding: 16px 20px;
+
+            border-radius: 8px;
+
+            font-size: 1.1rem;
+
+            font-weight: 600;
+
+            position: relative;
+
+            transition: 0.3s ease;
+        }
+
+        .accordion > summary:hover,
+        .conteudo > details > summary:hover {
+            background: var(--laranja-claro);
+
+            color: var(--branco);
+        }
+
+        .accordion summary::-webkit-details-marker,
+        .conteudo summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .accordion > summary::after,
+        .conteudo > details > summary::after {
+            content: "+";
+
+            position: absolute;
+
+            right: 20px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            font-size: 28px;
+
+            font-weight: bold;
+        }
+
+        .accordion > details[open] > summary::after,
+        .conteudo > details[open] > summary::after {
+            content: "−";
+        }
+
+
+        /* =====================================================
+           CONTEÚDO
+        ===================================================== */
+
+        .conteudo {
+            background: transparent;
+
+            color: #030303;
+
+            padding:
+                15px 5px 20px;
+
+            border: none;
+
+            animation:
+                abrir 0.3s ease;
+        }
+
+        .conteudo p,
+        .conteudo li,
+        .conteudo strong {
+            color: #030303;
+        }
+
+        .conteudo p {
+            text-align: justify;
+
+            margin:
+                8px 80px;
+
+            text-indent: 40px;
+        }
+
+        .conteudo h2,
+        .conteudo h3,
+        .conteudo h4 {
+            color: var(--laranja);
+
+            margin:
+                25px 40px 10px;
+        }
+
+        .conteudo ul {
+            margin-left: 80px;
+            margin-right: 40px;
+        }
+
+
+        /* =====================================================
+           CÓDIGO
+        ===================================================== */
+
+        pre {
+            background: #1e293b;
+
+            color: #f8fafc;
+
+            padding: 20px;
+
+            margin:
+                20px 80px;
+
+            border-radius: 10px;
+
+            overflow-x: auto;
+
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        code {
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+        }
+
+
+        /* =====================================================
+           VÍDEOS
+        ===================================================== */
+
+        .video-container {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+
+            margin:
+                30px auto;
+        }
+
+        .video-container video {
+            width: 350px;
+
+            max-width: 85%;
+
+            height: auto;
+
+            display: block;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.2);
+
+            transition: 0.3s ease;
+        }
+
+        .video-container video:hover {
+            transform:
+                scale(1.02);
+
+            box-shadow:
+                0 8px 22px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* =====================================================
+           ANIMAÇÃO
+        ===================================================== */
+
+        @keyframes abrir {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           SEÇÃO DE CARDS
+        ===================================================== */
+
+        #tecnologias {
+            margin-top: 50px;
+        }
+
+        .titulo-secao {
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: flex;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+            align-items: flex-start;
+
+            margin-top: 30px;
+        }
+
+
+        /* =====================================================
+           CARD
+        ===================================================== */
+
+        .card {
+            width: 250px;
+
+            min-height: 180px;
+
+            padding: 20px;
+
+            background:
+                rgba(30, 41, 59, 0.95);
+
+            border:
+                1px solid rgba(
+                    255,
+                    255,
+                    255,
+                    0.1
+                );
+
+            border-left:
+                5px solid transparent;
+
+            border-radius: 12px;
+
+            color: #f1f5f9;
+
+            box-shadow:
+                0 4px 15px
+                rgba(0, 0, 0, 0.3);
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease,
+                background-color 0.4s ease,
+                border-color 0.4s ease;
+
+            cursor: pointer;
+
+            overflow: hidden;
+
+            user-select: none;
+        }
+
+
+        /* =====================================================
+           TÍTULO DO CARD
+        ===================================================== */
+
+        .card h3 {
+            color: #ffffff;
+
+            font-size: 1.15rem;
+
+            margin: 0 0 12px;
+
+            text-align: center;
+
+            transition:
+                color 0.3s ease;
+        }
+
+
+        /* =====================================================
+           RESUMO
+        ===================================================== */
+
+        .card .resumo {
+            color: #e2e8f0;
+
+            font-size: 0.9rem;
+
+            line-height: 1.5;
+
+            text-align: center;
+
+            margin: 0;
+
+            text-indent: 0;
+        }
+
+
+        /* =====================================================
+           INFORMAÇÃO EXTRA
+        ===================================================== */
+
+        .card .info-extra {
+            display: block;
+
+            opacity: 0;
+
+            max-height: 0;
+
+            overflow: hidden;
+
+            margin: 0;
+
+            padding: 0;
+
+            color: #cbd5e1;
+
+            font-size: 0.9rem;
+
+            line-height: 1.6;
+
+            text-align: left;
+
+            text-indent: 0;
+
+            white-space: pre-line;
+
+            transition:
+                opacity 0.4s ease,
+                max-height 0.5s ease,
+                margin-top 0.4s ease,
+                padding-top 0.4s ease;
+        }
+
+
+        /* =====================================================
+           INFORMAÇÃO EXTRA ABERTA
+        ===================================================== */
+
+        .card.ativo .info-extra {
+            opacity: 1;
+
+            max-height: 500px;
+
+            margin-top: 15px;
+
+            padding-top: 12px;
+
+            border-top:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.15
+                );
+        }
+
+
+        /* =====================================================
+           PULSAÇÃO
+        ===================================================== */
+
+        @keyframes pulsarAtencao {
+
+            0% {
+                box-shadow:
+                    0 4px 15px
+                    rgba(0, 0, 0, 0.3);
+
+                border-color:
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.1
+                    );
+            }
+
+            50% {
+                box-shadow:
+                    0 4px 20px
+                    rgba(
+                        99,
+                        102,
+                        241,
+                        0.2
+                    );
+
+                border-color:
+                    rgba(
+                        99,
+                        102,
+                        241,
+                        0.3
+                    );
+            }
+
+            100% {
+                box-shadow:
+                    0 4px 15px
+                    rgba(0, 0, 0, 0.3);
+
+                border-color:
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.1
+                    );
+            }
+        }
+
+
+        .card:not(.ativo) {
+            animation:
+                pulsarAtencao
+                3s infinite
+                ease-in-out;
+        }
+
+
+        /* =====================================================
+           HOVER
+        ===================================================== */
+
+        .card:hover {
+            transform:
+                translateY(-5px)
+                scale(1.02);
+        }
+
+
+        /* =====================================================
+           CARD ATIVO
+        ===================================================== */
+
+        .card.ativo {
+            transform:
+                translateY(-8px)
+                scale(1.04);
+
+            animation: none;
+        }
+
+
+        /* =====================================================
+           CARD HTML
+        ===================================================== */
+
+        .card:nth-child(1):hover,
+        .card:nth-child(1).ativo {
+            background:
+                rgba(227, 79, 38, 0.18);
+
+            border-left:
+                5px solid var(--html);
+
+            box-shadow:
+                0 10px 25px
+                rgba(227, 79, 38, 0.3);
+        }
+
+        .card:nth-child(1):hover h3,
+        .card:nth-child(1).ativo h3 {
+            color: #ff6b4a;
+        }
+
+
+        /* =====================================================
+           CARD CSS
+        ===================================================== */
+
+        .card:nth-child(2):hover,
+        .card:nth-child(2).ativo {
+            background:
+                rgba(21, 114, 182, 0.2);
+
+            border-left:
+                5px solid var(--css);
+
+            box-shadow:
+                0 10px 25px
+                rgba(21, 114, 182, 0.3);
+        }
+
+        .card:nth-child(2):hover h3,
+        .card:nth-child(2).ativo h3 {
+            color: #38bdf8;
+        }
+
+
+        /* =====================================================
+           CARD JAVASCRIPT
+        ===================================================== */
+
+        .card:nth-child(3):hover,
+        .card:nth-child(3).ativo {
+            background:
+                rgba(247, 223, 30, 0.1);
+
+            border-left:
+                5px solid var(--javascript);
+
+            box-shadow:
+                0 10px 25px
+                rgba(247, 223, 30, 0.2);
+        }
+
+        .card:nth-child(3):hover h3,
+        .card:nth-child(3).ativo h3 {
+            color: #fef08a;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background:
+                var(--branco);
+
+            text-align: center;
+
+            padding: 30px;
+
+            margin-top: 50px;
+
+            border-top:
+                3px solid var(--laranja);
+        }
+
+        footer p {
+            text-align: center;
+
+            text-indent: 0;
+
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 25px;
+            }
+
+            .titulo-barra {
+                font-size: 1.4rem;
+            }
+
+            .logo-img {
+                width: 50px;
+                height: 50px;
+            }
+
+            nav ul {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            main {
+                width: 95%;
+
+                padding: 20px;
+            }
+
+            .conteudo p {
+                margin:
+                    8px 40px;
+            }
+
+            .conteudo h2,
+            .conteudo h3,
+            .conteudo h4 {
+                margin-left: 30px;
+                margin-right: 30px;
+            }
+
+            .conteudo ul {
+                margin-left: 55px;
+            }
+
+            pre {
+                margin:
+                    20px 40px;
+            }
+
+            .video-container video {
+                width: 320px;
+
+                max-width: 90%;
+            }
+
+            .cards {
+                gap: 15px;
+            }
+
+            .card {
+                width: 220px;
+            }
+        }
+
+
+        /* =====================================================
+           CELULAR
+        ===================================================== */
+
+        @media (max-width: 480px) {
+
+            header {
+                padding: 20px;
+            }
+
+            .titulo-barra {
+                font-size: 1.1rem;
+            }
+
+            .logo-img {
+                width: 45px;
+                height: 45px;
+            }
+
+            nav ul {
+                padding: 12px;
+            }
+
+            .accordion > summary,
+            .conteudo > details > summary {
+                font-size: 0.95rem;
+
+                padding:
+                    13px 45px 13px 15px;
+            }
+
+            .conteudo {
+                padding:
+                    10px 5px 20px;
+            }
+
+            .conteudo p {
+                margin:
+                    8px 15px;
+
+                text-align: justify;
+
+                text-indent: 30px;
+            }
+
+            .conteudo h2,
+            .conteudo h3,
+            .conteudo h4 {
+                margin:
+                    20px 15px 10px;
+            }
+
+            .conteudo ul {
+                margin-left: 30px;
+
+                margin-right: 10px;
+            }
+
+            pre {
+                margin:
+                    15px;
+
+                font-size: 0.8rem;
+            }
+
+            .video-container {
+                width: 100%;
+
+                margin:
+                    20px auto;
+            }
+
+            .video-container video {
+                width: 280px;
+
+                max-width: 90%;
+            }
+
+            .cards {
+                flex-direction: column;
+
+                align-items: center;
+
+                width: 100%;
+            }
+
+            .card {
+                width: 90%;
+
+                max-width: 340px;
+            }
+
+            .card.ativo {
+                transform:
+                    translateY(-5px)
+                    scale(1.01);
+            }
+
+            footer {
+                padding:
+                    25px 15px;
+            }
+
+            footer p {
+                margin: 0;
+
+                text-indent: 0;
+            }
+        }
+
+    </style>
 </head>
 
+
 <body>
+
 
     <!-- =====================================================
          CABEÇALHO
     ====================================================== -->
 
     <header>
-
-        <!-- Logo esquerda -->
 
         <a
             href="index.html"
@@ -58,8 +1028,6 @@
         </a>
 
 
-        <!-- Título -->
-
         <a
             href="index.html"
             class="titulo-link"
@@ -69,8 +1037,6 @@
             </h1>
         </a>
 
-
-        <!-- Logo direita -->
 
         <a
             href="index.html"
@@ -85,8 +1051,9 @@
 
     </header>
 
+
     <!-- =====================================================
-         MENU DE NAVEGAÇÃO
+         MENU
     ====================================================== -->
 
     <nav>
@@ -121,14 +1088,16 @@
 
     </nav>
 
+
     <!-- =====================================================
-         CONTEÚDO PRINCIPAL
+         CONTEÚDO
     ====================================================== -->
 
     <main>
 
+
         <!-- =================================================
-             DISCIPLINA — ALGORITMOS
+             ALGORITMOS
         ================================================== -->
 
         <details class="accordion">
@@ -139,6 +1108,7 @@
 
 
             <div class="conteudo">
+
 
                 <!-- =================================================
                      AULA 1
@@ -151,31 +1121,24 @@
                     </summary>
 
 
-                    <!-- Título da aula -->
-
                     <h2>
                         Algoritmos e Estruturas de Dados:
                         fundamentos e aplicações na programação
                     </h2>
 
-                    <!-- Conteúdo -->
 
                     <p>
                         Algoritmos e estruturas de dados formam a base da
                         programação e constituem fundamentos essenciais da
-                        ciência da computação. Esses dois conceitos estão
-                        diretamente relacionados ao desenvolvimento de sistemas
-                        eficientes, organizados e capazes de processar grandes
-                        volumes de informações.
+                        ciência da computação.
                     </p>
 
                     <p>
                         Enquanto um algoritmo representa uma sequência lógica
                         e finita de instruções utilizada para solucionar um
-                        problema ou executar uma determinada tarefa, uma
-                        estrutura de dados define a maneira como essas
-                        informações são armazenadas, organizadas, acessadas
-                        e manipuladas dentro de um sistema.
+                        problema, uma estrutura de dados define a maneira como
+                        as informações são armazenadas, organizadas, acessadas
+                        e manipuladas.
                     </p>
 
                     <p>
@@ -185,260 +1148,95 @@
                         softwares.
                     </p>
 
-                    <!-- Estruturas de dados -->
-
-                    <p>
-                        Uma estrutura de dados pode ser compreendida como
-                        uma forma de organizar informações para que um
-                        programa consiga utilizá-las de maneira eficiente.
-                    </p>
-
-                    <p>
-                        Na prática, os dados podem ser armazenados
-                        individualmente ou agrupados em estruturas que
-                        permitem realizar operações como inserção, exclusão,
-                        busca, ordenação e atualização.
-                    </p>
-
-                    <p>
-                        Essa organização é fundamental porque, à medida que
-                        a quantidade de dados aumenta, torna-se cada vez mais
-                        importante escolher uma forma adequada de armazená-los
-                        e acessá-los.
-                    </p>
-
-                    <!-- Exemplo -->
-
-                    <p>
-                        Por exemplo, imagine uma equipe de vendas que precisa
-                        registrar os valores das vendas realizadas diariamente.
-                        Em vez de armazenar cada valor de maneira isolada,
-                        é possível utilizar uma estrutura sequencial:
-                    </p>
-
-                    <p>
-                        <strong>
-                            vendas_diarias = [500, 800, 600, 1200, 950]
-                        </strong>
-                    </p>
-
-                    <p>
-                        Dessa maneira, os dados permanecem organizados e podem
-                        ser facilmente acessados, percorridos, comparados ou
-                        utilizados em cálculos.
-                    </p>
-
-
-                    <!-- Classificação -->
 
                     <h3>
                         Classificação das estruturas de dados
                     </h3>
 
                     <p>
-                        As estruturas de dados podem ser classificadas de
-                        diferentes formas. Uma das classificações mais comuns
-                        as divide em estruturas lineares e não lineares.
+                        As estruturas de dados podem ser classificadas em
+                        estruturas lineares e não lineares.
                     </p>
 
                     <p>
-                        Nas estruturas lineares, os elementos são organizados
-                        em uma sequência, geralmente de maneira que possam ser
-                        percorridos em determinada ordem.
+                        Entre as principais estruturas estão arrays, listas
+                        encadeadas, filas, pilhas, árvores, grafos e tabelas
+                        hash.
                     </p>
 
-                    <p>
-                        Entre os principais exemplos estão os arrays, as listas
-                        encadeadas, as filas e as pilhas.
-                    </p>
-
-                    <p>
-                        Já as estruturas não lineares permitem relações mais
-                        complexas entre os elementos, como hierarquias e
-                        conexões em rede. Árvores e grafos são exemplos desse
-                        segundo grupo.
-                    </p>
-
-
-                    <!-- Arrays -->
 
                     <h3>
                         Arrays
                     </h3>
 
                     <p>
-                        Os arrays estão entre as estruturas de dados mais
-                        utilizadas na programação. Eles armazenam elementos
-                        de forma sequencial e permitem que os valores sejam
-                        acessados por meio de índices.
+                        Arrays armazenam elementos de forma sequencial e
+                        permitem o acesso aos valores por meio de índices.
                     </p>
 
-                    <p>
-                        São apropriados para situações em que é necessário
-                        trabalhar com coleções de dados organizadas em
-                        posições específicas. Além disso, podem servir como
-                        base para a implementação de outras estruturas de
-                        dados.
-                    </p>
-
-                    <!-- Listas -->
 
                     <h3>
                         Listas encadeadas
                     </h3>
 
                     <p>
-                        As listas encadeadas, por sua vez, são compostas por
-                        elementos chamados nós. Cada nó armazena um dado e
-                        uma referência para outro nó da estrutura.
+                        Listas encadeadas são compostas por nós, sendo cada
+                        nó responsável por armazenar um dado e uma referência
+                        para outro nó.
                     </p>
 
-                    <p>
-                        Essa característica permite realizar inserções e
-                        remoções de elementos sem necessariamente deslocar
-                        todos os demais dados.
-                    </p>
-
-                    <p>
-                        Por esse motivo, listas encadeadas podem ser úteis
-                        em situações nas quais há alterações frequentes na
-                        coleção, como playlists, históricos de navegação e
-                        determinadas operações de sistemas.
-                    </p>
-
-                    <!-- Filas -->
 
                     <h3>
                         Filas
                     </h3>
 
                     <p>
-                        As filas seguem o princípio FIFO — First In, First Out,
-                        que significa "primeiro a entrar, primeiro a sair".
+                        As filas seguem o princípio FIFO — primeiro a entrar,
+                        primeiro a sair.
                     </p>
 
-                    <p>
-                        Nesse modelo, o primeiro elemento inserido é o
-                        primeiro a ser removido.
-                    </p>
-
-                    <p>
-                        Um exemplo cotidiano é uma fila de atendimento,
-                        na qual as pessoas são atendidas de acordo com a
-                        ordem de chegada.
-                    </p>
-
-                    <p>
-                        Na computação, filas podem ser utilizadas para
-                        organizar tarefas de impressão, solicitações de
-                        usuários, chamadas em centrais de atendimento,
-                        processamento de requisições e transmissão de dados.
-                    </p>
-
-                    <!-- Pilhas -->
 
                     <h3>
                         Pilhas
                     </h3>
 
                     <p>
-                        As pilhas seguem uma lógica diferente, baseada no
-                        princípio LIFO — Last In, First Out, ou "último a
-                        entrar, primeiro a sair".
+                        As pilhas seguem o princípio LIFO — último a entrar,
+                        primeiro a sair.
                     </p>
 
-                    <p>
-                        Nesse caso, o elemento inserido mais recentemente
-                        é o primeiro a ser removido.
-                    </p>
-
-                    <p>
-                        Esse tipo de estrutura é utilizado em diversas
-                        situações, como histórico de ações, operações de
-                        desfazer e refazer, gerenciamento de chamadas de
-                        funções e análise de expressões.
-                    </p>
-
-
-                    <!-- Árvores -->
 
                     <h3>
                         Árvores
                     </h3>
 
                     <p>
-                        As árvores representam os dados de maneira
-                        hierárquica. Elas possuem um nó principal, chamado
-                        raiz, que pode se ramificar em outros nós.
+                        Árvores representam os dados de maneira hierárquica,
+                        sendo utilizadas em sistemas de arquivos, bancos de
+                        dados e mecanismos de busca.
                     </p>
 
-                    <p>
-                        Essa organização permite representar relações entre
-                        elementos que possuem diferentes níveis de
-                        dependência.
-                    </p>
-
-                    <p>
-                        Existem diversos tipos de árvores, como árvores
-                        binárias, árvores binárias de busca, árvores AVL e
-                        árvores B, cada uma com características específicas.
-                    </p>
-
-                    <p>
-                        Elas são utilizadas em sistemas de arquivos, bancos
-                        de dados, mecanismos de busca, estruturas
-                        organizacionais e aplicações de inteligência
-                        artificial.
-                    </p>
-
-                    <!-- Grafos -->
 
                     <h3>
                         Grafos
                     </h3>
 
                     <p>
-                        Os grafos são utilizados para representar relações
-                        e conexões entre diferentes elementos.
+                        Grafos representam relações e conexões entre
+                        diferentes elementos, como cidades em um mapa ou
+                        usuários em uma rede social.
                     </p>
 
-                    <p>
-                        Eles são formados por vértices, que representam os
-                        elementos, e arestas, que representam as conexões
-                        entre eles.
-                    </p>
-
-                    <p>
-                        Um mapa pode ser utilizado como exemplo: as cidades
-                        seriam os vértices e as estradas seriam as arestas.
-                    </p>
-
-                    <p>
-                        Em uma rede social, os usuários poderiam representar
-                        os vértices, enquanto as relações entre eles seriam
-                        representadas pelas arestas.
-                    </p>
-
-                    <!-- Tabela Hash -->
 
                     <h3>
                         Tabela Hash
                     </h3>
 
                     <p>
-                        Outra estrutura bastante importante é a tabela hash,
-                        também conhecida como tabela de dispersão ou mapa hash.
+                        Tabelas hash associam chaves a valores, permitindo
+                        localizar informações de maneira eficiente.
                     </p>
 
-                    <p>
-                        Ela utiliza uma função de hash para associar uma chave
-                        a determinado valor, permitindo localizar informações
-                        de maneira eficiente quando a chave é conhecida.
-                    </p>
-
-                    <p>
-                        Um exemplo simples seria uma agenda de contatos:
-                    </p>
 
                     <pre><code>contatos = {
     "Ana": "99999-1111",
@@ -446,406 +1244,181 @@
     "Mariana": "97777-3333"
 }</code></pre>
 
-                    <p>
-                        Nesse exemplo, o nome do contato funciona como chave
-                        e o telefone como valor.
-                    </p>
-
-                    <!-- Algoritmos -->
 
                     <h3>
                         Algoritmos
                     </h3>
 
                     <p>
-                        Além das estruturas de dados, os algoritmos são
-                        outro elemento fundamental para o desenvolvimento
-                        de sistemas.
+                        Um algoritmo é uma sequência finita e organizada de
+                        instruções destinada a resolver um problema, executar
+                        uma tarefa ou realizar um cálculo.
                     </p>
 
-                    <p>
-                        Um algoritmo é uma sequência finita e organizada
-                        de instruções destinada a resolver um problema,
-                        executar uma tarefa ou realizar um cálculo.
-                    </p>
 
-                    <p>
-                        De maneira simplificada, um algoritmo recebe
-                        informações de entrada, processa esses dados por
-                        meio de regras determinadas e produz uma saída.
-                    </p>
-
-                    <!-- Representação -->
-
-                    <h3>
-                        Representação de algoritmos
-                    </h3>
-
-                    <p>
-                        Antes de transformar uma solução em código, é
-                        possível representar um algoritmo por meio de uma
-                        descrição textual, fluxograma ou pseudocódigo.
-                    </p>
-
-                    <p>
-                        Essa etapa ajuda o programador a organizar o
-                        raciocínio e identificar as etapas necessárias
-                        para solucionar determinado problema.
-                    </p>
-
-                    <!-- Tipos de algoritmos -->
-
-                    <h3>
-                        Tipos de algoritmos
-                    </h3>
-
-                    <p>
-                        Existem diversos tipos de algoritmos. Os algoritmos
-                        de ordenação são utilizados para organizar dados de
-                        acordo com determinado critério, como colocar números
-                        em ordem crescente.
-                    </p>
-
-                    <p>
-                        Entre os exemplos estão Bubble Sort, Insertion Sort,
-                        Merge Sort e Quick Sort.
-                    </p>
-
-                    <p>
-                        Os algoritmos de busca têm como objetivo localizar
-                        elementos dentro de uma estrutura de dados, sendo
-                        a busca linear e a busca binária dois exemplos
-                        bastante conhecidos.
-                    </p>
-
-                    <p>
-                        Também existem algoritmos recursivos, que utilizam
-                        chamadas a si próprios para solucionar problemas
-                        menores, além de algoritmos utilizados em criptografia,
-                        processamento de dados, inteligência artificial e
-                        outras áreas.
-                    </p>
-
-                    <!-- Relação entre algoritmos e estruturas -->
-
-                    <h3>
-                        Relação entre algoritmos e estruturas de dados
-                    </h3>
-                    <p>
-                        A relação entre algoritmos e estruturas de dados é
-                        fundamental. O algoritmo determina como uma tarefa
-                        será executada, enquanto a estrutura de dados define
-                        como as informações utilizadas nessa tarefa serão
-                        organizadas.
-                    </p>
-                    <p>
-                        Assim, uma estrutura adequada pode tornar um algoritmo
-                        mais eficiente, enquanto um algoritmo bem escolhido
-                        pode aproveitar melhor as características da estrutura
-                        utilizada.
-                    </p>
-                    <p>
-                        Imagine, por exemplo, um sistema que precisa localizar
-                        determinado nome em uma grande quantidade de registros.
-                    </p>
-                    <p>
-                        Se os dados estiverem organizados em uma estrutura
-                        adequada, um algoritmo de busca poderá encontrar a
-                        informação realizando menos operações do que faria
-                        em uma coleção desorganizada.
-                    </p>
-                    <!-- DSA -->
-                    <h3>
-                        Estruturas de Dados e Algoritmos — DSA
-                    </h3>
-                    <p>
-                        Essa combinação é frequentemente estudada sob o
-                        conceito de Estruturas de Dados e Algoritmos
-                        (DSA — Data Structures and Algorithms).
-                    </p>
-                    <p>
-                        O objetivo é compreender como diferentes formas
-                        de organização dos dados podem influenciar o
-                        desempenho dos algoritmos.
-                    </p>
-                    <!-- Complexidade -->
-                    <h3>
-                        Complexidade computacional
-                    </h3>
-                    <p>
-                        Um dos principais aspectos dessa análise é a
-                        complexidade computacional.
-                    </p>
-                    <p>
-                        A complexidade de tempo representa a quantidade
-                        de operações que um algoritmo precisa realizar
-                        conforme aumenta o volume de dados de entrada.
-                    </p>
-                    <p>
-                        Já a complexidade de espaço está relacionada à
-                        quantidade de memória necessária para executar
-                        o algoritmo.
-                    </p>
-                    <!-- Big O -->
                     <h3>
                         Notação Big O
                     </h3>
-                    <p>
-                        A notação Big O é utilizada para representar o
-                        comportamento de um algoritmo em relação ao
-                        crescimento da entrada.
-                    </p>
-                    <p>
-                        Por exemplo, uma busca linear pode apresentar
-                        complexidade O(n), pois, no pior caso, pode ser
-                        necessário verificar todos os elementos de uma lista.
-                    </p>
-                    <p>
-                        Já determinadas estruturas e algoritmos podem
-                        reduzir consideravelmente o número de operações
-                        necessárias para encontrar uma informação.
-                    </p>
-                    <!-- Análise -->
-                    <h3>
-                        Análise de complexidade
-                    </h3>
-                    <p>
-                        A análise de complexidade é importante porque
-                        permite comparar diferentes soluções e escolher
-                        aquela que apresenta melhor desempenho para
-                        determinado cenário.
-                    </p>
-                    <p>
-                        Em sistemas que trabalham com grandes quantidades
-                        de dados, pequenas diferenças na eficiência podem
-                        representar uma grande diferença no tempo de
-                        processamento e no consumo de recursos.
-                    </p>
-                    <!-- Programação dinâmica -->
 
-                    <h3>
-                        Programação dinâmica
-                    </h3>
                     <p>
-                        As estruturas de dados também estão relacionadas
-                        à programação dinâmica, uma técnica utilizada para
-                        resolver determinados problemas complexos dividindo-os
-                        em subproblemas menores.
+                        A notação Big O representa o comportamento de um
+                        algoritmo em relação ao crescimento da entrada.
                     </p>
-                    <p>
-                        Nesse processo, os resultados já calculados podem
-                        ser armazenados para evitar que sejam recalculados
-                        posteriormente.
-                    </p>
-                    <p>
-                        Arrays, tabelas e outras estruturas podem ser
-                        utilizadas para armazenar essas informações
-                        intermediárias, tornando o processamento mais eficiente.
-                    </p>
-                    <!-- Aplicações -->
+
+
                     <h3>
                         Aplicações práticas
                     </h3>
+
                     <p>
-                        Na prática, estruturas de dados estão presentes em
-                        praticamente todos os sistemas computacionais.
+                        Estruturas de dados estão presentes em bancos de
+                        dados, sistemas de arquivos, redes sociais, sistemas
+                        operacionais, mecanismos de busca, rotas, sistemas de
+                        recomendação e inteligência artificial.
                     </p>
-                    <p>
-                        Elas são utilizadas para organizar registros em
-                        bancos de dados, representar diretórios em sistemas
-                        de arquivos, controlar processos em sistemas
-                        operacionais, administrar filas de atendimento,
-                        armazenar históricos de ações, representar conexões
-                        em redes sociais, calcular rotas, realizar buscas,
-                        criar sistemas de recomendação e desenvolver
-                        aplicações de inteligência artificial.
-                    </p>
-                    <p>
-                        Em bancos de dados, por exemplo, estruturas adequadas
-                        podem facilitar a indexação e a recuperação de
-                        informações.
-                    </p>
-                    <p>
-                        Em redes sociais, grafos podem representar as relações
-                        entre usuários.
-                    </p>
-                    <p>
-                        Em sistemas de arquivos, árvores podem representar
-                        a hierarquia entre diretórios e arquivos.
-                    </p>
-                    <p>
-                        Em sistemas de atendimento, filas podem organizar
-                        as solicitações de acordo com a ordem de chegada
-                        ou com critérios de prioridade.
-                    </p>
-                    <!-- Importância profissional -->
-                    <h3>
-                        Importância profissional
-                    </h3>
-                    <p>
-                        Por esse motivo, o conhecimento de algoritmos e
-                        estruturas de dados é indispensável para profissionais
-                        que desejam desenvolver sistemas robustos e eficientes.
-                    </p>
-                    <p>
-                        Esses conceitos não são importantes apenas para
-                        programadores, mas também para profissionais de
-                        engenharia de software, ciência de dados, inteligência
-                        artificial, desenvolvimento web e outras áreas
-                        relacionadas à tecnologia.
-                    </p>
-                    <!-- Como estudar -->
-                    <h3>
-                        Como estudar
-                    </h3>
-                    <p>
-                        Para estudar esses fundamentos, é recomendável
-                        começar pelos conceitos básicos de programação,
-                        como variáveis, tipos de dados, estruturas
-                        condicionais, estruturas de repetição e funções.
-                    </p>
-                    <p>
-                        Depois, o estudante pode avançar gradualmente para
-                        arrays, listas, pilhas, filas, recursão, algoritmos
-                        de busca e ordenação, árvores, grafos, tabelas hash
-                        e análise de complexidade.
-                    </p>
-                    <p>
-                        A prática é fundamental nesse processo.
-                    </p>
-                    <p>
-                        Implementar as estruturas de dados em uma linguagem
-                        de programação permite compreender não apenas sua
-                        definição, mas também seu funcionamento interno.
-                    </p>
-                    <p>
-                        Resolver problemas de programação, desenvolver
-                        pequenos projetos e comparar diferentes soluções
-                        também ajuda a desenvolver a capacidade de escolher
-                        a estrutura e o algoritmo mais adequados para cada
-                        situação.
-                    </p>
-                    <!-- Conclusão -->
-                    <h3>
-                        Conclusão
-                    </h3>
-                    <p>
-                        Em síntese, algoritmos e estruturas de dados são
-                        pilares da ciência da computação e da programação.
-                    </p>
-                    <p>
-                        As estruturas de dados permitem organizar e manipular
-                        informações de maneira adequada, enquanto os
-                        algoritmos definem as etapas necessárias para
-                        processar esses dados e solucionar problemas.
-                    </p>
-                    <p>
-                        A escolha correta desses elementos influencia
-                        diretamente a eficiência, a organização, a manutenção
-                        e a escalabilidade de um sistema.
-                    </p>
-                    <p>
-                        Arrays, listas encadeadas, filas, pilhas, árvores,
-                        grafos e tabelas hash possuem características
-                        diferentes e devem ser utilizados conforme as
-                        necessidades de cada aplicação.
-                    </p>
-                    <p>
-                        Da mesma forma, algoritmos de busca, ordenação,
-                        recursão e outras técnicas apresentam diferentes
-                        níveis de complexidade e podem ser mais ou menos
-                        adequados dependendo do problema.
-                    </p>
-                    <p>
-                        Portanto, aprender algoritmos e estruturas de dados
-                        vai muito além de memorizar conceitos ou implementar
-                        códigos prontos.
-                    </p>
-                    <p>
-                        Trata-se de desenvolver a capacidade de analisar
-                        problemas, organizar informações, avaliar custos
-                        computacionais e construir soluções eficientes.
-                    </p>
-                    <p>
-                        O domínio desses fundamentos proporciona uma base
-                        sólida para a evolução profissional na área de
-                        tecnologia e é essencial para quem deseja desenvolver
-                        softwares cada vez mais eficientes, confiáveis e
-                        preparados para lidar com as demandas do mundo digital.
-                    </p>
+
+
                     <!-- =================================================
-                         PLAYER DE VÍDEO
+                         VÍDEO
                     ================================================== -->
+
                     <div class="video-container">
+
                         <video
                             controls
                             preload="metadata"
                         >
+
                             <source
                                 src="Algoritmos__A_Base.mp4"
                                 type="video/mp4"
                             >
+
                             Seu navegador não suporta vídeos HTML5.
+
                         </video>
+
                     </div>
+
+
                     <!-- =================================================
-                         PRINCIPAIS TECNOLOGIAS
+                         CARDS
                     ================================================== -->
+
                     <section id="tecnologias">
+
                         <h2 class="titulo-secao">
                             Estudar
                         </h2>
+
+
                         <div class="cards">
-                            <!-- Algoritmos e Estruturas de Dados -->
-                            <div class="card">
+
+
+                            <!-- CARD 1 -->
+
+                            <div
+                                class="card"
+                                role="button"
+                                tabindex="0"
+                                aria-expanded="false"
+                            >
+
                                 <h3>
                                     Algoritmos e Estruturas de Dados
                                 </h3>
+
                                 <p class="resumo">
-                                    Algoritmos e estruturas de dados são fundamentos essenciais da programação e da ciência da computação.
+                                    Fundamentos essenciais da programação
+                                    e da ciência da computação.
                                 </p>
+
                                 <p class="info-extra">
-Algoritmos: sequência lógica de instruções para resolver problemas e executar tarefas.
-Estruturas de dados: formas de organizar, armazenar e manipular informações de maneira eficiente.
+                                    <strong>Algoritmos:</strong> sequência
+                                    lógica de instruções para resolver
+                                    problemas e executar tarefas.
+
+                                    <strong>Estruturas de dados:</strong>
+                                    formas de organizar, armazenar e
+                                    manipular informações de maneira
+                                    eficiente.
                                 </p>
+
                             </div>
-                            <!-- Principais estruturas -->
-                            <div class="card">
+
+
+                            <!-- CARD 2 -->
+
+                            <div
+                                class="card"
+                                role="button"
+                                tabindex="0"
+                                aria-expanded="false"
+                            >
+
                                 <h3>
                                     Principais estruturas
                                 </h3>
+
                                 <p class="resumo">
-                                    Define estilos, cores e layouts.
+                                    Conheça as principais estruturas de dados.
                                 </p>
+
                                 <p class="info-extra">
-                                    Arrays, listas encadeadas, filas, pilhas, árvores, grafos e tabelas hash.
-Principais algoritmos
-Busca, ordenação, recursão e programação dinâmica.
-Por que são importantes?
-A escolha adequada de algoritmos e estruturas de dados influencia diretamente a eficiência, o desempenho, a manutenção e a escalabilidade dos sistemas.
-A complexidade computacional, representada pela Notação Big O, permite analisar o tempo e o espaço necessários para executar uma solução.
+                                    Arrays, listas encadeadas, filas,
+                                    pilhas, árvores, grafos e tabelas hash.
+
+                                    <strong>Principais algoritmos:</strong>
+                                    busca, ordenação, recursão e programação
+                                    dinâmica.
+
+                                    <strong>Importância:</strong>
+                                    a escolha adequada influencia diretamente
+                                    a eficiência, o desempenho, a manutenção
+                                    e a escalabilidade dos sistemas.
+
+                                    A complexidade computacional, representada
+                                    pela Notação Big O, permite analisar o
+                                    tempo e o espaço necessários para executar
+                                    uma solução.
                                 </p>
+
                             </div>
 
 
-                            <!-- Aplicações -->
+                            <!-- CARD 3 -->
 
-                            <div class="card">
+                            <div
+                                class="card"
+                                role="button"
+                                tabindex="0"
+                                aria-expanded="false"
+                            >
 
                                 <h3>
                                     Aplicações
                                 </h3>
 
                                 <p class="resumo">
-                                    Adiciona interatividade e dinamismo.
+                                    Onde algoritmos e estruturas são utilizados.
                                 </p>
 
                                 <p class="info-extra">
-                                    Estão presentes em bancos de dados, sistemas de arquivos, redes sociais, sistemas operacionais, mecanismos de busca, rotas, recomendações e inteligência artificial.
-Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a organizar dados, analisar problemas e desenvolver soluções mais eficientes e escaláveis.
+                                    Estão presentes em bancos de dados,
+                                    sistemas de arquivos, redes sociais,
+                                    sistemas operacionais, mecanismos de
+                                    busca, rotas, recomendações e inteligência
+                                    artificial.
+
+                                    <strong>Em resumo:</strong> dominar DSA
+                                    (Data Structures and Algorithms) significa
+                                    aprender a organizar dados, analisar
+                                    problemas e desenvolver soluções mais
+                                    eficientes e escaláveis.
                                 </p>
 
                             </div>
+
 
                         </div>
 
@@ -868,6 +1441,7 @@ Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a org
                                 controls
                                 preload="metadata"
                             >
+
                                 <source
                                     src="frontvideo.mp4"
                                     type="video/mp4"
@@ -880,6 +1454,7 @@ Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a org
                         </div>
 
                     </section>
+
 
                 </details>
 
@@ -896,23 +1471,14 @@ Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a org
 
                     <p>
                         Algoritmos são conjuntos de instruções passo a passo
-                        para resolver um problema, enquanto Estruturas de
-                        Dados (ED) são formas organizadas de armazenar e
-                        organizar informações na memória.
+                        para resolver um problema, enquanto estruturas de
+                        dados são formas organizadas de armazenar informações
+                        na memória.
                     </p>
 
                     <p>
                         Juntos, eles determinam a velocidade, o consumo de
-                        memória e a eficiência de um programa de computador.
-                    </p>
-
-                    <p>
-                        <strong>
-                            Estruturas de Dados (ED)
-                        </strong>
-                        são os blocos de construção usados para organizar
-                        os dados. Elas determinam a rapidez com que você
-                        pode inserir, buscar ou deletar uma informação.
+                        memória e a eficiência de um programa.
                     </p>
 
                     <h3>
@@ -920,25 +1486,23 @@ Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a org
                     </h3>
 
                     <ul>
+
                         <li>
-                            Arrays (Vetores): elementos em posições
-                            contínuas de memória.
+                            Arrays (Vetores)
                         </li>
 
                         <li>
-                            Listas Ligadas: elementos espalhados na memória
-                            onde cada um aponta para o próximo.
+                            Listas Ligadas
                         </li>
 
                         <li>
-                            Pilhas (Stacks): funcionam no sistema LIFO
-                            (Last In, First Out).
+                            Pilhas (Stacks)
                         </li>
 
                         <li>
-                            Filas (Queues): funcionam no sistema FIFO
-                            (First In, First Out).
+                            Filas (Queues)
                         </li>
+
                     </ul>
 
 
@@ -947,20 +1511,19 @@ Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a org
                     </h3>
 
                     <ul>
+
                         <li>
-                            Árvores (Trees): estruturas hierárquicas,
-                            como pastas e subpastas.
+                            Árvores (Trees)
                         </li>
 
                         <li>
-                            Grafos (Graphs): redes de dados interconectados,
-                            como redes sociais e rotas.
+                            Grafos (Graphs)
                         </li>
 
                         <li>
-                            Tabelas Hash (Hash Tables): pares de chave-valor
-                            que permitem buscas rápidas.
+                            Tabelas Hash (Hash Tables)
                         </li>
+
                     </ul>
 
                 </details>
@@ -1030,73 +1593,13 @@ Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a org
                     </summary>
                 </details>
 
-                <details>
-                    <summary>
-                        • Abstração de dados e tipos abstratos de dados
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Estruturas de Dados Elementares
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Listas
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Pilhas
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Filas
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Filas de prioridade (Heaps)
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Estruturas de Dicionário com Árvores
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Conceito de Árvores
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Árvores de Pesquisa Binária
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Árvores AVL e Vermelho-Preta
-                    </summary>
-                </details>
-
             </div>
 
         </details>
 
 
         <!-- =====================================================
-             DISCIPLINA — ARQUITETURA DE SISTEMAS
+             ARQUITETURA
         ====================================================== -->
 
         <details class="accordion">
@@ -1107,193 +1610,45 @@ Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a org
 
             <div class="conteudo">
 
-
                 <details>
 
                     <summary>
-                        • Algoritmos e Estrutura de Dados
+                        • Introdução à disciplina
                     </summary>
 
                     <p>
-                        Algoritmos são conjuntos de instruções passo a passo
-                        para resolver um problema, enquanto Estruturas de
-                        Dados são formas organizadas de armazenar e organizar
-                        informações na memória.
-                    </p>
-
-                    <p>
-                        Juntos, eles determinam a velocidade, o consumo de
-                        memória e a eficiência de um programa de computador.
-                    </p>
-
-                    <p>
-                        Estruturas de Dados são os blocos de construção
-                        usados para organizar os dados.
-                    </p>
-
-                    <h3>
-                        Estruturas Lineares
-                    </h3>
-
-                    <ul>
-                        <li>Arrays (Vetores)</li>
-                        <li>Listas Ligadas</li>
-                        <li>Pilhas (Stacks)</li>
-                        <li>Filas (Queues)</li>
-                    </ul>
-
-                    <h3>
-                        Estruturas Não Lineares
-                    </h3>
-
-                    <ul>
-                        <li>Árvores (Trees)</li>
-                        <li>Grafos (Graphs)</li>
-                        <li>Tabelas Hash (Hash Tables)</li>
-                    </ul>
-
-                </details>
-
-
-                <details>
-
-                    <summary>
-                        • Introdução à disciplina, revisão de conceitos anteriores
-                    </summary>
-
-                    <p>
-                        Algoritmos são conjuntos de instruções passo a passo
-                        para resolver um problema, enquanto Estruturas de
-                        Dados são formas organizadas de armazenar e organizar
-                        informações na memória.
-                    </p>
-
-                    <p>
-                        Juntos, eles determinam a velocidade, o consumo de
-                        memória e a eficiência de um programa.
+                        Arquitetura de sistemas envolve a organização dos
+                        componentes de software e hardware e a forma como
+                        eles trabalham juntos para atender aos requisitos
+                        de uma aplicação.
                     </p>
 
                 </details>
 
-
                 <details>
+
                     <summary>
-                        • Introdução à Análise de Algoritmos
+                        • Estruturas de Dados
                     </summary>
+
+                    <p>
+                        Estruturas de dados são formas organizadas de
+                        armazenar e manipular informações.
+                    </p>
+
                 </details>
 
                 <details>
-                    <summary>
-                        • Dimensões de complexidade (tempo, espaço)
-                    </summary>
-                </details>
 
-                <details>
                     <summary>
-                        • Técnicas de análise
+                        • Análise de Algoritmos
                     </summary>
-                </details>
 
-                <details>
-                    <summary>
-                        • Análise de recorrência
-                    </summary>
-                </details>
+                    <p>
+                        A análise de algoritmos permite avaliar o desempenho
+                        de diferentes soluções.
+                    </p>
 
-                <details>
-                    <summary>
-                        • Divisão e Conquista
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Algoritmos de Ordenação/Classificação
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Insertion Sort
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Selection Sort
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Merge Sort
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Quick Sort
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Abstração de dados e tipos abstratos de dados
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Estruturas de Dados Elementares
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Listas
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Pilhas
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Filas
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Filas de prioridade (Heaps)
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Estruturas de Dicionário com Árvores
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Conceito de Árvores
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Árvores de Pesquisa Binária
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Árvores AVL e Vermelho-Preta
-                    </summary>
                 </details>
 
             </div>
@@ -1302,7 +1657,7 @@ Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a org
 
 
         <!-- =====================================================
-             DISCIPLINA — FRONT-END I
+             FRONT-END
         ====================================================== -->
 
         <details class="accordion">
@@ -1313,193 +1668,56 @@ Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a org
 
             <div class="conteudo">
 
-
                 <details>
 
                     <summary>
-                        • Algoritmos e Estrutura de Dados
+                        • Introdução ao Front-End
                     </summary>
 
                     <p>
-                        Algoritmos são conjuntos de instruções passo a passo
-                        para resolver um problema, enquanto Estruturas de
-                        Dados são formas organizadas de armazenar e organizar
-                        informações na memória.
-                    </p>
-
-                    <p>
-                        Juntos, eles determinam a velocidade, o consumo de
-                        memória e a eficiência de um programa de computador.
-                    </p>
-
-                    <p>
-                        Estruturas de Dados são os blocos de construção
-                        usados para organizar os dados.
-                    </p>
-
-                    <h3>
-                        Estruturas Lineares
-                    </h3>
-
-                    <ul>
-                        <li>Arrays (Vetores)</li>
-                        <li>Listas Ligadas</li>
-                        <li>Pilhas</li>
-                        <li>Filas</li>
-                    </ul>
-
-                    <h3>
-                        Estruturas Não Lineares
-                    </h3>
-
-                    <ul>
-                        <li>Árvores</li>
-                        <li>Grafos</li>
-                        <li>Tabelas Hash</li>
-                    </ul>
-
-                </details>
-
-
-                <details>
-
-                    <summary>
-                        • Introdução à disciplina, revisão de conceitos anteriores
-                    </summary>
-
-                    <p>
-                        Algoritmos são conjuntos de instruções passo a passo
-                        para resolver um problema, enquanto Estruturas de
-                        Dados são formas organizadas de armazenar e organizar
-                        informações na memória.
-                    </p>
-
-                    <p>
-                        Juntos, eles determinam a velocidade, o consumo de
-                        memória e a eficiência de um programa.
+                        Front-End é a parte da aplicação com a qual o usuário
+                        interage diretamente.
                     </p>
 
                 </details>
 
-
                 <details>
+
                     <summary>
-                        • Introdução à Análise de Algoritmos
+                        • HTML
                     </summary>
+
+                    <p>
+                        HTML é utilizado para estruturar o conteúdo das
+                        páginas web.
+                    </p>
+
                 </details>
 
                 <details>
+
                     <summary>
-                        • Dimensões de complexidade (tempo, espaço)
+                        • CSS
                     </summary>
+
+                    <p>
+                        CSS é utilizado para definir estilos, cores,
+                        espaçamentos e layouts.
+                    </p>
+
                 </details>
 
                 <details>
-                    <summary>
-                        • Técnicas de análise
-                    </summary>
-                </details>
 
-                <details>
                     <summary>
-                        • Análise de recorrência
+                        • JavaScript
                     </summary>
-                </details>
 
-                <details>
-                    <summary>
-                        • Divisão e Conquista
-                    </summary>
-                </details>
+                    <p>
+                        JavaScript permite adicionar interatividade e
+                        dinamismo às páginas.
+                    </p>
 
-                <details>
-                    <summary>
-                        • Algoritmos de Ordenação/Classificação
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Insertion Sort
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Selection Sort
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Merge Sort
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Quick Sort
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Abstração de dados e tipos abstratos de dados
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Estruturas de Dados Elementares
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Listas
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Pilhas
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Filas
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Filas de prioridade (Heaps)
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Estruturas de Dicionário com Árvores
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Conceito de Árvores
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Árvores de Pesquisa Binária
-                    </summary>
-                </details>
-
-                <details>
-                    <summary>
-                        • Árvores AVL e Vermelho-Preta
-                    </summary>
                 </details>
 
             </div>
@@ -1520,10 +1738,23 @@ Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a org
             <div class="conteudo">
 
                 <ul>
-                    <li>Exercícios Práticos</li>
-                    <li>Quiz Interativo</li>
-                    <li>Projetos</li>
-                    <li>Desafios Semanais</li>
+
+                    <li>
+                        Exercícios Práticos
+                    </li>
+
+                    <li>
+                        Quiz Interativo
+                    </li>
+
+                    <li>
+                        Projetos
+                    </li>
+
+                    <li>
+                        Desafios Semanais
+                    </li>
+
                 </ul>
 
             </div>
@@ -1553,13 +1784,16 @@ Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a org
 
         </details>
 
+
     </main>
+
 
     <!-- =====================================================
          RODAPÉ
     ====================================================== -->
 
     <footer>
+
         <p>
             &copy; 2026 Plataforma de Estudo -
             Todos os direitos reservados.
@@ -1567,10 +1801,80 @@ Em resumo: dominar DSA (Data Structures and Algorithms) significa aprender a org
 
     </footer>
 
+
     <!-- =====================================================
-         JAVASCRIPT
+         JAVASCRIPT DOS CARDS
     ====================================================== -->
 
-    <script src="script.js"></script>
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const cards =
+                    document.querySelectorAll(".card");
+
+
+                cards.forEach(
+                    function (card) {
+
+                        function alternarCard() {
+
+                            const aberto =
+                                card.classList.toggle("ativo");
+
+
+                            card.setAttribute(
+                                "aria-expanded",
+                                aberto
+                            );
+
+                        }
+
+
+                        /* =========================================
+                           CLIQUE
+                        ========================================== */
+
+                        card.addEventListener(
+                            "click",
+                            alternarCard
+                        );
+
+
+                        /* =========================================
+                           TECLADO
+                        ========================================== */
+
+                        card.addEventListener(
+                            "keydown",
+                            function (event) {
+
+                                if (
+                                    event.key === "Enter" ||
+                                    event.key === " "
+                                ) {
+
+                                    event.preventDefault();
+
+                                    alternarCard();
+
+                                }
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
 </body>
+
 </html>
+```
