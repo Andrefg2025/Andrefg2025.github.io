@@ -6,53 +6,30 @@
 document.addEventListener("DOMContentLoaded", function () {
 
 
-    /* =====================================================
-       CARDS — INFORMAÇÃO EXTRA
-    ===================================================== */
+    /* =========================================================
+   ABRIR / FECHAR INFORMAÇÃO EXTRA DOS CARDS
+========================================================= */
 
-    const cards = document.querySelectorAll(".card");
+function abrirCard(card) {
 
+    // Alterna o estado do card
+    card.classList.toggle("ativo");
 
-    cards.forEach(function (card) {
+    // Localiza o texto de orientação
+    const texto = card.querySelector(".ver-mais");
 
-        card.addEventListener("click", function () {
+    // Altera o texto
+    if (card.classList.contains("ativo")) {
 
-            /*
-             * Se clicar novamente no mesmo card,
-             * ele fecha.
-             */
+        texto.textContent = "Clique para fechar −";
 
-            const estavaAtivo =
-                card.classList.contains("ativo");
+    } else {
 
+        texto.textContent = "Clique para ver mais +";
 
-            /*
-             * Fecha todos os cards.
-             */
+    }
 
-            cards.forEach(function (outroCard) {
-
-                outroCard.classList.remove("ativo");
-
-            });
-
-
-            /*
-             * Se o card não estava aberto,
-             * abre o card clicado.
-             */
-
-            if (!estavaAtivo) {
-
-                card.classList.add("ativo");
-
-            }
-
-        });
-
-    });
-
-
+}
     /* =====================================================
        MAPA MENTAL
     ===================================================== */
