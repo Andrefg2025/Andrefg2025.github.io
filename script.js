@@ -5,54 +5,61 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-
-    /* =========================================================
-   ABRIR / FECHAR INFORMAÇÃO EXTRA DOS CARDS
-========================================================= */
-
-function abrirCard(card) {
-
-    // Alterna o estado do card
-    card.classList.toggle("ativo");
-
-    // Localiza o texto de orientação
-    const texto = card.querySelector(".ver-mais");
-
-    // Altera o texto
-    if (card.classList.contains("ativo")) {
-
-        texto.textContent = "Clique para fechar −";
-
-    } else {
-
-        texto.textContent = "Clique para ver mais +";
-
-    }
-
-}
     /* =====================================================
-       MAPA MENTAL
+       ABRIR / FECHAR INFORMAÇÃO EXTRA DOS CARDS
     ===================================================== */
 
-    const mapa =
-        document.getElementById("mapa-mental");
+    window.abrirCard = function (card) {
 
+        if (!card) return;
+
+        card.classList.toggle("ativo");
+
+        const texto = card.querySelector(".ver-mais");
+
+        if (!texto) return;
+
+        if (card.classList.contains("ativo")) {
+            texto.textContent = "Clique para fechar −";
+        } else {
+            texto.textContent = "Clique para ver mais +";
+        }
+    };
+
+
+    /* =====================================================
+       MAPA MENTAL AUTOMÁTICO
+    ===================================================== */
+
+    gerarMapaMental();
+
+
+    /* =====================================================
+       INICIALIZAR ATIVIDADES
+    ===================================================== */
+
+    inicializarAtividades();
+
+});
+
+
+/* =========================================================
+   MAPA MENTAL
+========================================================= */
+
+function gerarMapaMental() {
+
+    const mapa = document.getElementById("mapa-mental");
 
     if (!mapa) {
-
         return;
-
     }
 
-
     /*
-     * Localiza a primeira aula que possui
-     * conteúdo.
+     * Procura a aula que contém o mapa.
      */
 
-    const aula =
-        mapa.closest(".aula-conteudo");
-
+    const aula = mapa.closest(".aula-conteudo");
 
     if (!aula) {
 
@@ -63,167 +70,122 @@ function abrirCard(card) {
         `;
 
         return;
-
     }
 
 
     /*
-     * O H2 será o tema central.
+     * Tema central.
      */
 
-    const titulo =
-        aula.querySelector("h2");
+    const titulo = aula.querySelector("h2");
 
-
-    const temaCentral =
-        titulo
-            ? titulo.textContent.trim()
-            : "Algoritmos e Estruturas de Dados";
+    const temaCentral = titulo
+        ? titulo.textContent.trim()
+        : "Algoritmos e Estruturas de Dados";
 
 
     /*
-     * Todos os H3 serão os ramos principais.
+     * Localiza os H3.
      */
 
-    const titulos =
-        aula.querySelectorAll("h3");
+    const titulos = aula.querySelectorAll("h3");
+
+    const limite = 14;
+
+    const topicos = Array.from(titulos)
+        .filter(h3 => h3.textContent.trim() !== "")
+        .slice(0, limite);
 
 
     /*
-     * Quantidade máxima de tópicos.
+     * Se não houver tópicos.
      */
 
-    const limite =
-        14;
+    if (!topicos.length) {
+
+        mapa.innerHTML = `
+            <p class="carregando-mapa">
+                Nenhum tópico encontrado para gerar o mapa mental.
+            </p>
+        `;
+
+        return;
+    }
 
 
-    const topicos =
-        Array.from(titulos)
-            .slice(0, limite);
+    /* =====================================================
+       CONFIGURAÇÃO SVG
+    ===================================================== */
+
+    const largura = 1200;
+    const altura = 700;
+
+    const centroX = largura / 2;
+    const centroY = altura / 2;
 
 
-    /*
-     * Configuração do SVG.
-     */
-
-    const largura =
-        1200;
-
-
-    const altura =
-        700;
-
-
-    const centroX =
-        largura / 2;
-
-
-    const centroY =
-        altura / 2;
-
-
-    /*
-     * Cria SVG.
-     */
-
-    const svg =
-        document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "svg"
-        );
-
+    const svg = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "svg"
+    );
 
     svg.setAttribute(
         "viewBox",
         `0 0 ${largura} ${altura}`
     );
 
-
-    /*
-     * Grupos.
-     */
-
-    const grupoLinhas =
-        document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "g"
-        );
-
-
-    const grupoNos =
-        document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "g"
-        );
-
-
-    svg.appendChild(
-        grupoLinhas
+    svg.setAttribute(
+        "preserveAspectRatio",
+        "xMidYMid meet"
     );
 
 
-    svg.appendChild(
-        grupoNos
+    /* =====================================================
+       GRUPOS
+    ===================================================== */
+
+    const grupoLinhas = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "g"
+    );
+
+    const grupoNos = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "g"
     );
 
 
-    /*
-     * Cria linha.
-     */
-
-    function criarLinha(
-        x1,
-        y1,
-        x2,
-        y2
-    ) {
-
-        const linha =
-            document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "line"
-            );
+    svg.appendChild(grupoLinhas);
+    svg.appendChild(grupoNos);
 
 
-        linha.setAttribute(
-            "x1",
-            x1
+    /* =====================================================
+       CRIAR LINHA
+    ===================================================== */
+
+    function criarLinha(x1, y1, x2, y2) {
+
+        const linha = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "line"
         );
 
+        linha.setAttribute("x1", x1);
+        linha.setAttribute("y1", y1);
+        linha.setAttribute("x2", x2);
+        linha.setAttribute("y2", y2);
 
-        linha.setAttribute(
-            "y1",
-            y1
-        );
+        linha.classList.add("linha-mapa");
 
+        grupoLinhas.appendChild(linha);
 
-        linha.setAttribute(
-            "x2",
-            x2
-        );
-
-
-        linha.setAttribute(
-            "y2",
-            y2
-        );
-
-
-        linha.classList.add(
-            "linha-mapa"
-        );
-
-
-        grupoLinhas.appendChild(
-            linha
-        );
-
+        return linha;
     }
 
 
-    /*
-     * Cria círculo.
-     */
+    /* =====================================================
+       CRIAR CÍRCULO
+    ===================================================== */
 
     function criarCirculo(
         x,
@@ -232,119 +194,69 @@ function abrirCard(card) {
         classe
     ) {
 
-        const circulo =
-            document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "circle"
-            );
-
-
-        circulo.setAttribute(
-            "cx",
-            x
+        const circulo = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "circle"
         );
 
+        circulo.setAttribute("cx", x);
+        circulo.setAttribute("cy", y);
+        circulo.setAttribute("r", raio);
 
-        circulo.setAttribute(
-            "cy",
-            y
-        );
+        circulo.classList.add(classe);
 
-
-        circulo.setAttribute(
-            "r",
-            raio
-        );
-
-
-        circulo.classList.add(
-            classe
-        );
-
-
-        grupoNos.appendChild(
-            circulo
-        );
-
+        grupoNos.appendChild(circulo);
 
         return circulo;
-
     }
 
 
-    /*
-     * Quebra texto em linhas.
-     */
+    /* =====================================================
+       QUEBRAR TEXTO
+    ===================================================== */
 
-    function quebrarTexto(
-        texto,
-        limite
-    ) {
+    function quebrarTexto(texto, limite) {
 
-        const palavras =
-            texto.split(" ");
-
+        const palavras = texto.split(/\s+/);
 
         const linhas = [];
 
-
         let linhaAtual = "";
 
+        palavras.forEach(function (palavra) {
 
-        palavras.forEach(
-            function (palavra) {
+            const teste = linhaAtual
+                ? linhaAtual + " " + palavra
+                : palavra;
 
-                const teste =
-                    linhaAtual
-                    ? linhaAtual + " " + palavra
-                    : palavra;
+            if (teste.length > limite) {
 
-
-                if (
-                    teste.length >
-                    limite
-                ) {
-
-                    if (linhaAtual) {
-
-                        linhas.push(
-                            linhaAtual
-                        );
-
-                    }
-
-
-                    linhaAtual =
-                        palavra;
-
-                } else {
-
-                    linhaAtual =
-                        teste;
-
+                if (linhaAtual) {
+                    linhas.push(linhaAtual);
                 }
 
+                linhaAtual = palavra;
+
+            } else {
+
+                linhaAtual = teste;
             }
-        );
+
+        });
 
 
         if (linhaAtual) {
-
-            linhas.push(
-                linhaAtual
-            );
-
+            linhas.push(linhaAtual);
         }
 
 
         return linhas;
-
     }
 
 
-    /*
-     * Cria texto.
-     */
+    /* =====================================================
+       CRIAR TEXTO
+    ===================================================== */
 
     function criarTexto(
         x,
@@ -354,55 +266,42 @@ function abrirCard(card) {
         limite
     ) {
 
-        const linhas =
-            quebrarTexto(
-                texto,
-                limite
-            );
-
-
-        linhas.forEach(
-            function (linha, indice) {
-
-                const elemento =
-                    document.createElementNS(
-                        "http://www.w3.org/2000/svg",
-                        "text"
-                    );
-
-
-                elemento.setAttribute(
-                    "x",
-                    x
-                );
-
-
-                elemento.setAttribute(
-                    "y",
-                    y +
-                    (
-                        indice -
-                        (linhas.length - 1) / 2
-                    ) * 16
-                );
-
-
-                elemento.classList.add(
-                    classe
-                );
-
-
-                elemento.textContent =
-                    linha;
-
-
-                grupoNos.appendChild(
-                    elemento
-                );
-
-            }
+        const linhas = quebrarTexto(
+            texto,
+            limite
         );
 
+
+        linhas.forEach(function (linha, indice) {
+
+            const elemento = document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "text"
+            );
+
+            elemento.setAttribute("x", x);
+
+            elemento.setAttribute(
+                "y",
+                y +
+                (
+                    indice -
+                    (linhas.length - 1) / 2
+                ) * 16
+            );
+
+            elemento.setAttribute(
+                "text-anchor",
+                "middle"
+            );
+
+            elemento.classList.add(classe);
+
+            elemento.textContent = linha;
+
+            grupoNos.appendChild(elemento);
+
+        });
     }
 
 
@@ -431,781 +330,146 @@ function abrirCard(card) {
        RAMOS
     ===================================================== */
 
-    const raio =
-        250;
+    const raio = 250;
 
 
-    topicos.forEach(
-        function (titulo, indice) {
+    topicos.forEach(function (titulo, indice) {
 
-            const angulo =
-                (
-                    indice /
-                    topicos.length
-                ) *
-                Math.PI *
-                2
-                -
-                Math.PI / 2;
-
-
-            const x =
-                centroX +
-                Math.cos(angulo) *
-                raio;
+        const angulo =
+            (
+                indice /
+                topicos.length
+            ) *
+            Math.PI *
+            2
+            -
+            Math.PI / 2;
 
 
-            const y =
-                centroY +
-                Math.sin(angulo) *
-                raio;
+        const x =
+            centroX +
+            Math.cos(angulo) *
+            raio;
 
 
-            /*
-             * Linha principal.
-             */
-
-            criarLinha(
-                centroX,
-                centroY,
-                x,
-                y
-            );
+        const y =
+            centroY +
+            Math.sin(angulo) *
+            raio;
 
 
-            /*
-             * Nó principal.
-             */
+        /* Linha principal */
 
-            criarCirculo(
-                x,
-                y,
-                65,
-                "no-principal"
-            );
+        criarLinha(
+            centroX,
+            centroY,
+            x,
+            y
+        );
 
 
-            /*
-             * Nome do tópico.
-             */
+        /* Nó principal */
 
-            criarTexto(
-                x,
-                y,
-                titulo.textContent.trim(),
-                "texto-principal",
-                15
-            );
+        criarCirculo(
+            x,
+            y,
+            65,
+            "no-principal"
+        );
 
 
-            /*
-             * Procura o primeiro parágrafo
-             * depois do H3.
-             */
+        /* Texto */
 
-            let elemento =
-                titulo.nextElementSibling;
-
-
-            let quantidade =
-                0;
+        criarTexto(
+            x,
+            y,
+            titulo.textContent.trim(),
+            "texto-principal",
+            15
+        );
 
 
-            while (
-                elemento &&
-                quantidade < 1
-            ) {
+        /* =================================================
+           PROCURAR PRIMEIRO PARÁGRAFO DO TÓPICO
+        ================================================= */
 
-                if (
-                    elemento.tagName === "P"
-                ) {
+        let elemento = titulo.nextElementSibling;
 
-                    const texto =
-                        elemento.textContent
-                            .trim();
+        while (elemento) {
 
-
-                    if (texto) {
-
-                        const distancia =
-                            125;
-
-
-                        const x2 =
-                            x +
-                            Math.cos(angulo) *
-                            distancia;
-
-
-                        const y2 =
-                            y +
-                            Math.sin(angulo) *
-                            distancia;
-
-
-                        /*
-                         * Linha secundária.
-                         */
-
-                        criarLinha(
-                            x,
-                            y,
-                            x2,
-                            y2
-                        );
-
-
-                        /*
-                         * Nó secundário.
-                         */
-
-                        criarCirculo(
-                            x2,
-                            y2,
-                            38,
-                            "no-secundario"
-                        );
-
-
-                        /*
-                         * Texto secundário.
-                         */
-
-                        criarTexto(
-                            x2,
-                            y2,
-                            texto,
-                            "texto-secundario",
-                            12
-                        );
-
-
-                        quantidade++;
-
-                    }
-
-                }
-
-
-                /*
-                 * Não ultrapassa o próximo H3.
-                 */
-
-                if (
-                    elemento.nextElementSibling &&
-                    elemento.nextElementSibling.tagName === "H3"
-                ) {
-
-                    break;
-
-                }
-
-
-                elemento =
-                    elemento.nextElementSibling;
-
+            if (elemento.tagName === "H3") {
+                break;
             }
 
+
+            if (elemento.tagName === "P") {
+
+                const texto =
+                    elemento.textContent.trim();
+
+
+                if (texto) {
+
+                    const distancia = 125;
+
+
+                    const x2 =
+                        x +
+                        Math.cos(angulo) *
+                        distancia;
+
+
+                    const y2 =
+                        y +
+                        Math.sin(angulo) *
+                        distancia;
+
+
+                    criarLinha(
+                        x,
+                        y,
+                        x2,
+                        y2
+                    );
+
+
+                    criarCirculo(
+                        x2,
+                        y2,
+                        38,
+                        "no-secundario"
+                    );
+
+
+                    criarTexto(
+                        x2,
+                        y2,
+                        texto,
+                        "texto-secundario",
+                        12
+                    );
+
+
+                    break;
+                }
+            }
+
+
+            elemento =
+                elemento.nextElementSibling;
         }
-    );
+
+    });
 
 
-    /*
-     * Coloca SVG na página.
-     */
+    /* =====================================================
+       COLOCAR MAPA NA PÁGINA
+    ===================================================== */
 
     mapa.innerHTML = "";
 
-    mapa.appendChild(
-        svg
-    );
-
-
-});
-/* =========================================================
-   BANCO DE QUESTÕES
-========================================================= */
-
-const bancoQuestoes = [
-
-    /* =====================================================
-       ALGORITMOS
-    ===================================================== */
-
-    {
-        topico: "algoritmos",
-
-        pergunta:
-            "O que é um algoritmo?",
-
-        alternativas: [
-            "Uma sequência lógica e finita de instruções para resolver um problema.",
-            "Um tipo de banco de dados.",
-            "Uma linguagem de programação.",
-            "Um componente físico do computador."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Um algoritmo é uma sequência organizada e finita de passos utilizada para solucionar um problema ou executar uma tarefa."
-    },
-
-
-    {
-        topico: "algoritmos",
-
-        pergunta:
-            "Qual é uma característica importante de um algoritmo?",
-
-        alternativas: [
-            "Deve possuir instruções infinitas.",
-            "Deve ser uma sequência organizada de passos.",
-            "Deve utilizar obrigatoriamente JavaScript.",
-            "Deve utilizar banco de dados."
-        ],
-
-        correta: 1,
-
-        explicacao:
-            "Um algoritmo deve apresentar uma sequência organizada de instruções para alcançar determinado resultado."
-    },
-
-
-    {
-        topico: "algoritmos",
-
-        pergunta:
-            "Antes de transformar uma solução em código, podemos utilizar:",
-
-        alternativas: [
-            "Fluxogramas e pseudocódigo.",
-            "Somente imagens.",
-            "Somente banco de dados.",
-            "Somente sistemas operacionais."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Fluxogramas, pseudocódigo e descrições textuais ajudam a organizar o raciocínio antes da implementação."
-    },
-
-
-    /* =====================================================
-       ESTRUTURAS DE DADOS
-    ===================================================== */
-
-    {
-        topico: "estruturas",
-
-        pergunta:
-            "Qual é a principal finalidade de uma estrutura de dados?",
-
-        alternativas: [
-            "Organizar e armazenar informações de maneira eficiente.",
-            "Criar imagens.",
-            "Substituir o sistema operacional.",
-            "Aumentar fisicamente a memória RAM."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Estruturas de dados organizam informações para que possam ser armazenadas, acessadas e manipuladas de maneira eficiente."
-    },
-
-
-    {
-        topico: "estruturas",
-
-        pergunta:
-            "Qual alternativa apresenta apenas estruturas de dados?",
-
-        alternativas: [
-            "Fila, pilha e árvore.",
-            "HTML, CSS e monitor.",
-            "Mouse, teclado e impressora.",
-            "JavaScript, Python e banco de dados."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Fila, pilha e árvore são exemplos clássicos de estruturas de dados."
-    },
-
-
-    /* =====================================================
-       ARRAYS
-    ===================================================== */
-
-    {
-        topico: "arrays",
-
-        pergunta:
-            "Como os elementos de um array normalmente são acessados?",
-
-        alternativas: [
-            "Por índices.",
-            "Por senhas.",
-            "Por arquivos externos.",
-            "Somente por comandos de voz."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Arrays armazenam elementos em posições que podem ser acessadas por índices."
-    },
-
-
-    {
-        topico: "arrays",
-
-        pergunta:
-            "Qual dos exemplos representa um array?",
-
-        alternativas: [
-            "[10, 20, 30, 40]",
-            "10 + 20 + 30",
-            "if (idade > 18)",
-            "function calcular()"
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "[10, 20, 30, 40] representa uma coleção de elementos organizada sequencialmente."
-    },
-
-
-    /* =====================================================
-       LISTAS
-    ===================================================== */
-
-    {
-        topico: "listas",
-
-        pergunta:
-            "Uma lista encadeada é formada principalmente por:",
-
-        alternativas: [
-            "Nós que armazenam dados e referências.",
-            "Imagens.",
-            "Arquivos de vídeo.",
-            "Somente números."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Cada nó de uma lista encadeada normalmente contém um dado e uma referência para outro nó."
-    },
-
-
-    {
-        topico: "listas",
-
-        pergunta:
-            "Uma vantagem das listas encadeadas é:",
-
-        alternativas: [
-            "Facilitar determinadas inserções e remoções.",
-            "Eliminar completamente o uso da memória.",
-            "Impedir qualquer alteração nos dados.",
-            "Substituir o processador."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Dependendo da posição e da implementação, listas encadeadas podem facilitar inserções e remoções sem deslocar todos os elementos."
-    },
-
-
-    /* =====================================================
-       PILHAS
-    ===================================================== */
-
-    {
-        topico: "pilhas",
-
-        pergunta:
-            "Qual princípio é utilizado pelas pilhas?",
-
-        alternativas: [
-            "FIFO.",
-            "LIFO.",
-            "HTTP.",
-            "HTML."
-        ],
-
-        correta: 1,
-
-        explicacao:
-            "Pilhas utilizam o princípio LIFO — Last In, First Out: o último elemento inserido é o primeiro a sair."
-    },
-
-
-    {
-        topico: "pilhas",
-
-        pergunta:
-            "Qual situação pode utilizar uma pilha?",
-
-        alternativas: [
-            "Desfazer e refazer ações.",
-            "Representar exclusivamente cidades em um mapa.",
-            "Armazenar somente imagens.",
-            "Criar uma página HTML."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Pilhas podem ser utilizadas para histórico de ações, desfazer/refazer e gerenciamento de chamadas de funções."
-    },
-
-
-    /* =====================================================
-       FILAS
-    ===================================================== */
-
-    {
-        topico: "filas",
-
-        pergunta:
-            "Qual princípio é utilizado pelas filas?",
-
-        alternativas: [
-            "LIFO.",
-            "FIFO.",
-            "HTML.",
-            "CSS."
-        ],
-
-        correta: 1,
-
-        explicacao:
-            "Filas utilizam FIFO — First In, First Out: o primeiro elemento que entra é o primeiro a sair."
-    },
-
-
-    {
-        topico: "filas",
-
-        pergunta:
-            "Qual situação representa uma fila?",
-
-        alternativas: [
-            "Pessoas aguardando atendimento por ordem de chegada.",
-            "Histórico de desfazer ações.",
-            "Uma árvore de diretórios.",
-            "Uma tabela de chave e valor."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Uma fila de atendimento é um exemplo clássico de FIFO."
-    },
-
-
-    /* =====================================================
-       ÁRVORES
-    ===================================================== */
-
-    {
-        topico: "arvores",
-
-        pergunta:
-            "As árvores representam os dados de maneira:",
-
-        alternativas: [
-            "Hierárquica.",
-            "Exclusivamente linear.",
-            "Aleatória.",
-            "Somente numérica."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Árvores representam relações hierárquicas entre elementos."
-    },
-
-
-    {
-        topico: "arvores",
-
-        pergunta:
-            "Em uma árvore, o nó principal é chamado de:",
-
-        alternativas: [
-            "Raiz.",
-            "Fila.",
-            "Índice.",
-            "Aresta."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "O nó principal de uma árvore é chamado de raiz."
-    },
-
-
-    /* =====================================================
-       GRAFOS
-    ===================================================== */
-
-    {
-        topico: "grafos",
-
-        pergunta:
-            "Um grafo é formado principalmente por:",
-
-        alternativas: [
-            "Vértices e arestas.",
-            "Filas e pilhas.",
-            "Classes e métodos.",
-            "HTML e CSS."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Grafos são formados por vértices, que representam elementos, e arestas, que representam conexões."
-    },
-
-
-    {
-        topico: "grafos",
-
-        pergunta:
-            "Em um mapa, as cidades podem ser representadas por:",
-
-        alternativas: [
-            "Vértices.",
-            "Arestas.",
-            "Índices.",
-            "Pilhas."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Em uma representação de mapa usando grafos, cidades podem ser vértices e estradas podem ser arestas."
-    },
-
-
-    /* =====================================================
-       TABELA HASH
-    ===================================================== */
-
-    {
-        topico: "hash",
-
-        pergunta:
-            "Uma tabela hash trabalha principalmente com:",
-
-        alternativas: [
-            "Chaves e valores.",
-            "Somente imagens.",
-            "Somente vídeos.",
-            "Apenas árvores."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Tabelas hash associam chaves a valores, permitindo localizar informações de forma eficiente quando a chave é conhecida."
-    },
-
-
-    {
-        topico: "hash",
-
-        pergunta:
-            "Em uma agenda de contatos, o nome da pessoa pode representar:",
-
-        alternativas: [
-            "A chave.",
-            "A aresta.",
-            "A raiz.",
-            "A fila."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Em uma tabela hash de contatos, o nome pode funcionar como chave e o telefone como valor."
-    },
-
-
-    /* =====================================================
-       ORDENAÇÃO
-    ===================================================== */
-
-    {
-        topico: "ordenacao",
-
-        pergunta:
-            "Qual é a finalidade de um algoritmo de ordenação?",
-
-        alternativas: [
-            "Organizar dados de acordo com determinado critério.",
-            "Excluir todos os dados.",
-            "Criar uma rede social.",
-            "Aumentar a memória RAM."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Algoritmos de ordenação organizam elementos de acordo com um critério, como ordem crescente ou decrescente."
-    },
-
-
-    {
-        topico: "ordenacao",
-
-        pergunta:
-            "Qual alternativa apresenta algoritmos de ordenação?",
-
-        alternativas: [
-            "Bubble Sort, Merge Sort e Quick Sort.",
-            "HTML, CSS e JavaScript.",
-            "FIFO, LIFO e HTTP.",
-            "RAM, ROM e CPU."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "Bubble Sort, Merge Sort e Quick Sort são exemplos de algoritmos de ordenação."
-    },
-
-
-    /* =====================================================
-       COMPLEXIDADE
-    ===================================================== */
-
-    {
-        topico: "complexidade",
-
-        pergunta:
-            "O que a complexidade de tempo representa?",
-
-        alternativas: [
-            "A quantidade de operações conforme aumenta a entrada.",
-            "O tamanho físico do computador.",
-            "A quantidade de usuários de uma aplicação.",
-            "A resolução do monitor."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "A complexidade de tempo analisa como o número de operações cresce conforme aumenta o tamanho da entrada."
-    },
-
-
-    {
-        topico: "complexidade",
-
-        pergunta:
-            "O que representa O(n)?",
-
-        alternativas: [
-            "Um crescimento linear em relação à entrada.",
-            "Um crescimento sempre constante.",
-            "Uma linguagem de programação.",
-            "Um tipo de banco de dados."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "O(n) representa crescimento linear. Uma busca linear, por exemplo, pode ter complexidade O(n)."
-    },
-
-
-    /* =====================================================
-       PROGRAMAÇÃO DINÂMICA
-    ===================================================== */
-
-    {
-        topico: "programacao-dinamica",
-
-        pergunta:
-            "Qual é uma característica da programação dinâmica?",
-
-        alternativas: [
-            "Armazenar resultados de subproblemas para evitar cálculos repetidos.",
-            "Executar sempre os mesmos cálculos.",
-            "Eliminar todas as estruturas de dados.",
-            "Utilizar somente HTML."
-        ],
-
-        correta: 0,
-
-        explicacao:
-            "A programação dinâmica aproveita resultados já calculados para evitar recomputações desnecessárias."
-    }
-
-];
-
-
-/* =========================================================
-   VARIÁVEIS DO SISTEMA
-========================================================= */
-
-let questaoAtual = null;
-
-let pontuacao = 0;
-
-let totalRespondidas = 0;
-
-
-/* =========================================================
-   EMBARALHAR ARRAY
-========================================================= */
-
-function embaralhar(array) {
-
-    const copia = [...array];
-
-    for (
-        let i = copia.length - 1;
-        i > 0;
-        i--
-    ) {
-
-        const j =
-            Math.floor(
-                Math.random() * (i + 1)
-            );
-
-        [
-            copia[i],
-            copia[j]
-        ] = [
-            copia[j],
-            copia[i]
-        ];
-
-    }
-
-    return copia;
+    mapa.appendChild(svg);
 }
-
-
-/* =========================================================
-   ATIVIDADES AUTOMÁTICAS
-   ALGORITMOS E ESTRUTURAS DE DADOS
-========================================================= */
 
 
 /* =========================================================
@@ -1224,7 +488,10 @@ const bancoQuestoes = [
             "Um dispositivo utilizado para conectar computadores."
         ],
 
-        resposta: 0
+        resposta: 0,
+
+        explicacao:
+            "Um algoritmo é uma sequência organizada e finita de passos utilizada para solucionar um problema."
     },
 
 
@@ -1238,7 +505,10 @@ const bancoQuestoes = [
             "Um tipo de navegador."
         ],
 
-        resposta: 1
+        resposta: 1,
+
+        explicacao:
+            "Estruturas de dados permitem organizar, armazenar e manipular informações de maneira eficiente."
     },
 
 
@@ -1252,21 +522,10 @@ const bancoQuestoes = [
             "LOOP"
         ],
 
-        resposta: 1
-    },
+        resposta: 1,
 
-
-    {
-        pergunta: "O que significa FIFO?",
-
-        alternativas: [
-            "First In, First Out",
-            "First Input, Final Output",
-            "Fast Input, Fast Output",
-            "Final In, First Out"
-        ],
-
-        resposta: 0
+        explicacao:
+            "FIFO significa First In, First Out: o primeiro elemento inserido é o primeiro a sair."
     },
 
 
@@ -1276,30 +535,19 @@ const bancoQuestoes = [
         alternativas: [
             "FIFO",
             "LIFO",
-            "FILO apenas em bancos de dados",
+            "FILO",
             "HASH"
         ],
 
-        resposta: 1
+        resposta: 1,
+
+        explicacao:
+            "LIFO significa Last In, First Out: o último elemento inserido é o primeiro a sair."
     },
 
 
     {
-        pergunta: "O que significa LIFO?",
-
-        alternativas: [
-            "Last In, First Out",
-            "Last Input, Final Output",
-            "Linear Input, Fast Output",
-            "List In, First Out"
-        ],
-
-        resposta: 0
-    },
-
-
-    {
-        pergunta: "Qual estrutura de dados representa informações de maneira hierárquica?",
+        pergunta: "Qual estrutura representa informações de maneira hierárquica?",
 
         alternativas: [
             "Fila",
@@ -1308,7 +556,10 @@ const bancoQuestoes = [
             "Array"
         ],
 
-        resposta: 2
+        resposta: 2,
+
+        explicacao:
+            "Árvores são estruturas de dados que representam relações hierárquicas."
     },
 
 
@@ -1322,7 +573,10 @@ const bancoQuestoes = [
             "A quantidade de memória."
         ],
 
-        resposta: 1
+        resposta: 1,
+
+        explicacao:
+            "Os vértices representam entidades ou elementos do grafo."
     },
 
 
@@ -1336,7 +590,10 @@ const bancoQuestoes = [
             "As funções do programa."
         ],
 
-        resposta: 0
+        resposta: 0,
+
+        explicacao:
+            "As arestas representam as conexões entre os vértices."
     },
 
 
@@ -1350,7 +607,10 @@ const bancoQuestoes = [
             "Lista encadeada"
         ],
 
-        resposta: 2
+        resposta: 2,
+
+        explicacao:
+            "Tabelas Hash normalmente armazenam informações associando uma chave a um valor."
     },
 
 
@@ -1364,7 +624,10 @@ const bancoQuestoes = [
             "Para conectar computadores em rede."
         ],
 
-        resposta: 0
+        resposta: 0,
+
+        explicacao:
+            "Arrays armazenam vários elementos que podem ser acessados por índices."
     },
 
 
@@ -1378,7 +641,10 @@ const bancoQuestoes = [
             "Ela funciona obrigatoriamente como uma fila."
         ],
 
-        resposta: 1
+        resposta: 1,
+
+        explicacao:
+            "Em uma lista encadeada, cada nó pode armazenar um dado e uma referência para outro nó."
     },
 
 
@@ -1392,7 +658,10 @@ const bancoQuestoes = [
             "Armazenar arquivos de vídeo."
         ],
 
-        resposta: 1
+        resposta: 1,
+
+        explicacao:
+            "Algoritmos de ordenação organizam os dados de acordo com algum critério."
     },
 
 
@@ -1406,7 +675,10 @@ const bancoQuestoes = [
             "Windows, Linux e Android."
         ],
 
-        resposta: 1
+        resposta: 1,
+
+        explicacao:
+            "Bubble Sort, Merge Sort e Quick Sort são algoritmos de ordenação."
     },
 
 
@@ -1420,7 +692,10 @@ const bancoQuestoes = [
             "Para alterar o hardware."
         ],
 
-        resposta: 0
+        resposta: 0,
+
+        explicacao:
+            "Algoritmos de busca são utilizados para localizar informações."
     },
 
 
@@ -1434,7 +709,10 @@ const bancoQuestoes = [
             "A velocidade da internet."
         ],
 
-        resposta: 1
+        resposta: 1,
+
+        explicacao:
+            "A complexidade de tempo analisa como o número de operações cresce conforme aumenta o tamanho da entrada."
     },
 
 
@@ -1448,7 +726,10 @@ const bancoQuestoes = [
             "O número de linhas do código HTML."
         ],
 
-        resposta: 0
+        resposta: 0,
+
+        explicacao:
+            "A complexidade de espaço analisa a quantidade de memória necessária."
     },
 
 
@@ -1462,7 +743,10 @@ const bancoQuestoes = [
             "Para armazenar imagens."
         ],
 
-        resposta: 0
+        resposta: 0,
+
+        explicacao:
+            "A notação Big O descreve o crescimento do custo de um algoritmo em relação ao tamanho da entrada."
     },
 
 
@@ -1476,7 +760,10 @@ const bancoQuestoes = [
             "O(n²)"
         ],
 
-        resposta: 2
+        resposta: 2,
+
+        explicacao:
+            "No pior caso, uma busca linear pode precisar verificar todos os elementos, resultando em O(n)."
     },
 
 
@@ -1490,7 +777,10 @@ const bancoQuestoes = [
             "Quando uma fila é transformada em árvore."
         ],
 
-        resposta: 0
+        resposta: 0,
+
+        explicacao:
+            "Recursão ocorre quando uma função chama a si mesma, normalmente até atingir uma condição de parada."
     },
 
 
@@ -1504,21 +794,10 @@ const bancoQuestoes = [
             "Substituir todas as estruturas de dados."
         ],
 
-        resposta: 1
-    },
+        resposta: 1,
 
-
-    {
-        pergunta: "O que significa DSA?",
-
-        alternativas: [
-            "Data Structures and Algorithms.",
-            "Digital System Application.",
-            "Data Software Architecture.",
-            "Dynamic System Algorithm."
-        ],
-
-        resposta: 0
+        explicacao:
+            "Programação dinâmica utiliza resultados de subproblemas já calculados para evitar trabalho repetido."
     },
 
 
@@ -1532,7 +811,10 @@ const bancoQuestoes = [
             "Array simples"
         ],
 
-        resposta: 0
+        resposta: 0,
+
+        explicacao:
+            "Uma árvore é adequada para representar estruturas hierárquicas, como diretórios e pastas."
     },
 
 
@@ -1546,7 +828,10 @@ const bancoQuestoes = [
             "Array"
         ],
 
-        resposta: 1
+        resposta: 1,
+
+        explicacao:
+            "Uma rede social pode ser representada como um grafo, onde pessoas são vértices e relações são arestas."
     },
 
 
@@ -1560,7 +845,10 @@ const bancoQuestoes = [
             "Tabela Hash"
         ],
 
-        resposta: 0
+        resposta: 0,
+
+        explicacao:
+            "Uma pilha é adequada para operações de desfazer porque a última ação realizada geralmente é a primeira a ser desfeita."
     },
 
 
@@ -1574,7 +862,10 @@ const bancoQuestoes = [
             "Tabela Hash"
         ],
 
-        resposta: 2
+        resposta: 2,
+
+        explicacao:
+            "Uma fila organiza elementos pela ordem de chegada utilizando o princípio FIFO."
     },
 
 
@@ -1588,7 +879,10 @@ const bancoQuestoes = [
             "Eliminar a necessidade de algoritmos."
         ],
 
-        resposta: 0
+        resposta: 0,
+
+        explicacao:
+            "Uma boa estrutura de dados deve facilitar operações sobre as informações de acordo com as necessidades do sistema."
     },
 
 
@@ -1602,7 +896,10 @@ const bancoQuestoes = [
             "Porque eliminam a necessidade de programação."
         ],
 
-        resposta: 0
+        resposta: 0,
+
+        explicacao:
+            "Algoritmos e estruturas de dados são fundamentais para desenvolver soluções eficientes e organizadas."
     },
 
 
@@ -1616,14 +913,17 @@ const bancoQuestoes = [
             "Python, Java e C++."
         ],
 
-        resposta: 1
+        resposta: 1,
+
+        explicacao:
+            "Fila, pilha, árvore e grafo são exemplos de estruturas de dados."
     }
 
 ];
 
 
 /* =========================================================
-   VARIÁVEIS
+   VARIÁVEIS DAS ATIVIDADES
 ========================================================= */
 
 let questoesAtuais = [];
@@ -1631,7 +931,7 @@ let respostasUsuario = [];
 
 
 /* =========================================================
-   FUNÇÃO PARA EMBARALHAR ARRAY
+   EMBARALHAR
 ========================================================= */
 
 function embaralhar(array) {
@@ -1662,44 +962,151 @@ function embaralhar(array) {
 
 
 /* =========================================================
-   GERAR QUESTÕES
+   INICIALIZAR ATIVIDADES
 ========================================================= */
 
-function gerarAtividades() {
+function inicializarAtividades() {
 
-    const quantidadeElemento =
+    const botao =
+        document.getElementById(
+            "btnGerarAtividades"
+        );
+
+
+    /*
+     * Se a página não tiver atividades,
+     * não faz nada.
+     */
+
+    if (!botao) {
+        return;
+    }
+
+
+    /*
+     * Botão gerar.
+     */
+
+    botao.addEventListener(
+        "click",
+        gerarAtividades
+    );
+
+
+    /*
+     * Se existir quantidade de questões,
+     * configura valor inicial.
+     */
+
+    const quantidade =
         document.getElementById(
             "quantidadeQuestoes"
         );
 
-    const quantidade =
-        Number(quantidadeElemento.value);
+
+    if (quantidade) {
+
+        if (
+            !quantidade.value ||
+            Number(quantidade.value) < 1
+        ) {
+
+            quantidade.value = 10;
+        }
+
+    }
 
 
-    /* Verificação de segurança */
+    /*
+     * GERA AUTOMATICAMENTE
+     * quando a página abre.
+     */
+
+    gerarAtividades();
+}
+
+
+/* =========================================================
+   GERAR ATIVIDADES
+========================================================= */
+
+function gerarAtividades() {
 
     if (!bancoQuestoes.length) {
 
-        alert(
-            "Não existem questões cadastradas."
+        console.error(
+            "Banco de questões vazio."
         );
 
         return;
     }
 
 
-    /* Embaralha e seleciona as questões */
+    const quantidadeElemento =
+        document.getElementById(
+            "quantidadeQuestoes"
+        );
 
-    questoesAtuais = embaralhar(
-        bancoQuestoes
-    ).slice(
-        0,
+
+    /*
+     * Se não existir campo de quantidade,
+     * usa 10 questões.
+     */
+
+    let quantidade = 10;
+
+
+    if (quantidadeElemento) {
+
+        quantidade =
+            parseInt(
+                quantidadeElemento.value,
+                10
+            );
+
+    }
+
+
+    /*
+     * Segurança.
+     */
+
+    if (
+        isNaN(quantidade) ||
+        quantidade < 1
+    ) {
+
+        quantidade = 10;
+    }
+
+
+    /*
+     * Não permite passar do banco.
+     */
+
+    quantidade =
         Math.min(
             quantidade,
             bancoQuestoes.length
-        )
-    );
+        );
 
+
+    /*
+     * Seleciona questões aleatórias.
+     */
+
+    questoesAtuais =
+        embaralhar(
+            bancoQuestoes
+        ).slice(
+            0,
+            quantidade
+        );
+
+
+    /*
+     * Limpa respostas.
+     */
 
     respostasUsuario =
         new Array(
@@ -1707,24 +1114,43 @@ function gerarAtividades() {
         ).fill(null);
 
 
-    /* Limpa resultado anterior */
+    /*
+     * Atualiza status.
+     */
 
-    document.getElementById(
-        "resultadoAtividade"
-    ).innerHTML = "";
-
-
-    /* Atualiza status */
-
-    document.getElementById(
-        "statusAtividade"
-    ).innerHTML = `
-        🎲 ${questoesAtuais.length}
-        questões foram geradas aleatoriamente.
-    `;
+    const status =
+        document.getElementById(
+            "statusAtividade"
+        );
 
 
-    /* Renderiza */
+    if (status) {
+
+        status.innerHTML = `
+            🎲 ${questoesAtuais.length}
+            questões geradas automaticamente.
+        `;
+    }
+
+
+    /*
+     * Limpa resultado.
+     */
+
+    const resultado =
+        document.getElementById(
+            "resultadoAtividade"
+        );
+
+
+    if (resultado) {
+        resultado.innerHTML = "";
+    }
+
+
+    /*
+     * Mostra questões.
+     */
 
     mostrarQuestoes();
 }
@@ -1742,26 +1168,47 @@ function mostrarQuestoes() {
         );
 
 
+    if (!container) {
+
+        console.error(
+            "Elemento #listaQuestoes não encontrado."
+        );
+
+        return;
+    }
+
+
     container.innerHTML = "";
 
 
     questoesAtuais.forEach(
-        (questao, indice) => {
+        function (questao, indice) {
+
+            /*
+             * Embaralha alternativas.
+             */
 
             const alternativas =
                 embaralhar(
-
                     questao.alternativas.map(
-                        (texto, index) => ({
-                            texto: texto,
-                            correta:
-                                index ===
-                                questao.resposta
-                        })
-                    )
+                        function (texto, index) {
 
+                            return {
+                                texto: texto,
+
+                                correta:
+                                    index ===
+                                    questao.resposta
+                            };
+
+                        }
+                    )
                 );
 
+
+            /*
+             * Cria questão.
+             */
 
             const div =
                 document.createElement(
@@ -1769,13 +1216,14 @@ function mostrarQuestoes() {
                 );
 
 
-            div.className =
-                "questao";
+            div.className = "questao";
+
+            div.dataset.indice = indice;
 
 
-            div.dataset.indice =
-                indice;
-
+            /*
+             * HTML da questão.
+             */
 
             let html = `
 
@@ -1788,17 +1236,16 @@ function mostrarQuestoes() {
                 </h3>
 
                 <div class="alternativas">
+
             `;
 
 
             alternativas.forEach(
-                (alternativa, letra) => {
+                function (alternativa, letra) {
 
                     html += `
 
-                        <label
-                            class="alternativa"
-                        >
+                        <label class="alternativa">
 
                             <input
                                 type="radio"
@@ -1830,14 +1277,15 @@ function mostrarQuestoes() {
             `;
 
 
-            div.innerHTML =
-                html;
+            div.innerHTML = html;
 
 
-            container.appendChild(
-                div
-            );
+            container.appendChild(div);
 
+
+            /*
+             * Eventos das alternativas.
+             */
 
             const inputs =
                 div.querySelectorAll(
@@ -1846,7 +1294,7 @@ function mostrarQuestoes() {
 
 
             inputs.forEach(
-                input => {
+                function (input) {
 
                     input.addEventListener(
                         "change",
@@ -1867,7 +1315,9 @@ function mostrarQuestoes() {
     );
 
 
-    /* Botão de finalizar */
+    /*
+     * Botão finalizar.
+     */
 
     const botao =
         document.createElement(
@@ -1890,9 +1340,7 @@ function mostrarQuestoes() {
     );
 
 
-    container.appendChild(
-        botao
-    );
+    container.appendChild(botao);
 }
 
 
@@ -1904,10 +1352,6 @@ function verificarResposta(
     indice,
     valor
 ) {
-
-    const questao =
-        questoesAtuais[indice];
-
 
     const correta =
         valor === "true";
@@ -1923,6 +1367,11 @@ function verificarResposta(
         );
 
 
+    if (!feedback) {
+        return;
+    }
+
+
     if (correta) {
 
         feedback.innerHTML =
@@ -1934,8 +1383,7 @@ function verificarResposta(
     } else {
 
         feedback.innerHTML =
-            `❌ Resposta incorreta.
-             Revise o conteúdo desta questão.`;
+            "❌ Resposta incorreta.";
 
         feedback.className =
             "feedback incorreto";
@@ -1950,22 +1398,19 @@ function verificarResposta(
 function finalizarAtividade() {
 
     let respondidas = 0;
+
     let acertos = 0;
 
 
     respostasUsuario.forEach(
-        resposta => {
+        function (resposta) {
 
             if (resposta !== null) {
-
                 respondidas++;
-
             }
 
             if (resposta === true) {
-
                 acertos++;
-
             }
 
         }
@@ -2006,7 +1451,6 @@ function finalizarAtividade() {
 
         mensagem =
             "💪 Continue estudando e tente novamente.";
-
     }
 
 
@@ -2016,52 +1460,55 @@ function finalizarAtividade() {
         );
 
 
+    if (!resultado) {
+        return;
+    }
+
+
     resultado.innerHTML = `
 
-        <h3>
-            Resultado
-        </h3>
+        <div class="resultado-box">
 
-        <div class="pontuacao">
+            <h3>
+                Resultado
+            </h3>
 
-            <strong>
-                ${acertos}
-            </strong>
+            <div class="pontuacao">
 
-            /
-            ${total}
+                <strong>
+                    ${acertos}
+                </strong>
+
+                /
+                ${total}
+
+            </div>
+
+            <p>
+                Respondidas:
+                <strong>${respondidas}</strong>
+                de
+                <strong>${total}</strong>
+            </p>
+
+            <p>
+                Aproveitamento:
+                <strong>${percentual}%</strong>
+            </p>
+
+            <p class="mensagem-resultado">
+                ${mensagem}
+            </p>
+
+            <button
+                type="button"
+                class="btn-gerar"
+                id="btnNovaAtividade"
+            >
+                🎲 Gerar Nova Atividade
+            </button>
 
         </div>
-
-        <p>
-            Respondidas:
-            <strong>
-                ${respondidas}
-            </strong>
-            de
-            <strong>
-                ${total}
-            </strong>
-        </p>
-
-        <p>
-            Aproveitamento:
-            <strong>
-                ${percentual}%
-            </strong>
-        </p>
-
-        <p class="mensagem-resultado">
-            ${mensagem}
-        </p>
-
-        <button
-            type="button"
-            class="btn-gerar"
-            id="btnNovaAtividade"
-        >
-            🎲 Gerar Nova Atividade
-        </button>
 
     `;
 
@@ -2072,39 +1519,17 @@ function finalizarAtividade() {
     });
 
 
-    document
-        .getElementById(
+    const nova =
+        document.getElementById(
             "btnNovaAtividade"
-        )
-        .addEventListener(
+        );
+
+
+    if (nova) {
+
+        nova.addEventListener(
             "click",
             gerarAtividades
         );
-}
-
-
-/* =========================================================
-   INICIALIZAÇÃO
-========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        const botao =
-            document.getElementById(
-                "btnGerarAtividades"
-            );
-
-
-        if (botao) {
-
-            botao.addEventListener(
-                "click",
-                gerarAtividades
-            );
-
-        }
-
     }
-);
+}
