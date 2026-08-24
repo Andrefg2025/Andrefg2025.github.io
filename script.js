@@ -1203,381 +1203,908 @@ function embaralhar(array) {
 
 
 /* =========================================================
-   GERAR ATIVIDADE
+   ATIVIDADES AUTOMÁTICAS
+   ALGORITMOS E ESTRUTURAS DE DADOS
 ========================================================= */
 
-function gerarAtividade() {
 
-    const topico =
-        document.getElementById("topico").value;
+/* =========================================================
+   BANCO DE QUESTÕES
+========================================================= */
+
+const bancoQuestoes = [
+
+    {
+        pergunta: "O que é um algoritmo?",
+
+        alternativas: [
+            "Uma sequência lógica e finita de instruções para resolver um problema.",
+            "Um tipo de computador utilizado para armazenar dados.",
+            "Um programa responsável apenas pela criação de páginas web.",
+            "Um dispositivo utilizado para conectar computadores."
+        ],
+
+        resposta: 0
+    },
 
 
-    /* FILTRAR QUESTÕES */
+    {
+        pergunta: "O que é uma estrutura de dados?",
 
-    let questoesDisponiveis;
+        alternativas: [
+            "Uma linguagem de programação.",
+            "Uma forma de organizar, armazenar e manipular dados.",
+            "Um sistema operacional.",
+            "Um tipo de navegador."
+        ],
+
+        resposta: 1
+    },
 
 
-    if (topico === "todos") {
+    {
+        pergunta: "Qual princípio é utilizado pelas filas?",
 
-        questoesDisponiveis =
-            bancoQuestoes;
+        alternativas: [
+            "LIFO",
+            "FIFO",
+            "FILO",
+            "LOOP"
+        ],
 
-    } else {
+        resposta: 1
+    },
 
-        questoesDisponiveis =
-            bancoQuestoes.filter(
-                questao =>
-                    questao.topico === topico
-            );
 
+    {
+        pergunta: "O que significa FIFO?",
+
+        alternativas: [
+            "First In, First Out",
+            "First Input, Final Output",
+            "Fast Input, Fast Output",
+            "Final In, First Out"
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "Qual princípio é utilizado pelas pilhas?",
+
+        alternativas: [
+            "FIFO",
+            "LIFO",
+            "FILO apenas em bancos de dados",
+            "HASH"
+        ],
+
+        resposta: 1
+    },
+
+
+    {
+        pergunta: "O que significa LIFO?",
+
+        alternativas: [
+            "Last In, First Out",
+            "Last Input, Final Output",
+            "Linear Input, Fast Output",
+            "List In, First Out"
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "Qual estrutura de dados representa informações de maneira hierárquica?",
+
+        alternativas: [
+            "Fila",
+            "Pilha",
+            "Árvore",
+            "Array"
+        ],
+
+        resposta: 2
+    },
+
+
+    {
+        pergunta: "Em um grafo, o que os vértices representam?",
+
+        alternativas: [
+            "As conexões entre os elementos.",
+            "Os elementos ou entidades.",
+            "Os algoritmos utilizados.",
+            "A quantidade de memória."
+        ],
+
+        resposta: 1
+    },
+
+
+    {
+        pergunta: "Em um grafo, o que as arestas representam?",
+
+        alternativas: [
+            "As conexões entre os elementos.",
+            "Os elementos principais.",
+            "Os índices dos arrays.",
+            "As funções do programa."
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "Qual estrutura utiliza pares de chave e valor?",
+
+        alternativas: [
+            "Fila",
+            "Pilha",
+            "Tabela Hash",
+            "Lista encadeada"
+        ],
+
+        resposta: 2
+    },
+
+
+    {
+        pergunta: "Para que serve um array?",
+
+        alternativas: [
+            "Para armazenar elementos organizados em posições ou índices.",
+            "Para executar apenas algoritmos recursivos.",
+            "Para criar exclusivamente bancos de dados.",
+            "Para conectar computadores em rede."
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "O que caracteriza uma lista encadeada?",
+
+        alternativas: [
+            "Seus elementos não possuem relação entre si.",
+            "Cada nó pode armazenar um dado e uma referência para outro nó.",
+            "Todos os dados precisam estar em posições consecutivas.",
+            "Ela funciona obrigatoriamente como uma fila."
+        ],
+
+        resposta: 1
+    },
+
+
+    {
+        pergunta: "Qual é a função de um algoritmo de ordenação?",
+
+        alternativas: [
+            "Excluir todos os dados.",
+            "Organizar os dados de acordo com determinado critério.",
+            "Criar uma conexão de internet.",
+            "Armazenar arquivos de vídeo."
+        ],
+
+        resposta: 1
+    },
+
+
+    {
+        pergunta: "Qual alternativa apresenta algoritmos de ordenação?",
+
+        alternativas: [
+            "HTML, CSS e JavaScript.",
+            "Bubble Sort, Merge Sort e Quick Sort.",
+            "FIFO, LIFO e HASH.",
+            "Windows, Linux e Android."
+        ],
+
+        resposta: 1
+    },
+
+
+    {
+        pergunta: "Para que serve um algoritmo de busca?",
+
+        alternativas: [
+            "Para localizar informações em uma estrutura de dados.",
+            "Para apagar o sistema operacional.",
+            "Para criar imagens.",
+            "Para alterar o hardware."
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "O que representa a complexidade de tempo?",
+
+        alternativas: [
+            "A quantidade de memória disponível no computador.",
+            "A quantidade de operações realizadas conforme aumenta a entrada.",
+            "O tamanho físico do computador.",
+            "A velocidade da internet."
+        ],
+
+        resposta: 1
+    },
+
+
+    {
+        pergunta: "O que representa a complexidade de espaço?",
+
+        alternativas: [
+            "A quantidade de memória necessária para executar um algoritmo.",
+            "A quantidade de usuários de um sistema.",
+            "A velocidade do processador.",
+            "O número de linhas do código HTML."
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "Para que serve a notação Big O?",
+
+        alternativas: [
+            "Para representar o comportamento de um algoritmo conforme a entrada cresce.",
+            "Para criar interfaces gráficas.",
+            "Para definir cores de um site.",
+            "Para armazenar imagens."
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "Uma busca linear pode apresentar qual complexidade no pior caso?",
+
+        alternativas: [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n²)"
+        ],
+
+        resposta: 2
+    },
+
+
+    {
+        pergunta: "O que é recursão?",
+
+        alternativas: [
+            "Quando uma função chama a si própria para solucionar um problema.",
+            "Quando um programa é executado sem nenhuma instrução.",
+            "Quando os dados são sempre armazenados em arrays.",
+            "Quando uma fila é transformada em árvore."
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "Qual é o objetivo da programação dinâmica?",
+
+        alternativas: [
+            "Evitar computadores lentos.",
+            "Dividir problemas em subproblemas e reutilizar resultados já calculados.",
+            "Criar exclusivamente páginas web.",
+            "Substituir todas as estruturas de dados."
+        ],
+
+        resposta: 1
+    },
+
+
+    {
+        pergunta: "O que significa DSA?",
+
+        alternativas: [
+            "Data Structures and Algorithms.",
+            "Digital System Application.",
+            "Data Software Architecture.",
+            "Dynamic System Algorithm."
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "Qual estrutura é adequada para representar uma hierarquia de pastas?",
+
+        alternativas: [
+            "Árvore",
+            "Fila",
+            "Pilha",
+            "Array simples"
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "Qual estrutura pode representar uma rede social?",
+
+        alternativas: [
+            "Fila",
+            "Grafo",
+            "Pilha",
+            "Array"
+        ],
+
+        resposta: 1
+    },
+
+
+    {
+        pergunta: "Qual estrutura é muito utilizada para implementar operações de desfazer (undo)?",
+
+        alternativas: [
+            "Pilha",
+            "Fila",
+            "Grafo",
+            "Tabela Hash"
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "Qual estrutura pode organizar solicitações de usuários pela ordem de chegada?",
+
+        alternativas: [
+            "Árvore",
+            "Grafo",
+            "Fila",
+            "Tabela Hash"
+        ],
+
+        resposta: 2
+    },
+
+
+    {
+        pergunta: "Qual é uma característica importante de uma boa estrutura de dados?",
+
+        alternativas: [
+            "Facilitar o armazenamento e acesso eficiente aos dados.",
+            "Aumentar sempre o consumo de memória.",
+            "Impedir a busca de informações.",
+            "Eliminar a necessidade de algoritmos."
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "Por que algoritmos e estruturas de dados são importantes?",
+
+        alternativas: [
+            "Porque ajudam a criar sistemas mais eficientes, organizados e escaláveis.",
+            "Porque substituem completamente os computadores.",
+            "Porque servem somente para criar jogos.",
+            "Porque eliminam a necessidade de programação."
+        ],
+
+        resposta: 0
+    },
+
+
+    {
+        pergunta: "Qual alternativa apresenta apenas estruturas de dados?",
+
+        alternativas: [
+            "HTML, CSS e JavaScript.",
+            "Fila, pilha, árvore e grafo.",
+            "Chrome, Firefox e Edge.",
+            "Python, Java e C++."
+        ],
+
+        resposta: 1
     }
 
+];
 
-    /* VERIFICAR SE EXISTEM QUESTÕES */
 
-    if (questoesDisponiveis.length === 0) {
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
 
-        document.getElementById("atividade").innerHTML = `
+let questoesAtuais = [];
+let respostasUsuario = [];
 
-            <div class="atividade-erro">
 
-                <h3>
-                    ⚠️ Nenhuma questão encontrada
-                </h3>
+/* =========================================================
+   FUNÇÃO PARA EMBARALHAR ARRAY
+========================================================= */
 
-                <p>
-                    Ainda não existem atividades cadastradas
-                    para este tópico.
-                </p>
+function embaralhar(array) {
 
-            </div>
+    const copia = [...array];
 
-        `;
+    for (
+        let i = copia.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j = Math.floor(
+            Math.random() * (i + 1)
+        );
+
+        [
+            copia[i],
+            copia[j]
+        ] = [
+            copia[j],
+            copia[i]
+        ];
+    }
+
+    return copia;
+}
+
+
+/* =========================================================
+   GERAR QUESTÕES
+========================================================= */
+
+function gerarAtividades() {
+
+    const quantidadeElemento =
+        document.getElementById(
+            "quantidadeQuestoes"
+        );
+
+    const quantidade =
+        Number(quantidadeElemento.value);
+
+
+    /* Verificação de segurança */
+
+    if (!bancoQuestoes.length) {
+
+        alert(
+            "Não existem questões cadastradas."
+        );
 
         return;
     }
 
 
-    /* SORTEAR QUESTÃO */
+    /* Embaralha e seleciona as questões */
 
-    const sorteadas =
-        embaralhar(
-            questoesDisponiveis
-        );
-
-    questaoAtual =
-        sorteadas[0];
-
-
-    /* EMBARALHAR ALTERNATIVAS */
-
-    const alternativas =
-        questaoAtual.alternativas.map(
-            (texto, indiceOriginal) => ({
-                texto,
-                indiceOriginal
-            })
-        );
-
-
-    const alternativasEmbaralhadas =
-        embaralhar(alternativas);
-
-
-    /* CRIAR HTML */
-
-    let html = `
-
-        <div class="questao">
-
-            <div class="cabecalho-questao">
-
-                <span>
-                    📚 ${questaoAtual.topico}
-                </span>
-
-                <span>
-                    Questão aleatória
-                </span>
-
-            </div>
-
-
-            <h3>
-                ${questaoAtual.pergunta}
-            </h3>
-
-
-            <div class="alternativas">
-    `;
-
-
-    alternativasEmbaralhadas.forEach(
-        (alternativa, indice) => {
-
-            html += `
-
-                <button
-                    class="alternativa"
-                    onclick="responder(${alternativa.indiceOriginal}, this)"
-                >
-
-                    <span class="letra">
-                        ${String.fromCharCode(65 + indice)}
-                    </span>
-
-                    <span>
-                        ${alternativa.texto}
-                    </span>
-
-                </button>
-
-            `;
-
-        }
+    questoesAtuais = embaralhar(
+        bancoQuestoes
+    ).slice(
+        0,
+        Math.min(
+            quantidade,
+            bancoQuestoes.length
+        )
     );
 
 
-    html += `
+    respostasUsuario =
+        new Array(
+            questoesAtuais.length
+        ).fill(null);
 
-            </div>
 
-            <div
-                id="feedback"
-                class="feedback"
-            ></div>
+    /* Limpa resultado anterior */
 
-        </div>
+    document.getElementById(
+        "resultadoAtividade"
+    ).innerHTML = "";
 
+
+    /* Atualiza status */
+
+    document.getElementById(
+        "statusAtividade"
+    ).innerHTML = `
+        🎲 ${questoesAtuais.length}
+        questões foram geradas aleatoriamente.
     `;
 
 
-    document.getElementById(
-        "atividade"
-    ).innerHTML = html;
+    /* Renderiza */
 
+    mostrarQuestoes();
 }
 
 
 /* =========================================================
-   RESPONDER QUESTÃO
+   MOSTRAR QUESTÕES
 ========================================================= */
 
-function responder(indice, botao) {
+function mostrarQuestoes() {
 
-    /* IMPEDIR DUPLA RESPOSTA */
-
-    const botoes =
-        document.querySelectorAll(
-            ".alternativa"
+    const container =
+        document.getElementById(
+            "listaQuestoes"
         );
 
 
-    botoes.forEach(
-        botao => {
-            botao.disabled = true;
+    container.innerHTML = "";
+
+
+    questoesAtuais.forEach(
+        (questao, indice) => {
+
+            const alternativas =
+                embaralhar(
+
+                    questao.alternativas.map(
+                        (texto, index) => ({
+                            texto: texto,
+                            correta:
+                                index ===
+                                questao.resposta
+                        })
+                    )
+
+                );
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "questao";
+
+
+            div.dataset.indice =
+                indice;
+
+
+            let html = `
+
+                <div class="numero-questao">
+                    Questão ${indice + 1}
+                </div>
+
+                <h3>
+                    ${questao.pergunta}
+                </h3>
+
+                <div class="alternativas">
+            `;
+
+
+            alternativas.forEach(
+                (alternativa, letra) => {
+
+                    html += `
+
+                        <label
+                            class="alternativa"
+                        >
+
+                            <input
+                                type="radio"
+                                name="questao-${indice}"
+                                value="${alternativa.correta}"
+                            >
+
+                            <span>
+                                ${String.fromCharCode(65 + letra)})
+                                ${alternativa.texto}
+                            </span>
+
+                        </label>
+
+                    `;
+                }
+            );
+
+
+            html += `
+
+                </div>
+
+                <div
+                    class="feedback"
+                    id="feedback-${indice}"
+                ></div>
+
+            `;
+
+
+            div.innerHTML =
+                html;
+
+
+            container.appendChild(
+                div
+            );
+
+
+            const inputs =
+                div.querySelectorAll(
+                    `input[name="questao-${indice}"]`
+                );
+
+
+            inputs.forEach(
+                input => {
+
+                    input.addEventListener(
+                        "change",
+                        function () {
+
+                            verificarResposta(
+                                indice,
+                                this.value
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
         }
     );
 
 
-    totalRespondidas++;
+    /* Botão de finalizar */
+
+    const botao =
+        document.createElement(
+            "button"
+        );
+
+
+    botao.type = "button";
+
+    botao.className =
+        "btn-finalizar";
+
+    botao.textContent =
+        "✅ Finalizar atividade";
+
+
+    botao.addEventListener(
+        "click",
+        finalizarAtividade
+    );
+
+
+    container.appendChild(
+        botao
+    );
+}
+
+
+/* =========================================================
+   VERIFICAR RESPOSTA
+========================================================= */
+
+function verificarResposta(
+    indice,
+    valor
+) {
+
+    const questao =
+        questoesAtuais[indice];
+
+
+    const correta =
+        valor === "true";
+
+
+    respostasUsuario[indice] =
+        correta;
 
 
     const feedback =
         document.getElementById(
-            "feedback"
+            `feedback-${indice}`
         );
 
 
-    /* RESPOSTA CORRETA */
+    if (correta) {
 
-    if (
-        indice ===
-        questaoAtual.correta
-    ) {
+        feedback.innerHTML =
+            "✅ Resposta correta!";
 
-        pontuacao++;
+        feedback.className =
+            "feedback correto";
 
+    } else {
 
-        botao.classList.add(
-            "correta"
-        );
+        feedback.innerHTML =
+            `❌ Resposta incorreta.
+             Revise o conteúdo desta questão.`;
 
-
-        feedback.innerHTML = `
-
-            <div class="feedback-correto">
-
-                <strong>
-                    ✅ Resposta correta!
-                </strong>
-
-                <p>
-                    ${questaoAtual.explicacao}
-                </p>
-
-            </div>
-
-        `;
-
+        feedback.className =
+            "feedback incorreto";
     }
-
-    /* RESPOSTA ERRADA */
-
-    else {
-
-        botao.classList.add(
-            "incorreta"
-        );
-
-
-        botoes.forEach(
-            botao => {
-
-                const onclick =
-                    botao.getAttribute(
-                        "onclick"
-                    );
-
-                if (
-                    onclick &&
-                    onclick.includes(
-                        `responder(${questaoAtual.correta},`
-                    )
-                ) {
-
-                    botao.classList.add(
-                        "correta"
-                    );
-
-                }
-
-            }
-        );
-
-
-        feedback.innerHTML = `
-
-            <div class="feedback-erro">
-
-                <strong>
-                    ❌ Resposta incorreta!
-                </strong>
-
-                <p>
-                    ${questaoAtual.explicacao}
-                </p>
-
-            </div>
-
-        `;
-
-    }
-
-
-    /* ATUALIZAR PLACAR */
-
-    atualizarPlacar();
-
-
-    /* BOTÃO PRÓXIMA QUESTÃO */
-
-    feedback.innerHTML += `
-
-        <button
-            class="proxima"
-            onclick="gerarAtividade()"
-        >
-            🎲 Próxima atividade
-        </button>
-
-    `;
-
 }
 
 
 /* =========================================================
-   PLACAR
+   FINALIZAR ATIVIDADE
 ========================================================= */
 
-function atualizarPlacar() {
+function finalizarAtividade() {
 
-    const resultado =
-        document.getElementById(
-            "resultado"
-        );
+    let respondidas = 0;
+    let acertos = 0;
 
 
-    let porcentagem = 0;
+    respostasUsuario.forEach(
+        resposta => {
+
+            if (resposta !== null) {
+
+                respondidas++;
+
+            }
+
+            if (resposta === true) {
+
+                acertos++;
+
+            }
+
+        }
+    );
 
 
-    if (totalRespondidas > 0) {
+    const total =
+        questoesAtuais.length;
 
-        porcentagem =
-            Math.round(
-                (pontuacao /
-                    totalRespondidas) *
-                100
-            );
+
+    const percentual =
+        total > 0
+            ? Math.round(
+                (acertos / total) * 100
+            )
+            : 0;
+
+
+    let mensagem;
+
+
+    if (percentual >= 90) {
+
+        mensagem =
+            "🏆 Excelente! Você domina muito bem o conteúdo.";
+
+    } else if (percentual >= 70) {
+
+        mensagem =
+            "👏 Muito bom! Continue praticando.";
+
+    } else if (percentual >= 50) {
+
+        mensagem =
+            "📚 Bom começo! Revise alguns conceitos.";
+
+    } else {
+
+        mensagem =
+            "💪 Continue estudando e tente novamente.";
 
     }
 
 
+    const resultado =
+        document.getElementById(
+            "resultadoAtividade"
+        );
+
+
     resultado.innerHTML = `
 
-        <div class="placar">
+        <h3>
+            Resultado
+        </h3>
 
-            <div>
-                <strong>
-                    ${pontuacao}
-                </strong>
+        <div class="pontuacao">
 
-                <span>
-                    Acertos
-                </span>
-            </div>
+            <strong>
+                ${acertos}
+            </strong>
 
-
-            <div>
-                <strong>
-                    ${totalRespondidas}
-                </strong>
-
-                <span>
-                    Respondidas
-                </span>
-            </div>
-
-
-            <div>
-                <strong>
-                    ${porcentagem}%
-                </strong>
-
-                <span>
-                    Aproveitamento
-                </span>
-            </div>
+            /
+            ${total}
 
         </div>
 
+        <p>
+            Respondidas:
+            <strong>
+                ${respondidas}
+            </strong>
+            de
+            <strong>
+                ${total}
+            </strong>
+        </p>
+
+        <p>
+            Aproveitamento:
+            <strong>
+                ${percentual}%
+            </strong>
+        </p>
+
+        <p class="mensagem-resultado">
+            ${mensagem}
+        </p>
+
+        <button
+            type="button"
+            class="btn-gerar"
+            id="btnNovaAtividade"
+        >
+            🎲 Gerar Nova Atividade
+        </button>
+
     `;
 
+
+    resultado.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+
+    document
+        .getElementById(
+            "btnNovaAtividade"
+        )
+        .addEventListener(
+            "click",
+            gerarAtividades
+        );
 }
-{
-    topico: "pilhas",
 
-    pergunta: "O que significa LIFO?",
 
-    alternativas: [
-        "Primeiro a entrar, primeiro a sair.",
-        "Último a entrar, primeiro a sair.",
-        "Todos entram ao mesmo tempo.",
-        "Nenhum elemento pode sair."
-    ],
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
 
-    correta: 1,
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    explicacao:
-        "LIFO significa Last In, First Out, ou seja, o último elemento inserido é o primeiro a ser removido."
-},
+        const botao =
+            document.getElementById(
+                "btnGerarAtividades"
+            );
+
+
+        if (botao) {
+
+            botao.addEventListener(
+                "click",
+                gerarAtividades
+            );
+
+        }
+
+    }
+);
