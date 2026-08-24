@@ -1564,3 +1564,20 @@ function atualizarPlacar() {
     `;
 
 }
+{
+    topico: "pilhas",
+
+    pergunta: "O que significa LIFO?",
+
+    alternativas: [
+        "Primeiro a entrar, primeiro a sair.",
+        "Último a entrar, primeiro a sair.",
+        "Todos entram ao mesmo tempo.",
+        "Nenhum elemento pode sair."
+    ],
+
+    correta: 1,
+
+    explicacao:
+        "LIFO significa Last In, First Out, ou seja, o último elemento inserido é o primeiro a ser removido."
+},
