@@ -1,3 +1,4 @@
+```css
 /* =========================================================
    RESET GERAL
 ========================================================= */
@@ -299,16 +300,6 @@ p {
    PARÁGRAFOS DO CONTEÚDO
 ========================================================= */
 
-/*
-   Equivale a:
-
-   <p style="
-       text-align: justify;
-       margin: 2px 80px;
-       text-indent: 40px;
-   ">
-*/
-
 .conteudo p {
     text-align: justify;
 
@@ -445,7 +436,10 @@ footer p {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
     transition:
-        all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+        box-shadow 0.4s ease,
+        background-color 0.4s ease,
+        border-color 0.4s ease;
 
     cursor: pointer;
 
@@ -462,7 +456,10 @@ footer p {
 
     max-height: 0;
 
+    overflow: hidden;
+
     margin: 0;
+    padding: 0;
 
     font-size: 0.9rem;
 
@@ -470,7 +467,26 @@ footer p {
 
     color: #94a3b8;
 
-    transition: all 0.4s ease-in-out;
+    transition:
+        opacity 0.4s ease,
+        max-height 0.4s ease,
+        margin-top 0.4s ease,
+        padding 0.4s ease;
+}
+
+
+/* =========================================================
+   INFORMAÇÃO EXTRA — CARD ATIVO
+========================================================= */
+
+.card.ativo .info-extra {
+    opacity: 1;
+
+    max-height: 300px;
+
+    margin-top: 15px;
+
+    padding-top: 5px;
 }
 
 
@@ -506,12 +522,22 @@ footer p {
 
 
 /* =========================================================
-   HOVER E CARD ATIVO
+   HOVER
 ========================================================= */
 
-.card:hover,
+.card:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+
+/* =========================================================
+   CARD ATIVO
+========================================================= */
+
 .card.ativo {
     transform: translateY(-8px) scale(1.05);
+
+    animation: none;
 }
 
 
@@ -524,21 +550,7 @@ footer p {
 
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4) !important;
 
-    transition:
-        transform 0.1s ease !important;
-}
-
-
-/* =========================================================
-   ABERTURA DA INFORMAÇÃO EXTRA
-========================================================= */
-
-.card.ativo .info-extra {
-    opacity: 1;
-
-    max-height: 300px;
-
-    margin-top: 15px;
+    transition: transform 0.1s ease !important;
 }
 
 
@@ -698,11 +710,6 @@ footer p {
         padding: 10px 5px 20px;
     }
 
-    /*
-       No celular, reduzimos a margem lateral
-       para o texto não ficar apertado.
-    */
-
     .conteudo p {
         margin: 2px 15px;
 
@@ -750,3 +757,24 @@ footer p {
         text-indent: 0;
     }
 }
+```
+
+**Importante:** esse CSS sozinho não faz o card abrir ao clicar. Ele espera que seu JavaScript adicione a classe `.ativo`.
+
+Use este JavaScript junto:
+
+```html
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        card.addEventListener("click", () => {
+            card.classList.toggle("ativo");
+        });
+    });
+});
+</script>
+```
+
+Com os dois juntos, a `.info-extra` fica escondida inicialmente e **abre ao clicar no card**, fechando quando clicar novamente.
