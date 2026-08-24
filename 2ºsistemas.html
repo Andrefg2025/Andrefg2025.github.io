@@ -707,6 +707,44 @@
     </div>
 
 </section>
+                <section id="atividades" class="atividades-container">
+
+    <h2>📝 Atividades Automáticas</h2>
+
+    <p class="descricao-atividade">
+        Responda às questões sobre Algoritmos e Estruturas de Dados.
+        As atividades são geradas aleatoriamente.
+    </p>
+
+    <div class="config-atividade">
+
+        <label for="quantidadeQuestoes">
+            Quantidade de questões:
+        </label>
+
+        <select id="quantidadeQuestoes">
+            <option value="5">5 questões</option>
+            <option value="10" selected>10 questões</option>
+            <option value="15">15 questões</option>
+        </select>
+
+        <button
+            type="button"
+            id="btnGerarAtividades"
+            class="btn-gerar"
+        >
+            🎲 Gerar Atividades
+        </button>
+
+    </div>
+
+    <div id="statusAtividade" class="status-atividade"></div>
+
+    <div id="listaQuestoes"></div>
+
+    <div id="resultadoAtividade" class="resultado-atividade"></div>
+
+</section>
 
             </div>
 
