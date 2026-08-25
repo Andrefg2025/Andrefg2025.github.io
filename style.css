@@ -25,7 +25,7 @@ body {
 :root {
 
     /* -----------------------------------------------------
-       CORES PRINCIPAIS
+       CORES
     ----------------------------------------------------- */
 
     --laranja: #ff6b00;
@@ -36,54 +36,24 @@ body {
     --laranja-fundo: #ffe0c2;
     --laranja-borda: #ffb366;
 
-
-    /* -----------------------------------------------------
-       DESTAQUES
-    ----------------------------------------------------- */
-
     --amarelo: #ffd60a;
     --amarelo-forte: #ffb800;
-
-
-    /* -----------------------------------------------------
-       FUNDOS
-    ----------------------------------------------------- */
 
     --fundo: #f5f7fa;
     --branco: #ffffff;
     --fundo-card: #f8fafc;
-
-
-    /* -----------------------------------------------------
-       TEXTOS
-    ----------------------------------------------------- */
 
     --texto: #1e293b;
     --texto-secundario: #475569;
     --cinza: #64748b;
     --cinza-claro: #94a3b8;
 
-
-    /* -----------------------------------------------------
-       CÓDIGO
-    ----------------------------------------------------- */
-
     --codigo-fundo: #172033;
     --codigo-texto: #f8fafc;
-
-
-    /* -----------------------------------------------------
-       TECNOLOGIAS
-    ----------------------------------------------------- */
 
     --html: #e34f26;
     --css: #1572b6;
     --javascript: #f7df1e;
-
-
-    /* -----------------------------------------------------
-       BORDAS
-    ----------------------------------------------------- */
 
     --borda: #e2e8f0;
 
@@ -108,9 +78,9 @@ body {
         0 10px 25px rgba(255, 107, 0, 0.35);
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        PADRÃO DOS BOTÕES
-    ===================================================== */
+    ----------------------------------------------------- */
 
     --botao-altura: 44px;
     --botao-altura-mobile: 42px;
@@ -140,11 +110,12 @@ body {
         );
 
     --botao-sombra:
-        0 4px 10px rgba(255, 107, 0, 0.20);
+        0 4px 10px
+        rgba(255, 107, 0, 0.20);
 
     --botao-sombra-hover:
-        0 7px 16px rgba(255, 107, 0, 0.32);
-
+        0 7px 16px
+        rgba(255, 107, 0, 0.32);
 }
 
 
@@ -230,7 +201,6 @@ header {
 .logo-img {
 
     width: 65px;
-
     height: 65px;
 
     display: block;
@@ -374,149 +344,8 @@ nav li {
 
 
 /* =========================================================
-   PADRÃO GERAL DOS BOTÕES E LINKS
-========================================================= */
-
-button,
-.btn,
-nav a.btn-menu,
-.config-atividade button,
-.seletor-atividade button {
-
-    width: auto;
-
-    min-width:
-        var(--botao-largura-minima);
-
-    min-height:
-        var(--botao-altura);
-
-    height: auto;
-
-    padding:
-        var(--botao-padding-vertical)
-        var(--botao-padding-horizontal);
-
-    display: inline-flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    white-space: normal;
-
-    overflow-wrap: break-word;
-
-    border:
-        1px solid
-        var(--laranja);
-
-    border-radius:
-        var(--botao-radius);
-
-    background:
-        var(--botao-laranja);
-
-    color:
-        #ffffff;
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size:
-        var(--botao-fonte);
-
-    font-weight:
-        var(--botao-peso);
-
-    line-height:
-        1.3;
-
-    cursor: pointer;
-
-    text-decoration: none;
-
-    box-shadow:
-        var(--botao-sombra);
-
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-
-/* =========================================================
-   HOVER PADRÃO
-========================================================= */
-
-button:hover,
-.btn:hover,
-nav a.btn-menu:hover,
-.config-atividade button:hover,
-.seletor-atividade button:hover {
-
-    color:
-        #ffffff;
-
-    background:
-        var(--botao-laranja-hover);
-
-    border-color:
-        var(--laranja-forte);
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        var(--botao-sombra-hover);
-}
-
-
-/* =========================================================
-   CLIQUE
-========================================================= */
-
-button:active,
-.btn:active,
-nav a.btn-menu:active,
-.config-atividade button:active,
-.seletor-atividade button:active {
-
-    transform:
-        translateY(0);
-
-    box-shadow:
-        var(--botao-sombra);
-}
-
-
-/* =========================================================
-   FOCO
-========================================================= */
-
-button:focus-visible,
-.btn:focus-visible,
-nav a:focus-visible,
-select:focus-visible,
-summary:focus-visible {
-
-    outline:
-        3px solid
-        rgba(255, 107, 0, 0.30);
-
-    outline-offset:
-        2px;
-}
-
-
-/* =========================================================
    LINKS DO MENU
+   TEXTO SEMPRE EM UMA ÚNICA LINHA
 ========================================================= */
 
 nav a {
@@ -537,6 +366,8 @@ nav a {
     min-height:
         var(--botao-altura);
 
+    height: var(--botao-altura);
+
     padding:
         var(--botao-padding-vertical)
         var(--botao-padding-horizontal);
@@ -547,11 +378,20 @@ nav a {
     background:
         transparent;
 
-    text-decoration:
-        none;
+    border:
+        1px solid
+        transparent;
 
-    text-align:
-        center;
+    border-radius:
+        var(--botao-radius);
+
+    text-decoration: none;
+
+    text-align: center;
+
+    font-family:
+        "Poppins",
+        sans-serif;
 
     font-size:
         var(--botao-fonte);
@@ -560,25 +400,25 @@ nav a {
         var(--botao-peso);
 
     line-height:
-        1.3;
+        1;
 
     letter-spacing:
         0.2px;
 
-    white-space: nowrap;
+    /*
+       IMPORTANTE:
+       impede "Início" e "Desenvolvimento"
+       de quebrarem em duas linhas.
+    */
 
-    overflow-wrap:
-        break-word;
+    white-space:
+        nowrap;
 
-    border:
-        1px solid
-        transparent;
+    overflow:
+        visible;
 
-    border-radius:
-        var(--botao-radius);
-
-    box-shadow:
-        none;
+    text-overflow:
+        clip;
 
     transition:
         color 0.25s ease,
@@ -614,7 +454,7 @@ nav a:hover {
 
 
 /* =========================================================
-   LINHA INFERIOR DO MENU
+   LINHA INFERIOR
 ========================================================= */
 
 nav a::after {
@@ -678,6 +518,12 @@ nav a.active {
 
 nav a.btn-menu {
 
+    min-width:
+        var(--botao-largura-minima);
+
+    height:
+        var(--botao-altura);
+
     color:
         #ffffff;
 
@@ -690,6 +536,9 @@ nav a.btn-menu {
 
     font-weight:
         700;
+
+    white-space:
+        nowrap;
 
     box-shadow:
         var(--botao-sombra);
@@ -716,6 +565,143 @@ nav a.btn-menu::after {
 
     display:
         none;
+}
+
+
+/* =========================================================
+   BOTÕES GERAIS
+========================================================= */
+
+button,
+.btn,
+.config-atividade button,
+.seletor-atividade button {
+
+    width: auto;
+
+    min-width:
+        var(--botao-largura-minima);
+
+    min-height:
+        var(--botao-altura);
+
+    height:
+        var(--botao-altura);
+
+    padding:
+        var(--botao-padding-vertical)
+        var(--botao-padding-horizontal);
+
+    display:
+        inline-flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    text-align:
+        center;
+
+    white-space:
+        nowrap;
+
+    border:
+        1px solid
+        var(--laranja);
+
+    border-radius:
+        var(--botao-radius);
+
+    background:
+        var(--botao-laranja);
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        var(--botao-fonte);
+
+    font-weight:
+        var(--botao-peso);
+
+    line-height:
+        1;
+
+    cursor:
+        pointer;
+
+    text-decoration:
+        none;
+
+    box-shadow:
+        var(--botao-sombra);
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+button:hover,
+.btn:hover,
+.config-atividade button:hover,
+.seletor-atividade button:hover {
+
+    color:
+        #ffffff;
+
+    background:
+        var(--botao-laranja-hover);
+
+    border-color:
+        var(--laranja-forte);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        var(--botao-sombra-hover);
+}
+
+
+button:active,
+.btn:active,
+.config-atividade button:active,
+.seletor-atividade button:active {
+
+    transform:
+        translateY(0);
+
+    box-shadow:
+        var(--botao-sombra);
+}
+
+
+/* =========================================================
+   FOCO / ACESSIBILIDADE
+========================================================= */
+
+button:focus-visible,
+.btn:focus-visible,
+nav a:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+
+    outline:
+        3px solid
+        rgba(255, 107, 0, 0.30);
+
+    outline-offset:
+        2px;
 }
 
 
@@ -792,7 +778,8 @@ p {
 
     width: 100%;
 
-    margin-bottom: 15px;
+    margin-bottom:
+        15px;
 }
 
 
@@ -808,8 +795,6 @@ p {
 
     min-height:
         var(--botao-altura);
-
-    height: auto;
 
     display: flex;
 
@@ -888,10 +873,6 @@ p {
 }
 
 
-/* =========================================================
-   ÍCONE ACCORDION
-========================================================= */
-
 .accordion > summary::after {
 
     content: "+";
@@ -918,7 +899,7 @@ p {
 
 
 /* =========================================================
-   CONTEÚDO DO ACCORDION
+   CONTEÚDO
 ========================================================= */
 
 .conteudo {
@@ -952,14 +933,15 @@ p {
 
 
 /* =========================================================
-   AULAS INTERNAS
+   AULAS
 ========================================================= */
 
 .aula {
 
     width: 100%;
 
-    margin-bottom: 12px;
+    margin-bottom:
+        12px;
 }
 
 
@@ -975,8 +957,6 @@ p {
 
     min-height:
         var(--botao-altura);
-
-    height: auto;
 
     display: flex;
 
@@ -1104,13 +1084,10 @@ p {
 }
 
 
-/* =========================================================
-   TÍTULOS DA AULA
-========================================================= */
-
 .aula-conteudo h2 {
 
-    text-align: center;
+    text-align:
+        center;
 
     margin:
         10px 0 30px;
@@ -1270,10 +1247,6 @@ code {
 }
 
 
-/* =========================================================
-   ÁREA DO MAPA
-========================================================= */
-
 #mapa-mental {
 
     width: 100%;
@@ -1317,7 +1290,7 @@ code {
 
 
 /* =========================================================
-   LINHAS DO MAPA
+   LINHAS E NÓS DO MAPA
 ========================================================= */
 
 .linha-mapa {
@@ -1338,10 +1311,6 @@ code {
 }
 
 
-/* =========================================================
-   NÓ CENTRAL
-========================================================= */
-
 .no-central {
 
     fill:
@@ -1360,10 +1329,6 @@ code {
         );
 }
 
-
-/* =========================================================
-   NÓS PRINCIPAIS
-========================================================= */
 
 .no-principal {
 
@@ -1384,10 +1349,6 @@ code {
 }
 
 
-/* =========================================================
-   NÓS SECUNDÁRIOS
-========================================================= */
-
 .no-secundario {
 
     fill:
@@ -1406,10 +1367,6 @@ code {
         );
 }
 
-
-/* =========================================================
-   TEXTO DO MAPA
-========================================================= */
 
 .texto-central {
 
@@ -1480,10 +1437,6 @@ code {
 }
 
 
-/* =========================================================
-   HOVER DO MAPA
-========================================================= */
-
 .no-principal,
 .no-secundario {
 
@@ -1511,10 +1464,6 @@ code {
         );
 }
 
-
-/* =========================================================
-   CARREGANDO MAPA
-========================================================= */
 
 .carregando-mapa {
 
@@ -1775,10 +1724,6 @@ code {
 }
 
 
-/* =========================================================
-   CARD ATIVO
-========================================================= */
-
 .card.ativo {
 
     transform:
@@ -1815,10 +1760,6 @@ code {
         15px;
 }
 
-
-/* =========================================================
-   VER MAIS
-========================================================= */
 
 .ver-mais {
 
@@ -1873,10 +1814,6 @@ code {
         8px;
 }
 
-
-/* =========================================================
-   ÁREAS DE ATIVIDADES
-========================================================= */
 
 #atividades,
 #atividades-gerador {
@@ -1936,10 +1873,6 @@ code {
 }
 
 
-/* =========================================================
-   CONFIGURAÇÃO DAS ATIVIDADES
-========================================================= */
-
 .config-atividade,
 .seletor-atividade {
 
@@ -1988,7 +1921,7 @@ code {
         var(--botao-altura);
 
     height:
-        auto;
+        var(--botao-altura);
 
     padding:
         var(--botao-padding-vertical)
@@ -2019,9 +1952,6 @@ code {
     font-weight:
         500;
 
-    line-height:
-        1.3;
-
     cursor:
         pointer;
 
@@ -2051,18 +1981,6 @@ code {
     box-shadow:
         0 0 0 3px
         rgba(255, 107, 0, 0.15);
-}
-
-
-/* =========================================================
-   BOTÕES DAS ATIVIDADES
-========================================================= */
-
-.config-atividade button,
-.seletor-atividade button {
-
-    font-weight:
-        600;
 }
 
 
@@ -2225,10 +2143,6 @@ footer p {
 
 @media (max-width: 768px) {
 
-    /* -----------------------------------------------------
-       HEADER
-    ----------------------------------------------------- */
-
     header {
 
         flex-direction:
@@ -2273,7 +2187,7 @@ footer p {
 
 
     /* -----------------------------------------------------
-       MENU
+       MENU TABLET
     ----------------------------------------------------- */
 
     nav ul {
@@ -2296,22 +2210,25 @@ footer p {
 
         flex:
             0 1 auto;
+
+        min-width:
+            max-content;
     }
 
 
     nav a,
     nav a.btn-menu {
 
-        min-width:
-            var(--botao-largura-minima);
-
         width:
             auto;
 
-        max-width:
-            100%;
+        min-width:
+            max-content;
 
         min-height:
+            var(--botao-altura-mobile);
+
+        height:
             var(--botao-altura-mobile);
 
         padding:
@@ -2319,12 +2236,11 @@ footer p {
 
         font-size:
             13px;
+
+        white-space:
+            nowrap;
     }
 
-
-    /* -----------------------------------------------------
-       MAIN
-    ----------------------------------------------------- */
 
     main {
 
@@ -2342,10 +2258,6 @@ footer p {
             20px 10px;
     }
 
-
-    /* -----------------------------------------------------
-       MAPA
-    ----------------------------------------------------- */
 
     .mapa-mental-section {
 
@@ -2371,20 +2283,12 @@ footer p {
     }
 
 
-    /* -----------------------------------------------------
-       CARDS
-    ----------------------------------------------------- */
-
     .cards {
 
         gap:
             18px;
     }
 
-
-    /* -----------------------------------------------------
-       ATIVIDADES
-    ----------------------------------------------------- */
 
     #atividades,
     #atividades-gerador {
@@ -2401,10 +2305,6 @@ footer p {
 ========================================================= */
 
 @media (max-width: 480px) {
-
-    /* -----------------------------------------------------
-       HEADER
-    ----------------------------------------------------- */
 
     header {
 
@@ -2431,7 +2331,7 @@ footer p {
 
 
     /* -----------------------------------------------------
-       MENU
+       MENU MOBILE
     ----------------------------------------------------- */
 
     nav ul {
@@ -2441,16 +2341,25 @@ footer p {
 
         gap:
             7px;
+
+        justify-content:
+            center;
     }
 
 
     nav li {
 
+        /*
+           O item continua com a largura do conteúdo.
+           Isso impede "Início" e "Desenvolvimento"
+           de quebrarem.
+        */
+
         flex:
-            1 1 calc(50% - 7px);
+            0 1 auto;
 
         min-width:
-            0;
+            max-content;
     }
 
 
@@ -2458,47 +2367,36 @@ footer p {
     nav a.btn-menu {
 
         width:
-            100%;
+            auto;
 
         min-width:
-            0;
+            max-content;
 
         max-width:
-            100%;
+            none;
 
         min-height:
             var(--botao-altura-mobile);
 
+        height:
+            var(--botao-altura-mobile);
+
         padding:
-            8px 10px;
+            8px 12px;
 
         font-size:
             12px;
 
         line-height:
-            1.25;
+            1;
+
+        white-space:
+            nowrap;
     }
 
 
     /* -----------------------------------------------------
-       BOTÕES
-    ----------------------------------------------------- */
-
-    button,
-    .btn,
-    .config-atividade button,
-    .seletor-atividade button {
-
-        min-height:
-            var(--botao-altura-mobile);
-
-        font-size:
-            12px;
-    }
-
-
-    /* -----------------------------------------------------
-       ACCORDION
+       ACCORDIONS
     ----------------------------------------------------- */
 
     .accordion > summary,
@@ -2537,10 +2435,6 @@ footer p {
             20px;
     }
 
-
-    /* -----------------------------------------------------
-       TÍTULOS
-    ----------------------------------------------------- */
 
     .aula-conteudo h2 {
 
