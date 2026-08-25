@@ -752,8 +752,10 @@ li {
 
 p {
 
-    text-align:
-        justify;
+    text-align: justify;
+
+    /* Recuo equivalente a uma tabulação */
+    text-indent: 2em;
 
 }
 
