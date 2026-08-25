@@ -74,7 +74,7 @@
 <!-- =========================================================
      MENU
 ========================================================= -->
- <nav>
+  <nav>
     <ul>
         <li><a href="index.html">Início</a></li>
         <li><a href="1ºsistemas.html">Algorítimo e Estrutura de Dados</a></li>
@@ -84,6 +84,7 @@
         <li><a href="3ºsistemas.html">Desenvolvimento de Softwares</a></li>
         <li><a href="3ºsistemas.html">Desenvolvimento Back-End</a></li>
     </ul>
+     </nav>
 <nav>
     <ul>
         <li>
