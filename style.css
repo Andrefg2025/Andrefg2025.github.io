@@ -565,8 +565,7 @@ nav a {
     letter-spacing:
         0.2px;
 
-    white-space:
-        normal;
+    white-space: nowrap;
 
     overflow-wrap:
         break-word;
