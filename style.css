@@ -183,7 +183,7 @@ nav ul {
     padding: 0 30px;
 
     display: flex;
-    justify-content: center;
+    justify-content: justify;
     align-items: center;
     gap: 10px;
 
