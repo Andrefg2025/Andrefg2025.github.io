@@ -19,12 +19,14 @@ body {
 
 
 /* =========================================================
-   VARIÁVEIS — PALETA VIBRANTE
+   VARIÁVEIS
 ========================================================= */
 
 :root {
 
-    /* Cores principais */
+    /* -----------------------------------------------------
+       CORES PRINCIPAIS
+    ----------------------------------------------------- */
 
     --laranja: #ff6b00;
     --laranja-claro: #ff9500;
@@ -35,20 +37,26 @@ body {
     --laranja-borda: #ffb366;
 
 
-    /* Destaques */
+    /* -----------------------------------------------------
+       DESTAQUES
+    ----------------------------------------------------- */
 
     --amarelo: #ffd60a;
     --amarelo-forte: #ffb800;
 
 
-    /* Fundos */
+    /* -----------------------------------------------------
+       FUNDOS
+    ----------------------------------------------------- */
 
     --fundo: #f5f7fa;
     --branco: #ffffff;
     --fundo-card: #f8fafc;
 
 
-    /* Textos */
+    /* -----------------------------------------------------
+       TEXTOS
+    ----------------------------------------------------- */
 
     --texto: #1e293b;
     --texto-secundario: #475569;
@@ -56,25 +64,33 @@ body {
     --cinza-claro: #94a3b8;
 
 
-    /* Código */
+    /* -----------------------------------------------------
+       CÓDIGO
+    ----------------------------------------------------- */
 
     --codigo-fundo: #172033;
     --codigo-texto: #f8fafc;
 
 
-    /* Tecnologias */
+    /* -----------------------------------------------------
+       TECNOLOGIAS
+    ----------------------------------------------------- */
 
     --html: #e34f26;
     --css: #1572b6;
     --javascript: #f7df1e;
 
 
-    /* Bordas */
+    /* -----------------------------------------------------
+       BORDAS
+    ----------------------------------------------------- */
 
     --borda: #e2e8f0;
 
 
-    /* Sombras */
+    /* -----------------------------------------------------
+       SOMBRAS
+    ----------------------------------------------------- */
 
     --sombra-pequena:
         0 3px 10px rgba(15, 23, 42, 0.08);
@@ -85,9 +101,6 @@ body {
     --sombra-grande:
         0 12px 30px rgba(15, 23, 42, 0.16);
 
-
-    /* Sombras laranja */
-
     --sombra-laranja:
         0 6px 18px rgba(255, 107, 0, 0.25);
 
@@ -96,18 +109,41 @@ body {
 
 
     /* =====================================================
-       BOTÕES
-       
-       Agora o botão se adapta ao texto.
+       PADRÃO DOS BOTÕES
     ===================================================== */
 
     --botao-altura: 44px;
+    --botao-altura-mobile: 42px;
 
     --botao-largura-minima: 120px;
 
+    --botao-padding-vertical: 9px;
     --botao-padding-horizontal: 18px;
 
     --botao-radius: 8px;
+
+    --botao-fonte: 14px;
+    --botao-peso: 600;
+
+    --botao-laranja:
+        linear-gradient(
+            135deg,
+            #ff5a00,
+            #ff7a00
+        );
+
+    --botao-laranja-hover:
+        linear-gradient(
+            135deg,
+            #ff4500,
+            #ff6500
+        );
+
+    --botao-sombra:
+        0 4px 10px rgba(255, 107, 0, 0.20);
+
+    --botao-sombra-hover:
+        0 7px 16px rgba(255, 107, 0, 0.32);
 
 }
 
@@ -135,7 +171,6 @@ body {
 
     line-height:
         1.8;
-
 }
 
 
@@ -145,23 +180,17 @@ body {
 
 header {
 
-    width:
-        100%;
+    width: 100%;
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        20px;
+    gap: 20px;
 
-    padding:
-        12px 40px;
+    padding: 12px 40px;
 
     background:
         linear-gradient(
@@ -171,16 +200,13 @@ header {
             #ff8500
         );
 
-    position:
-        relative;
+    position: relative;
 
-    z-index:
-        900;
+    z-index: 900;
 
     box-shadow:
         0 6px 20px
         rgba(255, 107, 0, 0.28);
-
 }
 
 
@@ -191,48 +217,36 @@ header {
 .logo-esquerda,
 .logo-direita {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    flex-shrink:
-        0;
+    flex-shrink: 0;
 
-    text-decoration:
-        none;
-
+    text-decoration: none;
 }
 
 
 .logo-img {
 
-    width:
-        65px;
+    width: 65px;
 
-    height:
-        65px;
+    height: 65px;
 
-    display:
-        block;
+    display: block;
 
-    object-fit:
-        contain;
+    object-fit: contain;
 
     background:
         var(--branco);
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
-    padding:
-        4px;
+    padding: 4px;
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
-
 }
 
 
@@ -245,7 +259,6 @@ header {
     box-shadow:
         0 8px 20px
         rgba(0, 0, 0, 0.20);
-
 }
 
 
@@ -255,12 +268,9 @@ header {
 
 .titulo-link {
 
-    flex:
-        1;
+    flex: 1;
 
-    text-decoration:
-        none;
-
+    text-decoration: none;
 }
 
 
@@ -290,7 +300,6 @@ header {
 
     transition:
         color 0.3s ease;
-
 }
 
 
@@ -298,7 +307,6 @@ header {
 
     color:
         #fff7d6;
-
 }
 
 
@@ -308,8 +316,7 @@ header {
 
 nav {
 
-    width:
-        100%;
+    width: 100%;
 
     background:
         var(--branco);
@@ -324,96 +331,59 @@ nav {
     position:
         sticky;
 
-    top:
-        0;
+    top: 0;
 
-    z-index:
-        1000;
-
+    z-index: 1000;
 }
 
-
-/* =========================================================
-   LISTA DO MENU
-========================================================= */
 
 nav ul {
 
-    width:
-        100%;
+    width: 100%;
 
-    max-width:
-        1200px;
+    max-width: 1200px;
 
-    min-height:
-        68px;
+    min-height: 68px;
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 
-    padding:
-        10px 25px;
+    padding: 10px 25px;
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        10px;
+    gap: 10px;
 
-    list-style:
-        none;
-
+    list-style: none;
 }
 
-
-/* =========================================================
-   ITENS DO MENU
-========================================================= */
 
 nav li {
 
-    flex:
-        0 1 auto;
+    flex: 0 1 auto;
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    align-items:
-        center;
-
+    align-items: center;
 }
 
 
 /* =========================================================
-   LINKS DO MENU
-   O tamanho agora acompanha o texto.
+   PADRÃO GERAL DOS BOTÕES E LINKS
 ========================================================= */
 
-nav a {
+button,
+.btn,
+nav a.btn-menu,
+.config-atividade button,
+.seletor-atividade button {
 
-    position:
-        relative;
-
-    display:
-        inline-flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-    width:
-        auto;
+    width: auto;
 
     min-width:
         var(--botao-largura-minima);
@@ -421,11 +391,155 @@ nav a {
     min-height:
         var(--botao-altura);
 
-    height:
-        auto;
+    height: auto;
 
     padding:
-        9px var(--botao-padding-horizontal);
+        var(--botao-padding-vertical)
+        var(--botao-padding-horizontal);
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
+
+    border:
+        1px solid
+        var(--laranja);
+
+    border-radius:
+        var(--botao-radius);
+
+    background:
+        var(--botao-laranja);
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        var(--botao-fonte);
+
+    font-weight:
+        var(--botao-peso);
+
+    line-height:
+        1.3;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    box-shadow:
+        var(--botao-sombra);
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   HOVER PADRÃO
+========================================================= */
+
+button:hover,
+.btn:hover,
+nav a.btn-menu:hover,
+.config-atividade button:hover,
+.seletor-atividade button:hover {
+
+    color:
+        #ffffff;
+
+    background:
+        var(--botao-laranja-hover);
+
+    border-color:
+        var(--laranja-forte);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        var(--botao-sombra-hover);
+}
+
+
+/* =========================================================
+   CLIQUE
+========================================================= */
+
+button:active,
+.btn:active,
+nav a.btn-menu:active,
+.config-atividade button:active,
+.seletor-atividade button:active {
+
+    transform:
+        translateY(0);
+
+    box-shadow:
+        var(--botao-sombra);
+}
+
+
+/* =========================================================
+   FOCO
+========================================================= */
+
+button:focus-visible,
+.btn:focus-visible,
+nav a:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+
+    outline:
+        3px solid
+        rgba(255, 107, 0, 0.30);
+
+    outline-offset:
+        2px;
+}
+
+
+/* =========================================================
+   LINKS DO MENU
+========================================================= */
+
+nav a {
+
+    position: relative;
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: auto;
+
+    min-width:
+        var(--botao-largura-minima);
+
+    min-height:
+        var(--botao-altura);
+
+    padding:
+        var(--botao-padding-vertical)
+        var(--botao-padding-horizontal);
 
     color:
         var(--texto);
@@ -440,10 +554,10 @@ nav a {
         center;
 
     font-size:
-        14px;
+        var(--botao-fonte);
 
     font-weight:
-        600;
+        var(--botao-peso);
 
     line-height:
         1.3;
@@ -464,18 +578,20 @@ nav a {
     border-radius:
         var(--botao-radius);
 
+    box-shadow:
+        none;
+
     transition:
         color 0.25s ease,
         background 0.25s ease,
         border-color 0.25s ease,
         transform 0.25s ease,
         box-shadow 0.25s ease;
-
 }
 
 
 /* =========================================================
-   HOVER
+   HOVER DO MENU
 ========================================================= */
 
 nav a:hover {
@@ -495,33 +611,26 @@ nav a:hover {
     box-shadow:
         0 4px 10px
         rgba(255, 107, 0, 0.10);
-
 }
 
 
 /* =========================================================
-   LINHA INFERIOR
+   LINHA INFERIOR DO MENU
 ========================================================= */
 
 nav a::after {
 
-    content:
-        "";
+    content: "";
 
-    position:
-        absolute;
+    position: absolute;
 
-    left:
-        50%;
+    left: 50%;
 
-    bottom:
-        4px;
+    bottom: 4px;
 
-    width:
-        0;
+    width: 0;
 
-    height:
-        3px;
+    height: 3px;
 
     background:
         linear-gradient(
@@ -530,23 +639,20 @@ nav a::after {
             var(--laranja-claro)
         );
 
-    border-radius:
-        10px;
+    border-radius: 10px;
 
     transform:
         translateX(-50%);
 
     transition:
         width 0.25s ease;
-
 }
 
 
-nav a:hover::after {
+nav a:hover::after,
+nav a.active::after {
 
-    width:
-        40%;
-
+    width: 40%;
 }
 
 
@@ -564,97 +670,32 @@ nav a.active {
 
     border-color:
         var(--laranja-borda);
-
-}
-
-
-nav a.active::after {
-
-    width:
-        40%;
-
 }
 
 
 /* =========================================================
-   BOTÃO PRINCIPAL
-   Também acompanha o texto.
+   BOTÃO PRINCIPAL DO MENU
 ========================================================= */
 
 nav a.btn-menu {
-
-    width:
-        auto;
-
-    min-width:
-        var(--botao-largura-minima);
-
-    min-height:
-        var(--botao-altura);
-
-    height:
-        auto;
-
-    padding:
-        9px 20px;
-
-    display:
-        inline-flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-    text-align:
-        center;
-
-    white-space:
-        normal;
 
     color:
         #ffffff;
 
     background:
-        linear-gradient(
-            135deg,
-            #ff5a00,
-            #ff7a00
-        );
+        var(--botao-laranja);
 
     border:
         1px solid
-        #ff6b00;
-
-    border-radius:
-        var(--botao-radius);
+        var(--laranja);
 
     font-weight:
         700;
 
     box-shadow:
-        0 5px 14px
-        rgba(255, 107, 0, 0.28);
-
+        var(--botao-sombra);
 }
 
-
-/* =========================================================
-   REMOVE LINHA DO BOTÃO
-========================================================= */
-
-nav a.btn-menu::after {
-
-    display:
-        none;
-
-}
-
-
-/* =========================================================
-   HOVER DO BOTÃO
-========================================================= */
 
 nav a.btn-menu:hover {
 
@@ -662,34 +703,20 @@ nav a.btn-menu:hover {
         #ffffff;
 
     background:
-        linear-gradient(
-            135deg,
-            #ff4500,
-            #ff6500
-        );
+        var(--botao-laranja-hover);
 
     border-color:
-        #ff4500;
-
-    transform:
-        translateY(-3px);
+        var(--laranja-forte);
 
     box-shadow:
-        0 8px 20px
-        rgba(255, 107, 0, 0.38);
-
+        var(--botao-sombra-hover);
 }
 
 
-/* =========================================================
-   CLIQUE
-========================================================= */
+nav a.btn-menu::after {
 
-nav a.btn-menu:active {
-
-    transform:
-        translateY(0);
-
+    display:
+        none;
 }
 
 
@@ -699,29 +726,21 @@ nav a.btn-menu:active {
 
 main {
 
-    width:
-        100%;
+    width: 100%;
 
-    max-width:
-        1200px;
+    max-width: 1200px;
 
-    margin:
-        25px auto;
+    margin: 25px auto;
 
-    padding:
-        10px 20px;
-
+    padding: 10px 20px;
 }
 
 
 main h1 {
 
-    text-align:
-        center;
+    text-align: center;
 
-    margin-bottom:
-        25px;
-
+    margin-bottom: 25px;
 }
 
 
@@ -733,7 +752,6 @@ h6 {
 
     color:
         var(--laranja);
-
 }
 
 
@@ -746,17 +764,16 @@ li {
 
     color:
         var(--texto);
-
 }
 
 
 p {
 
-    text-align: justify;
+    text-align:
+        justify;
 
-    /* Recuo equivalente a uma tabulação */
-    text-indent: 2em;
-
+    text-indent:
+        2em;
 }
 
 
@@ -765,54 +782,45 @@ p {
 
     margin-bottom:
         15px;
-
 }
 
 
 /* =========================================================
    ACCORDION PRINCIPAL
-   O botão se adapta ao conteúdo.
 ========================================================= */
 
 .accordion {
 
-    width:
-        100%;
+    width: 100%;
 
-    margin-bottom:
-        15px;
-
+    margin-bottom: 15px;
 }
 
 
 .accordion > summary {
 
-    position:
-        relative;
+    position: relative;
 
-    list-style:
-        none;
+    list-style: none;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
-    width:
-        100%;
+    width: 100%;
 
     min-height:
         var(--botao-altura);
 
-    height:
-        auto;
+    height: auto;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
     padding:
-        11px 55px 11px 20px;
+        var(--botao-padding-vertical)
+        55px
+        var(--botao-padding-vertical)
+        var(--botao-padding-horizontal);
 
     color:
         #ffffff;
@@ -854,7 +862,6 @@ p {
         background 0.25s ease,
         box-shadow 0.25s ease,
         transform 0.25s ease;
-
 }
 
 
@@ -873,58 +880,46 @@ p {
 
     box-shadow:
         var(--sombra-laranja-forte);
-
 }
 
 
 .accordion > summary::-webkit-details-marker {
 
-    display:
-        none;
-
+    display: none;
 }
 
 
 /* =========================================================
-   ÍCONE DO ACCORDION
+   ÍCONE ACCORDION
 ========================================================= */
 
 .accordion > summary::after {
 
-    content:
-        "+";
+    content: "+";
 
-    position:
-        absolute;
+    position: absolute;
 
-    right:
-        20px;
+    right: 20px;
 
-    top:
-        50%;
+    top: 50%;
 
     transform:
         translateY(-50%);
 
-    font-size:
-        24px;
+    font-size: 24px;
 
-    line-height:
-        1;
-
+    line-height: 1;
 }
 
 
 .accordion[open] > summary::after {
 
-    content:
-        "−";
-
+    content: "−";
 }
 
 
 /* =========================================================
-   CONTEÚDO
+   CONTEÚDO DO ACCORDION
 ========================================================= */
 
 .conteudo {
@@ -934,7 +929,6 @@ p {
 
     animation:
         abrir 0.3s ease;
-
 }
 
 
@@ -942,24 +936,19 @@ p {
 
     from {
 
-        opacity:
-            0;
+        opacity: 0;
 
         transform:
             translateY(-8px);
-
     }
 
     to {
 
-        opacity:
-            1;
+        opacity: 1;
 
         transform:
             translateY(0);
-
     }
-
 }
 
 
@@ -969,43 +958,36 @@ p {
 
 .aula {
 
-    width:
-        100%;
+    width: 100%;
 
-    margin-bottom:
-        12px;
-
+    margin-bottom: 12px;
 }
 
 
 .aula > summary {
 
-    position:
-        relative;
+    position: relative;
 
-    list-style:
-        none;
+    list-style: none;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
-    width:
-        100%;
+    width: 100%;
 
     min-height:
         var(--botao-altura);
 
-    height:
-        auto;
+    height: auto;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
     padding:
-        11px 55px 11px 20px;
+        var(--botao-padding-vertical)
+        55px
+        var(--botao-padding-vertical)
+        var(--botao-padding-horizontal);
 
     color:
         var(--texto);
@@ -1043,8 +1025,8 @@ p {
         background 0.25s ease,
         transform 0.25s ease,
         border-color 0.25s ease,
-        box-shadow 0.25s ease;
-
+        box-shadow 0.25s ease,
+        color 0.25s ease;
 }
 
 
@@ -1065,46 +1047,37 @@ p {
     box-shadow:
         0 5px 14px
         rgba(255, 107, 0, 0.12);
-
 }
 
 
 .aula > summary::-webkit-details-marker {
 
-    display:
-        none;
-
+    display: none;
 }
 
 
 .aula > summary::after {
 
-    content:
-        "+";
+    content: "+";
 
-    position:
-        absolute;
+    position: absolute;
 
-    right:
-        20px;
+    right: 20px;
 
-    top:
-        50%;
+    top: 50%;
 
     transform:
         translateY(-50%);
 
-    font-size:
-        22px;
+    font-size: 22px;
 
+    line-height: 1;
 }
 
 
 .aula[open] > summary::after {
 
-    content:
-        "−";
-
+    content: "−";
 }
 
 
@@ -1129,7 +1102,6 @@ p {
 
     border-radius:
         0 0 10px 10px;
-
 }
 
 
@@ -1139,15 +1111,13 @@ p {
 
 .aula-conteudo h2 {
 
-    text-align:
-        center;
+    text-align: center;
 
     margin:
         10px 0 30px;
 
     color:
         var(--laranja);
-
 }
 
 
@@ -1168,7 +1138,6 @@ p {
 
     padding-left:
         10px;
-
 }
 
 
@@ -1180,7 +1149,6 @@ p {
 
     margin:
         10px 0 20px 30px;
-
 }
 
 
@@ -1188,7 +1156,6 @@ p {
 
     margin-bottom:
         7px;
-
 }
 
 
@@ -1198,8 +1165,7 @@ p {
 
 pre {
 
-    width:
-        100%;
+    width: 100%;
 
     background:
         var(--codigo-fundo);
@@ -1229,7 +1195,6 @@ pre {
 
     box-shadow:
         var(--sombra-media);
-
 }
 
 
@@ -1238,7 +1203,6 @@ code {
     font-family:
         "Courier New",
         monospace;
-
 }
 
 
@@ -1248,8 +1212,7 @@ code {
 
 .mapa-mental-section {
 
-    width:
-        100%;
+    width: 100%;
 
     margin:
         50px auto;
@@ -1276,7 +1239,6 @@ code {
 
     overflow:
         hidden;
-
 }
 
 
@@ -1290,7 +1252,6 @@ code {
 
     margin-bottom:
         10px;
-
 }
 
 
@@ -1307,7 +1268,6 @@ code {
 
     text-align:
         center;
-
 }
 
 
@@ -1317,8 +1277,7 @@ code {
 
 #mapa-mental {
 
-    width:
-        100%;
+    width: 100%;
 
     min-height:
         650px;
@@ -1339,7 +1298,6 @@ code {
             rgba(255, 149, 0, 0.04),
             transparent 65%
         );
-
 }
 
 
@@ -1356,7 +1314,6 @@ code {
 
     height:
         650px;
-
 }
 
 
@@ -1366,8 +1323,7 @@ code {
 
 .linha-mapa {
 
-    fill:
-        none;
+    fill: none;
 
     stroke:
         var(--laranja);
@@ -1380,7 +1336,6 @@ code {
 
     opacity:
         0.65;
-
 }
 
 
@@ -1404,7 +1359,6 @@ code {
             0 6px 10px
             rgba(255, 69, 0, 0.35)
         );
-
 }
 
 
@@ -1428,7 +1382,6 @@ code {
             0 5px 8px
             rgba(255, 107, 0, 0.25)
         );
-
 }
 
 
@@ -1452,7 +1405,6 @@ code {
             0 3px 6px
             rgba(255, 107, 0, 0.18)
         );
-
 }
 
 
@@ -1480,7 +1432,6 @@ code {
 
     dominant-baseline:
         middle;
-
 }
 
 
@@ -1504,7 +1455,6 @@ code {
 
     dominant-baseline:
         middle;
-
 }
 
 
@@ -1528,7 +1478,6 @@ code {
 
     dominant-baseline:
         middle;
-
 }
 
 
@@ -1541,7 +1490,6 @@ code {
 
     transition:
         filter 0.25s ease;
-
 }
 
 
@@ -1552,7 +1500,6 @@ code {
             0 8px 15px
             rgba(255, 69, 0, 0.45)
         );
-
 }
 
 
@@ -1563,7 +1510,6 @@ code {
             0 7px 13px
             rgba(255, 107, 0, 0.40)
         );
-
 }
 
 
@@ -1581,7 +1527,6 @@ code {
 
     color:
         var(--cinza);
-
 }
 
 
@@ -1605,7 +1550,6 @@ code {
 
     margin:
         30px auto;
-
 }
 
 
@@ -1632,7 +1576,6 @@ code {
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
-
 }
 
 
@@ -1643,7 +1586,6 @@ code {
 
     box-shadow:
         var(--sombra-laranja);
-
 }
 
 
@@ -1673,13 +1615,8 @@ code {
 
     margin-top:
         30px;
-
 }
 
-
-/* =========================================================
-   CARD
-========================================================= */
 
 .card {
 
@@ -1730,7 +1667,6 @@ code {
         box-shadow 0.3s ease,
         background 0.3s ease,
         border-color 0.3s ease;
-
 }
 
 
@@ -1744,7 +1680,6 @@ code {
 
     box-shadow:
         var(--sombra-laranja-forte);
-
 }
 
 
@@ -1761,7 +1696,6 @@ code {
 
     text-align:
         center;
-
 }
 
 
@@ -1781,7 +1715,6 @@ code {
 
     margin:
         0;
-
 }
 
 
@@ -1820,7 +1753,6 @@ code {
         opacity 0.35s ease,
         margin-top 0.35s ease,
         padding-top 0.35s ease;
-
 }
 
 
@@ -1834,7 +1766,6 @@ code {
 
     margin-bottom:
         10px;
-
 }
 
 
@@ -1842,7 +1773,6 @@ code {
 
     color:
         #ffbd2e;
-
 }
 
 
@@ -1868,7 +1798,6 @@ code {
     box-shadow:
         0 14px 35px
         rgba(255, 107, 0, 0.30);
-
 }
 
 
@@ -1885,7 +1814,6 @@ code {
 
     padding-top:
         15px;
-
 }
 
 
@@ -1919,7 +1847,6 @@ code {
 
     text-align:
         center;
-
 }
 
 
@@ -1927,7 +1854,6 @@ code {
 
     color:
         #ffbd2e;
-
 }
 
 
@@ -1939,7 +1865,6 @@ code {
 
     padding:
         15px 30px;
-
 }
 
 
@@ -1947,7 +1872,6 @@ code {
 
     margin-bottom:
         8px;
-
 }
 
 
@@ -1983,7 +1907,6 @@ code {
 
     box-shadow:
         var(--sombra-media);
-
 }
 
 
@@ -1998,7 +1921,6 @@ code {
 
     margin-bottom:
         10px;
-
 }
 
 
@@ -2012,7 +1934,6 @@ code {
 
     margin-bottom:
         25px;
-
 }
 
 
@@ -2040,7 +1961,6 @@ code {
 
     margin-bottom:
         25px;
-
 }
 
 
@@ -2049,7 +1969,6 @@ code {
 
     font-weight:
         600;
-
 }
 
 
@@ -2073,7 +1992,10 @@ code {
         auto;
 
     padding:
-        9px 35px 9px 12px;
+        var(--botao-padding-vertical)
+        35px
+        var(--botao-padding-vertical)
+        12px;
 
     border:
         1px solid
@@ -2092,13 +2014,29 @@ code {
         "Poppins",
         sans-serif;
 
+    font-size:
+        var(--botao-fonte);
+
+    font-weight:
+        500;
+
+    line-height:
+        1.3;
+
     cursor:
         pointer;
 
     transition:
         border-color 0.25s ease,
         box-shadow 0.25s ease;
+}
 
+
+.config-atividade select:hover,
+.seletor-atividade select:hover {
+
+    border-color:
+        var(--laranja-borda);
 }
 
 
@@ -2114,110 +2052,18 @@ code {
     box-shadow:
         0 0 0 3px
         rgba(255, 107, 0, 0.15);
-
 }
 
 
 /* =========================================================
    BOTÕES DAS ATIVIDADES
-   TAMANHO ADAPTÁVEL AO TEXTO
 ========================================================= */
 
 .config-atividade button,
 .seletor-atividade button {
 
-    width:
-        auto;
-
-    min-width:
-        var(--botao-largura-minima);
-
-    min-height:
-        var(--botao-altura);
-
-    height:
-        auto;
-
-    padding:
-        9px 20px;
-
-    display:
-        inline-flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-    text-align:
-        center;
-
-    white-space:
-        normal;
-
-    overflow-wrap:
-        break-word;
-
-    line-height:
-        1.3;
-
-    border:
-        1px solid
-        var(--laranja);
-
-    border-radius:
-        var(--botao-radius);
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff5a00,
-            #ff7a00
-        );
-
-    color:
-        #ffffff;
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
     font-weight:
         600;
-
-    cursor:
-        pointer;
-
-    box-shadow:
-        0 4px 10px
-        rgba(255, 107, 0, 0.20);
-
-    transition:
-        background 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-
-}
-
-
-.config-atividade button:hover,
-.seletor-atividade button:hover {
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff4500,
-            #ff6500
-        );
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 7px 16px
-        rgba(255, 107, 0, 0.32);
-
 }
 
 
@@ -2235,7 +2081,6 @@ code {
 
     margin-bottom:
         20px;
-
 }
 
 
@@ -2260,7 +2105,6 @@ code {
 
     border-radius:
         12px;
-
 }
 
 
@@ -2271,7 +2115,6 @@ code {
 
     padding:
         30px 10px;
-
 }
 
 
@@ -2285,7 +2128,6 @@ code {
 
     margin-bottom:
         10px;
-
 }
 
 
@@ -2296,7 +2138,6 @@ code {
 
     margin-bottom:
         8px;
-
 }
 
 
@@ -2307,7 +2148,6 @@ code {
 
     color:
         var(--cinza);
-
 }
 
 
@@ -2337,7 +2177,6 @@ code {
 
     background:
         #f8fafc;
-
 }
 
 
@@ -2365,7 +2204,6 @@ footer {
     border-top:
         3px solid
         var(--laranja);
-
 }
 
 
@@ -2379,7 +2217,6 @@ footer p {
 
     color:
         var(--cinza);
-
 }
 
 
@@ -2388,6 +2225,10 @@ footer p {
 ========================================================= */
 
 @media (max-width: 768px) {
+
+    /* -----------------------------------------------------
+       HEADER
+    ----------------------------------------------------- */
 
     header {
 
@@ -2405,7 +2246,6 @@ footer p {
 
         text-align:
             center;
-
     }
 
 
@@ -2413,7 +2253,6 @@ footer p {
 
         width:
             100%;
-
     }
 
 
@@ -2421,7 +2260,6 @@ footer p {
 
         font-size:
             1.4rem;
-
     }
 
 
@@ -2432,13 +2270,12 @@ footer p {
 
         height:
             55px;
-
     }
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        MENU
-    ===================================================== */
+    ----------------------------------------------------- */
 
     nav ul {
 
@@ -2453,7 +2290,6 @@ footer p {
 
         flex-wrap:
             wrap;
-
     }
 
 
@@ -2461,7 +2297,6 @@ footer p {
 
         flex:
             0 1 auto;
-
     }
 
 
@@ -2469,7 +2304,7 @@ footer p {
     nav a.btn-menu {
 
         min-width:
-            120px;
+            var(--botao-largura-minima);
 
         width:
             auto;
@@ -2478,23 +2313,19 @@ footer p {
             100%;
 
         min-height:
-            42px;
-
-        height:
-            auto;
+            var(--botao-altura-mobile);
 
         padding:
-            9px 15px;
+            8px 15px;
 
         font-size:
             13px;
-
     }
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        MAIN
-    ===================================================== */
+    ----------------------------------------------------- */
 
     main {
 
@@ -2503,7 +2334,6 @@ footer p {
 
         padding:
             5px 15px;
-
     }
 
 
@@ -2511,19 +2341,17 @@ footer p {
 
         padding:
             20px 10px;
-
     }
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        MAPA
-    ===================================================== */
+    ----------------------------------------------------- */
 
     .mapa-mental-section {
 
         padding:
             15px 5px;
-
     }
 
 
@@ -2531,7 +2359,6 @@ footer p {
 
         min-height:
             550px;
-
     }
 
 
@@ -2542,32 +2369,29 @@ footer p {
 
         height:
             550px;
-
     }
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        CARDS
-    ===================================================== */
+    ----------------------------------------------------- */
 
     .cards {
 
         gap:
             18px;
-
     }
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        ATIVIDADES
-    ===================================================== */
+    ----------------------------------------------------- */
 
     #atividades,
     #atividades-gerador {
 
         padding:
             20px 15px;
-
     }
 
 }
@@ -2579,11 +2403,14 @@ footer p {
 
 @media (max-width: 480px) {
 
+    /* -----------------------------------------------------
+       HEADER
+    ----------------------------------------------------- */
+
     header {
 
         padding:
             15px;
-
     }
 
 
@@ -2591,7 +2418,6 @@ footer p {
 
         font-size:
             1.1rem;
-
     }
 
 
@@ -2602,13 +2428,12 @@ footer p {
 
         height:
             45px;
-
     }
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        MENU
-    ===================================================== */
+    ----------------------------------------------------- */
 
     nav ul {
 
@@ -2617,7 +2442,6 @@ footer p {
 
         gap:
             7px;
-
     }
 
 
@@ -2628,7 +2452,6 @@ footer p {
 
         min-width:
             0;
-
     }
 
 
@@ -2645,10 +2468,7 @@ footer p {
             100%;
 
         min-height:
-            42px;
-
-        height:
-            auto;
+            var(--botao-altura-mobile);
 
         padding:
             8px 10px;
@@ -2658,41 +2478,35 @@ footer p {
 
         line-height:
             1.25;
-
     }
 
 
-    /* =====================================================
-       ACCORDION
-    ===================================================== */
+    /* -----------------------------------------------------
+       BOTÕES
+    ----------------------------------------------------- */
 
-    .accordion > summary {
+    button,
+    .btn,
+    .config-atividade button,
+    .seletor-atividade button {
 
         min-height:
-            42px;
-
-        height:
-            auto;
+            var(--botao-altura-mobile);
 
         font-size:
-            0.9rem;
-
-        line-height:
-            1.35;
-
-        padding:
-            10px 45px 10px 15px;
-
+            12px;
     }
 
 
+    /* -----------------------------------------------------
+       ACCORDION
+    ----------------------------------------------------- */
+
+    .accordion > summary,
     .aula > summary {
 
         min-height:
-            42px;
-
-        height:
-            auto;
+            var(--botao-altura-mobile);
 
         font-size:
             0.9rem;
@@ -2701,16 +2515,38 @@ footer p {
             1.35;
 
         padding:
-            10px 45px 10px 15px;
-
+            8px 45px 8px 15px;
     }
 
+
+    .accordion > summary::after {
+
+        right:
+            15px;
+
+        font-size:
+            22px;
+    }
+
+
+    .aula > summary::after {
+
+        right:
+            15px;
+
+        font-size:
+            20px;
+    }
+
+
+    /* -----------------------------------------------------
+       TÍTULOS
+    ----------------------------------------------------- */
 
     .aula-conteudo h2 {
 
         font-size:
             1.3rem;
-
     }
 
 
@@ -2718,13 +2554,12 @@ footer p {
 
         font-size:
             1.05rem;
-
     }
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        CÓDIGO
-    ===================================================== */
+    ----------------------------------------------------- */
 
     pre {
 
@@ -2733,19 +2568,17 @@ footer p {
 
         padding:
             14px;
-
     }
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        MAPA
-    ===================================================== */
+    ----------------------------------------------------- */
 
     .mapa-mental-section {
 
         margin:
             30px auto;
-
     }
 
 
@@ -2753,7 +2586,6 @@ footer p {
 
         min-height:
             500px;
-
     }
 
 
@@ -2764,13 +2596,12 @@ footer p {
 
         height:
             500px;
-
     }
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        CARDS
-    ===================================================== */
+    ----------------------------------------------------- */
 
     .cards {
 
@@ -2779,7 +2610,6 @@ footer p {
 
         align-items:
             center;
-
     }
 
 
@@ -2790,13 +2620,12 @@ footer p {
 
         max-width:
             340px;
-
     }
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        VÍDEOS
-    ===================================================== */
+    ----------------------------------------------------- */
 
     .video-container video {
 
@@ -2805,20 +2634,18 @@ footer p {
 
         max-width:
             100%;
-
     }
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        ATIVIDADES
-    ===================================================== */
+    ----------------------------------------------------- */
 
     #atividades,
     #atividades-gerador {
 
         padding:
             18px 12px;
-
     }
 
 
@@ -2830,7 +2657,6 @@ footer p {
 
         align-items:
             stretch;
-
     }
 
 
@@ -2847,19 +2673,17 @@ footer p {
 
         max-width:
             none;
-
     }
 
 
-    /* =====================================================
+    /* -----------------------------------------------------
        FOOTER
-    ===================================================== */
+    ----------------------------------------------------- */
 
     footer {
 
         padding:
             25px 15px;
-
     }
 
 }
@@ -2886,7 +2710,6 @@ footer p {
 
         transition-duration:
             0.01ms !important;
-
     }
 
 }
