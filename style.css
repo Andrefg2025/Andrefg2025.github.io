@@ -9,7 +9,6 @@
     scroll-behavior: smooth;
 }
 
-
 /* =========================================================
    VARIÁVEIS
 ========================================================= */
@@ -34,7 +33,6 @@
 
 }
 
-
 /* =========================================================
    BODY
 ========================================================= */
@@ -55,7 +53,6 @@ body {
     line-height: 1.8;
 
 }
-
 
 /* =========================================================
    HEADER
@@ -92,7 +89,6 @@ header {
 
 }
 
-
 /* =========================================================
    LOGOS
 ========================================================= */
@@ -107,7 +103,6 @@ header {
     text-decoration: none;
 
 }
-
 
 .logo-img {
 
@@ -127,7 +122,6 @@ header {
 
 }
 
-
 .logo-img:hover {
 
     transform:
@@ -135,7 +129,6 @@ header {
         rotate(3deg);
 
 }
-
 
 /* =========================================================
    TÍTULO
@@ -146,7 +139,6 @@ header {
     text-decoration: none;
 
 }
-
 
 .titulo-barra {
 
@@ -164,65 +156,140 @@ header {
 
 }
 
-
 .titulo-barra:hover {
 
     color: var(--amarelo);
 
 }
 
-
 /* =========================================================
-   MENU
+   MENU PROFISSIONAL
 ========================================================= */
 
 nav {
-
+    width: 100%;
     background: var(--branco);
-
-    border-bottom:
-        3px solid
-        var(--laranja);
-
+    border-bottom: 3px solid var(--laranja);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-
 
 nav ul {
+    max-width: 1200px;
+    min-height: 70px;
+    margin: 0 auto;
+    padding: 0 30px;
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
-    gap: 35px;
+    gap: 10px;
 
     list-style: none;
-
-    padding: 15px;
-
 }
 
+nav li {
+    position: relative;
+}
 
 nav a {
+    position: relative;
+
+    display: block;
+    padding: 12px 18px;
 
     color: #111;
-
     text-decoration: none;
 
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
 
-    transition: 0.3s ease;
+    border-radius: 8px;
 
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
 }
 
-
+/* Efeito ao passar o mouse */
 nav a:hover {
-
     color: var(--laranja);
+    background: rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+}
+
+/* Linha animada abaixo do link */
+nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: 3px;
+
+    width: 0;
+    height: 3px;
+
+    background: var(--laranja);
+    border-radius: 10px;
+
+    transform: translateX(-50%);
+
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 55%;
+}
+
+/* Link ativo */
+nav a.active {
+    color: var(--laranja);
+}
+
+nav a.active::after {
+    width: 55%;
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    nav ul {
+        min-height: auto;
+
+        padding: 12px 15px;
+
+        gap: 5px;
+
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        padding: 10px 13px;
+        font-size: 14px;
+    }
 
 }
 
+@media (max-width: 480px) {
+
+    nav ul {
+        justify-content: center;
+        gap: 2px;
+    }
+
+    nav a {
+        padding: 9px 10px;
+        font-size: 13px;
+    }
+
+}
 
 /* =========================================================
    MAIN
@@ -240,7 +307,6 @@ main {
 
 }
 
-
 main h1 {
 
     text-align: center;
@@ -248,7 +314,6 @@ main h1 {
     margin-bottom: 25px;
 
 }
-
 
 h2,
 h3,
@@ -259,7 +324,6 @@ h6 {
     color: var(--laranja);
 
 }
-
 
 /* =========================================================
    TEXTO
@@ -272,13 +336,11 @@ li {
 
 }
 
-
 p {
 
     text-align: justify;
 
 }
-
 
 .conteudo p,
 .aula-conteudo p {
@@ -286,7 +348,6 @@ p {
     margin-bottom: 15px;
 
 }
-
 
 /* =========================================================
    ACCORDION PRINCIPAL
@@ -299,7 +360,6 @@ p {
     margin-bottom: 15px;
 
 }
-
 
 .accordion > summary {
 
@@ -332,13 +392,11 @@ p {
 
 }
 
-
 .accordion > summary::-webkit-details-marker {
 
     display: none;
 
 }
-
 
 .accordion > summary::after {
 
@@ -357,13 +415,11 @@ p {
 
 }
 
-
 .accordion[open] > summary::after {
 
     content: "−";
 
 }
-
 
 /* =========================================================
    CONTEÚDO
@@ -378,7 +434,6 @@ p {
 
 }
 
-
 @keyframes abrir {
 
     from {
@@ -387,7 +442,6 @@ p {
 
         transform:
             translateY(-8px);
-
     }
 
     to {
@@ -396,11 +450,9 @@ p {
 
         transform:
             translateY(0);
-
     }
 
 }
-
 
 /* =========================================================
    AULAS INTERNAS
@@ -411,7 +463,6 @@ p {
     margin-bottom: 12px;
 
 }
-
 
 .aula > summary {
 
@@ -440,15 +491,11 @@ p {
     position: relative;
 
 }
-
-
 .aula > summary::-webkit-details-marker {
 
     display: none;
 
 }
-
-
 .aula > summary::after {
 
     content: "+";
@@ -465,15 +512,10 @@ p {
     font-size: 24px;
 
 }
-
-
 .aula[open] > summary::after {
 
     content: "−";
-
 }
-
-
 .aula-conteudo {
 
     padding: 25px 20px;
@@ -481,9 +523,7 @@ p {
     background: var(--branco);
 
     border-radius: 0 0 10px 10px;
-
 }
-
 
 /* =========================================================
    TÍTULOS DA AULA
@@ -501,8 +541,6 @@ p {
     color: var(--laranja);
 
 }
-
-
 .aula-conteudo h3 {
 
     margin-top: 30px;
@@ -516,9 +554,7 @@ p {
         var(--laranja);
 
     padding-left: 10px;
-
 }
-
 
 /* =========================================================
    LISTAS
@@ -533,14 +569,10 @@ p {
         30px;
 
 }
-
-
 .aula-conteudo li {
 
     margin-bottom: 7px;
-
 }
-
 
 /* =========================================================
    CÓDIGO
@@ -565,23 +597,18 @@ pre {
     box-shadow:
         0 4px 12px
         rgba(0, 0, 0, 0.15);
-
 }
-
 
 code {
 
     font-family:
         "Courier New",
         monospace;
-
 }
-
 
 /* =========================================================
    MAPA MENTAL
 ========================================================= */
-
 .mapa-mental-section {
 
     width: 100%;
