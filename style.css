@@ -19,57 +19,104 @@ body {
 
 
 /* =========================================================
-   VARIÁVEIS — PALETA SUAVE E PROFISSIONAL
+   VARIÁVEIS — PALETA VIBRANTE
 ========================================================= */
 
 :root {
 
-    /* Cor principal */
-    --laranja: #d97706;
+    /* =====================================================
+       COR PRINCIPAL
+    ===================================================== */
 
-    /* Variações da cor principal */
-    --laranja-claro: #f59e0b;
-    --laranja-suave: #fff7ed;
-    --laranja-fundo: #ffedd5;
-    --laranja-borda: #fed7aa;
+    --laranja: #ff6b00;
+    --laranja-claro: #ff9500;
+    --laranja-forte: #ff4500;
 
-    /* Destaque */
-    --amarelo: #facc15;
+    --laranja-suave: #fff3e6;
+    --laranja-fundo: #ffe0c2;
+    --laranja-borda: #ffb366;
 
-    /* Fundos */
+
+    /* =====================================================
+       DESTAQUES
+    ===================================================== */
+
+    --amarelo: #ffd60a;
+    --amarelo-forte: #ffb800;
+
+
+    /* =====================================================
+       FUNDOS
+    ===================================================== */
+
     --fundo: #f5f7fa;
     --branco: #ffffff;
     --fundo-card: #f8fafc;
 
-    /* Textos */
+
+    /* =====================================================
+       TEXTOS
+    ===================================================== */
+
     --texto: #1e293b;
     --texto-secundario: #475569;
     --cinza: #64748b;
     --cinza-claro: #94a3b8;
 
-    /* Código */
-    --codigo-fundo: #1e293b;
+
+    /* =====================================================
+       CÓDIGO
+    ===================================================== */
+
+    --codigo-fundo: #172033;
     --codigo-texto: #f8fafc;
 
-    /* Tecnologias */
+
+    /* =====================================================
+       TECNOLOGIAS
+    ===================================================== */
+
     --html: #e34f26;
     --css: #1572b6;
     --javascript: #f7df1e;
 
-    /* Bordas */
+
+    /* =====================================================
+       BORDAS
+    ===================================================== */
+
     --borda: #e2e8f0;
 
-    /* Sombras */
+
+    /* =====================================================
+       SOMBRAS
+    ===================================================== */
+
     --sombra-pequena:
         0 3px 10px rgba(15, 23, 42, 0.08);
 
     --sombra-media:
-        0 6px 18px rgba(15, 23, 42, 0.10);
+        0 6px 18px rgba(15, 23, 42, 0.12);
 
     --sombra-grande:
-        0 12px 30px rgba(15, 23, 42, 0.14);
+        0 12px 30px rgba(15, 23, 42, 0.16);
 
-    /* Padronização dos botões */
+
+    /* =====================================================
+       SOMBRAS LARANJAS
+    ===================================================== */
+
+    --sombra-laranja:
+        0 6px 18px rgba(255, 107, 0, 0.25);
+
+    --sombra-laranja-forte:
+        0 10px 25px rgba(255, 107, 0, 0.35);
+
+
+    /* =====================================================
+       PADRONIZAÇÃO DOS BOTÕES
+    ===================================================== */
+
     --botao-altura: 44px;
     --botao-largura: 150px;
     --botao-radius: 8px;
@@ -90,7 +137,8 @@ body {
     background:
         linear-gradient(
             180deg,
-            #f8fafc 0%,
+            #fffaf5 0%,
+            #f5f7fa 45%,
             #eef2f7 100%
         );
 
@@ -130,8 +178,9 @@ header {
     background:
         linear-gradient(
             90deg,
-            #c96b08,
-            var(--laranja)
+            #ff4500 0%,
+            #ff6b00 50%,
+            #ff8500 100%
         );
 
     position:
@@ -141,7 +190,8 @@ header {
         900;
 
     box-shadow:
-        var(--sombra-media);
+        0 6px 20px
+        rgba(255, 107, 0, 0.28);
 
 }
 
@@ -201,11 +251,12 @@ header {
 .logo-img:hover {
 
     transform:
-        scale(1.06)
-        rotate(2deg);
+        scale(1.08)
+        rotate(3deg);
 
     box-shadow:
-        var(--sombra-media);
+        0 8px 20px
+        rgba(0, 0, 0, 0.20);
 
 }
 
@@ -245,8 +296,13 @@ header {
     letter-spacing:
         1px;
 
+    text-shadow:
+        0 2px 5px
+        rgba(0, 0, 0, 0.15);
+
     transition:
-        color 0.3s ease;
+        color 0.3s ease,
+        transform 0.3s ease;
 
 }
 
@@ -254,7 +310,10 @@ header {
 .titulo-barra:hover {
 
     color:
-        #fffbeb;
+        #fff7d6;
+
+    transform:
+        scale(1.01);
 
 }
 
@@ -402,7 +461,8 @@ nav a {
         color 0.25s ease,
         background 0.25s ease,
         border-color 0.25s ease,
-        transform 0.25s ease;
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 
 }
 
@@ -423,7 +483,11 @@ nav a:hover {
         var(--laranja-borda);
 
     transform:
-        translateY(-1px);
+        translateY(-2px);
+
+    box-shadow:
+        0 4px 10px
+        rgba(255, 107, 0, 0.10);
 
 }
 
@@ -450,10 +514,14 @@ nav a::after {
         0;
 
     height:
-        2px;
+        3px;
 
     background:
-        var(--laranja);
+        linear-gradient(
+            90deg,
+            var(--laranja-forte),
+            var(--laranja-claro)
+        );
 
     border-radius:
         10px;
@@ -490,6 +558,10 @@ nav a.active {
     border-color:
         var(--laranja-borda);
 
+    box-shadow:
+        0 4px 12px
+        rgba(255, 107, 0, 0.12);
+
 }
 
 
@@ -517,11 +589,15 @@ nav a.btn-menu {
         #ffffff;
 
     background:
-        var(--laranja);
+        linear-gradient(
+            135deg,
+            #ff5a00,
+            #ff7a00
+        );
 
     border:
         1px solid
-        var(--laranja);
+        #ff6b00;
 
     border-radius:
         var(--botao-radius);
@@ -530,8 +606,8 @@ nav a.btn-menu {
         700;
 
     box-shadow:
-        0 4px 10px
-        rgba(217, 119, 6, 0.18);
+        0 5px 14px
+        rgba(255, 107, 0, 0.28);
 
 }
 
@@ -546,7 +622,9 @@ nav a.btn-menu::after {
 }
 
 
-/* Hover do botão */
+/* =========================================================
+   HOVER DO BOTÃO
+========================================================= */
 
 nav a.btn-menu:hover {
 
@@ -554,22 +632,28 @@ nav a.btn-menu:hover {
         #ffffff;
 
     background:
-        #b85f05;
+        linear-gradient(
+            135deg,
+            #ff4500,
+            #ff6500
+        );
 
     border-color:
-        #b85f05;
+        #ff4500;
 
     transform:
-        translateY(-2px);
+        translateY(-3px);
 
     box-shadow:
-        0 6px 15px
-        rgba(217, 119, 6, 0.25);
+        0 8px 20px
+        rgba(255, 107, 0, 0.38);
 
 }
 
 
-/* Clique */
+/* =========================================================
+   CLIQUE
+========================================================= */
 
 nav a.btn-menu:active {
 
@@ -697,8 +781,9 @@ p {
     background:
         linear-gradient(
             90deg,
-            #c96b08,
-            var(--laranja)
+            #ff5000 0%,
+            #ff6b00 50%,
+            #ff8500 100%
         );
 
     border:
@@ -715,7 +800,7 @@ p {
         700;
 
     box-shadow:
-        var(--sombra-pequena);
+        var(--sombra-laranja);
 
     transition:
         background 0.25s ease,
@@ -730,15 +815,16 @@ p {
     background:
         linear-gradient(
             90deg,
-            #b85f05,
-            #d97706
+            #ff4500,
+            #ff6500,
+            #ff8000
         );
 
     transform:
-        translateY(-1px);
+        translateY(-2px);
 
     box-shadow:
-        var(--sombra-media);
+        var(--sombra-laranja-forte);
 
 }
 
@@ -886,12 +972,16 @@ p {
     transition:
         background 0.25s ease,
         transform 0.25s ease,
-        border-color 0.25s ease;
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 
 }
 
 
 .aula > summary:hover {
+
+    color:
+        var(--laranja);
 
     background:
         var(--laranja-suave);
@@ -900,7 +990,11 @@ p {
         var(--laranja-borda);
 
     transform:
-        translateX(2px);
+        translateX(3px);
+
+    box-shadow:
+        0 5px 14px
+        rgba(255, 107, 0, 0.12);
 
 }
 
@@ -1053,6 +1147,10 @@ pre {
         1px solid
         #334155;
 
+    border-left:
+        4px solid
+        var(--laranja);
+
     border-radius:
         10px;
 
@@ -1093,7 +1191,7 @@ code {
         linear-gradient(
             135deg,
             #ffffff,
-            #f8fafc
+            #fff8f0
         );
 
     border:
@@ -1167,8 +1265,9 @@ code {
     background:
         radial-gradient(
             circle at center,
-            rgba(217, 119, 6, 0.05),
-            transparent 60%
+            rgba(255, 107, 0, 0.10),
+            rgba(255, 149, 0, 0.04),
+            transparent 65%
         );
 
 }
@@ -1204,13 +1303,13 @@ code {
         var(--laranja);
 
     stroke-width:
-        3;
+        4;
 
     stroke-linecap:
         round;
 
     opacity:
-        0.5;
+        0.65;
 
 }
 
@@ -1222,7 +1321,7 @@ code {
 .no-central {
 
     fill:
-        var(--laranja);
+        var(--laranja-forte);
 
     stroke:
         #ffffff;
@@ -1232,8 +1331,8 @@ code {
 
     filter:
         drop-shadow(
-            0 5px 8px
-            rgba(0, 0, 0, 0.20)
+            0 6px 10px
+            rgba(255, 69, 0, 0.35)
         );
 
 }
@@ -1246,7 +1345,7 @@ code {
 .no-principal {
 
     fill:
-        var(--laranja-claro);
+        var(--laranja);
 
     stroke:
         #ffffff;
@@ -1256,8 +1355,8 @@ code {
 
     filter:
         drop-shadow(
-            0 4px 7px
-            rgba(0, 0, 0, 0.15)
+            0 5px 8px
+            rgba(255, 107, 0, 0.25)
         );
 
 }
@@ -1276,12 +1375,12 @@ code {
         var(--laranja);
 
     stroke-width:
-        2;
+        3;
 
     filter:
         drop-shadow(
-            0 3px 5px
-            rgba(0, 0, 0, 0.12)
+            0 3px 6px
+            rgba(255, 107, 0, 0.18)
         );
 
 }
@@ -1371,18 +1470,29 @@ code {
 .no-secundario {
 
     transition:
-        filter 0.25s ease;
+        filter 0.25s ease,
+        transform 0.25s ease;
 
 }
 
 
-.no-principal:hover,
+.no-principal:hover {
+
+    filter:
+        drop-shadow(
+            0 8px 15px
+            rgba(255, 69, 0, 0.45)
+        );
+
+}
+
+
 .no-secundario:hover {
 
     filter:
         drop-shadow(
-            0 7px 12px
-            rgba(217, 119, 6, 0.35)
+            0 7px 13px
+            rgba(255, 107, 0, 0.40)
         );
 
 }
@@ -1451,7 +1561,8 @@ code {
         var(--sombra-media);
 
     transition:
-        transform 0.3s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 
 }
 
@@ -1460,6 +1571,9 @@ code {
 
     transform:
         scale(1.02);
+
+    box-shadow:
+        var(--sombra-laranja);
 
 }
 
@@ -1524,7 +1638,7 @@ code {
         rgba(255, 255, 255, 0.10);
 
     border-left:
-        4px solid
+        5px solid
         var(--laranja);
 
     border-radius:
@@ -1545,7 +1659,8 @@ code {
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease,
-        background 0.3s ease;
+        background 0.3s ease,
+        border-color 0.3s ease;
 
 }
 
@@ -1553,10 +1668,13 @@ code {
 .card:hover {
 
     transform:
-        translateY(-6px);
+        translateY(-7px);
+
+    border-left-color:
+        var(--laranja-claro);
 
     box-shadow:
-        var(--sombra-grande);
+        var(--sombra-laranja-forte);
 
 }
 
@@ -1654,7 +1772,7 @@ code {
 .card .info-extra strong {
 
     color:
-        #fbbf24;
+        #ffbd2e;
 
 }
 
@@ -1666,7 +1784,7 @@ code {
 .card.ativo {
 
     transform:
-        translateY(-6px);
+        translateY(-7px);
 
     background:
         linear-gradient(
@@ -1675,9 +1793,12 @@ code {
             #334155
         );
 
+    border-left-color:
+        var(--laranja-claro);
+
     box-shadow:
-        0 12px 30px
-        rgba(217, 119, 6, 0.22);
+        0 14px 35px
+        rgba(255, 107, 0, 0.30);
 
 }
 
@@ -1736,7 +1857,7 @@ code {
 .card.ativo .ver-mais {
 
     color:
-        #fbbf24;
+        #ffbd2e;
 
 }
 
@@ -1783,6 +1904,10 @@ code {
     border:
         1px solid
         var(--borda);
+
+    border-top:
+        4px solid
+        var(--laranja);
 
     border-radius:
         15px;
@@ -1891,6 +2016,26 @@ code {
     cursor:
         pointer;
 
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.config-atividade select:focus,
+.seletor-atividade select:focus {
+
+    outline:
+        none;
+
+    border-color:
+        var(--laranja);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255, 107, 0, 0.15);
+
 }
 
 
@@ -1918,7 +2063,11 @@ code {
         var(--botao-radius);
 
     background:
-        var(--laranja);
+        linear-gradient(
+            135deg,
+            #ff5a00,
+            #ff7a00
+        );
 
     color:
         #ffffff;
@@ -1933,6 +2082,10 @@ code {
     cursor:
         pointer;
 
+    box-shadow:
+        0 4px 10px
+        rgba(255, 107, 0, 0.20);
+
     transition:
         background 0.25s ease,
         transform 0.25s ease,
@@ -1945,14 +2098,18 @@ code {
 .seletor-atividade button:hover {
 
     background:
-        #b85f05;
+        linear-gradient(
+            135deg,
+            #ff4500,
+            #ff6500
+        );
 
     transform:
         translateY(-2px);
 
     box-shadow:
-        0 5px 12px
-        rgba(217, 119, 6, 0.22);
+        0 7px 16px
+        rgba(255, 107, 0, 0.32);
 
 }
 
@@ -1999,6 +2156,10 @@ code {
 
 }
 
+
+/* =========================================================
+   ATIVIDADE INICIAL
+========================================================= */
 
 .atividade-inicial {
 
@@ -2064,6 +2225,10 @@ code {
         1px solid
         var(--borda);
 
+    border-left:
+        4px solid
+        var(--laranja);
+
     border-radius:
         12px;
 
@@ -2095,8 +2260,8 @@ footer {
         50px;
 
     border-top:
-        2px solid
-        var(--laranja-borda);
+        3px solid
+        var(--laranja);
 
 }
 
@@ -2168,7 +2333,9 @@ footer p {
     }
 
 
-    /* MENU */
+    /* =====================================================
+       MENU
+    ===================================================== */
 
     nav ul {
 
@@ -2213,7 +2380,9 @@ footer p {
     }
 
 
-    /* MAIN */
+    /* =====================================================
+       MAIN
+    ===================================================== */
 
     main {
 
@@ -2234,7 +2403,9 @@ footer p {
     }
 
 
-    /* MAPA */
+    /* =====================================================
+       MAPA
+    ===================================================== */
 
     .mapa-mental-section {
 
@@ -2263,7 +2434,9 @@ footer p {
     }
 
 
-    /* CARDS */
+    /* =====================================================
+       CARDS
+    ===================================================== */
 
     .cards {
 
@@ -2273,7 +2446,9 @@ footer p {
     }
 
 
-    /* ATIVIDADES */
+    /* =====================================================
+       ATIVIDADES
+    ===================================================== */
 
     #atividades,
     #atividades-gerador {
@@ -2319,7 +2494,9 @@ footer p {
     }
 
 
-    /* MENU */
+    /* =====================================================
+       MENU
+    ===================================================== */
 
     nav ul {
 
@@ -2361,7 +2538,9 @@ footer p {
     }
 
 
-    /* ACCORDION */
+    /* =====================================================
+       ACCORDION
+    ===================================================== */
 
     .accordion > summary {
 
@@ -2407,7 +2586,9 @@ footer p {
     }
 
 
-    /* CÓDIGO */
+    /* =====================================================
+       CÓDIGO
+    ===================================================== */
 
     pre {
 
@@ -2420,7 +2601,9 @@ footer p {
     }
 
 
-    /* MAPA */
+    /* =====================================================
+       MAPA
+    ===================================================== */
 
     .mapa-mental-section {
 
@@ -2449,7 +2632,9 @@ footer p {
     }
 
 
-    /* CARDS */
+    /* =====================================================
+       CARDS
+    ===================================================== */
 
     .cards {
 
@@ -2473,7 +2658,9 @@ footer p {
     }
 
 
-    /* VÍDEOS */
+    /* =====================================================
+       VÍDEOS
+    ===================================================== */
 
     .video-container video {
 
@@ -2486,7 +2673,9 @@ footer p {
     }
 
 
-    /* ATIVIDADES */
+    /* =====================================================
+       ATIVIDADES
+    ===================================================== */
 
     #atividades,
     #atividades-gerador {
@@ -2523,7 +2712,9 @@ footer p {
     }
 
 
-    /* FOOTER */
+    /* =====================================================
+       FOOTER
+    ===================================================== */
 
     footer {
 
