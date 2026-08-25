@@ -165,6 +165,9 @@ header {
 /* =========================================================
    MENU PROFISSIONAL
 ========================================================= */
+/* =========================================================
+   MENU PROFISSIONAL
+========================================================= */
 
 nav {
     width: 100%;
@@ -177,21 +180,22 @@ nav {
 }
 
 nav ul {
+    width: 100%;
     max-width: 1200px;
     min-height: 70px;
     margin: 0 auto;
     padding: 0 30px;
 
     display: flex;
-    justify-content: justify;
+    justify-content: space-between; /* MENU JUSTIFICADO */
     align-items: center;
-    gap: 10px;
 
     list-style: none;
 }
 
 nav li {
-    position: relative;
+    flex: 1;
+    text-align: center;
 }
 
 nav a {
@@ -222,7 +226,7 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* Linha animada abaixo do link */
+/* Linha animada */
 nav a::after {
     content: "";
 
@@ -237,7 +241,6 @@ nav a::after {
     border-radius: 10px;
 
     transform: translateX(-50%);
-
     transition: width 0.3s ease;
 }
 
@@ -252,6 +255,47 @@ nav a.active {
 
 nav a.active::after {
     width: 55%;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    nav ul {
+        padding: 12px 15px;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    nav li {
+        flex: 1 1 auto;
+    }
+
+    nav a {
+        padding: 10px 13px;
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    nav ul {
+        justify-content: center;
+        gap: 2px;
+    }
+
+    nav li {
+        flex: 1 1 45%;
+    }
+
+    nav a {
+        padding: 9px 10px;
+        font-size: 13px;
+    }
 }
 
 /* =========================================================
