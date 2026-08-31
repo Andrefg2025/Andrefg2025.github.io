@@ -9,6 +9,11 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="description"
+        content="Plataforma de estudo de Desenvolvimento de Sistemas"
+    >
+
     <title>Plataforma de Estudo</title>
 
     <!-- =====================================================
@@ -16,12 +21,7 @@
     ====================================================== -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -51,12 +51,11 @@
 
 <body>
 
-
 <!-- =========================================================
-     CABEÇALHO
+     HEADER
 ========================================================= -->
 
-<header class="cabecalho">
+<header>
 
     <a
         href="index.html"
@@ -74,11 +73,9 @@
         href="index.html"
         class="titulo-link"
     >
-
         <h1 class="titulo-barra">
             PLATAFORMA DE ESTUDO
         </h1>
-
     </a>
 
 
@@ -86,65 +83,83 @@
         href="index.html"
         class="logo-direita"
     >
-
         <img
             src="l.png"
             alt="Logo Desenvolvimento de Sistemas"
             class="logo-img"
         >
-
     </a>
 
 </header>
-
 
 
 <!-- =========================================================
      MENU
 ========================================================= -->
 
-<nav class="menu">
+<nav>
 
     <ul>
 
         <li>
-            <a href="index.html">
+            <a
+                href="index.html"
+                class="btn-menu"
+            >
                 Início
             </a>
         </li>
 
         <li>
-            <a href="AlgoritmoeEstruturadeDados.html">
-                Algoritmos e Estrutura de Dados
+            <a
+                href="AlgoritmoeEstruturadeDados.html"
+                class="btn-menu"
+            >
+                Algoritmo e Estrutura de Dados
             </a>
         </li>
 
         <li>
-            <a href="ArquiteturadeSistemas.html">
+            <a
+                href="ArquiteturadeSistemas.html"
+                class="btn-menu"
+            >
                 Arquitetura de Sistemas
             </a>
         </li>
 
         <li>
-            <a href="DesenvolvimentoFrontEndI.html">
+            <a
+                href="DesenvolvimentoFrontEndI.html"
+                class="btn-menu"
+            >
                 Desenvolvimento Front End I
             </a>
         </li>
 
         <li>
-            <a href="DesenvolvimentodeAplicativos.html">
+            <a
+                href="DesenvolvimentodeAplicativos.html"
+                class="btn-menu"
+            >
                 Desenvolvimento de Aplicativos
             </a>
         </li>
 
         <li>
-            <a href="DesenvolvimentodeSoftwares.html">
+            <a
+                href="DesenvolvimentodeSoftwares.html"
+                class="btn-menu"
+            >
                 Desenvolvimento de Softwares
             </a>
         </li>
 
         <li>
-            <a href="DesenvolvimentoBackEnd.html">
+            <a
+                href="DesenvolvimentoBackEnd.html"
+                class="btn-menu"
+            >
                 Desenvolvimento Back-End
             </a>
         </li>
@@ -152,7 +167,6 @@
     </ul>
 
 </nav>
-
 
 
 <!-- =========================================================
@@ -166,7 +180,10 @@
      DISCIPLINA
 ========================================================= -->
 
-<details class="accordion disciplina" open>
+<details
+    class="accordion disciplina"
+    open
+>
 
     <summary>
         DISCIPLINA - ALGORITMOS E ESTRUTURA DE DADOS
@@ -177,19 +194,16 @@
 
 
         <!-- =================================================
-             AULA PRINCIPAL
+             AULA
         ================================================== -->
 
         <details
             class="aula"
             open
-            data-mapa-aula
         >
 
             <summary>
-                <b>
-                    • INTRODUÇÃO À PROGRAMAÇÃO
-                </b>
+                • INTRODUÇÃO À PROGRAMAÇÃO
             </summary>
 
 
@@ -206,353 +220,190 @@
                      CONTEÚDO DA AULA
                 ================================================== -->
 
-                <section class="conteudo-estudo">
+                <h3>
+                    1. Organização Básica de um Computador
+                </h3>
 
-                    <h3>
-                        1. Organização Básica de um Computador
-                    </h3>
+                <p>
+                    Para compreender os fundamentos da programação de computadores,
+                    é importante conhecer como um computador é organizado e como
+                    seus principais componentes trabalham em conjunto.
+                </p>
 
-                    <p>
-                        Para compreender os fundamentos da programação de computadores,
-                        é importante conhecer, ainda que de forma introdutória,
-                        como um computador é organizado e como seus principais
-                        componentes trabalham em conjunto.
-                    </p>
+                <p>
+                    De maneira simplificada, podemos entender um computador como
+                    um sistema formado por quatro elementos fundamentais:
+                </p>
 
-                    <p>
-                        De maneira simplificada, podemos entender um computador
-                        como um sistema formado por quatro elementos fundamentais:
-                    </p>
+                <ul>
+                    <li>Unidade de entrada;</li>
+                    <li>Unidade de saída;</li>
+                    <li>Unidade Central de Processamento (CPU);</li>
+                    <li>Memória.</li>
+                </ul>
 
-                    <ul>
 
-                        <li>
-                            Unidade de entrada
-                        </li>
+                <h3>
+                    1.1 Unidade de Entrada
+                </h3>
 
-                        <li>
-                            Unidade de saída
-                        </li>
+                <p>
+                    A unidade de entrada é responsável por permitir que o usuário
+                    forneça dados e informações ao computador.
+                </p>
 
-                        <li>
-                            Unidade Central de Processamento (CPU)
-                        </li>
 
-                        <li>
-                            Memória
-                        </li>
+                <h3>
+                    1.2 Unidade de Saída
+                </h3>
 
-                    </ul>
+                <p>
+                    A unidade de saída é responsável por apresentar ao usuário
+                    os resultados obtidos pelo computador.
+                </p>
 
 
-                    <h3>
-                        1.1 Unidade de Entrada
-                    </h3>
+                <h3>
+                    1.3 Unidade Central de Processamento — CPU
+                </h3>
 
-                    <p>
-                        A unidade de entrada é responsável por permitir que
-                        o usuário forneça dados e informações ao computador.
-                    </p>
+                <p>
+                    A CPU é responsável pela execução das instruções e pelo
+                    processamento dos dados utilizados pelos programas.
+                </p>
 
-                    <ul>
 
-                        <li>
-                            Teclado
-                        </li>
+                <h3>
+                    1.4 Memória
+                </h3>
 
-                        <li>
-                            Mouse
-                        </li>
+                <p>
+                    A memória permite armazenar temporariamente os dados e
+                    instruções utilizados durante a execução dos programas.
+                </p>
 
-                        <li>
-                            Microfone
-                        </li>
 
-                        <li>
-                            Câmera
-                        </li>
+                <h3>
+                    2. Como os Componentes do Computador Trabalham Juntos
+                </h3>
 
-                        <li>
-                            Scanner
-                        </li>
+                <p>
+                    Os componentes de um computador trabalham de maneira
+                    integrada para receber, armazenar, processar e apresentar
+                    informações.
+                </p>
 
-                    </ul>
 
+                <h3>
+                    3. Linguagem de Máquina
+                </h3>
 
-                    <h3>
-                        1.2 Unidade de Saída
-                    </h3>
+                <p>
+                    No nível mais básico, os computadores utilizam a linguagem
+                    de máquina, formada por sequências de bits.
+                </p>
 
-                    <p>
-                        A unidade de saída é responsável por apresentar ao usuário
-                        os resultados obtidos pelo computador após o processamento
-                        dos dados.
-                    </p>
 
-                    <ul>
+                <h3>
+                    3.1 O que é um bit?
+                </h3>
 
-                        <li>
-                            Monitor
-                        </li>
+                <p>
+                    Um bit é a menor unidade de informação digital e pode assumir
+                    os valores 0 ou 1.
+                </p>
 
-                        <li>
-                            Impressora
-                        </li>
 
-                        <li>
-                            Alto-falantes
-                        </li>
+                <h3>
+                    3.2 Bits e Bytes
+                </h3>
 
-                        <li>
-                            Projetor
-                        </li>
+                <p>
+                    Um conjunto de oito bits é tradicionalmente chamado de byte.
+                </p>
 
-                    </ul>
 
+                <h3>
+                    4. Representação de Caracteres
+                </h3>
 
-                    <h3>
-                        1.3 Unidade Central de Processamento — CPU
-                    </h3>
+                <p>
+                    Os computadores utilizam sistemas de codificação para
+                    representar letras, números e símbolos.
+                </p>
 
-                    <p>
-                        A Unidade Central de Processamento, conhecida pela sigla
-                        CPU (Central Processing Unit), é responsável pela execução
-                        das instruções de um computador.
-                    </p>
 
-                    <p>
-                        A CPU executa instruções, realiza cálculos e operações
-                        lógicas e coordena diversas atividades necessárias
-                        para o funcionamento dos programas.
-                    </p>
+                <h3>
+                    5. Letras Maiúsculas e Minúsculas
+                </h3>
 
+                <p>
+                    Sistemas de codificação utilizam valores diferentes para
+                    representar letras maiúsculas e minúsculas.
+                </p>
 
-                    <h3>
-                        1.4 Memória
-                    </h3>
 
-                    <p>
-                        A memória é responsável por armazenar temporariamente
-                        os dados e as instruções que estão sendo utilizados
-                        pelo computador.
-                    </p>
+                <h3>
+                    6. Do ASCII ao Unicode
+                </h3>
 
-                    <p>
-                        Cada espaço da memória possui um endereço que permite
-                        localizar e acessar a informação armazenada.
-                    </p>
+                <p>
+                    O Unicode permite representar uma grande variedade de
+                    caracteres utilizados em diferentes idiomas.
+                </p>
 
 
-                    <h3>
-                        1.5 Memória RAM e Volatilidade
-                    </h3>
+                <h3>
+                    7. Relação entre Hardware, Memória e Programação
+                </h3>
 
-                    <p>
-                        A memória RAM é utilizada para armazenar temporariamente
-                        os dados e programas que estão sendo utilizados pelo computador.
-                    </p>
-
-                    <p>
-                        Uma característica importante da RAM é sua volatilidade.
-                        Os dados armazenados nela são perdidos quando o computador
-                        é desligado.
-                    </p>
-
-                    <p>
-                        RAM → armazenamento temporário.
-                    </p>
-
-                    <p>
-                        SSD/HD → armazenamento persistente.
-                    </p>
-
-
-                    <h3>
-                        2. Como os Componentes do Computador Trabalham Juntos
-                    </h3>
-
-                    <p>
-                        Os componentes de um computador não funcionam de maneira
-                        isolada. Existe um fluxo contínuo de dados e informações
-                        entre eles.
-                    </p>
-
-                    <p>
-                        Um exemplo simples é uma calculadora.
-                    </p>
-
-                    <p class="fluxo">
-                        Entrada → Memória → CPU → Memória → Saída
-                    </p>
-
-
-                    <h3>
-                        3. Linguagem de Máquina
-                    </h3>
-
-                    <p>
-                        No nível mais básico, os computadores utilizam a chamada
-                        linguagem de máquina, formada por sequências de bits.
-                    </p>
-
-
-                    <h3>
-                        3.1 O que é um bit?
-                    </h3>
-
-                    <p>
-                        A palavra bit vem de binary digit.
-                    </p>
-
-                    <p>
-                        Um bit pode assumir dois valores:
-                    </p>
-
-                    <p class="codigo">
-                        0 ou 1
-                    </p>
-
-
-                    <h3>
-                        3.2 Bits e Bytes
-                    </h3>
-
-                    <p>
-                        Um conjunto de 8 bits é tradicionalmente chamado de byte.
-                    </p>
-
-                    <p class="codigo">
-                        01000001
-                    </p>
-
-
-                    <h3>
-                        4. Representação de Caracteres
-                    </h3>
-
-                    <p>
-                        Os computadores utilizam codificações para representar
-                        letras, números e símbolos.
-                    </p>
-
-                    <p>
-                        Um exemplo histórico é o ASCII.
-                    </p>
-
-                    <p>
-                        A → 65
-                    </p>
-
-                    <p>
-                        B → 66
-                    </p>
-
-                    <p>
-                        C → 67
-                    </p>
-
-
-                    <h3>
-                        5. Por que Existem Diferentes Códigos para Letras
-                        Maiúsculas e Minúsculas?
-                    </h3>
-
-                    <p>
-                        Letras maiúsculas e minúsculas possuem códigos diferentes
-                        para que o computador possa diferenciá-las.
-                    </p>
-
-
-                    <h3>
-                        6. Do ASCII ao Unicode
-                    </h3>
-
-                    <p>
-                        O ASCII possui um conjunto limitado de caracteres.
-                        Para representar caracteres de diferentes idiomas,
-                        foi desenvolvido o Unicode.
-                    </p>
-
-                    <p>
-                        O UTF-8 é atualmente uma das formas mais utilizadas
-                        de codificação Unicode.
-                    </p>
-
-
-                    <h3>
-                        7. A Relação entre Hardware, Memória e Programação
-                    </h3>
-
-                    <p>
-                        Um computador recebe informações por meio dos dispositivos
-                        de entrada, armazena e manipula dados na memória,
-                        executa instruções utilizando a CPU e apresenta os
-                        resultados por meio dos dispositivos de saída.
-                    </p>
-
-                    <p class="fluxo">
-                        USUÁRIO → ENTRADA → MEMÓRIA → CPU → MEMÓRIA → SAÍDA → USUÁRIO
-                    </p>
-
-
-                    <h3>
-                        Variáveis e Programação
-                    </h3>
-
-                    <p>
-                        Uma variável pode ser entendida como um espaço identificado
-                        utilizado por um programa para armazenar um determinado valor.
-                    </p>
-
-                    <p class="codigo">
-                        numero1 = 10
-                    </p>
-
-                    <p class="codigo">
-                        numero2 = 20
-                    </p>
-
-                    <p class="codigo">
-                        resultado = numero1 + numero2
-                    </p>
-
-                    <p>
-                        Programar significa criar instruções que permitem ao
-                        computador manipular dados e realizar tarefas de maneira
-                        organizada e automatizada.
-                    </p>
-
-                </section>
-
+                <p>
+                    Programar significa criar instruções que permitem ao
+                    computador manipular dados e realizar tarefas.
+                </p>
 
 
                 <!-- =================================================
                      MAPA MENTAL AUTOMÁTICO
                 ================================================== -->
 
-               <section class="mapa-mental-section">
+                <section
+                    class="mapa-mental-section"
+                    aria-labelledby="titulo-mapa"
+                >
 
-    <h2 class="titulo-secao">
-        🧠 Mapa Mental
-    </h2>
-
-    <p class="descricao-mapa">
-        Este mapa é criado automaticamente a partir
-        dos principais tópicos desta aula.
-    </p>
-
-    <div
-        id="mapa-mental"
-        data-mapa="Algoritmos e Estruturas de Dados: fundamentos e aplicações na programação"
-    >
-        <p class="carregando-mapa">
-            Gerando mapa mental...
-        </p>
-    </div>
-
-</section>
+                    <h2
+                        id="titulo-mapa"
+                        class="titulo-secao"
+                    >
+                        🧠 Mapa Mental
+                    </h2>
 
 
+                    <p class="descricao-mapa">
+                        O mapa mental é gerado automaticamente a partir
+                        dos títulos e subtítulos desta aula.
+                    </p>
+
+
+                    <div
+                        id="mapa-mental"
+                        data-titulo="Algoritmos e Estruturas de Dados"
+                    >
+
+                        <div class="carregando-mapa">
+
+                            <div class="spinner-mapa"></div>
+
+                            <p>
+                                Gerando mapa mental...
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
 
 
                 <!-- =================================================
@@ -561,7 +412,7 @@
 
                 <section id="video">
 
-                    <h2>
+                    <h2 class="titulo-secao">
                         🎥 Vídeo — Algoritmos
                     </h2>
 
@@ -587,7 +438,6 @@
                 </section>
 
 
-
                 <!-- =================================================
                      CARDS
                 ================================================== -->
@@ -603,39 +453,45 @@
 
 
                         <div
-    class="card"
-    onclick="abrirCard(this)"
->
-    <h3>
-        Aplicações
-    </h3>
+                            class="card"
+                            onclick="abrirCard(this)"
+                            tabindex="0"
+                        >
 
-    <div class="info-extra">
+                            <h3>
+                                Algoritmos e Estruturas de Dados
+                            </h3>
 
-        <p>
-            Estão presentes em bancos de dados,
-            sistemas de arquivos, redes sociais,
-            sistemas operacionais, mecanismos de busca,
-            rotas e inteligência artificial.
-        </p>
 
-        <p>
-            Dominar DSA significa aprender a organizar
-            dados, analisar problemas e desenvolver
-            soluções mais eficientes e escaláveis.
-        </p>
+                            <div class="info-extra">
 
-    </div>
-</div>
+                                <p>
+                                    <strong>Algoritmos:</strong>
+                                    sequência lógica de instruções para resolver
+                                    problemas e executar tarefas.
+                                </p>
+
+                                <p>
+                                    <strong>Estruturas de dados:</strong>
+                                    formas de organizar, armazenar e manipular
+                                    informações de maneira eficiente.
+                                </p>
+
+                            </div>
+
+                        </div>
+
 
                         <div
                             class="card"
                             onclick="abrirCard(this)"
+                            tabindex="0"
                         >
 
                             <h3>
                                 Principais estruturas
                             </h3>
+
 
                             <div class="info-extra">
 
@@ -645,34 +501,31 @@
                                 </p>
 
                                 <p>
-                                    Cada estrutura possui características próprias
-                                    e deve ser escolhida de acordo com o problema.
+                                    Cada estrutura possui características próprias.
                                 </p>
 
                             </div>
 
                         </div>
 
+
                         <div
                             class="card"
                             onclick="abrirCard(this)"
+                            tabindex="0"
                         >
 
                             <h3>
                                 Aplicações
                             </h3>
 
+
                             <div class="info-extra">
 
                                 <p>
                                     Bancos de dados, sistemas de arquivos,
                                     redes sociais, sistemas operacionais,
-                                    mecanismos de busca, rotas e inteligência artificial.
-                                </p>
-
-                                <p>
-                                    Dominar estruturas de dados significa aprender
-                                    a organizar dados e desenvolver soluções eficientes.
+                                    mecanismos de busca e inteligência artificial.
                                 </p>
 
                             </div>
@@ -684,12 +537,13 @@
                 </section>
 
 
-
                 <!-- =================================================
                      ATIVIDADES
                 ================================================== -->
 
-                <details class="aula atividades-container">
+                <details
+                    class="aula atividades-container"
+                >
 
                     <summary>
                         📝 Atividades de fixação
@@ -699,8 +553,8 @@
                     <div class="aula-conteudo">
 
                         <p class="descricao-atividade">
-                            Responda às questões sobre Algoritmos e Estruturas
-                            de Dados.
+                            Responda às questões sobre Algoritmos e
+                            Estruturas de Dados.
                         </p>
 
 
@@ -760,14 +614,14 @@
 
                 </details>
 
+
             </div>
 
         </details>
 
 
-
         <!-- =================================================
-             AULA 2
+             OUTRAS AULAS
         ================================================== -->
 
         <details class="aula">
@@ -776,78 +630,17 @@
                 • Introdução à disciplina
             </summary>
 
-
             <div class="aula-conteudo">
 
                 <p>
                     Algoritmos são conjuntos de instruções passo a passo
-                    para resolver um problema, enquanto estruturas de dados
-                    são formas organizadas de armazenar informações.
+                    para resolver problemas.
                 </p>
-
-
-                <p>
-                    Juntos, eles determinam a velocidade, o consumo de
-                    memória e a eficiência de um programa.
-                </p>
-
-
-                <h3>
-                    Estruturas Lineares
-                </h3>
-
-
-                <ul>
-
-                    <li>
-                        Arrays (Vetores)
-                    </li>
-
-                    <li>
-                        Listas Ligadas
-                    </li>
-
-                    <li>
-                        Pilhas
-                    </li>
-
-                    <li>
-                        Filas
-                    </li>
-
-                </ul>
-
-
-                <h3>
-                    Estruturas Não Lineares
-                </h3>
-
-
-                <ul>
-
-                    <li>
-                        Árvores
-                    </li>
-
-                    <li>
-                        Grafos
-                    </li>
-
-                    <li>
-                        Tabelas Hash
-                    </li>
-
-                </ul>
 
             </div>
 
         </details>
 
-
-
-        <!-- =================================================
-             OUTROS TÓPICOS
-        ================================================== -->
 
         <details class="aula">
 
@@ -858,8 +651,8 @@
             <div class="aula-conteudo">
 
                 <p>
-                    Estudo dos princípios utilizados para avaliar
-                    o desempenho dos algoritmos.
+                    Estudo dos princípios utilizados para avaliar o
+                    desempenho dos algoritmos.
                 </p>
 
             </div>
@@ -876,44 +669,8 @@
             <div class="aula-conteudo">
 
                 <p>
-                    A complexidade pode ser analisada considerando
-                    o tempo de execução e o espaço utilizado.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Técnicas de análise
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Técnicas utilizadas para analisar o desempenho
-                    de diferentes algoritmos.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Análise de recorrência
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Estudo de relações de recorrência utilizadas
-                    principalmente na análise de algoritmos recursivos.
+                    A complexidade considera principalmente o tempo
+                    e o espaço utilizados por um algoritmo.
                 </p>
 
             </div>
@@ -942,32 +699,13 @@
         <details class="aula">
 
             <summary>
-                • Algoritmos de Ordenação
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Algoritmos utilizados para organizar dados segundo
-                    determinado critério.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
                 • Insertion Sort
             </summary>
 
             <div class="aula-conteudo">
 
                 <p>
-                    Algoritmo de ordenação que insere cada elemento
-                    na posição correta dentro da parte já ordenada.
+                    Algoritmo que insere cada elemento na posição correta.
                 </p>
 
             </div>
@@ -984,8 +722,7 @@
             <div class="aula-conteudo">
 
                 <p>
-                    Algoritmo que procura repetidamente o menor elemento
-                    e o coloca na posição correta.
+                    Algoritmo que procura repetidamente o menor elemento.
                 </p>
 
             </div>
@@ -1019,26 +756,7 @@
             <div class="aula-conteudo">
 
                 <p>
-                    Algoritmo de ordenação que utiliza um elemento pivô
-                    para dividir os dados.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Listas
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Estruturas utilizadas para armazenar conjuntos
-                    de elementos de maneira organizada.
+                    Algoritmo que utiliza um elemento pivô para dividir os dados.
                 </p>
 
             </div>
@@ -1089,25 +807,7 @@
             <div class="aula-conteudo">
 
                 <p>
-                    Estruturas não lineares organizadas de forma hierárquica.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Árvores de Pesquisa Binária
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Árvores binárias organizadas de forma que os elementos
-                    menores ficam à esquerda e os maiores à direita.
+                    Estruturas não lineares organizadas hierarquicamente.
                 </p>
 
             </div>
@@ -1118,7 +818,6 @@
     </div>
 
 </details>
-
 
 
 <!-- =========================================================
@@ -1143,8 +842,7 @@
 
 
         <p>
-            Escolha um tópico e gere atividades aleatórias para testar
-            seus conhecimentos.
+            Escolha um tópico e gere atividades aleatórias.
         </p>
 
 
@@ -1205,10 +903,6 @@
                     Complexidade e Big O
                 </option>
 
-                <option value="programacao-dinamica">
-                    Programação Dinâmica
-                </option>
-
             </select>
 
 
@@ -1229,8 +923,17 @@
         >
 
             <div class="atividade-inicial">
-                Escolha um tópico e clique em
-                "Gerar Atividade".
+
+                <span>📚</span>
+
+                <h3>
+                    Escolha um tópico
+                </h3>
+
+                <p>
+                    Clique em "Gerar Atividade" para começar.
+                </p>
+
             </div>
 
         </div>
@@ -1249,9 +952,8 @@
 </main>
 
 
-
 <!-- =========================================================
-     RODAPÉ
+     FOOTER
 ========================================================= -->
 
 <footer>
@@ -1264,13 +966,11 @@
 </footer>
 
 
-
 <!-- =========================================================
      JAVASCRIPT
 ========================================================= -->
 
 <script src="script.js"></script>
-
 
 </body>
 
