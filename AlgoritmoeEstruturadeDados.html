@@ -3,11 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
@@ -16,10 +12,7 @@
 
     <title>Plataforma de Estudo</title>
 
-    <!-- =====================================================
-         FONTE
-    ====================================================== -->
-
+    <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -28,939 +21,652 @@
         rel="stylesheet"
     >
 
-    <!-- =====================================================
-         CSS
-    ====================================================== -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-    <!-- =====================================================
-         FAVICON
-    ====================================================== -->
-
-    <link
-        rel="icon"
-        type="image/png"
-        href="DS.png"
-    >
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="DS.png">
 </head>
-
 
 <body>
 
-<!-- =========================================================
-     HEADER
-========================================================= -->
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
 
-<header>
+    <header class="header">
 
-    <a
-        href="index.html"
-        class="logo-esquerda"
-    >
-        <img
-            src="DS.png"
-            alt="Logo principal"
-            class="logo-img"
-        >
-    </a>
-
-
-    <a
-        href="index.html"
-        class="titulo-link"
-    >
-        <h1 class="titulo-barra">
-            PLATAFORMA DE ESTUDO
-        </h1>
-    </a>
-
-
-    <a
-        href="index.html"
-        class="logo-direita"
-    >
-        <img
-            src="l.png"
-            alt="Logo Desenvolvimento de Sistemas"
-            class="logo-img"
-        >
-    </a>
-
-</header>
-
-
-<!-- =========================================================
-     MENU
-========================================================= -->
-
-<nav>
-
-    <ul>
-        <li>
-            <a
-                href="AlgoritmoeEstruturadeDados.html"
-                class="btn-menu"
+        <a href="index.html" class="logo-link" aria-label="Página inicial">
+            <img
+                src="DS.png"
+                alt="Logo principal"
+                class="logo-img"
             >
+        </a>
+
+        <a href="index.html" class="titulo-link">
+            <h1>PLATAFORMA DE ESTUDO</h1>
+        </a>
+
+        <a href="index.html" class="logo-link" aria-label="Página inicial">
+            <img
+                src="l.png"
+                alt="Logo Desenvolvimento de Sistemas"
+                class="logo-img"
+            >
+        </a>
+
+    </header>
+
+
+    <!-- =====================================================
+         MENU PRINCIPAL
+    ====================================================== -->
+
+    <nav class="menu-principal" aria-label="Menu principal">
+
+        <div class="menu-wrapper">
+
+            <a href="AlgoritmoeEstruturadeDados.html" class="btn-menu">
                 Algoritmo e Estrutura de Dados
             </a>
-        </li>
 
-        <li>
-            <a
-                href="ArquiteturadeSistemas.html"
-                class="btn-menu"
-            >
+            <a href="ArquiteturadeSistemas.html" class="btn-menu">
                 Arquitetura de Sistemas
             </a>
-        </li>
 
-        <li>
-            <a
-                href="DesenvolvimentoFrontEndI.html"
-                class="btn-menu"
-            >
+            <a href="DesenvolvimentoFrontEndI.html" class="btn-menu">
                 Desenvolvimento Front End I
             </a>
-        </li>
 
-        <li>
-            <a
-                href="DesenvolvimentodeAplicativos.html"
-                class="btn-menu"
-            >
+            <a href="DesenvolvimentodeAplicativos.html" class="btn-menu">
                 Desenvolvimento de Aplicativos
             </a>
-        </li>
 
-        <li>
-            <a
-                href="DesenvolvimentodeSoftwares.html"
-                class="btn-menu"
-            >
+            <a href="DesenvolvimentodeSoftwares.html" class="btn-menu">
                 Desenvolvimento de Softwares
             </a>
-        </li>
 
-        <li>
-            <a
-                href="DesenvolvimentoBackEnd.html"
-                class="btn-menu"
-            >
+            <a href="DesenvolvimentoBackEnd.html" class="btn-menu">
                 Desenvolvimento Back-End
             </a>
-        </li>
 
-    </ul>
+        </div>
 
-</nav>
-
-
-<!-- =========================================================
-     CONTEÚDO PRINCIPAL
-========================================================= -->
-
-<main>
+    </nav>
 
 
-<!-- =========================================================
-     DISCIPLINA
-========================================================= -->
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
 
-<details
-    class="accordion disciplina"
-    open
->
-
-    <summary>
-        DISCIPLINA - ALGORITMOS E ESTRUTURA DE DADOS
-    </summary>
-
-
-    <div class="conteudo">
-
+    <main>
 
         <!-- =================================================
-             AULA
+             DISCIPLINA
         ================================================== -->
 
-        <details
-            class="aula"
-            open
-        >
+        <details class="accordion disciplina" open>
 
             <summary>
-                • INTRODUÇÃO À PROGRAMAÇÃO
+                DISCIPLINA - ALGORITMOS E ESTRUTURA DE DADOS
             </summary>
 
-
-            <div class="aula-conteudo">
-
-
-                <h2>
-                    Algoritmos e Estruturas de Dados:
-                    fundamentos e aplicações na programação
-                </h2>
-
+            <div class="conteudo">
 
                 <!-- =================================================
-                     CONTEÚDO DA AULA
+                     AULA PRINCIPAL
                 ================================================== -->
 
-                <h3>
-                    1. Organização Básica de um Computador
-                </h3>
-
-                <p>
-                    Para compreender os fundamentos da programação de computadores,
-                    é importante conhecer como um computador é organizado e como
-                    seus principais componentes trabalham em conjunto.
-                </p>
-
-                <p>
-                    De maneira simplificada, podemos entender um computador como
-                    um sistema formado por quatro elementos fundamentais:
-                </p>
-
-                <ul>
-                    <li>Unidade de entrada;</li>
-                    <li>Unidade de saída;</li>
-                    <li>Unidade Central de Processamento (CPU);</li>
-                    <li>Memória.</li>
-                </ul>
-
-
-                <h3>
-                    1.1 Unidade de Entrada
-                </h3>
-
-                <p>
-                    A unidade de entrada é responsável por permitir que o usuário
-                    forneça dados e informações ao computador.
-                </p>
-
-
-                <h3>
-                    1.2 Unidade de Saída
-                </h3>
-
-                <p>
-                    A unidade de saída é responsável por apresentar ao usuário
-                    os resultados obtidos pelo computador.
-                </p>
-
-
-                <h3>
-                    1.3 Unidade Central de Processamento — CPU
-                </h3>
-
-                <p>
-                    A CPU é responsável pela execução das instruções e pelo
-                    processamento dos dados utilizados pelos programas.
-                </p>
-
-
-                <h3>
-                    1.4 Memória
-                </h3>
-
-                <p>
-                    A memória permite armazenar temporariamente os dados e
-                    instruções utilizados durante a execução dos programas.
-                </p>
-
-
-                <h3>
-                    2. Como os Componentes do Computador Trabalham Juntos
-                </h3>
-
-                <p>
-                    Os componentes de um computador trabalham de maneira
-                    integrada para receber, armazenar, processar e apresentar
-                    informações.
-                </p>
-
-
-                <h3>
-                    3. Linguagem de Máquina
-                </h3>
-
-                <p>
-                    No nível mais básico, os computadores utilizam a linguagem
-                    de máquina, formada por sequências de bits.
-                </p>
-
-
-                <h3>
-                    3.1 O que é um bit?
-                </h3>
-
-                <p>
-                    Um bit é a menor unidade de informação digital e pode assumir
-                    os valores 0 ou 1.
-                </p>
-
-
-                <h3>
-                    3.2 Bits e Bytes
-                </h3>
-
-                <p>
-                    Um conjunto de oito bits é tradicionalmente chamado de byte.
-                </p>
-
-
-                <h3>
-                    4. Representação de Caracteres
-                </h3>
-
-                <p>
-                    Os computadores utilizam sistemas de codificação para
-                    representar letras, números e símbolos.
-                </p>
-
-
-                <h3>
-                    5. Letras Maiúsculas e Minúsculas
-                </h3>
-
-                <p>
-                    Sistemas de codificação utilizam valores diferentes para
-                    representar letras maiúsculas e minúsculas.
-                </p>
-
-
-                <h3>
-                    6. Do ASCII ao Unicode
-                </h3>
-
-                <p>
-                    O Unicode permite representar uma grande variedade de
-                    caracteres utilizados em diferentes idiomas.
-                </p>
-
-
-                <h3>
-                    7. Relação entre Hardware, Memória e Programação
-                </h3>
-
-                <p>
-                    Programar significa criar instruções que permitem ao
-                    computador manipular dados e realizar tarefas.
-                </p>
-
-
-                <!-- =================================================
-                     MAPA MENTAL AUTOMÁTICO
-                ================================================== -->
-
-                <section
-                    class="mapa-mental-section"
-                    aria-labelledby="titulo-mapa"
-                >
-
-                    <h2
-                        id="titulo-mapa"
-                        class="titulo-secao"
-                    >
-                        🧠 Mapa Mental
-                    </h2>
-
-
-                    <p class="descricao-mapa">
-                        O mapa mental é gerado automaticamente a partir
-                        dos títulos e subtítulos desta aula.
-                    </p>
-
-
-                    <div
-                        id="mapa-mental"
-                        data-titulo="Algoritmos e Estruturas de Dados"
-                    >
-
-                        <div class="carregando-mapa">
-
-                            <div class="spinner-mapa"></div>
-
-                            <p>
-                                Gerando mapa mental...
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-                <!-- =================================================
-                     VÍDEO
-                ================================================== -->
-
-                <section id="video">
-
-                    <h2 class="titulo-secao">
-                        🎥 Vídeo — Algoritmos
-                    </h2>
-
-
-                    <div class="video-container">
-
-                        <video
-                            controls
-                            preload="metadata"
-                        >
-
-                            <source
-                                src="Algoritmos__A_Base.mp4"
-                                type="video/mp4"
-                            >
-
-                            Seu navegador não suporta vídeos HTML5.
-
-                        </video>
-
-                    </div>
-
-                </section>
-
-
-                <!-- =================================================
-                     CARDS
-                ================================================== -->
-
-                <section id="tecnologias">
-
-                    <h2 class="titulo-secao">
-                        Estudar
-                    </h2>
-
-
-                    <div class="cards">
-
-
-                        <div
-                            class="card"
-                            onclick="abrirCard(this)"
-                            tabindex="0"
-                        >
-
-                            <h3>
-                                Algoritmos e Estruturas de Dados
-                            </h3>
-
-
-                            <div class="info-extra">
-
-                                <p>
-                                    <strong>Algoritmos:</strong>
-                                    sequência lógica de instruções para resolver
-                                    problemas e executar tarefas.
-                                </p>
-
-                                <p>
-                                    <strong>Estruturas de dados:</strong>
-                                    formas de organizar, armazenar e manipular
-                                    informações de maneira eficiente.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div
-                            class="card"
-                            onclick="abrirCard(this)"
-                            tabindex="0"
-                        >
-
-                            <h3>
-                                Principais estruturas
-                            </h3>
-
-
-                            <div class="info-extra">
-
-                                <p>
-                                    Arrays, listas encadeadas, filas, pilhas,
-                                    árvores, grafos e tabelas hash.
-                                </p>
-
-                                <p>
-                                    Cada estrutura possui características próprias.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div
-                            class="card"
-                            onclick="abrirCard(this)"
-                            tabindex="0"
-                        >
-
-                            <h3>
-                                Aplicações
-                            </h3>
-
-
-                            <div class="info-extra">
-
-                                <p>
-                                    Bancos de dados, sistemas de arquivos,
-                                    redes sociais, sistemas operacionais,
-                                    mecanismos de busca e inteligência artificial.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-                <!-- =================================================
-                     ATIVIDADES
-                ================================================== -->
-
-                <details
-                    class="aula atividades-container"
-                >
+                <details class="aula" open>
 
                     <summary>
-                        📝 Atividades de fixação
+                        INTRODUÇÃO À PROGRAMAÇÃO
                     </summary>
-
 
                     <div class="aula-conteudo">
 
-                        <p class="descricao-atividade">
-                            Responda às questões sobre Algoritmos e
-                            Estruturas de Dados.
+                        <h2>
+                            Algoritmos e Estruturas de Dados:
+                            fundamentos e aplicações na programação
+                        </h2>
+
+                        <h3>1. Organização Básica de um Computador</h3>
+
+                        <p>
+                            Para compreender os fundamentos da programação de
+                            computadores, é importante conhecer como um computador
+                            é organizado e como seus principais componentes
+                            trabalham em conjunto.
+                        </p>
+
+                        <p>
+                            De maneira simplificada, podemos entender um
+                            computador como um sistema formado por quatro
+                            elementos fundamentais:
+                        </p>
+
+                        <ul>
+                            <li>Unidade de entrada;</li>
+                            <li>Unidade de saída;</li>
+                            <li>Unidade Central de Processamento (CPU);</li>
+                            <li>Memória.</li>
+                        </ul>
+
+                        <h3>1.1 Unidade de Entrada</h3>
+
+                        <p>
+                            A unidade de entrada é responsável por permitir que
+                            o usuário forneça dados e informações ao computador.
+                        </p>
+
+                        <h3>1.2 Unidade de Saída</h3>
+
+                        <p>
+                            A unidade de saída é responsável por apresentar ao
+                            usuário os resultados obtidos pelo computador.
+                        </p>
+
+                        <h3>1.3 Unidade Central de Processamento — CPU</h3>
+
+                        <p>
+                            A CPU é responsável pela execução das instruções e
+                            pelo processamento dos dados utilizados pelos programas.
+                        </p>
+
+                        <h3>1.4 Memória</h3>
+
+                        <p>
+                            A memória permite armazenar temporariamente os dados
+                            e instruções utilizados durante a execução dos programas.
+                        </p>
+
+                        <h3>2. Como os Componentes do Computador Trabalham Juntos</h3>
+
+                        <p>
+                            Os componentes de um computador trabalham de maneira
+                            integrada para receber, armazenar, processar e
+                            apresentar informações.
+                        </p>
+
+                        <h3>3. Linguagem de Máquina</h3>
+
+                        <p>
+                            No nível mais básico, os computadores utilizam a
+                            linguagem de máquina, formada por sequências de bits.
+                        </p>
+
+                        <h3>3.1 O que é um bit?</h3>
+
+                        <p>
+                            Um bit é a menor unidade de informação digital e pode
+                            assumir os valores 0 ou 1.
+                        </p>
+
+                        <h3>3.2 Bits e Bytes</h3>
+
+                        <p>
+                            Um conjunto de oito bits é tradicionalmente chamado
+                            de byte.
+                        </p>
+
+                        <h3>4. Representação de Caracteres</h3>
+
+                        <p>
+                            Os computadores utilizam sistemas de codificação para
+                            representar letras, números e símbolos.
+                        </p>
+
+                        <h3>5. Letras Maiúsculas e Minúsculas</h3>
+
+                        <p>
+                            Sistemas de codificação utilizam valores diferentes
+                            para representar letras maiúsculas e minúsculas.
+                        </p>
+
+                        <h3>6. Do ASCII ao Unicode</h3>
+
+                        <p>
+                            O Unicode permite representar uma grande variedade
+                            de caracteres utilizados em diferentes idiomas.
+                        </p>
+
+                        <h3>7. Relação entre Hardware, Memória e Programação</h3>
+
+                        <p>
+                            Programar significa criar instruções que permitem ao
+                            computador manipular dados e realizar tarefas.
                         </p>
 
 
-                        <div class="config-atividade">
+                        <!-- =================================================
+                             MAPA MENTAL
+                        ================================================== -->
 
-                            <label for="quantidadeQuestoes">
-                                Quantidade de questões:
-                            </label>
+                        <section class="mapa-mental-section" aria-labelledby="titulo-mapa">
 
+                            <h2 id="titulo-mapa" class="titulo-secao">
+                                🧠 Mapa Mental
+                            </h2>
 
-                            <select id="quantidadeQuestoes">
+                            <p class="descricao-mapa">
+                                O mapa mental é gerado automaticamente a partir
+                                dos títulos e subtítulos desta aula.
+                            </p>
 
-                                <option value="5">
-                                    5 questões
-                                </option>
-
-                                <option
-                                    value="10"
-                                    selected
-                                >
-                                    10 questões
-                                </option>
-
-                                <option value="15">
-                                    15 questões
-                                </option>
-
-                            </select>
-
-
-                            <button
-                                type="button"
-                                id="btnGerarAtividades"
-                                class="btn-gerar"
+                            <div
+                                id="mapa-mental"
+                                data-titulo="Algoritmos e Estruturas de Dados"
                             >
-                                🎲 Gerar Atividades
-                            </button>
+                                <div class="carregando-mapa">
+                                    <div class="spinner-mapa"></div>
+                                    <p>Gerando mapa mental...</p>
+                                </div>
+                            </div>
 
-                        </div>
-
-
-                        <div
-                            id="statusAtividade"
-                            class="status-atividade"
-                        ></div>
+                        </section>
 
 
-                        <div id="listaQuestoes"></div>
+                        <!-- =================================================
+                             VÍDEO
+                        ================================================== -->
+
+                        <section id="video">
+
+                            <h2 class="titulo-secao">
+                                🎥 Vídeo — Algoritmos
+                            </h2>
+
+                            <div class="video-container">
+
+                                <video controls preload="metadata">
+
+                                    <source
+                                        src="Algoritmos__A_Base.mp4"
+                                        type="video/mp4"
+                                    >
+
+                                    Seu navegador não suporta vídeos HTML5.
+
+                                </video>
+
+                            </div>
+
+                        </section>
 
 
-                        <div
-                            id="resultadoAtividade"
-                            class="resultado-atividade"
-                        ></div>
+                        <!-- =================================================
+                             CARDS
+                        ================================================== -->
+
+                        <section id="tecnologias">
+
+                            <h2 class="titulo-secao">
+                                Estudar
+                            </h2>
+
+                            <div class="cards">
+
+                                <article class="card" tabindex="0">
+
+                                    <h3>
+                                        Algoritmos e Estruturas de Dados
+                                    </h3>
+
+                                    <div class="info-extra">
+
+                                        <p>
+                                            <strong>Algoritmos:</strong>
+                                            sequência lógica de instruções para
+                                            resolver problemas e executar tarefas.
+                                        </p>
+
+                                        <p>
+                                            <strong>Estruturas de dados:</strong>
+                                            formas de organizar, armazenar e
+                                            manipular informações de maneira eficiente.
+                                        </p>
+
+                                    </div>
+
+                                </article>
+
+
+                                <article class="card" tabindex="0">
+
+                                    <h3>
+                                        Principais estruturas
+                                    </h3>
+
+                                    <div class="info-extra">
+
+                                        <p>
+                                            Arrays, listas encadeadas, filas,
+                                            pilhas, árvores, grafos e tabelas hash.
+                                        </p>
+
+                                        <p>
+                                            Cada estrutura possui características
+                                            próprias.
+                                        </p>
+
+                                    </div>
+
+                                </article>
+
+
+                                <article class="card" tabindex="0">
+
+                                    <h3>
+                                        Aplicações
+                                    </h3>
+
+                                    <div class="info-extra">
+
+                                        <p>
+                                            Bancos de dados, sistemas de arquivos,
+                                            redes sociais, sistemas operacionais,
+                                            mecanismos de busca e inteligência artificial.
+                                        </p>
+
+                                    </div>
+
+                                </article>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                             ATIVIDADES DA AULA
+                        ================================================== -->
+
+                        <details class="aula atividades-container">
+
+                            <summary>
+                                📝 Atividades de fixação
+                            </summary>
+
+                            <div class="aula-conteudo">
+
+                                <p class="descricao-atividade">
+                                    Responda às questões sobre Algoritmos e
+                                    Estruturas de Dados.
+                                </p>
+
+                                <div class="config-atividade">
+
+                                    <label for="quantidadeQuestoes">
+                                        Quantidade de questões:
+                                    </label>
+
+                                    <select id="quantidadeQuestoes">
+                                        <option value="5">5 questões</option>
+                                        <option value="10" selected>10 questões</option>
+                                        <option value="15">15 questões</option>
+                                    </select>
+
+                                    <button
+                                        type="button"
+                                        id="btnGerarAtividades"
+                                        class="btn-gerar"
+                                    >
+                                        🎲 Gerar Atividades
+                                    </button>
+
+                                </div>
+
+                                <div
+                                    id="statusAtividade"
+                                    class="status-atividade"
+                                    aria-live="polite"
+                                ></div>
+
+                                <div id="listaQuestoes"></div>
+
+                                <div
+                                    id="resultadoAtividade"
+                                    class="resultado-atividade"
+                                ></div>
+
+                            </div>
+
+                        </details>
 
                     </div>
 
                 </details>
 
 
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <details class="aula">
+                    <summary>Introdução à disciplina</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmos são conjuntos de instruções passo a passo
+                            para resolver problemas.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Introdução à Análise de Algoritmos</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Estudo dos princípios utilizados para avaliar o
+                            desempenho dos algoritmos.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Dimensões de complexidade</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            A complexidade considera principalmente o tempo
+                            e o espaço utilizados por um algoritmo.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Divisão e Conquista</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Estratégia que divide um problema em problemas menores,
+                            resolve-os e combina os resultados.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Insertion Sort</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmo que insere cada elemento na posição correta.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Selection Sort</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmo que procura repetidamente o menor elemento.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Merge Sort</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmo baseado na estratégia de divisão e conquista.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Quick Sort</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmo que utiliza um elemento pivô para dividir os dados.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Pilhas</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Estrutura baseada no princípio LIFO.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Filas</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Estrutura baseada no princípio FIFO.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Árvores</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Estruturas não lineares organizadas hierarquicamente.
+                        </p>
+                    </div>
+                </details>
+
             </div>
 
         </details>
 
 
         <!-- =================================================
-             OUTRAS AULAS
+             GERADOR DE ATIVIDADES
         ================================================== -->
 
-        <details class="aula">
+        <details class="accordion" id="atividades-gerador">
 
             <summary>
-                • Introdução à disciplina
+                🎲 Gerador de Atividades
             </summary>
 
-            <div class="aula-conteudo">
+            <div class="conteudo">
+
+                <h3>Pronto para estudar?</h3>
 
                 <p>
-                    Algoritmos são conjuntos de instruções passo a passo
-                    para resolver problemas.
+                    Escolha um tópico e gere uma atividade aleatória.
                 </p>
+
+                <div class="seletor-atividade">
+
+                    <label for="topico">
+                        Escolha o tópico:
+                    </label>
+
+                    <select id="topico">
+
+                        <option value="todos">Todos os tópicos</option>
+                        <option value="algoritmos">Algoritmos</option>
+                        <option value="estruturas">Estruturas de Dados</option>
+                        <option value="arrays">Arrays</option>
+                        <option value="listas">Listas Encadeadas</option>
+                        <option value="pilhas">Pilhas</option>
+                        <option value="filas">Filas</option>
+                        <option value="arvores">Árvores</option>
+                        <option value="grafos">Grafos</option>
+                        <option value="hash">Tabelas Hash</option>
+                        <option value="ordenacao">Algoritmos de Ordenação</option>
+                        <option value="complexidade">Complexidade e Big O</option>
+
+                    </select>
+
+                    <button
+                        type="button"
+                        id="btnGerarAtividadeTopico"
+                        class="btn-gerar"
+                    >
+                        🎲 Gerar Atividade
+                    </button>
+
+                </div>
+
+                <div id="atividade" class="atividade">
+
+                    <div class="atividade-inicial">
+
+                        <span>📚</span>
+
+                        <h3>Escolha um tópico</h3>
+
+                        <p>
+                            Clique em "Gerar Atividade" para começar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div
+                    id="resultado"
+                    class="resultado"
+                ></div>
 
             </div>
 
         </details>
 
+    </main>
 
-        <details class="aula">
 
-            <summary>
-                • Introdução à Análise de Algoritmos
-            </summary>
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
 
-            <div class="aula-conteudo">
-
-                <p>
-                    Estudo dos princípios utilizados para avaliar o
-                    desempenho dos algoritmos.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Dimensões de complexidade
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    A complexidade considera principalmente o tempo
-                    e o espaço utilizados por um algoritmo.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Divisão e Conquista
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Estratégia que divide um problema em problemas menores,
-                    resolve-os e combina os resultados.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Insertion Sort
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Algoritmo que insere cada elemento na posição correta.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Selection Sort
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Algoritmo que procura repetidamente o menor elemento.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Merge Sort
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Algoritmo baseado na estratégia de divisão e conquista.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Quick Sort
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Algoritmo que utiliza um elemento pivô para dividir os dados.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Pilhas
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Estrutura baseada no princípio LIFO.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Filas
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Estrutura baseada no princípio FIFO.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <details class="aula">
-
-            <summary>
-                • Árvores
-            </summary>
-
-            <div class="aula-conteudo">
-
-                <p>
-                    Estruturas não lineares organizadas hierarquicamente.
-                </p>
-
-            </div>
-
-        </details>
-
-
-    </div>
-
-</details>
-
-
-<!-- =========================================================
-     GERADOR DE ATIVIDADES
-========================================================= -->
-
-<details
-    class="accordion"
-    id="atividades-gerador"
->
-
-    <summary>
-        🎲 Gerador de Atividades
-    </summary>
-
-
-    <div class="conteudo">
-
-        <h3>
-            Pronto para estudar?
-        </h3>
-
+    <footer>
 
         <p>
-            Escolha um tópico e gere atividades aleatórias.
+            &copy; 2026 Plataforma de Estudo -
+            Todos os direitos reservados.
         </p>
 
-
-        <div class="seletor-atividade">
-
-            <label for="topico">
-                Escolha o tópico:
-            </label>
+    </footer>
 
 
-            <select id="topico">
-
-                <option value="todos">
-                    Todos os tópicos
-                </option>
-
-                <option value="algoritmos">
-                    Algoritmos
-                </option>
-
-                <option value="estruturas">
-                    Estruturas de Dados
-                </option>
-
-                <option value="arrays">
-                    Arrays
-                </option>
-
-                <option value="listas">
-                    Listas Encadeadas
-                </option>
-
-                <option value="pilhas">
-                    Pilhas
-                </option>
-
-                <option value="filas">
-                    Filas
-                </option>
-
-                <option value="arvores">
-                    Árvores
-                </option>
-
-                <option value="grafos">
-                    Grafos
-                </option>
-
-                <option value="hash">
-                    Tabelas Hash
-                </option>
-
-                <option value="ordenacao">
-                    Algoritmos de Ordenação
-                </option>
-
-                <option value="complexidade">
-                    Complexidade e Big O
-                </option>
-
-            </select>
-
-
-            <button
-                type="button"
-                id="btnGerarAtividadeTopico"
-                class="btn-gerar"
-            >
-                🎲 Gerar Atividade
-            </button>
-
-        </div>
-
-
-        <div
-            id="atividade"
-            class="atividade"
-        >
-
-            <div class="atividade-inicial">
-
-                <span>📚</span>
-
-                <h3>
-                    Escolha um tópico
-                </h3>
-
-                <p>
-                    Clique em "Gerar Atividade" para começar.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div
-            id="resultado"
-            class="resultado"
-        ></div>
-
-    </div>
-
-</details>
-
-
-</main>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-    <p>
-        &copy; 2026 Plataforma de Estudo -
-        Todos os direitos reservados.
-    </p>
-
-</footer>
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-<script src="script.js"></script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
 </body>
-
 </html>
