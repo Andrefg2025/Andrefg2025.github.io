@@ -3,23 +3,22 @@
    JAVASCRIPT PRINCIPAL
 ========================================================= */
 
-"use strict";
 
 /* =========================================================
    INICIALIZAÇÃO
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-    console.log("Plataforma de Estudo iniciada.");
-
-    inicializarCards();
+    console.log("Plataforma de Estudo carregada.");
 
     inicializarMapaMental();
 
+    inicializarCards();
+
     inicializarAtividades();
 
-    inicializarMenuAtivo();
+    marcarMenuAtual();
 
 });
 
@@ -41,712 +40,828 @@ function inicializarMapaMental() {
         return;
     }
 
-    console.log("Iniciando geração do mapa mental...");
 
     try {
 
-        const texto =
-            mapa.dataset.mapa ||
-            "Algoritmos e Estruturas de Dados";
+        const aulaConteudo =
+            mapa.closest(".aula-conteudo");
 
-        gerarMapaMental(mapa, texto);
+
+        if (!aulaConteudo) {
+
+            throw new Error(
+                "Não foi possível localizar o conteúdo da aula."
+            );
+        }
+
+
+        /*
+         * Título central.
+         *
+         * Primeiro tenta utilizar o data-titulo.
+         * Caso não exista, procura o primeiro h2.
+         */
+
+        let tituloCentral =
+            mapa.dataset.titulo;
+
+
+        if (!tituloCentral) {
+
+            const h2 =
+                aulaConteudo.querySelector("h2");
+
+            tituloCentral =
+                h2
+                    ? h2.textContent.trim()
+                    : "Mapa Mental";
+        }
+
+
+        /*
+         * Procura todos os h3 da aula.
+         */
+
+        const subtitulos =
+            Array.from(
+                aulaConteudo.querySelectorAll("h3")
+            );
+
+
+        /*
+         * Remove títulos vazios.
+         */
+
+        const topicos =
+            subtitulos
+                .map(function (elemento) {
+
+                    return elemento.textContent
+                        .replace(/\s+/g, " ")
+                        .trim();
+
+                })
+                .filter(function (texto) {
+
+                    return texto.length > 0;
+
+                });
+
+
+        /*
+         * Se não houver tópicos,
+         * mostra mensagem de erro.
+         */
+
+        if (topicos.length === 0) {
+
+            throw new Error(
+                "Nenhum <h3> foi encontrado para gerar o mapa."
+            );
+        }
+
+
+        /*
+         * Limita a quantidade para evitar
+         * um mapa exageradamente grande.
+         */
+
+        const limite =
+            18;
+
+        const topicosMapa =
+            topicos.slice(0, limite);
+
+
+        /*
+         * Cria o SVG.
+         */
+
+        criarMapaSVG(
+            mapa,
+            tituloCentral,
+            topicosMapa
+        );
+
 
         console.log(
-            "Mapa mental gerado com sucesso."
+            "Mapa mental gerado automaticamente."
         );
+
 
     } catch (erro) {
 
         console.error(
-            "Erro ao gerar o mapa mental:",
+            "Erro ao gerar mapa mental:",
             erro
         );
 
+
         mapa.innerHTML = `
+
             <div class="erro-mapa">
-                <strong>Não foi possível gerar o mapa mental.</strong>
-                <span>Verifique o console do navegador para mais informações.</span>
+
+                <strong>
+                    ⚠️ Não foi possível gerar o mapa mental.
+                </strong>
+
+                <span>
+                    ${escapeHTML(erro.message)}
+                </span>
+
             </div>
+
         `;
     }
 }
 
 
 /* =========================================================
-   GERAR MAPA
+   CRIAR MAPA SVG
 ========================================================= */
 
-function gerarMapaMental(container, titulo) {
+function criarMapaSVG(
+    container,
+    titulo,
+    topicos
+) {
 
     /*
-        Limpa o conteúdo antigo.
-    */
+     * Dimensões do mapa.
+     */
+
+    const largura =
+        1400;
+
+    const altura =
+        680;
+
+
+    /*
+     * Limpa o carregamento.
+     */
 
     container.innerHTML = "";
 
 
     /*
-        Dados do mapa.
-        Você pode adicionar ou remover tópicos aqui.
-    */
-
-    const dados = {
-
-        centro: titulo,
-
-        topicos: [
-
-            {
-                titulo: "Computador",
-                subtitulos: [
-                    "Entrada",
-                    "Saída",
-                    "CPU",
-                    "Memória"
-                ]
-            },
-
-            {
-                titulo: "Programação",
-                subtitulos: [
-                    "Variáveis",
-                    "Dados",
-                    "Instruções",
-                    "Algoritmos"
-                ]
-            },
-
-            {
-                titulo: "Linguagem",
-                subtitulos: [
-                    "Bits",
-                    "Bytes",
-                    "ASCII",
-                    "Unicode"
-                ]
-            },
-
-            {
-                titulo: "Estruturas",
-                subtitulos: [
-                    "Arrays",
-                    "Listas",
-                    "Pilhas",
-                    "Filas"
-                ]
-            },
-
-            {
-                titulo: "Algoritmos",
-                subtitulos: [
-                    "Ordenação",
-                    "Busca",
-                    "Recursão",
-                    "Divisão e Conquista"
-                ]
-            },
-
-            {
-                titulo: "Aplicações",
-                subtitulos: [
-                    "Sistemas",
-                    "Banco de Dados",
-                    "Redes",
-                    "Inteligência Artificial"
-                ]
-            }
-
-        ]
-
-    };
-
-
-    /*
-        Dimensões do SVG.
-    */
-
-    const largura = 1200;
-
-    const altura = 700;
-
-
-    /*
-        Centro do mapa.
-    */
-
-    const centroX = largura / 2;
-
-    const centroY = altura / 2;
-
-
-    /*
-        Cria SVG.
-    */
+     * Cria SVG.
+     */
 
     const svg =
-        criarElementoSVG(
-            "svg",
-            {
-                class: "mapa-svg",
-                viewBox: `0 0 ${largura} ${altura}`,
-                width: largura,
-                height: altura,
-                role: "img",
-                "aria-label":
-                    `Mapa mental: ${titulo}`
-            }
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "svg"
         );
 
 
+    svg.setAttribute(
+        "class",
+        "mapa-svg"
+    );
+
+
+    svg.setAttribute(
+        "viewBox",
+        `0 0 ${largura} ${altura}`
+    );
+
+
+    svg.setAttribute(
+        "preserveAspectRatio",
+        "xMidYMid meet"
+    );
+
+
     /*
-        Definições visuais.
-    */
+     * Definições.
+     */
 
     const defs =
-        criarElementoSVG("defs");
-
-
-    /*
-        Gradiente do centro.
-    */
-
-    const gradienteCentro =
-        criarElementoSVG(
-            "linearGradient",
-            {
-                id: "gradienteCentro",
-                x1: "0%",
-                y1: "0%",
-                x2: "100%",
-                y2: "100%"
-            }
-        );
-
-    adicionarSVG(
-        gradienteCentro,
-        criarElementoSVG(
-            "stop",
-            {
-                offset: "0%",
-                "stop-color": "#ff4500"
-            }
-        )
-    );
-
-    adicionarSVG(
-        gradienteCentro,
-        criarElementoSVG(
-            "stop",
-            {
-                offset: "100%",
-                "stop-color": "#ff8500"
-            }
-        )
-    );
-
-    adicionarSVG(
-        defs,
-        gradienteCentro
-    );
-
-    adicionarSVG(svg, defs);
-
-
-    /*
-        Camada das linhas.
-    */
-
-    const linhas =
-        criarElementoSVG(
-            "g",
-            {
-                class: "linhas-mapa"
-            }
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "defs"
         );
 
 
     /*
-        Camada dos nós.
-    */
+     * Gradiente central.
+     */
 
-    const nos =
-        criarElementoSVG(
-            "g",
-            {
-                class: "nos-mapa"
-            }
+    const gradienteCentral =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "linearGradient"
         );
 
 
-    adicionarSVG(svg, linhas);
-
-    adicionarSVG(svg, nos);
-
-
-    /*
-        Nó central.
-    */
-
-    const raioCentro = 105;
+    gradienteCentral.setAttribute(
+        "id",
+        "gradienteCentral"
+    );
 
 
-    const noCentral =
-        criarElementoSVG(
-            "circle",
-            {
-                cx: centroX,
-                cy: centroY,
-                r: raioCentro,
-                class: "no-central",
-                fill: "url(#gradienteCentro)"
-            }
-        );
+    gradienteCentral.setAttribute(
+        "x1",
+        "0%"
+    );
 
 
-    adicionarSVG(
-        nos,
-        noCentral
+    gradienteCentral.setAttribute(
+        "y1",
+        "0%"
+    );
+
+
+    gradienteCentral.setAttribute(
+        "x2",
+        "100%"
+    );
+
+
+    gradienteCentral.setAttribute(
+        "y2",
+        "100%"
+    );
+
+
+    adicionarStop(
+        gradienteCentral,
+        "0%",
+        "#ff4500"
+    );
+
+
+    adicionarStop(
+        gradienteCentral,
+        "100%",
+        "#ff7a00"
+    );
+
+
+    defs.appendChild(
+        gradienteCentral
+    );
+
+
+    svg.appendChild(
+        defs
     );
 
 
     /*
-        Texto do centro.
-    */
+     * Grupo das linhas.
+     *
+     * É colocado primeiro para que os nós
+     * apareçam por cima das linhas.
+     */
 
-    const textoCentral =
-        criarTextoSVG(
-            centroX,
-            centroY,
-            quebrarTexto(
-                titulo,
-                24
-            ),
-            "texto-central"
+    const grupoLinhas =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "g"
         );
 
 
-    adicionarSVG(
-        nos,
-        textoCentral
+    grupoLinhas.setAttribute(
+        "class",
+        "linhas-mapa"
+    );
+
+
+    svg.appendChild(
+        grupoLinhas
     );
 
 
     /*
-        Configuração dos tópicos.
-    */
+     * Centro.
+     */
 
-    const raioPrincipal = 265;
+    const centroX =
+        largura / 2;
 
-    const raioSecundario = 130;
+    const centroY =
+        altura / 2;
+
+
+    const raioCentral =
+        135;
 
 
     /*
-        Quantidade de tópicos.
-    */
+     * Número de tópicos.
+     */
 
     const quantidade =
-        dados.topicos.length;
+        topicos.length;
 
 
     /*
-        Cria cada tópico.
-    */
+     * Raio da distribuição.
+     */
 
-    dados.topicos.forEach(
-        (topico, indice) => {
+    const raioX =
+        Math.min(
+            500,
+            250 + quantidade * 18
+        );
+
+
+    const raioY =
+        Math.min(
+            260,
+            170 + quantidade * 8
+        );
+
+
+    /*
+     * Cria os tópicos.
+     */
+
+    topicos.forEach(
+        function (topico, indice) {
 
             /*
-                Ângulo de cada tópico.
-            */
+             * Distribuição circular.
+             */
 
             const angulo =
-                (
-                    indice / quantidade
-                ) *
-                Math.PI *
-                2
-                -
-                Math.PI / 2;
+                -Math.PI / 2 +
+                (indice / quantidade) *
+                Math.PI * 2;
 
-
-            /*
-                Coordenadas do nó principal.
-            */
 
             const x =
                 centroX +
                 Math.cos(angulo) *
-                raioPrincipal;
+                raioX;
 
 
             const y =
                 centroY +
                 Math.sin(angulo) *
-                raioPrincipal;
+                raioY;
 
 
             /*
-                Linha entre centro e tópico.
-            */
+             * Tamanho do nó.
+             */
 
-            const linhaPrincipal =
-                criarElementoSVG(
-                    "line",
-                    {
-                        x1: centroX,
-                        y1: centroY,
-                        x2: x,
-                        y2: y,
-                        class: "linha-mapa"
-                    }
+            const larguraNo =
+                calcularLarguraNo(
+                    topico,
+                    190,
+                    280
                 );
 
 
-            adicionarSVG(
-                linhas,
-                linhaPrincipal
-            );
+            const alturaNo =
+                58;
 
 
             /*
-                Grupo do tópico.
-            */
+             * Linha principal.
+             */
 
-            const grupo =
-                criarElementoSVG(
-                    "g",
-                    {
-                        class: "grupo-mapa"
-                    }
+            const linha =
+                document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "path"
                 );
 
 
-            /*
-                Nó principal.
-            */
-
-            const noPrincipal =
-                criarElementoSVG(
-                    "circle",
-                    {
-                        cx: x,
-                        cy: y,
-                        r: 65,
-                        class: "no-principal"
-                    }
-                );
-
-
-            adicionarSVG(
-                grupo,
-                noPrincipal
-            );
-
-
-            /*
-                Texto principal.
-            */
-
-            const textoPrincipal =
-                criarTextoSVG(
+            const pontoInicio =
+                calcularPontoNaDirecao(
+                    centroX,
+                    centroY,
                     x,
                     y,
-                    quebrarTexto(
-                        topico.titulo,
-                        17
-                    ),
-                    "texto-principal"
+                    raioCentral
                 );
 
 
-            adicionarSVG(
-                grupo,
-                textoPrincipal
+            const pontoFim =
+                calcularPontoNaDirecao(
+                    x,
+                    y,
+                    centroX,
+                    centroY,
+                    larguraNo / 2
+                );
+
+
+            const controleX =
+                (pontoInicio.x +
+                 pontoFim.x) / 2;
+
+
+            const controleY =
+                (pontoInicio.y +
+                 pontoFim.y) / 2;
+
+
+            linha.setAttribute(
+                "d",
+                `M ${pontoInicio.x} ${pontoInicio.y}
+                 Q ${controleX} ${controleY}
+                 ${pontoFim.x} ${pontoFim.y}`
+            );
+
+
+            linha.setAttribute(
+                "class",
+                "linha-mapa"
+            );
+
+
+            grupoLinhas.appendChild(
+                linha
             );
 
 
             /*
-                Adiciona o grupo ao SVG.
-            */
+             * Cria grupo do tópico.
+             */
 
-            adicionarSVG(
-                nos,
-                grupo
+            const grupo =
+                document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "g"
+                );
+
+
+            grupo.setAttribute(
+                "class",
+                "grupo-mapa"
             );
 
 
             /*
-                Cria os subtópicos.
-            */
+             * Nó principal.
+             */
 
-            const quantidadeSub =
-                topico.subtitulos.length;
-
-
-            topico.subtitulos.forEach(
-                (subtitulo, subIndice) => {
-
-                    /*
-                        Distribui os subtópicos
-                        ao redor do tópico.
-                    */
-
-                    const spread =
-                        Math.PI * 0.85;
+            const rect =
+                document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "rect"
+                );
 
 
-                    const inicio =
-                        angulo -
-                        spread / 2;
+            rect.setAttribute(
+                "class",
+                "no-principal"
+            );
 
 
-                    const anguloSub =
-                        inicio +
-                        (
-                            subIndice /
-                            Math.max(
-                                1,
-                                quantidadeSub - 1
-                            )
-                        ) *
-                        spread;
+            rect.setAttribute(
+                "x",
+                x - larguraNo / 2
+            );
 
 
-                    /*
-                        Coordenadas.
-                    */
-
-                    const subX =
-                        x +
-                        Math.cos(
-                            anguloSub
-                        ) *
-                        raioSecundario;
+            rect.setAttribute(
+                "y",
+                y - alturaNo / 2
+            );
 
 
-                    const subY =
-                        y +
-                        Math.sin(
-                            anguloSub
-                        ) *
-                        raioSecundario;
+            rect.setAttribute(
+                "width",
+                larguraNo
+            );
 
 
-                    /*
-                        Linha secundária.
-                    */
+            rect.setAttribute(
+                "height",
+                alturaNo
+            );
 
-                    const linhaSecundaria =
-                        criarElementoSVG(
-                            "line",
-                            {
-                                x1: x,
-                                y1: y,
-                                x2: subX,
-                                y2: subY,
-                                class:
-                                    "linha-secundaria"
-                            }
+
+            rect.setAttribute(
+                "rx",
+                "18"
+            );
+
+
+            rect.setAttribute(
+                "ry",
+                "18"
+            );
+
+
+            grupo.appendChild(
+                rect
+            );
+
+
+            /*
+             * Texto.
+             */
+
+            const linhasTexto =
+                quebrarTexto(
+                    topico,
+                    28
+                );
+
+
+            const texto =
+                document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "text"
+                );
+
+
+            texto.setAttribute(
+                "class",
+                "texto-principal"
+            );
+
+
+            texto.setAttribute(
+                "x",
+                x
+            );
+
+
+            texto.setAttribute(
+                "y",
+                calcularYTexto(
+                    y,
+                    linhasTexto.length
+                )
+            );
+
+
+            linhasTexto.forEach(
+                function (linhaTexto, i) {
+
+                    const tspan =
+                        document.createElementNS(
+                            "http://www.w3.org/2000/svg",
+                            "tspan"
                         );
 
 
-                    adicionarSVG(
-                        linhas,
-                        linhaSecundaria
+                    tspan.setAttribute(
+                        "x",
+                        x
                     );
 
 
-                    /*
-                        Nó secundário.
-                    */
+                    if (i > 0) {
 
-                    const noSecundario =
-                        criarElementoSVG(
-                            "circle",
-                            {
-                                cx: subX,
-                                cy: subY,
-                                r: 48,
-                                class:
-                                    "no-secundario"
-                            }
+                        tspan.setAttribute(
+                            "dy",
+                            "16"
                         );
+                    }
 
 
-                    /*
-                        Grupo do subtópico.
-                    */
-
-                    const grupoSub =
-                        criarElementoSVG(
-                            "g",
-                            {
-                                class:
-                                    "grupo-mapa"
-                            }
-                        );
+                    tspan.textContent =
+                        linhaTexto;
 
 
-                    adicionarSVG(
-                        grupoSub,
-                        noSecundario
-                    );
-
-
-                    /*
-                        Texto.
-                    */
-
-                    const textoSub =
-                        criarTextoSVG(
-                            subX,
-                            subY,
-                            quebrarTexto(
-                                subtitulo,
-                                14
-                            ),
-                            "texto-secundario"
-                        );
-
-
-                    adicionarSVG(
-                        grupoSub,
-                        textoSub
-                    );
-
-
-                    adicionarSVG(
-                        nos,
-                        grupoSub
+                    texto.appendChild(
+                        tspan
                     );
 
                 }
-
             );
 
-        }
-    );
 
-
-    /*
-        Adiciona SVG ao container.
-    */
-
-    adicionarSVG(
-        container,
-        svg
-    );
-
-}
-
-
-/* =========================================================
-   CRIAR ELEMENTO SVG
-========================================================= */
-
-function criarElementoSVG(
-    tipo,
-    atributos = {}
-) {
-
-    const elemento =
-        document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            tipo
-        );
-
-
-    Object.entries(
-        atributos
-    ).forEach(
-        ([chave, valor]) => {
-
-            elemento.setAttribute(
-                chave,
-                valor
+            grupo.appendChild(
+                texto
             );
 
-        }
-    );
 
+            /*
+             * Tooltip.
+             */
 
-    return elemento;
-
-}
-
-
-/* =========================================================
-   ADICIONAR ELEMENTO SVG
-========================================================= */
-
-function adicionarSVG(
-    pai,
-    filho
-) {
-
-    pai.appendChild(
-        filho
-    );
-
-}
-
-
-/* =========================================================
-   CRIAR TEXTO SVG
-========================================================= */
-
-function criarTextoSVG(
-    x,
-    y,
-    linhas,
-    classe
-) {
-
-    const texto =
-        criarElementoSVG(
-            "text",
-            {
-                x,
-                y,
-                class: classe
-            }
-        );
-
-
-    /*
-        Centraliza verticalmente
-        quando existe mais de uma linha.
-    */
-
-    const quantidade =
-        linhas.length;
-
-
-    linhas.forEach(
-        (linha, indice) => {
-
-            const tspan =
-                criarElementoSVG(
-                    "tspan",
-                    {
-                        x,
-                        dy:
-                            indice === 0
-                                ? `${-(
-                                    (quantidade - 1) *
-                                    0.55
-                                )}em`
-                                : "1.1em"
-                    }
+            const title =
+                document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "title"
                 );
 
 
+            title.textContent =
+                topico;
+
+
+            grupo.appendChild(
+                title
+            );
+
+
+            /*
+             * Clique no tópico.
+             *
+             * Procura o h3 correspondente
+             * na aula e leva o usuário até ele.
+             */
+
+            grupo.addEventListener(
+                "click",
+                function () {
+
+                    const h3Encontrado =
+                        encontrarTitulo(
+                            aulaConteudoAtual(container),
+                            topico
+                        );
+
+
+                    if (h3Encontrado) {
+
+                        h3Encontrado.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
+
+
+                        h3Encontrado.style
+                            .transition =
+                            "background 0.3s ease";
+
+
+                        h3Encontrado.style
+                            .background =
+                            "#fff3e6";
+
+
+                        setTimeout(
+                            function () {
+
+                                h3Encontrado.style
+                                    .background =
+                                    "";
+
+                            },
+                            1200
+                        );
+                    }
+
+                }
+            );
+
+
+            svg.appendChild(
+                grupo
+            );
+
+        }
+    );
+
+
+    /*
+     * Nó central.
+     */
+
+    const centro =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "g"
+        );
+
+
+    centro.setAttribute(
+        "class",
+        "grupo-central"
+    );
+
+
+    const circulo =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "rect"
+        );
+
+
+    circulo.setAttribute(
+        "class",
+        "no-central"
+    );
+
+
+    circulo.setAttribute(
+        "x",
+        centroX - 135
+    );
+
+
+    circulo.setAttribute(
+        "y",
+        centroY - 70
+    );
+
+
+    circulo.setAttribute(
+        "width",
+        "270"
+    );
+
+
+    circulo.setAttribute(
+        "height",
+        "140"
+    );
+
+
+    circulo.setAttribute(
+        "rx",
+        "35"
+    );
+
+
+    circulo.setAttribute(
+        "ry",
+        "35"
+    );
+
+
+    circulo.setAttribute(
+        "fill",
+        "url(#gradienteCentral)"
+    );
+
+
+    centro.appendChild(
+        circulo
+    );
+
+
+    /*
+     * Texto central.
+     */
+
+    const textoCentral =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "text"
+        );
+
+
+    textoCentral.setAttribute(
+        "class",
+        "texto-central"
+    );
+
+
+    textoCentral.setAttribute(
+        "x",
+        centroX
+    );
+
+
+    const linhasCentral =
+        quebrarTexto(
+            titulo,
+            25
+        );
+
+
+    textoCentral.setAttribute(
+        "y",
+        calcularYTexto(
+            centroY,
+            linhasCentral.length
+        )
+    );
+
+
+    linhasCentral.forEach(
+        function (linhaTexto, i) {
+
+            const tspan =
+                document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "tspan"
+                );
+
+
+            tspan.setAttribute(
+                "x",
+                centroX
+            );
+
+
+            if (i > 0) {
+
+                tspan.setAttribute(
+                    "dy",
+                    "21"
+                );
+            }
+
+
             tspan.textContent =
-                linha;
+                linhaTexto;
 
 
-            adicionarSVG(
-                texto,
+            textoCentral.appendChild(
                 tspan
             );
 
@@ -754,8 +869,82 @@ function criarTextoSVG(
     );
 
 
-    return texto;
+    centro.appendChild(
+        textoCentral
+    );
 
+
+    svg.appendChild(
+        centro
+    );
+
+
+    /*
+     * Insere SVG no mapa.
+     */
+
+    container.appendChild(
+        svg
+    );
+}
+
+
+/* =========================================================
+   ADICIONAR STOP DO GRADIENTE
+========================================================= */
+
+function adicionarStop(
+    gradiente,
+    offset,
+    cor
+) {
+
+    const stop =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "stop"
+        );
+
+
+    stop.setAttribute(
+        "offset",
+        offset
+    );
+
+
+    stop.setAttribute(
+        "stop-color",
+        cor
+    );
+
+
+    gradiente.appendChild(
+        stop
+    );
+}
+
+
+/* =========================================================
+   CALCULAR LARGURA DO NÓ
+========================================================= */
+
+function calcularLarguraNo(
+    texto,
+    minimo,
+    maximo
+) {
+
+    const tamanho =
+        texto.length * 6.5 + 50;
+
+
+    return Math.max(
+        minimo,
+        Math.min(
+            maximo,
+            tamanho
+        )
+    );
 }
 
 
@@ -765,42 +954,33 @@ function criarTextoSVG(
 
 function quebrarTexto(
     texto,
-    quantidadeMaxima
+    caracteresPorLinha
 ) {
 
-    if (!texto) {
-
-        return [""];
-    }
-
-
     const palavras =
-        texto.split(" ");
+        texto.split(/\s+/);
 
 
-    const linhas = [];
+    const linhas =
+        [];
 
-    let linhaAtual = "";
+    let linhaAtual =
+        "";
 
 
     palavras.forEach(
-        palavra => {
+        function (palavra) {
 
             const tentativa =
                 linhaAtual
-                    ? `${linhaAtual} ${palavra}`
+                    ? linhaAtual + " " + palavra
                     : palavra;
 
 
             if (
-                tentativa.length <=
-                quantidadeMaxima
+                tentativa.length >
+                caracteresPorLinha
             ) {
-
-                linhaAtual =
-                    tentativa;
-
-            } else {
 
                 if (linhaAtual) {
 
@@ -809,8 +989,14 @@ function quebrarTexto(
                     );
                 }
 
+
                 linhaAtual =
                     palavra;
+
+            } else {
+
+                linhaAtual =
+                    tentativa;
             }
 
         }
@@ -825,656 +1011,139 @@ function quebrarTexto(
     }
 
 
-    return linhas;
+    /*
+     * Evita excesso de linhas.
+     */
 
-}
-
-
-/* =========================================================
-   CARDS
-========================================================= */
-
-function inicializarCards() {
-
-    const cards =
-        document.querySelectorAll(
-            ".card"
-        );
-
-
-    cards.forEach(
-        card => {
-
-            card.addEventListener(
-                "click",
-                () => {
-
-                    card.classList.toggle(
-                        "ativo"
-                    );
-
-                }
-            );
-
-        }
+    return linhas.slice(
+        0,
+        4
     );
-
 }
 
 
-function abrirCard(card) {
+/* =========================================================
+   POSIÇÃO VERTICAL DO TEXTO
+========================================================= */
 
-    if (!card) {
-        return;
+function calcularYTexto(
+    centro,
+    quantidadeLinhas
+) {
+
+    const alturaLinha =
+        16;
+
+
+    return centro -
+        ((quantidadeLinhas - 1) *
+        alturaLinha) / 2;
+}
+
+
+/* =========================================================
+   PONTO DE INTERSEÇÃO
+========================================================= */
+
+function calcularPontoNaDirecao(
+    origemX,
+    origemY,
+    destinoX,
+    destinoY,
+    distancia
+) {
+
+    const dx =
+        destinoX - origemX;
+
+    const dy =
+        destinoY - origemY;
+
+
+    const comprimento =
+        Math.sqrt(
+            dx * dx +
+            dy * dy
+        );
+
+
+    if (!comprimento) {
+
+        return {
+            x: origemX,
+            y: origemY
+        };
     }
 
-    card.classList.toggle(
-        "ativo"
+
+    return {
+
+        x:
+            origemX +
+            (dx / comprimento) *
+            distancia,
+
+        y:
+            origemY +
+            (dy / comprimento) *
+            distancia
+    };
+}
+
+
+/* =========================================================
+   LOCALIZAR A AULA
+========================================================= */
+
+function aulaConteudoAtual(
+    mapa
+) {
+
+    return mapa.closest(
+        ".aula-conteudo"
     );
-
 }
 
 
 /* =========================================================
-   MENU ATIVO
+   ENCONTRAR TÍTULO
 ========================================================= */
 
-function inicializarMenuAtivo() {
+function encontrarTitulo(
+    aula,
+    texto
+) {
 
-    const links =
-        document.querySelectorAll(
-            "nav a"
-        );
+    if (!aula) {
 
-
-    const paginaAtual =
-        window.location.pathname
-            .split("/")
-            .pop()
-            .toLowerCase();
-
-
-    links.forEach(
-        link => {
-
-            const href =
-                link.getAttribute(
-                    "href"
-                );
-
-
-            if (!href) {
-                return;
-            }
-
-
-            const paginaLink =
-                href
-                    .split("/")
-                    .pop()
-                    .toLowerCase();
-
-
-            if (
-                paginaLink ===
-                paginaAtual
-            ) {
-
-                link.classList.add(
-                    "active"
-                );
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   BANCO DE QUESTÕES
-========================================================= */
-
-const bancoQuestoes = {
-
-    algoritmos: [
-
-        {
-            pergunta:
-                "O que é um algoritmo?",
-
-            alternativas: [
-                "Um conjunto ordenado de instruções para resolver um problema.",
-                "Um componente físico do computador.",
-                "Um tipo de memória.",
-                "Um sistema operacional."
-            ],
-
-            resposta: 0
-        },
-
-        {
-            pergunta:
-                "Qual é uma característica importante de um algoritmo?",
-
-            alternativas: [
-                "Possuir passos definidos.",
-                "Precisar sempre usar internet.",
-                "Ser obrigatoriamente escrito em Java.",
-                "Ser executado somente por humanos."
-            ],
-
-            resposta: 0
-        }
-
-    ],
-
-
-    estruturas: [
-
-        {
-            pergunta:
-                "O que são estruturas de dados?",
-
-            alternativas: [
-                "Formas de organizar e armazenar dados.",
-                "Dispositivos de entrada.",
-                "Tipos de monitores.",
-                "Sistemas operacionais."
-            ],
-
-            resposta: 0
-        }
-
-    ],
-
-
-    arrays: [
-
-        {
-            pergunta:
-                "O que caracteriza um array?",
-
-            alternativas: [
-                "Armazena elementos organizados por posições ou índices.",
-                "É sempre uma árvore.",
-                "Não pode armazenar números.",
-                "É um dispositivo de saída."
-            ],
-
-            resposta: 0
-        }
-
-    ],
-
-
-    pilhas: [
-
-        {
-            pergunta:
-                "Qual princípio é utilizado por uma pilha?",
-
-            alternativas: [
-                "LIFO.",
-                "FIFO.",
-                "HTTP.",
-                "ASCII."
-            ],
-
-            resposta: 0
-        }
-
-    ],
-
-
-    filas: [
-
-        {
-            pergunta:
-                "Qual princípio normalmente caracteriza uma fila?",
-
-            alternativas: [
-                "FIFO.",
-                "LIFO.",
-                "CPU.",
-                "RAM."
-            ],
-
-            resposta: 0
-        }
-
-    ],
-
-
-    complexidade: [
-
-        {
-            pergunta:
-                "O que a análise de complexidade permite avaliar?",
-
-            alternativas: [
-                "O consumo de tempo e espaço de um algoritmo.",
-                "A cor do computador.",
-                "O tamanho do monitor.",
-                "A velocidade da internet."
-            ],
-
-            resposta: 0
-        }
-
-    ]
-
-};
-
-
-/* =========================================================
-   ATIVIDADES
-========================================================= */
-
-function inicializarAtividades() {
-
-    const botao =
-        document.getElementById(
-            "btnGerarAtividadeTopico"
-        );
-
-
-    if (botao) {
-
-        botao.addEventListener(
-            "click",
-            gerarAtividadeTopico
-        );
-
+        return null;
     }
 
 
-    const botaoQuestoes =
-        document.getElementById(
-            "btnGerarAtividades"
+    const elementos =
+        aula.querySelectorAll(
+            "h3"
         );
-
-
-    if (botaoQuestoes) {
-
-        botaoQuestoes.addEventListener(
-            "click",
-            gerarListaQuestoes
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   GERAR ATIVIDADE POR TÓPICO
-========================================================= */
-
-function gerarAtividadeTopico() {
-
-    const select =
-        document.getElementById(
-            "topico"
-        );
-
-
-    const area =
-        document.getElementById(
-            "atividade"
-        );
-
-
-    const resultado =
-        document.getElementById(
-            "resultado"
-        );
-
-
-    if (!select || !area) {
-        return;
-    }
-
-
-    const topico =
-        select.value;
-
-
-    let questoes = [];
-
-
-    if (
-        topico === "todos"
-    ) {
-
-        Object.values(
-            bancoQuestoes
-        ).forEach(
-            lista => {
-
-                questoes =
-                    questoes.concat(
-                        lista
-                    );
-
-            }
-        );
-
-    } else {
-
-        questoes =
-            bancoQuestoes[
-                topico
-            ] || [];
-
-    }
-
-
-    if (
-        questoes.length === 0
-    ) {
-
-        area.innerHTML = `
-            <div class="atividade-inicial">
-                <span>📚</span>
-                <h3>Nenhuma questão disponível</h3>
-                <p>
-                    Ainda não existem questões cadastradas
-                    para este tópico.
-                </p>
-            </div>
-        `;
-
-        return;
-    }
-
-
-    const questao =
-        questoes[
-            Math.floor(
-                Math.random() *
-                questoes.length
-            )
-        ];
-
-
-    resultado.innerHTML = "";
-
-
-    area.innerHTML = `
-        <div class="questao-gerada">
-
-            <h3>
-                ${escaparHTML(
-                    questao.pergunta
-                )}
-            </h3>
-
-            <div class="alternativas">
-
-                ${questao.alternativas
-                    .map(
-                        (alternativa, indice) => `
-                            <button
-                                type="button"
-                                class="alternativa"
-                                data-indice="${indice}"
-                            >
-                                ${escaparHTML(
-                                    alternativa
-                                )}
-                            </button>
-                        `
-                    )
-                    .join("")
-                }
-
-            </div>
-
-        </div>
-    `;
-
-
-    const alternativas =
-        area.querySelectorAll(
-            ".alternativa"
-        );
-
-
-    alternativas.forEach(
-        botaoAlternativa => {
-
-            botaoAlternativa.addEventListener(
-                "click",
-                () => {
-
-                    const indice =
-                        Number(
-                            botaoAlternativa
-                                .dataset
-                                .indice
-                        );
-
-
-                    alternativas.forEach(
-                        botao => {
-
-                            botao.disabled =
-                                true;
-
-                        }
-                    );
-
-
-                    if (
-                        indice ===
-                        questao.resposta
-                    ) {
-
-                        botaoAlternativa.style
-                            .background =
-                            "#16a34a";
-
-                        resultado.innerHTML = `
-                            <strong style="color:#16a34a;">
-                                ✅ Resposta correta!
-                            </strong>
-                        `;
-
-                    } else {
-
-                        botaoAlternativa.style
-                            .background =
-                            "#dc2626";
-
-
-                        alternativas[
-                            questao.resposta
-                        ].style.background =
-                            "#16a34a";
-
-
-                        resultado.innerHTML = `
-                            <strong style="color:#dc2626;">
-                                ❌ Resposta incorreta.
-                            </strong>
-                        `;
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   GERAR LISTA DE QUESTÕES
-========================================================= */
-
-function gerarListaQuestoes() {
-
-    const quantidadeSelect =
-        document.getElementById(
-            "quantidadeQuestoes"
-        );
-
-
-    const lista =
-        document.getElementById(
-            "listaQuestoes"
-        );
-
-
-    const status =
-        document.getElementById(
-            "statusAtividade"
-        );
-
-
-    if (
-        !quantidadeSelect ||
-        !lista
-    ) {
-
-        return;
-    }
-
-
-    const quantidade =
-        Number(
-            quantidadeSelect.value
-        );
-
-
-    let todas = [];
-
-
-    Object.values(
-        bancoQuestoes
-    ).forEach(
-        grupo => {
-
-            todas =
-                todas.concat(
-                    grupo
-                );
-
-        }
-    );
-
-
-    todas =
-        embaralhar(
-            todas
-        );
-
-
-    const selecionadas =
-        todas.slice(
-            0,
-            Math.min(
-                quantidade,
-                todas.length
-            )
-        );
-
-
-    lista.innerHTML =
-        selecionadas
-            .map(
-                (questao, indice) => `
-
-                    <div
-                        class="questao-item"
-                        style="
-                            background:#fff;
-                            padding:20px;
-                            margin-bottom:15px;
-                            border-radius:12px;
-                            border:1px solid #e2e8f0;
-                        "
-                    >
-
-                        <h3>
-                            ${indice + 1}.
-                            ${escaparHTML(
-                                questao.pergunta
-                            )}
-                        </h3>
-
-                        ${questao.alternativas
-                            .map(
-                                alternativa => `
-                                    <p>
-                                        ○
-                                        ${escaparHTML(
-                                            alternativa
-                                        )}
-                                    </p>
-                                `
-                            )
-                            .join("")
-                        }
-
-                    </div>
-
-                `
-            )
-            .join("");
-
-
-    if (status) {
-
-        status.textContent =
-            `${selecionadas.length} questão(ões) gerada(s).`;
-
-    }
-
-}
-
-
-/* =========================================================
-   EMBARALHAR
-========================================================= */
-
-function embaralhar(array) {
-
-    const copia =
-        [...array];
 
 
     for (
-        let i = copia.length - 1;
-        i > 0;
-        i--
+        const elemento of elementos
     ) {
 
-        const j =
-            Math.floor(
-                Math.random() *
-                (i + 1)
-            );
+        const atual =
+            elemento.textContent
+                .replace(/\s+/g, " ")
+                .trim();
 
 
-        [
-            copia[i],
-            copia[j]
-        ] =
-        [
-            copia[j],
-            copia[i]
-        ];
+        if (atual === texto) {
 
+            return elemento;
+        }
     }
 
 
-    return copia;
-
+    return null;
 }
 
 
@@ -1482,7 +1151,9 @@ function embaralhar(array) {
    ESCAPAR HTML
 ========================================================= */
 
-function escaparHTML(texto) {
+function escapeHTML(
+    texto
+) {
 
     const div =
         document.createElement(
@@ -1495,5 +1166,11 @@ function escaparHTML(texto) {
 
 
     return div.innerHTML;
-
 }
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+function inicial
