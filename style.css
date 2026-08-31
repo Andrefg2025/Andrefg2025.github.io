@@ -776,288 +776,166 @@ code {
 
 
 /* =========================================================
-   MAPA MENTAL
+   MAPA MENTAL AUTOMÁTICO - CORREÇÃO
 ========================================================= */
 
 .mapa-mental-section {
-    width: 100%;
-
-    margin: 50px auto;
-
-    padding: 25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #fff8f0
-        );
-
-    border:
-        1px solid var(--laranja-borda);
-
-    border-radius: 18px;
-
-    box-shadow: var(--sombra-media);
-
-    overflow: hidden;
+    position: relative;
 }
-
-.mapa-mental-section .titulo-secao {
-    text-align: center;
-
-    color: var(--laranja);
-
-    margin-bottom: 10px;
-}
-
-.descricao-mapa {
-    max-width: 800px;
-
-    margin: 0 auto 25px;
-
-    color: var(--cinza);
-
-    text-align: center;
-}
-
-
-/* =========================================================
-   ÁREA DO MAPA
-   IMPORTANTE:
-   NÃO USAR MIN-WIDTH FIXO
-========================================================= */
 
 #mapa-mental {
     position: relative;
-
     width: 100%;
-
-    min-height: 600px;
-
-    height: auto;
-
+    min-height: 650px;
     overflow: auto;
-
     border-radius: 15px;
-
     background:
         radial-gradient(
             circle at center,
-            rgba(255, 107, 0, 0.10),
-            rgba(255, 149, 0, 0.04),
+            rgba(255, 107, 0, 0.12),
+            rgba(255, 149, 0, 0.05),
             transparent 70%
         );
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
 }
 
-
-/*
-   SVG GERADO PELO JAVASCRIPT
-*/
-
-#mapa-mental svg {
+#mapa-mental .mapa-svg {
     display: block;
-
-    width: 100%;
-
-    height: auto;
-
-    min-width: 0;
-
-    max-width: 100%;
-
-    overflow: visible;
+    width: 1200px;
+    min-width: 1200px;
+    height: 700px;
+    margin: 0 auto;
 }
 
-
-/* =========================================================
-   LINHAS DO MAPA
-========================================================= */
-
-.linha-mapa {
+#mapa-mental .linha-mapa {
     fill: none;
-
-    stroke: var(--laranja);
-
+    stroke: #ff6b00;
     stroke-width: 4;
-
     stroke-linecap: round;
-
-    stroke-linejoin: round;
-
     opacity: 0.65;
-
-    transition:
-        stroke 0.25s ease,
-        opacity 0.25s ease;
 }
 
+#mapa-mental .linha-secundaria {
+    fill: none;
+    stroke: #ff9500;
+    stroke-width: 3;
+    stroke-linecap: round;
+    opacity: 0.55;
+}
 
-/* =========================================================
-   NÓ CENTRAL
-========================================================= */
-
-.no-central {
-    fill: var(--laranja-forte);
-
+#mapa-mental .no-central {
+    fill: #ff4500;
     stroke: #ffffff;
-
     stroke-width: 5;
-
     filter:
         drop-shadow(
-            0 6px 10px
-            rgba(255, 69, 0, 0.35)
+            0 6px 10px rgba(255, 69, 0, 0.35)
         );
-
-    cursor: pointer;
-
-    transition:
-        transform 0.25s ease,
-        filter 0.25s ease;
 }
 
-
-/* =========================================================
-   NÓS PRINCIPAIS
-========================================================= */
-
-.no-principal {
-    fill: var(--laranja);
-
+#mapa-mental .no-principal {
+    fill: #ff6b00;
     stroke: #ffffff;
-
     stroke-width: 3;
-
     filter:
         drop-shadow(
-            0 5px 8px
-            rgba(255, 107, 0, 0.25)
-        );
-
-    cursor: pointer;
-
-    transition:
-        filter 0.25s ease,
-        opacity 0.25s ease;
-}
-
-.no-principal:hover {
-    filter:
-        drop-shadow(
-            0 8px 15px
-            rgba(255, 69, 0, 0.45)
+            0 5px 8px rgba(255, 107, 0, 0.25)
         );
 }
 
-
-/* =========================================================
-   NÓS SECUNDÁRIOS
-========================================================= */
-
-.no-secundario {
+#mapa-mental .no-secundario {
     fill: #ffffff;
-
-    stroke: var(--laranja);
-
+    stroke: #ff6b00;
     stroke-width: 3;
-
     filter:
         drop-shadow(
-            0 3px 6px
-            rgba(255, 107, 0, 0.18)
-        );
-
-    cursor: pointer;
-
-    transition:
-        filter 0.25s ease,
-        background 0.25s ease;
-}
-
-.no-secundario:hover {
-    filter:
-        drop-shadow(
-            0 7px 13px
-            rgba(255, 107, 0, 0.40)
+            0 3px 6px rgba(255, 107, 0, 0.18)
         );
 }
 
-
-/* =========================================================
-   TEXTOS DO MAPA
-========================================================= */
-
-.texto-central {
+#mapa-mental .texto-central {
     fill: #ffffff;
-
     font-family: "Poppins", sans-serif;
-
     font-size: 16px;
-
     font-weight: 700;
-
     text-anchor: middle;
-
     dominant-baseline: middle;
-
-    pointer-events: none;
 }
 
-.texto-principal {
+#mapa-mental .texto-principal {
     fill: #ffffff;
-
     font-family: "Poppins", sans-serif;
-
-    font-size: 12px;
-
-    font-weight: 600;
-
+    font-size: 13px;
+    font-weight: 700;
     text-anchor: middle;
-
     dominant-baseline: middle;
-
-    pointer-events: none;
 }
 
-.texto-secundario {
+#mapa-mental .texto-secundario {
     fill: #222222;
-
     font-family: "Poppins", sans-serif;
-
-    font-size: 10px;
-
-    font-weight: 500;
-
+    font-size: 11px;
+    font-weight: 600;
     text-anchor: middle;
-
     dominant-baseline: middle;
-
-    pointer-events: none;
 }
 
+#mapa-mental .grupo-mapa {
+    cursor: pointer;
+}
 
-/* =========================================================
-   CARREGANDO MAPA
-========================================================= */
+#mapa-mental .grupo-mapa:hover .no-principal {
+    filter:
+        drop-shadow(
+            0 8px 15px rgba(255, 69, 0, 0.50)
+        );
+}
 
-.carregando-mapa {
-    width: 100%;
+#mapa-mental .grupo-mapa:hover .no-secundario {
+    filter:
+        drop-shadow(
+            0 7px 13px rgba(255, 107, 0, 0.40)
+        );
+}
 
-    padding: 100px 20px;
-
+#mapa-mental .erro-mapa {
+    padding: 80px 20px;
     text-align: center;
-
-    color: var(--cinza);
-
-    text-indent: 0;
+    color: #dc2626;
 }
 
+#mapa-mental .erro-mapa strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+
+    #mapa-mental {
+        min-height: 550px;
+    }
+
+    #mapa-mental .mapa-svg {
+        width: 1000px;
+        min-width: 1000px;
+        height: 600px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    #mapa-mental {
+        min-height: 500px;
+    }
+
+    #mapa-mental .mapa-svg {
+        width: 900px;
+        min-width: 900px;
+        height: 550px;
+    }
+
+}
 
 /* =========================================================
    VÍDEO
