@@ -23,13 +23,12 @@ body {
 body {
     font-family: "Poppins", sans-serif;
     color: var(--texto);
-    background:
-        linear-gradient(
-            180deg,
-            #fffaf5 0%,
-            #f5f7fa 45%,
-            #eef2f7 100%
-        );
+    background: linear-gradient(
+        180deg,
+        #fffaf5 0%,
+        #f5f7fa 45%,
+        #eef2f7 100%
+    );
     line-height: 1.7;
 }
 
@@ -39,7 +38,6 @@ body {
 ========================================================= */
 
 :root {
-
     /* CORES */
     --laranja: #ff6b00;
     --laranja-claro: #ff9500;
@@ -60,11 +58,7 @@ body {
 
     --codigo-fundo: #172033;
 
-
-    /* =====================================================
-       BOTÕES — PADRÃO ÚNICO
-    ===================================================== */
-
+    /* BOTÕES — PADRÃO ÚNICO */
     --altura-botao: 44px;
     --altura-mobile: 42px;
 
@@ -76,45 +70,26 @@ body {
     --botao-fonte: 14px;
     --botao-peso: 600;
 
-    --botao:
-        linear-gradient(
-            135deg,
-            #ff5a00,
-            #ff7a00
-        );
+    --botao: linear-gradient(
+        135deg,
+        #ff5a00,
+        #ff7a00
+    );
 
-    --botao-hover:
-        linear-gradient(
-            135deg,
-            #ff4500,
-            #ff6500
-        );
+    --botao-hover: linear-gradient(
+        135deg,
+        #ff4500,
+        #ff6500
+    );
 
-    --botao-sombra:
-        0 4px 10px
-        rgba(255, 107, 0, 0.20);
-
-    --botao-sombra-hover:
-        0 7px 16px
-        rgba(255, 107, 0, 0.32);
-
+    --botao-sombra: 0 4px 10px rgba(255, 107, 0, 0.20);
+    --botao-sombra-hover: 0 7px 16px rgba(255, 107, 0, 0.32);
 
     /* SOMBRAS */
-
-    --sombra-pequena:
-        0 3px 10px rgba(15, 23, 42, 0.08);
-
-    --sombra-media:
-        0 6px 18px rgba(15, 23, 42, 0.12);
-
-    --sombra-grande:
-        0 12px 30px rgba(15, 23, 42, 0.16);
-
-    --sombra-laranja:
-        0 6px 18px rgba(255, 107, 0, 0.25);
-
-    --sombra-laranja-forte:
-        0 10px 25px rgba(255, 107, 0, 0.35);
+    --sombra-pequena: 0 3px 10px rgba(15, 23, 42, 0.08);
+    --sombra-media: 0 6px 18px rgba(15, 23, 42, 0.12);
+    --sombra-grande: 0 12px 30px rgba(15, 23, 42, 0.15);
+}
 
 
     /* TRANSIÇÃO */
