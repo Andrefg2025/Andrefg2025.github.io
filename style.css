@@ -1,3 +1,11 @@
+O ChatGPT disse:
+Sim. O problema principal é que o CSS não consegue gerar o mapa mental. Ele apenas define a aparência. Quem precisa criar o mapa automaticamente é o JavaScript.
+
+Também vou manter a configuração inicial da barra e deixar todos os botões do menu lado a lado, sem quebra de linha. Em telas pequenas, a barra terá rolagem horizontal em vez de empilhar os botões.
+
+Abaixo está uma versão corrigida. Você pode manter seu conteúdo das aulas e substituir principalmente o style.css e o script.js.
+
+1. style.css completo
 /* =========================================================
    RESET
 ========================================================= */
@@ -6,6 +14,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 html {
@@ -40,7 +49,6 @@ body {
 
     --texto: #1e293b;
     --texto-secundario: #475569;
-
     --cinza: #64748b;
     --cinza-claro: #94a3b8;
 
@@ -65,19 +73,16 @@ body {
         0 10px 25px rgba(255, 107, 0, 0.35);
 
     --botao-altura: 44px;
-
     --botao-altura-mobile: 42px;
 
     --botao-largura-minima: 120px;
 
     --botao-padding-vertical: 9px;
-
     --botao-padding-horizontal: 18px;
 
     --botao-radius: 8px;
 
     --botao-fonte: 14px;
-
     --botao-peso: 600;
 
     --botao-laranja:
@@ -95,12 +100,10 @@ body {
         );
 
     --botao-sombra:
-        0 4px 10px
-        rgba(255, 107, 0, 0.20);
+        0 4px 10px rgba(255, 107, 0, 0.20);
 
     --botao-sombra-hover:
-        0 7px 16px
-        rgba(255, 107, 0, 0.32);
+        0 7px 16px rgba(255, 107, 0, 0.32);
 }
 
 
@@ -122,11 +125,9 @@ body {
             #eef2f7 100%
         );
 
-    color:
-        var(--texto);
+    color: var(--texto);
 
-    line-height:
-        1.8;
+    line-height: 1.8;
 }
 
 
@@ -186,15 +187,13 @@ header {
 .logo-img {
 
     width: 65px;
-
     height: 65px;
 
     display: block;
 
     object-fit: contain;
 
-    background:
-        var(--branco);
+    background: var(--branco);
 
     border-radius: 50%;
 
@@ -232,23 +231,17 @@ header {
 
 .titulo-barra {
 
-    color:
-        var(--branco);
+    color: var(--branco);
 
-    font-size:
-        2rem;
+    font-size: 2rem;
 
-    font-weight:
-        700;
+    font-weight: 700;
 
-    line-height:
-        1.2;
+    line-height: 1.2;
 
-    text-align:
-        center;
+    text-align: center;
 
-    letter-spacing:
-        1px;
+    letter-spacing: 1px;
 
     text-shadow:
         0 2px 5px
@@ -261,21 +254,20 @@ header {
 
 .titulo-barra:hover {
 
-    color:
-        #fff7d6;
+    color: #fff7d6;
 }
 
 
 /* =========================================================
-   MENU
+   MENU PRINCIPAL
+   BOTÕES SEMPRE LADO A LADO
 ========================================================= */
 
 nav {
 
     width: 100%;
 
-    background:
-        var(--branco);
+    background: var(--branco);
 
     border-bottom:
         2px solid
@@ -284,249 +276,115 @@ nav {
     box-shadow:
         var(--sombra-pequena);
 
-    position:
-        sticky;
+    position: sticky;
 
     top: 0;
 
-    z-index:
-        1000;
+    z-index: 1000;
+
+    /*
+       Permite que a barra seja rolada horizontalmente
+       quando não houver espaço suficiente.
+    */
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        var(--laranja)
+        #fff3e6;
 }
 
 
+/* =========================================================
+   LISTA DO MENU
+========================================================= */
+
 nav ul {
 
-    width:
-        100%;
+    width: max-content;
 
-    max-width:
-        1400px;
+    min-width: 100%;
 
-    margin:
-        0 auto;
+    min-height: 68px;
 
-    padding:
-        10px 20px;
+    margin: 0;
 
-    display:
-        flex;
+    padding: 10px 25px;
 
-    justify-content:
-        center;
+    display: flex;
 
-    align-items:
-        center;
+    flex-direction: row;
 
-    flex-wrap:
-        wrap;
+    flex-wrap: nowrap;
 
-    gap:
-        10px;
+    justify-content: center;
 
-    list-style:
-        none;
+    align-items: center;
+
+    gap: 10px;
+
+    list-style: none;
 }
 
 
 nav li {
 
-    display:
-        flex;
+    flex: 0 0 auto;
 
-    align-items:
-        center;
+    display: flex;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    flex:
-        0 0 auto;
+    align-items: center;
+
+    white-space: nowrap;
 }
 
+
+/* =========================================================
+   LINKS DO MENU
+========================================================= */
 
 nav a {
 
-    position:
-        relative;
+    position: relative;
 
-    display:
-        inline-flex;
+    display: inline-flex;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    align-items:
-        center;
+    align-items: center;
 
-    min-width:
-        var(--botao-largura-minima);
+    width: max-content;
 
-    min-height:
-        var(--botao-altura);
+    min-width: var(--botao-largura-minima);
+
+    min-height: var(--botao-altura);
+
+    height: var(--botao-altura);
 
     padding:
         var(--botao-padding-vertical)
         var(--botao-padding-horizontal);
 
-    color:
-        var(--texto);
+    color: var(--texto);
 
-    background:
+    background: transparent;
+
+    border:
+        1px solid
         transparent;
 
-    border:
-        1px solid transparent;
-
     border-radius:
         var(--botao-radius);
 
-    text-decoration:
-        none;
+    text-decoration: none;
 
-    text-align:
-        center;
-
-    font-size:
-        var(--botao-fonte);
-
-    font-weight:
-        var(--botao-peso);
-
-    line-height:
-        1;
-
-    white-space:
-        nowrap;
-
-    transition:
-        color 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-
-nav a:hover {
-
-    color:
-        var(--laranja);
-
-    background:
-        var(--laranja-suave);
-
-    border-color:
-        var(--laranja-borda);
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 4px 10px
-        rgba(255, 107, 0, 0.10);
-}
-
-
-nav a.active {
-
-    color:
-        var(--laranja);
-
-    background:
-        var(--laranja-suave);
-
-    border-color:
-        var(--laranja-borda);
-}
-
-
-/* =========================================================
-   BOTÃO MENU
-========================================================= */
-
-nav a.btn-menu {
-
-    color:
-        #ffffff;
-
-    background:
-        var(--botao-laranja);
-
-    border:
-        1px solid var(--laranja);
-
-    font-weight:
-        700;
-
-    box-shadow:
-        var(--botao-sombra);
-}
-
-
-nav a.btn-menu:hover {
-
-    color:
-        #ffffff;
-
-    background:
-        var(--botao-laranja-hover);
-
-    border-color:
-        var(--laranja-forte);
-
-    box-shadow:
-        var(--botao-sombra-hover);
-}
-
-
-/* =========================================================
-   BOTÕES
-========================================================= */
-
-button,
-.btn,
-.config-atividade button,
-.seletor-atividade button {
-
-    width:
-        auto;
-
-    min-width:
-        var(--botao-largura-minima);
-
-    min-height:
-        var(--botao-altura);
-
-    padding:
-        var(--botao-padding-vertical)
-        var(--botao-padding-horizontal);
-
-    display:
-        inline-flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-    text-align:
-        center;
-
-    white-space:
-        nowrap;
-
-    border:
-        1px solid var(--laranja);
-
-    border-radius:
-        var(--botao-radius);
-
-    background:
-        var(--botao-laranja);
-
-    color:
-        #ffffff;
+    text-align: center;
 
     font-family:
         "Poppins",
@@ -538,16 +396,21 @@ button,
     font-weight:
         var(--botao-peso);
 
-    line-height:
-        1;
+    line-height: 1;
 
-    cursor:
-        pointer;
+    letter-spacing: 0.2px;
 
-    box-shadow:
-        var(--botao-sombra);
+    /*
+       FUNDAMENTAL:
+       nunca permite quebra do texto.
+    */
+
+    white-space: nowrap;
+
+    flex-shrink: 0;
 
     transition:
+        color 0.25s ease,
         background 0.25s ease,
         border-color 0.25s ease,
         transform 0.25s ease,
@@ -555,10 +418,115 @@ button,
 }
 
 
-button:hover,
-.btn:hover,
-.config-atividade button:hover,
-.seletor-atividade button:hover {
+/* =========================================================
+   HOVER
+========================================================= */
+
+nav a:hover {
+
+    color: var(--laranja);
+
+    background: var(--laranja-suave);
+
+    border-color: var(--laranja-borda);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 4px 10px
+        rgba(255, 107, 0, 0.10);
+}
+
+
+/* =========================================================
+   LINHA INFERIOR
+========================================================= */
+
+nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 4px;
+
+    width: 0;
+
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--laranja-forte),
+            var(--laranja-claro)
+        );
+
+    border-radius: 10px;
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        width 0.25s ease;
+}
+
+
+nav a:hover::after,
+nav a.active::after {
+
+    width: 40%;
+}
+
+
+/* =========================================================
+   LINK ATIVO
+========================================================= */
+
+nav a.active {
+
+    color: var(--laranja);
+
+    background: var(--laranja-suave);
+
+    border-color: var(--laranja-borda);
+}
+
+
+/* =========================================================
+   BOTÕES DA BARRA
+========================================================= */
+
+nav a.btn-menu {
+
+    min-width: var(--botao-largura-minima);
+
+    width: max-content;
+
+    height: var(--botao-altura);
+
+    color: #ffffff;
+
+    background: var(--botao-laranja);
+
+    border:
+        1px solid
+        var(--laranja);
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    flex-shrink: 0;
+
+    box-shadow: var(--botao-sombra);
+}
+
+
+nav a.btn-menu:hover {
+
+    color: #ffffff;
 
     background:
         var(--botao-laranja-hover);
@@ -566,41 +534,14 @@ button:hover,
     border-color:
         var(--laranja-forte);
 
-    transform:
-        translateY(-2px);
-
     box-shadow:
         var(--botao-sombra-hover);
 }
 
 
-button:active,
-.btn:active {
+nav a.btn-menu::after {
 
-    transform:
-        translateY(0);
-
-    box-shadow:
-        var(--botao-sombra);
-}
-
-
-/* =========================================================
-   ACESSIBILIDADE
-========================================================= */
-
-button:focus-visible,
-.btn:focus-visible,
-nav a:focus-visible,
-select:focus-visible,
-summary:focus-visible {
-
-    outline:
-        3px solid
-        rgba(255, 107, 0, 0.30);
-
-    outline-offset:
-        2px;
+    display: none;
 }
 
 
@@ -610,27 +551,21 @@ summary:focus-visible {
 
 main {
 
-    width:
-        100%;
+    width: 100%;
 
-    max-width:
-        1250px;
+    max-width: 1200px;
 
-    margin:
-        25px auto;
+    margin: 25px auto;
 
-    padding:
-        10px 20px;
+    padding: 10px 20px;
 }
 
 
 main h1 {
 
-    text-align:
-        center;
+    text-align: center;
 
-    margin-bottom:
-        25px;
+    margin-bottom: 25px;
 }
 
 
@@ -640,8 +575,7 @@ h4,
 h5,
 h6 {
 
-    color:
-        var(--laranja);
+    color: var(--laranja);
 }
 
 
@@ -652,37 +586,22 @@ h6 {
 p,
 li {
 
-    color:
-        var(--texto);
+    color: var(--texto);
 }
 
 
 p {
 
-    text-align:
-        justify;
+    text-align: justify;
+
+    text-indent: 2em;
 }
 
 
 .conteudo p,
 .aula-conteudo p {
 
-    margin-bottom:
-        15px;
-}
-
-
-.aula-conteudo ul {
-
-    margin:
-        10px 0 20px 30px;
-}
-
-
-.aula-conteudo li {
-
-    margin-bottom:
-        7px;
+    margin-bottom: 15px;
 }
 
 
@@ -692,42 +611,35 @@ p {
 
 .accordion {
 
-    width:
-        100%;
+    width: 100%;
 
-    margin-bottom:
-        15px;
+    margin-bottom: 15px;
 }
 
 
 .accordion > summary {
 
-    position:
-        relative;
+    position: relative;
 
-    list-style:
-        none;
+    list-style: none;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
-    width:
-        100%;
+    width: 100%;
 
-    min-height:
-        var(--botao-altura);
+    min-height: var(--botao-altura);
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
     padding:
-        10px 55px 10px 18px;
+        var(--botao-padding-vertical)
+        55px
+        var(--botao-padding-vertical)
+        var(--botao-padding-horizontal);
 
-    color:
-        #ffffff;
+    color: #ffffff;
 
     background:
         linear-gradient(
@@ -738,19 +650,21 @@ p {
         );
 
     border:
-        1px solid var(--laranja);
+        1px solid
+        var(--laranja);
 
     border-radius:
         var(--botao-radius);
 
-    font-size:
-        1rem;
+    font-size: 1rem;
 
-    font-weight:
-        700;
+    font-weight: 700;
 
-    line-height:
-        1.4;
+    line-height: 1.4;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
 
     box-shadow:
         var(--sombra-laranja);
@@ -772,48 +686,40 @@ p {
             #ff8000
         );
 
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
     box-shadow:
         var(--sombra-laranja-forte);
 }
 
 
-.accordion > summary::-webkit-details-marker,
-.aula > summary::-webkit-details-marker {
+.accordion > summary::-webkit-details-marker {
 
-    display:
-        none;
+    display: none;
 }
 
 
 .accordion > summary::after {
 
-    content:
-        "+";
+    content: "+";
 
-    position:
-        absolute;
+    position: absolute;
 
-    right:
-        20px;
+    right: 20px;
 
-    top:
-        50%;
+    top: 50%;
 
-    transform:
-        translateY(-50%);
+    transform: translateY(-50%);
 
-    font-size:
-        24px;
+    font-size: 24px;
+
+    line-height: 1;
 }
 
 
 .accordion[open] > summary::after {
 
-    content:
-        "−";
+    content: "−";
 }
 
 
@@ -823,8 +729,7 @@ p {
 
 .conteudo {
 
-    padding:
-        20px 10px;
+    padding: 20px 10px;
 
     animation:
         abrir 0.3s ease;
@@ -835,8 +740,7 @@ p {
 
     from {
 
-        opacity:
-            0;
+        opacity: 0;
 
         transform:
             translateY(-8px);
@@ -844,8 +748,7 @@ p {
 
     to {
 
-        opacity:
-            1;
+        opacity: 1;
 
         transform:
             translateY(0);
@@ -859,60 +762,56 @@ p {
 
 .aula {
 
-    width:
-        100%;
+    width: 100%;
 
-    margin-bottom:
-        12px;
+    margin-bottom: 12px;
 }
 
 
 .aula > summary {
 
-    position:
-        relative;
+    position: relative;
 
-    list-style:
-        none;
+    list-style: none;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
-    width:
-        100%;
+    width: 100%;
 
-    min-height:
-        var(--botao-altura);
+    min-height: var(--botao-altura);
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
     padding:
-        10px 55px 10px 18px;
+        var(--botao-padding-vertical)
+        55px
+        var(--botao-padding-vertical)
+        var(--botao-padding-horizontal);
 
-    color:
-        var(--texto);
+    color: var(--texto);
 
-    background:
-        var(--branco);
+    background: var(--branco);
 
     border:
-        1px solid var(--borda);
+        1px solid
+        var(--borda);
 
     border-left:
-        4px solid var(--laranja);
+        4px solid
+        var(--laranja);
 
     border-radius:
         var(--botao-radius);
 
-    font-weight:
-        600;
+    font-weight: 600;
 
-    line-height:
-        1.4;
+    line-height: 1.4;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
 
     box-shadow:
         var(--sombra-pequena);
@@ -928,8 +827,7 @@ p {
 
 .aula > summary:hover {
 
-    color:
-        var(--laranja);
+    color: var(--laranja);
 
     background:
         var(--laranja-suave);
@@ -946,32 +844,33 @@ p {
 }
 
 
+.aula > summary::-webkit-details-marker {
+
+    display: none;
+}
+
+
 .aula > summary::after {
 
-    content:
-        "+";
+    content: "+";
 
-    position:
-        absolute;
+    position: absolute;
 
-    right:
-        20px;
+    right: 20px;
 
-    top:
-        50%;
+    top: 50%;
 
-    transform:
-        translateY(-50%);
+    transform: translateY(-50%);
 
-    font-size:
-        22px;
+    font-size: 22px;
+
+    line-height: 1;
 }
 
 
 .aula[open] > summary::after {
 
-    content:
-        "−";
+    content: "−";
 }
 
 
@@ -981,17 +880,15 @@ p {
 
 .aula-conteudo {
 
-    padding:
-        25px 20px;
+    padding: 25px 20px;
 
-    background:
-        var(--branco);
+    background: var(--branco);
 
     border:
-        1px solid var(--borda);
+        1px solid
+        var(--borda);
 
-    border-top:
-        none;
+    border-top: none;
 
     border-radius:
         0 0 10px 10px;
@@ -1000,8 +897,7 @@ p {
 
 .aula-conteudo h2 {
 
-    text-align:
-        center;
+    text-align: center;
 
     margin:
         10px 0 30px;
@@ -1013,20 +909,35 @@ p {
 
 .aula-conteudo h3 {
 
-    margin-top:
-        30px;
+    margin-top: 30px;
 
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 
     color:
         var(--laranja);
 
     border-left:
-        4px solid var(--laranja);
+        4px solid
+        var(--laranja);
 
-    padding-left:
-        10px;
+    padding-left: 10px;
+}
+
+
+/* =========================================================
+   LISTAS
+========================================================= */
+
+.aula-conteudo ul {
+
+    margin:
+        10px 0 20px 30px;
+}
+
+
+.aula-conteudo li {
+
+    margin-bottom: 7px;
 }
 
 
@@ -1036,8 +947,7 @@ p {
 
 pre {
 
-    width:
-        100%;
+    width: 100%;
 
     background:
         var(--codigo-fundo);
@@ -1045,23 +955,21 @@ pre {
     color:
         var(--codigo-texto);
 
-    padding:
-        18px;
+    padding: 18px;
 
-    margin:
-        20px 0;
+    margin: 20px 0;
 
     border:
-        1px solid #334155;
+        1px solid
+        #334155;
 
     border-left:
-        4px solid var(--laranja);
+        4px solid
+        var(--laranja);
 
-    border-radius:
-        10px;
+    border-radius: 10px;
 
-    overflow-x:
-        auto;
+    overflow-x: auto;
 
     box-shadow:
         var(--sombra-media);
@@ -1082,14 +990,11 @@ code {
 
 .mapa-mental-section {
 
-    width:
-        100%;
+    width: 100%;
 
-    margin:
-        50px auto;
+    margin: 50px auto;
 
-    padding:
-        25px 15px;
+    padding: 25px 15px;
 
     background:
         linear-gradient(
@@ -1099,36 +1004,32 @@ code {
         );
 
     border:
-        1px solid var(--laranja-borda);
+        1px solid
+        var(--laranja-borda);
 
-    border-radius:
-        18px;
+    border-radius: 18px;
 
     box-shadow:
         var(--sombra-media);
 
-    overflow:
-        hidden;
+    overflow: hidden;
 }
 
 
 .titulo-secao {
 
-    text-align:
-        center;
+    text-align: center;
 
     color:
         var(--laranja);
 
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 }
 
 
 .descricao-mapa {
 
-    max-width:
-        800px;
+    max-width: 800px;
 
     margin:
         0 auto 25px;
@@ -1136,30 +1037,25 @@ code {
     color:
         var(--cinza);
 
-    text-align:
-        center;
+    text-align: center;
 
-    text-indent:
-        0;
+    text-indent: 0;
 }
 
 
 #mapa-mental {
 
-    position:
-        relative;
+    position: relative;
 
-    width:
-        100%;
+    width: 100%;
 
-    min-height:
-        680px;
+    min-height: 650px;
 
-    overflow:
-        auto;
+    overflow-x: auto;
 
-    border-radius:
-        15px;
+    overflow-y: hidden;
+
+    border-radius: 15px;
 
     background:
         radial-gradient(
@@ -1168,59 +1064,24 @@ code {
             rgba(255, 149, 0, 0.05),
             transparent 70%
         );
-
-    scrollbar-width:
-        thin;
-
-    scrollbar-color:
-        var(--laranja)
-        #f1f5f9;
 }
 
 
-#mapa-mental::-webkit-scrollbar {
+/* =========================================================
+   SVG DO MAPA
+========================================================= */
 
-    height:
-        10px;
+#mapa-mental svg {
 
-    width:
-        10px;
-}
+    display: block;
 
+    width: 1200px;
 
-#mapa-mental::-webkit-scrollbar-track {
+    min-width: 1200px;
 
-    background:
-        #f1f5f9;
+    height: 650px;
 
-    border-radius:
-        10px;
-}
-
-
-#mapa-mental::-webkit-scrollbar-thumb {
-
-    background:
-        var(--laranja);
-
-    border-radius:
-        10px;
-}
-
-
-#mapa-mental .mapa-svg {
-
-    display:
-        block;
-
-    width:
-        1400px;
-
-    min-width:
-        1400px;
-
-    height:
-        680px;
+    margin: 0 auto;
 }
 
 
@@ -1228,41 +1089,22 @@ code {
    LINHAS
 ========================================================= */
 
-#mapa-mental .linha-mapa {
+.linha-mapa {
 
-    fill:
-        none;
+    fill: none;
 
     stroke:
         var(--laranja);
 
-    stroke-width:
-        5;
+    stroke-width: 4;
 
-    stroke-linecap:
-        round;
+    stroke-linecap: round;
 
-    opacity:
-        0.65;
-}
+    opacity: 0.65;
 
-
-#mapa-mental .linha-secundaria {
-
-    fill:
-        none;
-
-    stroke:
-        var(--laranja-claro);
-
-    stroke-width:
-        3;
-
-    stroke-linecap:
-        round;
-
-    opacity:
-        0.55;
+    transition:
+        stroke-width 0.3s ease,
+        opacity 0.3s ease;
 }
 
 
@@ -1270,7 +1112,7 @@ code {
    NÓ CENTRAL
 ========================================================= */
 
-#mapa-mental .no-central {
+.no-central {
 
     fill:
         var(--laranja-forte);
@@ -1278,8 +1120,7 @@ code {
     stroke:
         #ffffff;
 
-    stroke-width:
-        5;
+    stroke-width: 5;
 
     filter:
         drop-shadow(
@@ -1290,10 +1131,10 @@ code {
 
 
 /* =========================================================
-   NÓS PRINCIPAIS
+   NÓ PRINCIPAL
 ========================================================= */
 
-#mapa-mental .no-principal {
+.no-principal {
 
     fill:
         var(--laranja);
@@ -1301,8 +1142,7 @@ code {
     stroke:
         #ffffff;
 
-    stroke-width:
-        3;
+    stroke-width: 3;
 
     filter:
         drop-shadow(
@@ -1313,10 +1153,10 @@ code {
 
 
 /* =========================================================
-   NÓS SECUNDÁRIOS
+   NÓ SECUNDÁRIO
 ========================================================= */
 
-#mapa-mental .no-secundario {
+.no-secundario {
 
     fill:
         #ffffff;
@@ -1324,8 +1164,7 @@ code {
     stroke:
         var(--laranja);
 
-    stroke-width:
-        3;
+    stroke-width: 3;
 
     filter:
         drop-shadow(
@@ -1336,110 +1175,89 @@ code {
 
 
 /* =========================================================
-   TEXTOS DO MAPA
+   TEXTO DO MAPA
 ========================================================= */
 
-#mapa-mental .texto-central {
+.texto-central {
 
-    fill:
-        #ffffff;
+    fill: #ffffff;
 
     font-family:
         "Poppins",
         sans-serif;
 
-    font-size:
-        18px;
+    font-size: 17px;
 
-    font-weight:
-        700;
+    font-weight: 700;
 
-    text-anchor:
-        middle;
+    text-anchor: middle;
 
-    dominant-baseline:
-        middle;
+    dominant-baseline: middle;
 }
 
 
-#mapa-mental .texto-principal {
+.texto-principal {
 
-    fill:
-        #ffffff;
+    fill: #ffffff;
 
     font-family:
         "Poppins",
         sans-serif;
 
-    font-size:
-        13px;
+    font-size: 12px;
 
-    font-weight:
-        700;
+    font-weight: 600;
 
-    text-anchor:
-        middle;
+    text-anchor: middle;
 
-    dominant-baseline:
-        middle;
+    dominant-baseline: middle;
 }
 
 
-#mapa-mental .texto-secundario {
+.texto-secundario {
 
-    fill:
-        #222222;
+    fill: #222222;
 
     font-family:
         "Poppins",
         sans-serif;
 
-    font-size:
-        11px;
+    font-size: 10px;
 
-    font-weight:
-        600;
+    font-weight: 500;
 
-    text-anchor:
-        middle;
+    text-anchor: middle;
 
-    dominant-baseline:
-        middle;
+    dominant-baseline: middle;
 }
 
 
 /* =========================================================
-   GRUPOS
+   ANIMAÇÃO DOS NÓS
 ========================================================= */
 
-#mapa-mental .grupo-mapa {
+.no-principal,
+.no-secundario {
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
     transition:
-        transform 0.25s ease;
+        transform 0.3s ease,
+        filter 0.3s ease;
 }
 
 
-#mapa-mental .grupo-mapa:hover {
-
-    transform:
-        scale(1.04);
-}
-
-
-#mapa-mental .grupo-mapa:hover .no-principal {
+.no-principal:hover {
 
     filter:
         drop-shadow(
             0 8px 15px
-            rgba(255, 69, 0, 0.50)
+            rgba(255, 69, 0, 0.45)
         );
 }
 
 
-#mapa-mental .grupo-mapa:hover .no-secundario {
+.no-secundario:hover {
 
     filter:
         drop-shadow(
@@ -1455,158 +1273,47 @@ code {
 
 .carregando-mapa {
 
-    min-height:
-        650px;
+    width: 100%;
 
-    display:
-        flex;
+    text-align: center;
 
-    flex-direction:
-        column;
+    padding: 100px 20px;
 
-    justify-content:
-        center;
+    color: var(--cinza);
 
-    align-items:
-        center;
-
-    gap:
-        15px;
-
-    color:
-        var(--cinza);
-
-    text-align:
-        center;
-}
-
-
-.carregando-mapa p {
-
-    text-align:
-        center;
-
-    text-indent:
-        0;
-
-    margin:
-        0;
-}
-
-
-.spinner-mapa {
-
-    width:
-        50px;
-
-    height:
-        50px;
-
-    border:
-        5px solid
-        #ffe0c2;
-
-    border-top-color:
-        var(--laranja);
-
-    border-radius:
-        50%;
-
-    animation:
-        girar 0.8s linear infinite;
-}
-
-
-@keyframes girar {
-
-    to {
-        transform:
-            rotate(360deg);
-    }
+    text-indent: 0;
 }
 
 
 /* =========================================================
-   ERRO
-========================================================= */
-
-.erro-mapa {
-
-    min-height:
-        400px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-    padding:
-        30px;
-
-    text-align:
-        center;
-
-    color:
-        #dc2626;
-}
-
-
-.erro-mapa strong {
-
-    margin-bottom:
-        8px;
-
-    font-size:
-        1.2rem;
-}
-
-
-/* =========================================================
-   VÍDEO
+   VÍDEOS
 ========================================================= */
 
 .video-container {
 
-    width:
-        100%;
+    display: flex;
 
-    display:
-        flex;
+    justify-content: center;
 
-    justify-content:
-        center;
+    align-items: center;
 
-    align-items:
-        center;
+    width: 100%;
 
-    margin:
-        30px auto;
+    margin: 30px auto;
 }
 
 
 .video-container video {
 
-    width:
-        400px;
+    width: 400px;
 
-    max-width:
-        100%;
+    max-width: 90%;
 
-    height:
-        auto;
+    height: auto;
 
-    display:
-        block;
+    display: block;
 
-    border-radius:
-        12px;
+    border-radius: 12px;
 
     box-shadow:
         var(--sombra-media);
@@ -1619,8 +1326,7 @@ code {
 
 .video-container video:hover {
 
-    transform:
-        scale(1.02);
+    transform: scale(1.02);
 
     box-shadow:
         var(--sombra-laranja);
@@ -1633,42 +1339,31 @@ code {
 
 .cards {
 
-    width:
-        100%;
+    display: flex;
 
-    display:
-        flex;
+    justify-content: center;
 
-    justify-content:
-        center;
+    align-items: flex-start;
 
-    align-items:
-        flex-start;
+    flex-wrap: wrap;
 
-    flex-wrap:
-        wrap;
+    gap: 25px;
 
-    gap:
-        25px;
+    width: 100%;
 
-    margin-top:
-        30px;
+    margin-top: 30px;
 }
 
 
 .card {
 
-    position:
-        relative;
+    position: relative;
 
-    width:
-        280px;
+    width: 280px;
 
-    min-height:
-        180px;
+    min-height: 180px;
 
-    padding:
-        22px;
+    padding: 22px;
 
     background:
         linear-gradient(
@@ -1682,19 +1377,16 @@ code {
         rgba(255, 255, 255, 0.10);
 
     border-left:
-        5px solid var(--laranja);
+        5px solid
+        var(--laranja);
 
-    border-radius:
-        14px;
+    border-radius: 14px;
 
-    color:
-        #f8fafc;
+    color: #f8fafc;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
     box-shadow:
         var(--sombra-media);
@@ -1722,36 +1414,27 @@ code {
 
 .card h3 {
 
-    color:
-        #ffffff;
+    color: #ffffff;
 
-    font-size:
-        1.15rem;
+    font-size: 1.15rem;
 
-    margin-bottom:
-        12px;
+    margin-bottom: 12px;
 
-    text-align:
-        center;
+    text-align: center;
 }
 
 
 .card .info-extra {
 
-    opacity:
-        0;
+    opacity: 0;
 
-    max-height:
-        0;
+    max-height: 0;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
-    margin-top:
-        0;
+    margin-top: 0;
 
-    padding-top:
-        0;
+    padding-top: 0;
 
     border-top:
         1px solid
@@ -1760,11 +1443,9 @@ code {
     color:
         #cbd5e1;
 
-    font-size:
-        0.88rem;
+    font-size: 0.88rem;
 
-    line-height:
-        1.6;
+    line-height: 1.6;
 
     transition:
         max-height 0.45s ease,
@@ -1779,14 +1460,11 @@ code {
     color:
         #cbd5e1;
 
-    text-align:
-        left;
+    text-align: left;
 
-    text-indent:
-        0;
+    text-indent: 0;
 
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 }
 
 
@@ -1820,17 +1498,13 @@ code {
 
 .card.ativo .info-extra {
 
-    opacity:
-        1;
+    opacity: 1;
 
-    max-height:
-        500px;
+    max-height: 500px;
 
-    margin-top:
-        18px;
+    margin-top: 18px;
 
-    padding-top:
-        15px;
+    padding-top: 15px;
 }
 
 
@@ -1841,90 +1515,150 @@ code {
 #atividades,
 #atividades-gerador {
 
-    width:
-        100%;
+    width: 100%;
 
-    margin:
-        30px auto;
+    margin: 30px auto;
 
-    padding:
-        25px;
+    padding: 25px;
 
-    background:
-        var(--branco);
+    background: var(--branco);
 
     border:
-        1px solid var(--borda);
+        1px solid
+        var(--borda);
 
     border-top:
-        4px solid var(--laranja);
+        4px solid
+        var(--laranja);
 
-    border-radius:
-        15px;
+    border-radius: 15px;
 
     box-shadow:
         var(--sombra-media);
 }
 
 
-#atividades h2,
-#atividades-gerador h2 {
-
-    color:
-        var(--laranja);
-
-    text-align:
-        center;
-
-    margin-bottom:
-        10px;
-}
-
-
 .descricao-atividade {
 
-    color:
-        var(--cinza);
+    color: var(--cinza);
 
-    text-align:
-        center;
+    text-align: center;
 
-    text-indent:
-        0;
+    text-indent: 0;
 
-    margin-bottom:
-        25px;
+    margin-bottom: 25px;
 }
 
 
 .config-atividade,
 .seletor-atividade {
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    align-items:
-        center;
+    align-items: center;
 
-    flex-wrap:
-        wrap;
+    flex-wrap: wrap;
 
-    gap:
-        12px;
+    gap: 12px;
 
-    margin-bottom:
-        25px;
+    margin-bottom: 25px;
 }
 
 
-.config-atividade label,
-.seletor-atividade label {
+/* =========================================================
+   BOTÕES GERAIS
+========================================================= */
+
+button,
+.btn,
+.config-atividade button,
+.seletor-atividade button {
+
+    width: auto;
+
+    min-width:
+        var(--botao-largura-minima);
+
+    min-height:
+        var(--botao-altura);
+
+    height:
+        var(--botao-altura);
+
+    padding:
+        var(--botao-padding-vertical)
+        var(--botao-padding-horizontal);
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    border:
+        1px solid
+        var(--laranja);
+
+    border-radius:
+        var(--botao-radius);
+
+    background:
+        var(--botao-laranja);
+
+    color: #ffffff;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        var(--botao-fonte);
 
     font-weight:
-        600;
+        var(--botao-peso);
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    box-shadow:
+        var(--botao-sombra);
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+button:hover,
+.btn:hover,
+.config-atividade button:hover,
+.seletor-atividade button:hover {
+
+    color: #ffffff;
+
+    background:
+        var(--botao-laranja-hover);
+
+    border-color:
+        var(--laranja-forte);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        var(--botao-sombra-hover);
 }
 
 
@@ -1935,8 +1669,7 @@ code {
 .config-atividade select,
 .seletor-atividade select {
 
-    width:
-        auto;
+    width: auto;
 
     min-width:
         var(--botao-largura-minima);
@@ -1944,11 +1677,18 @@ code {
     min-height:
         var(--botao-altura);
 
+    height:
+        var(--botao-altura);
+
     padding:
-        9px 35px 9px 12px;
+        var(--botao-padding-vertical)
+        35px
+        var(--botao-padding-vertical)
+        12px;
 
     border:
-        1px solid var(--borda);
+        1px solid
+        var(--borda);
 
     border-radius:
         var(--botao-radius);
@@ -1966,147 +1706,32 @@ code {
     font-size:
         var(--botao-fonte);
 
-    font-weight:
-        500;
-
-    cursor:
-        pointer;
-}
-
-
-.config-atividade select:hover,
-.seletor-atividade select:hover {
-
-    border-color:
-        var(--laranja-borda);
-}
-
-
-.config-atividade select:focus,
-.seletor-atividade select:focus {
-
-    outline:
-        none;
-
-    border-color:
-        var(--laranja);
-
-    box-shadow:
-        0 0 0 3px
-        rgba(255, 107, 0, 0.15);
+    cursor: pointer;
 }
 
 
 /* =========================================================
-   STATUS
-========================================================= */
-
-.status-atividade {
-
-    text-align:
-        center;
-
-    color:
-        var(--cinza);
-
-    margin-bottom:
-        20px;
-}
-
-
-/* =========================================================
-   ÁREA ATIVIDADE
-========================================================= */
-
-.atividade {
-
-    width:
-        100%;
-
-    padding:
-        25px;
-
-    background:
-        #f8fafc;
-
-    border:
-        1px solid var(--borda);
-
-    border-radius:
-        12px;
-}
-
-
-.atividade-inicial {
-
-    text-align:
-        center;
-
-    padding:
-        30px 10px;
-}
-
-
-.atividade-inicial span {
-
-    display:
-        block;
-
-    font-size:
-        3rem;
-
-    margin-bottom:
-        10px;
-}
-
-
-.atividade-inicial h3 {
-
-    color:
-        var(--laranja);
-
-    margin-bottom:
-        8px;
-}
-
-
-.atividade-inicial p {
-
-    text-align:
-        center;
-
-    text-indent:
-        0;
-
-    color:
-        var(--cinza);
-}
-
-
-/* =========================================================
-   RESULTADOS
+   RESULTADO
 ========================================================= */
 
 .resultado,
 .resultado-atividade {
 
-    margin-top:
-        25px;
+    margin-top: 25px;
 
-    padding:
-        20px;
+    padding: 20px;
 
     border:
-        1px solid var(--borda);
+        1px solid
+        var(--borda);
 
     border-left:
-        4px solid var(--laranja);
+        4px solid
+        var(--laranja);
 
-    border-radius:
-        12px;
+    border-radius: 12px;
 
-    background:
-        #f8fafc;
+    background: #f8fafc;
 }
 
 
@@ -2116,102 +1741,229 @@ code {
 
 footer {
 
-    width:
-        100%;
+    width: 100%;
 
     background:
         var(--branco);
 
-    text-align:
-        center;
+    text-align: center;
 
-    padding:
-        30px;
+    padding: 30px;
 
-    margin-top:
-        50px;
+    margin-top: 50px;
 
     border-top:
-        3px solid var(--laranja);
+        3px solid
+        var(--laranja);
 }
 
 
 footer p {
 
-    text-align:
-        center;
+    text-align: center;
 
-    text-indent:
-        0;
+    text-indent: 0;
 
-    margin:
-        0;
+    margin: 0;
 
-    color:
-        var(--cinza);
+    color: var(--cinza);
 }
 
 
 /* =========================================================
-   TABLET
+   TABLETS
 ========================================================= */
 
 @media (max-width: 768px) {
 
     header {
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        justify-content:
-            center;
+        justify-content: center;
 
-        gap:
-            12px;
+        gap: 12px;
 
-        padding:
-            20px;
+        padding: 20px;
 
-        text-align:
-            center;
+        text-align: center;
     }
 
 
     .titulo-link {
 
-        width:
-            100%;
+        width: 100%;
     }
 
 
     .titulo-barra {
 
-        font-size:
-            1.4rem;
+        font-size: 1.4rem;
     }
 
 
     .logo-img {
 
-        width:
-            55px;
+        width: 55px;
 
-        height:
-            55px;
+        height: 55px;
     }
 
+
+    /*
+       MENU CONTINUA LADO A LADO
+       E GANHA ROLAGEM HORIZONTAL.
+    */
 
     nav ul {
 
-        padding:
-            12px 10px;
+        width: max-content;
 
-        gap:
-            8px;
+        min-width: max-content;
+
+        justify-content: flex-start;
+
+        padding:
+            12px 15px;
+
+        gap: 8px;
     }
 
 
-    nav a {
+    nav a,
+    nav a.btn-menu {
+
+        min-width: max-content;
+
+        width: max-content;
+
+        min-height:
+            var(--botao-altura-mobile);
+
+        height:
+            var(--botao-altura-mobile);
+
+        padding:
+            8px 15px;
+
+        font-size: 13px;
+
+        white-space: nowrap;
+    }
+
+
+    main {
+
+        width: 100%;
+
+        padding: 5px 15px;
+    }
+
+
+    .aula-conteudo {
+
+        padding: 20px 10px;
+    }
+
+
+    .mapa-mental-section {
+
+        padding: 15px 5px;
+    }
+
+
+    #mapa-mental {
+
+        min-height: 550px;
+    }
+
+
+    #mapa-mental svg {
+
+        width: 1000px;
+
+        min-width: 1000px;
+
+        height: 550px;
+    }
+
+
+    .cards {
+
+        gap: 18px;
+    }
+
+
+    #atividades,
+    #atividades-gerador {
+
+        padding: 20px 15px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    header {
+
+        padding: 15px;
+    }
+
+
+    .titulo-barra {
+
+        font-size: 1.1rem;
+    }
+
+
+    .logo-img {
+
+        width: 45px;
+
+        height: 45px;
+    }
+
+
+    /*
+       IMPORTANTE:
+       NÃO usamos flex-direction: column no menu.
+       Os botões continuam lado a lado.
+    */
+
+    nav ul {
+
+        width: max-content;
+
+        min-width: max-content;
+
+        padding: 10px;
+
+        gap: 7px;
+
+        justify-content: flex-start;
+    }
+
+
+    nav li {
+
+        flex: 0 0 auto;
+
+        min-width: max-content;
+    }
+
+
+    nav a,
+    nav a.btn-menu {
+
+        width: max-content;
+
+        min-width: max-content;
+
+        max-width: none;
 
         min-height:
             var(--botao-altura-mobile);
@@ -2222,134 +1974,13 @@ footer p {
         padding:
             8px 12px;
 
-        font-size:
-            12px;
+        font-size: 12px;
 
-        white-space:
-            nowrap;
-    }
+        line-height: 1;
 
+        white-space: nowrap;
 
-    main {
-
-        width:
-            100%;
-
-        padding:
-            5px 12px;
-    }
-
-
-    .aula-conteudo {
-
-        padding:
-            20px 12px;
-    }
-
-
-    .mapa-mental-section {
-
-        padding:
-            20px 10px;
-    }
-
-
-    #mapa-mental {
-
-        min-height:
-            560px;
-    }
-
-
-    #mapa-mental .mapa-svg {
-
-        width:
-            1100px;
-
-        min-width:
-            1100px;
-
-        height:
-            560px;
-    }
-
-
-    .cards {
-
-        gap:
-            18px;
-    }
-
-
-    #atividades,
-    #atividades-gerador {
-
-        padding:
-            20px 15px;
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 480px) {
-
-    header {
-
-        padding:
-            15px;
-    }
-
-
-    .titulo-barra {
-
-        font-size:
-            1.1rem;
-    }
-
-
-    .logo-img {
-
-        width:
-            45px;
-
-        height:
-            45px;
-    }
-
-
-    nav ul {
-
-        padding:
-            10px 7px;
-
-        gap:
-            6px;
-    }
-
-
-    nav a {
-
-        min-width:
-            auto;
-
-        min-height:
-            var(--botao-altura-mobile);
-
-        height:
-            var(--botao-altura-mobile);
-
-        padding:
-            8px 10px;
-
-        font-size:
-            11px;
-
-        white-space:
-            nowrap;
+        flex-shrink: 0;
     }
 
 
@@ -2359,158 +1990,88 @@ footer p {
         min-height:
             var(--botao-altura-mobile);
 
-        font-size:
-            0.88rem;
+        font-size: 0.9rem;
 
-        line-height:
-            1.35;
+        line-height: 1.35;
 
         padding:
-            8px 45px 8px 14px;
-    }
-
-
-    .accordion > summary::after {
-
-        right:
-            14px;
-
-        font-size:
-            21px;
-    }
-
-
-    .aula > summary::after {
-
-        right:
-            14px;
-
-        font-size:
-            20px;
+            8px 45px 8px 15px;
     }
 
 
     .aula-conteudo h2 {
 
-        font-size:
-            1.3rem;
+        font-size: 1.3rem;
     }
 
 
     .aula-conteudo h3 {
 
-        font-size:
-            1.05rem;
+        font-size: 1.05rem;
     }
 
 
     pre {
 
-        font-size:
-            0.75rem;
+        font-size: 0.75rem;
 
-        padding:
-            14px;
-    }
-
-
-    .mapa-mental-section {
-
-        margin:
-            30px auto;
-
-        padding:
-            15px 5px;
+        padding: 14px;
     }
 
 
     #mapa-mental {
 
-        min-height:
-            480px;
+        min-height: 500px;
     }
 
 
-    #mapa-mental .mapa-svg {
+    #mapa-mental svg {
 
-        width:
-            900px;
+        width: 900px;
 
-        min-width:
-            900px;
+        min-width: 900px;
 
-        height:
-            480px;
-    }
-
-
-    #mapa-mental .texto-central {
-
-        font-size:
-            14px;
-    }
-
-
-    #mapa-mental .texto-principal {
-
-        font-size:
-            11px;
-    }
-
-
-    #mapa-mental .texto-secundario {
-
-        font-size:
-            9px;
+        height: 500px;
     }
 
 
     .cards {
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        align-items:
-            center;
+        align-items: center;
     }
 
 
     .card {
 
-        width:
-            95%;
+        width: 95%;
 
-        max-width:
-            340px;
+        max-width: 340px;
     }
 
 
     .video-container video {
 
-        width:
-            280px;
+        width: 280px;
 
-        max-width:
-            100%;
+        max-width: 100%;
     }
 
 
     #atividades,
     #atividades-gerador {
 
-        padding:
-            18px 12px;
+        padding: 18px 12px;
     }
 
 
     .config-atividade,
     .seletor-atividade {
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        align-items:
-            stretch;
+        align-items: stretch;
     }
 
 
@@ -2519,26 +2080,38 @@ footer p {
     .seletor-atividade select,
     .seletor-atividade button {
 
-        width:
-            100%;
+        width: 100%;
 
-        min-width:
-            0;
+        min-width: 0;
+
+        max-width: none;
     }
 
 
     footer {
 
-        padding:
-            25px 15px;
+        padding: 25px 15px;
     }
-
 }
 
 
 /* =========================================================
-   REDUZIR MOVIMENTO
+   ACESSIBILIDADE
 ========================================================= */
+
+button:focus-visible,
+.btn:focus-visible,
+nav a:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+
+    outline:
+        3px solid
+        rgba(255, 107, 0, 0.30);
+
+    outline-offset: 2px;
+}
+
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -2546,8 +2119,7 @@ footer p {
     *::before,
     *::after {
 
-        scroll-behavior:
-            auto !important;
+        scroll-behavior: auto !important;
 
         animation-duration:
             0.01ms !important;
@@ -2558,5 +2130,4 @@ footer p {
         transition-duration:
             0.01ms !important;
     }
-
 }
