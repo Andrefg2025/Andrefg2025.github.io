@@ -5,30 +5,73 @@
 
 "use strict";
 
-
 /* =========================================================
    INICIALIZAÇÃO
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-
     iniciarCards();
-
     iniciarMapaMental();
-
-    iniciarAtividades();
-
+    iniciarGeradorPorTopico();
+    iniciarGeradorDeAtividades();
     iniciarMenuAtivo();
-
 });
 
 
 /* =========================================================
-   MAPA MENTAL AUTOMÁTICO
+   UTILITÁRIOS
+========================================================= */
+
+function limparTexto(texto) {
+    return String(texto)
+        .replace(/\s+/g, " ")
+        .replace(/^[•●▪\-]+\s*/, "")
+        .trim();
+}
+
+
+function escaparHTML(texto) {
+    const div = document.createElement("div");
+    div.textContent = texto;
+    return div.innerHTML;
+}
+
+
+function quebrarTexto(texto, tamanho = 22) {
+    const palavras = texto.split(/\s+/);
+    const linhas = [];
+
+    let linhaAtual = "";
+
+    palavras.forEach((palavra) => {
+        const tentativa = linhaAtual
+            ? `${linhaAtual} ${palavra}`
+            : palavra;
+
+        if (
+            tentativa.length > tamanho &&
+            linhaAtual
+        ) {
+            linhas.push(linhaAtual);
+            linhaAtual = palavra;
+        } else {
+            linhaAtual = tentativa;
+        }
+    });
+
+    if (linhaAtual) {
+        linhas.push(linhaAtual);
+    }
+
+    return linhas;
+}
+
+
+/* =========================================================
+   MAPA MENTAL
 ========================================================= */
 
 function iniciarMapaMental() {
-
     const container =
         document.getElementById("mapa-mental");
 
@@ -36,23 +79,14 @@ function iniciarMapaMental() {
         return;
     }
 
-
-    /*
-       Pequeno atraso para garantir que o conteúdo
-       da página já esteja totalmente disponível.
-    */
-
     setTimeout(() => {
-
         gerarMapaMental(container);
-
     }, 100);
-
 }
 
 
 /* =========================================================
-   EXTRAIR TÓPICOS DA AULA
+   EXTRAIR TÓPICOS
 ========================================================= */
 
 function extrairTopicos() {
@@ -63,309 +97,85 @@ function extrairTopicos() {
         );
 
     if (!aula) {
-
         return {
             titulo: "Algoritmos e Estruturas de Dados",
             topicos: []
         };
-
     }
 
 
-    /* -----------------------------------------------------
-       TÍTULO PRINCIPAL
-    ----------------------------------------------------- */
-
-    const h2 =
+    const tituloElemento =
         aula.querySelector("h2");
 
-
     let titulo =
-        h2
-            ? h2.textContent.trim()
+        tituloElemento
+            ? limparTexto(tituloElemento.textContent)
             : "Algoritmos e Estruturas de Dados";
 
-
-    /*
-       Limita o tamanho do título para o mapa.
-    */
-
-    titulo =
-        limparTexto(titulo);
-
-
-    /* -----------------------------------------------------
-       LISTA DE TÓPICOS
-    ----------------------------------------------------- */
 
     const topicos = [];
 
     const elementos =
-        aula.querySelectorAll(
-            "h3, p"
-        );
+        aula.querySelectorAll("h3");
 
 
-    elementos.forEach(elemento => {
+    elementos.forEach((elemento) => {
 
-        let texto =
-            elemento.textContent
-                .replace(/\s+/g, " ")
-                .trim();
-
-
-        if (!texto) {
-            return;
-        }
-
-
-        /*
-           Ignora parágrafos muito grandes.
-        */
-
-        if (texto.length > 120) {
-            return;
-        }
-
-
-        /* -------------------------------------------------
-           H3
-        ------------------------------------------------- */
+        const texto =
+            limparTexto(elemento.textContent);
 
         if (
-            elemento.tagName.toLowerCase() === "h3"
+            texto &&
+            texto.length >= 3 &&
+            texto.length <= 100
         ) {
-
             adicionarTopico(
                 topicos,
                 texto
             );
-
-            return;
         }
-
-
-        /* -------------------------------------------------
-           PARÁGRAFOS COM TÍTULOS NUMERADOS
-           
-           Exemplo:
-           
-           1. Organização Básica de um Computador
-           1.1 Unidade de Entrada
-           3. Linguagem de Máquina
-        ------------------------------------------------- */
-
-        if (
-            /^\d+(\.\d+)*\.?\s+/.test(texto)
-        ) {
-
-            texto =
-                texto.replace(
-                    /^\d+(\.\d+)*\.?\s+/,
-                    ""
-                );
-
-            adicionarTopico(
-                topicos,
-                texto
-            );
-
-            return;
-        }
-
-
-        /* -------------------------------------------------
-           PARÁGRAFOS EM NEGRITO
-        ------------------------------------------------- */
-
-        const strong =
-            elemento.querySelector("strong");
-
-
-        if (
-            strong &&
-            strong.textContent.trim().length > 3
-        ) {
-
-            let tituloStrong =
-                strong.textContent
-                    .replace(/\s+/g, " ")
-                    .trim();
-
-
-            tituloStrong =
-                tituloStrong
-                    .replace(
-                        /^\d+(\.\d+)*\.?\s+/,
-                        ""
-                    );
-
-
-            adicionarTopico(
-                topicos,
-                tituloStrong
-            );
-
-        }
-
     });
 
 
-    /*
-       Se não encontrar tópicos,
-       cria tópicos padrão.
-    */
-
     if (topicos.length === 0) {
-
-        topicos.push(
-            "Computador",
-            "CPU",
-            "Memória",
-            "Entrada e saída",
-            "Linguagem de máquina",
-            "Bits e bytes",
-            "ASCII e Unicode",
-            "Programação"
-        );
-
+        return {
+            titulo,
+            topicos: [
+                "Computador",
+                "CPU",
+                "Memória",
+                "Entrada e saída",
+                "Linguagem de máquina",
+                "Bits e bytes",
+                "ASCII e Unicode",
+                "Programação"
+            ]
+        };
     }
-
-
-    /*
-       Remove duplicados.
-    */
-
-    const unicos =
-        [...new Set(topicos)];
 
 
     return {
-
         titulo,
-
-        topicos:
-            unicos.slice(0, 12)
-
+        topicos: [...new Set(topicos)].slice(0, 12)
     };
-
 }
 
-
-/* =========================================================
-   ADICIONAR TÓPICO
-========================================================= */
 
 function adicionarTopico(lista, texto) {
 
-    texto =
-        limparTexto(texto);
+    texto = limparTexto(texto);
 
+    texto = texto.replace(
+        /^\d+(\.\d+)*\.?\s+/,
+        ""
+    );
 
-    if (!texto) {
-        return;
+    if (
+        texto.length >= 3 &&
+        texto.length <= 100
+    ) {
+        lista.push(texto);
     }
-
-
-    /*
-       Não aceita textos extremamente curtos.
-    */
-
-    if (texto.length < 3) {
-        return;
-    }
-
-
-    /*
-       Não aceita parágrafos que parecem conteúdo
-       normal em vez de título.
-    */
-
-    if (texto.length > 100) {
-        return;
-    }
-
-
-    lista.push(texto);
-}
-
-
-/* =========================================================
-   LIMPAR TEXTO
-========================================================= */
-
-function limparTexto(texto) {
-
-    return texto
-        .replace(/\s+/g, " ")
-        .replace(/^[•●▪\-]+\s*/, "")
-        .trim();
-}
-
-
-/* =========================================================
-   QUEBRAR TEXTO EM LINHAS
-========================================================= */
-
-function quebrarTexto(texto, tamanho) {
-
-    const palavras =
-        texto.split(" ");
-
-    const linhas = [];
-
-    let linha = "";
-
-
-    palavras.forEach(palavra => {
-
-        const tentativa =
-            linha
-                ? linha + " " + palavra
-                : palavra;
-
-
-        if (
-            tentativa.length > tamanho &&
-            linha
-        ) {
-
-            linhas.push(linha);
-
-            linha = palavra;
-
-        } else {
-
-            linha = tentativa;
-
-        }
-
-    });
-
-
-    if (linha) {
-
-        linhas.push(linha);
-
-    }
-
-
-    return linhas;
-}
-
-
-/* =========================================================
-   ESCAPAR HTML/SVG
-========================================================= */
-
-function escaparSVG(texto) {
-
-    return texto
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
 }
 
 
@@ -373,58 +183,70 @@ function escaparSVG(texto) {
    CRIAR TEXTO SVG
 ========================================================= */
 
-function criarTextoSVG(
+function adicionarTextoSVG(
+    svg,
     texto,
     x,
     y,
     classe,
-    tamanhoMaximo
+    tamanho = 22,
+    alturaLinha = 15
 ) {
 
     const linhas =
         quebrarTexto(
             texto,
-            tamanhoMaximo
+            tamanho
         );
 
+    const textoSVG =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "text"
+        );
 
-    let resultado = "";
-
-
-    const altura =
-        classe === "texto-central"
-            ? 20
-            : 15;
-
+    textoSVG.setAttribute("x", x);
+    textoSVG.setAttribute("y", y);
+    textoSVG.setAttribute("class", classe);
+    textoSVG.setAttribute(
+        "text-anchor",
+        "middle"
+    );
+    textoSVG.setAttribute(
+        "dominant-baseline",
+        "middle"
+    );
 
     const inicio =
         y -
-        ((linhas.length - 1) * altura) / 2;
+        ((linhas.length - 1) * alturaLinha) / 2;
 
+    linhas.forEach((linha, indice) => {
 
-    linhas.forEach(
-        (linha, indice) => {
+        const tspan =
+            document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "tspan"
+            );
 
-            resultado += `
-                <text
-                    x="${x}"
-                    y="${inicio + indice * altura}"
-                    class="${classe}"
-                >
-                    ${escaparSVG(linha)}
-                </text>
-            `;
+        tspan.setAttribute("x", x);
 
-        }
-    );
+        tspan.setAttribute(
+            "y",
+            inicio + indice * alturaLinha
+        );
 
+        tspan.textContent = linha;
 
-    return resultado;
+        textoSVG.appendChild(tspan);
+    });
+
+    svg.appendChild(textoSVG);
 }
 
 
 /* =========================================================
-   GERAR MAPA MENTAL
+   GERAR MAPA
 ========================================================= */
 
 function gerarMapaMental(container) {
@@ -434,43 +256,22 @@ function gerarMapaMental(container) {
         const dados =
             extrairTopicos();
 
-
         const titulo =
             dados.titulo;
-
 
         const topicos =
             dados.topicos;
 
 
-        /*
-           Dimensões do mapa.
-        */
-
         const largura = 1200;
-
         const altura = 650;
 
-
-        /*
-           Centro do mapa.
-        */
-
         const centroX = 600;
-
         const centroY = 325;
 
 
-        /*
-           Limpa o carregamento.
-        */
-
         container.innerHTML = "";
 
-
-        /*
-           Cria SVG.
-        */
 
         const svg =
             document.createElementNS(
@@ -478,30 +279,20 @@ function gerarMapaMental(container) {
                 "svg"
             );
 
-
         svg.setAttribute(
             "viewBox",
             `0 0 ${largura} ${altura}`
         );
 
-
         svg.setAttribute(
-            "width",
-            largura
+            "preserveAspectRatio",
+            "xMidYMid meet"
         );
-
-
-        svg.setAttribute(
-            "height",
-            altura
-        );
-
 
         svg.setAttribute(
             "role",
             "img"
         );
-
 
         svg.setAttribute(
             "aria-label",
@@ -509,9 +300,9 @@ function gerarMapaMental(container) {
         );
 
 
-        /* =================================================
+        /* -------------------------------------------------
            DEFINITIONS
-        ================================================= */
+        ------------------------------------------------- */
 
         const defs =
             document.createElementNS(
@@ -519,19 +310,16 @@ function gerarMapaMental(container) {
                 "defs"
             );
 
-
         const sombra =
             document.createElementNS(
                 "http://www.w3.org/2000/svg",
                 "filter"
             );
 
-
         sombra.setAttribute(
             "id",
             "sombraMapa"
         );
-
 
         sombra.innerHTML = `
             <feDropShadow
@@ -543,15 +331,13 @@ function gerarMapaMental(container) {
             />
         `;
 
-
         defs.appendChild(sombra);
-
         svg.appendChild(defs);
 
 
-        /* =================================================
+        /* -------------------------------------------------
            GRUPO DAS LINHAS
-        ================================================= */
+        ------------------------------------------------- */
 
         const grupoLinhas =
             document.createElementNS(
@@ -559,19 +345,12 @@ function gerarMapaMental(container) {
                 "g"
             );
 
-
-        grupoLinhas.setAttribute(
-            "class",
-            "linhas-mapa"
-        );
-
-
         svg.appendChild(grupoLinhas);
 
 
-        /* =================================================
+        /* -------------------------------------------------
            GRUPO DOS NÓS
-        ================================================= */
+        ------------------------------------------------- */
 
         const grupoNos =
             document.createElementNS(
@@ -579,313 +358,181 @@ function gerarMapaMental(container) {
                 "g"
             );
 
-
-        grupoNos.setAttribute(
-            "class",
-            "nos-mapa"
-        );
-
-
         svg.appendChild(grupoNos);
 
 
-        /* =================================================
-           CONFIGURAÇÃO DOS NÓS
-        ================================================= */
+        /* -------------------------------------------------
+           TÓPICOS
+        ------------------------------------------------- */
 
         const quantidade =
             topicos.length;
 
-
-        /*
-           Distribui os tópicos em volta do centro.
-        */
-
         const raioX = 390;
-
         const raioY = 245;
 
 
-        topicos.forEach(
-            (topico, indice) => {
+        topicos.forEach((topico, indice) => {
 
-                const angulo =
-                    (-Math.PI / 2) +
-                    (
-                        indice *
-                        (Math.PI * 2) /
-                        quantidade
-                    );
-
-
-                const x =
-                    centroX +
-                    Math.cos(angulo) *
-                    raioX;
+            const angulo =
+                (-Math.PI / 2) +
+                (
+                    indice *
+                    (Math.PI * 2) /
+                    quantidade
+                );
 
 
-                const y =
-                    centroY +
-                    Math.sin(angulo) *
-                    raioY;
+            const x =
+                centroX +
+                Math.cos(angulo) *
+                raioX;
 
 
-                /*
-                   Determina o tamanho do nó.
-                */
-
-                const larguraNo =
-                    Math.max(
-                        150,
-                        Math.min(
-                            230,
-                            topico.length * 6 + 50
-                        )
-                    );
+            const y =
+                centroY +
+                Math.sin(angulo) *
+                raioY;
 
 
-                const alturaNo =
-                    70;
+            const larguraNo =
+                Math.max(
+                    150,
+                    Math.min(
+                        230,
+                        topico.length * 6 + 50
+                    )
+                );
 
 
-                /* -----------------------------------------
-                   LINHA
-                ----------------------------------------- */
-
-                const linha =
-                    document.createElementNS(
-                        "http://www.w3.org/2000/svg",
-                        "path"
-                    );
+            const alturaNo = 70;
 
 
-                /*
-                   Curva de Bézier.
-                */
+            /* ---------------------------------------------
+               LINHA
+            --------------------------------------------- */
 
-                const controleX =
-                    (centroX + x) / 2;
-
-
-                const controleY =
-                    (centroY + y) / 2;
-
-
-                const deslocamento =
-                    indice % 2 === 0
-                        ? 35
-                        : -35;
+            const linha =
+                document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "path"
+                );
 
 
-                const caminho = `
+            const controleX =
+                (centroX + x) / 2;
+
+            const controleY =
+                (centroY + y) / 2;
+
+            const deslocamento =
+                indice % 2 === 0
+                    ? 35
+                    : -35;
+
+
+            linha.setAttribute(
+                "d",
+                `
                     M ${centroX} ${centroY}
                     Q
                     ${controleX + deslocamento}
                     ${controleY}
                     ${x}
                     ${y}
-                `;
+                `
+            );
+
+            linha.setAttribute(
+                "class",
+                "linha-mapa"
+            );
+
+            grupoLinhas.appendChild(linha);
 
 
-                linha.setAttribute(
-                    "d",
-                    caminho
+            /* ---------------------------------------------
+               GRUPO
+            --------------------------------------------- */
+
+            const grupo =
+                document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "g"
                 );
 
 
-                linha.setAttribute(
-                    "class",
-                    "linha-mapa"
+            /* ---------------------------------------------
+               NÓ
+            --------------------------------------------- */
+
+            const no =
+                document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "rect"
                 );
 
+            no.setAttribute(
+                "x",
+                x - larguraNo / 2
+            );
 
-                grupoLinhas.appendChild(linha);
+            no.setAttribute(
+                "y",
+                y - alturaNo / 2
+            );
 
+            no.setAttribute(
+                "width",
+                larguraNo
+            );
 
-                /* -----------------------------------------
-                   NÓ PRINCIPAL
-                ----------------------------------------- */
+            no.setAttribute(
+                "height",
+                alturaNo
+            );
 
-                const grupo =
-                    document.createElementNS(
-                        "http://www.w3.org/2000/svg",
-                        "g"
-                    );
+            no.setAttribute(
+                "rx",
+                18
+            );
 
+            no.setAttribute(
+                "class",
+                "no-principal"
+            );
 
-                grupo.setAttribute(
-                    "class",
-                    "no-grupo"
-                );
-
-
-                /* -----------------------------------------
-                   RETÂNGULO
-                ----------------------------------------- */
-
-                const no =
-                    document.createElementNS(
-                        "http://www.w3.org/2000/svg",
-                        "rect"
-                    );
-
-
-                no.setAttribute(
-                    "x",
-                    x - larguraNo / 2
-                );
+            no.setAttribute(
+                "filter",
+                "url(#sombraMapa)"
+            );
 
 
-                no.setAttribute(
-                    "y",
-                    y - alturaNo / 2
-                );
+            grupo.appendChild(no);
 
 
-                no.setAttribute(
-                    "width",
-                    larguraNo
-                );
+            /* ---------------------------------------------
+               TEXTO
+            --------------------------------------------- */
+
+            adicionarTextoSVG(
+                grupo,
+                topico,
+                x,
+                y,
+                "texto-principal",
+                22,
+                15
+            );
 
 
-                no.setAttribute(
-                    "height",
-                    alturaNo
-                );
+            grupoNos.appendChild(grupo);
+        });
 
 
-                no.setAttribute(
-                    "rx",
-                    18
-                );
-
-
-                no.setAttribute(
-                    "class",
-                    "no-principal"
-                );
-
-
-                no.setAttribute(
-                    "filter",
-                    "url(#sombraMapa)"
-                );
-
-
-                grupo.appendChild(no);
-
-
-                /* -----------------------------------------
-                   TEXTO
-                ----------------------------------------- */
-
-                const textoSVG =
-                    document.createElementNS(
-                        "http://www.w3.org/2000/svg",
-                        "text"
-                    );
-
-
-                textoSVG.setAttribute(
-                    "x",
-                    x
-                );
-
-
-                textoSVG.setAttribute(
-                    "y",
-                    y
-                );
-
-
-                textoSVG.setAttribute(
-                    "class",
-                    "texto-principal"
-                );
-
-
-                textoSVG.setAttribute(
-                    "text-anchor",
-                    "middle"
-                );
-
-
-                textoSVG.setAttribute(
-                    "dominant-baseline",
-                    "middle"
-                );
-
-
-                const linhas =
-                    quebrarTexto(
-                        topico,
-                        22
-                    );
-
-
-                const alturaLinha = 15;
-
-
-                const inicio =
-                    y -
-                    (
-                        (linhas.length - 1) *
-                        alturaLinha
-                    ) / 2;
-
-
-                linhas.forEach(
-                    (linhaTexto, i) => {
-
-                        const tspan =
-                            document.createElementNS(
-                                "http://www.w3.org/2000/svg",
-                                "tspan"
-                            );
-
-
-                        tspan.setAttribute(
-                            "x",
-                            x
-                        );
-
-
-                        tspan.setAttribute(
-                            "y",
-                            inicio +
-                            i *
-                            alturaLinha
-                        );
-
-
-                        tspan.textContent =
-                            linhaTexto;
-
-
-                        textoSVG.appendChild(
-                            tspan
-                        );
-
-                    }
-                );
-
-
-                grupo.appendChild(
-                    textoSVG
-                );
-
-
-                grupoNos.appendChild(
-                    grupo
-                );
-
-            }
-        );
-
-
-        /* =================================================
+        /* -------------------------------------------------
            NÓ CENTRAL
-        ================================================= */
+        ------------------------------------------------- */
 
         const centro =
             document.createElementNS(
@@ -893,186 +540,82 @@ function gerarMapaMental(container) {
                 "rect"
             );
 
-
         centro.setAttribute(
             "x",
             centroX - 150
         );
-
 
         centro.setAttribute(
             "y",
             centroY - 75
         );
 
-
         centro.setAttribute(
             "width",
             300
         );
-
 
         centro.setAttribute(
             "height",
             150
         );
 
-
         centro.setAttribute(
             "rx",
             30
         );
-
 
         centro.setAttribute(
             "class",
             "no-central"
         );
 
-
         centro.setAttribute(
             "filter",
             "url(#sombraMapa)"
         );
 
-
-        grupoNos.appendChild(
-            centro
-        );
+        grupoNos.appendChild(centro);
 
 
-        /* =================================================
+        /* -------------------------------------------------
            TEXTO CENTRAL
-        ================================================= */
+        ------------------------------------------------- */
 
-        const textoCentral =
-            document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "text"
-            );
-
-
-        textoCentral.setAttribute(
-            "x",
-            centroX
+        adicionarTextoSVG(
+            grupoNos,
+            titulo,
+            centroX,
+            centroY,
+            "texto-central",
+            25,
+            20
         );
 
-
-        textoCentral.setAttribute(
-            "y",
-            centroY
-        );
-
-
-        textoCentral.setAttribute(
-            "class",
-            "texto-central"
-        );
-
-
-        textoCentral.setAttribute(
-            "text-anchor",
-            "middle"
-        );
-
-
-        textoCentral.setAttribute(
-            "dominant-baseline",
-            "middle"
-        );
-
-
-        const linhasCentro =
-            quebrarTexto(
-                titulo,
-                25
-            );
-
-
-        const alturaCentro = 20;
-
-
-        const inicioCentro =
-            centroY -
-            (
-                (linhasCentro.length - 1) *
-                alturaCentro
-            ) / 2;
-
-
-        linhasCentro.forEach(
-            (linhaTexto, i) => {
-
-                const tspan =
-                    document.createElementNS(
-                        "http://www.w3.org/2000/svg",
-                        "tspan"
-                    );
-
-
-                tspan.setAttribute(
-                    "x",
-                    centroX
-                );
-
-
-                tspan.setAttribute(
-                    "y",
-                    inicioCentro +
-                    i *
-                    alturaCentro
-                );
-
-
-                tspan.textContent =
-                    linhaTexto;
-
-
-                textoCentral.appendChild(
-                    tspan
-                );
-
-            }
-        );
-
-
-        grupoNos.appendChild(
-            textoCentral
-        );
-
-
-        /* =================================================
-           INSERE SVG
-        ================================================= */
 
         container.appendChild(svg);
 
 
-        /*
-           Mensagem de sucesso no console.
-        */
-
         console.log(
-            "Mapa mental gerado automaticamente:",
+            "Mapa mental gerado:",
             topicos
         );
 
     } catch (erro) {
 
         console.error(
-            "Erro ao gerar o mapa mental:",
+            "Erro ao gerar mapa mental:",
             erro
         );
 
-
         container.innerHTML = `
-            <p class="carregando-mapa">
-                Não foi possível gerar o mapa mental.
-            </p>
+            <div class="carregando-mapa">
+                <p>
+                    Não foi possível gerar o mapa mental.
+                </p>
+            </div>
         `;
-
     }
-
 }
 
 
@@ -1083,31 +626,42 @@ function gerarMapaMental(container) {
 function iniciarCards() {
 
     const cards =
-        document.querySelectorAll(
-            ".card"
-        );
+        document.querySelectorAll(".card");
 
 
-    cards.forEach(card => {
+    cards.forEach((card) => {
 
         card.addEventListener(
             "click",
             () => {
-
-                card.classList.toggle(
-                    "ativo"
-                );
-
+                card.classList.toggle("ativo");
             }
         );
 
-    });
 
+        card.addEventListener(
+            "keydown",
+            (evento) => {
+
+                if (
+                    evento.key === "Enter" ||
+                    evento.key === " "
+                ) {
+
+                    evento.preventDefault();
+
+                    card.classList.toggle(
+                        "ativo"
+                    );
+                }
+            }
+        );
+    });
 }
 
 
 /* =========================================================
-   FUNÇÃO COMPATÍVEL COM onclick="abrirCard(this)"
+   COMPATIBILIDADE
 ========================================================= */
 
 function abrirCard(card) {
@@ -1116,36 +670,7 @@ function abrirCard(card) {
         return;
     }
 
-
-    card.classList.toggle(
-        "ativo"
-    );
-
-}
-
-
-/* =========================================================
-   ATIVIDADES
-========================================================= */
-
-function iniciarAtividades() {
-
-    const botao =
-        document.getElementById(
-            "btnGerarAtividadeTopico"
-        );
-
-
-    if (!botao) {
-        return;
-    }
-
-
-    botao.addEventListener(
-        "click",
-        gerarAtividade
-    );
-
+    card.classList.toggle("ativo");
 }
 
 
@@ -1156,174 +681,336 @@ function iniciarAtividades() {
 const bancoQuestoes = {
 
     algoritmos: [
-
         {
-            pergunta:
-                "O que é um algoritmo?",
-
+            pergunta: "O que é um algoritmo?",
             resposta:
                 "É uma sequência organizada de instruções utilizada para resolver um problema ou executar uma tarefa."
         },
-
         {
             pergunta:
                 "Qual é uma característica importante de um bom algoritmo?",
-
             resposta:
                 "Ele deve possuir passos claros, organizados e capazes de produzir uma solução para o problema."
         }
-
     ],
 
-
     estruturas: [
-
         {
             pergunta:
                 "O que são estruturas de dados?",
-
             resposta:
                 "São formas de organizar, armazenar e manipular dados de maneira adequada para determinada aplicação."
         }
-
     ],
 
-
     arrays: [
-
         {
             pergunta:
                 "O que é um array?",
-
             resposta:
                 "É uma estrutura que armazena vários elementos organizados em posições indexadas."
         }
-
     ],
 
-
     listas: [
-
         {
             pergunta:
                 "O que é uma lista encadeada?",
-
             resposta:
                 "É uma estrutura formada por nós, normalmente contendo dados e referências para outros nós."
         }
-
     ],
 
-
     pilhas: [
-
         {
             pergunta:
                 "Qual princípio é utilizado por uma pilha?",
-
             resposta:
-                "LIFO — Last In, First Out, ou seja, o último elemento inserido é o primeiro a sair."
+                "LIFO — Last In, First Out. O último elemento inserido é o primeiro a sair."
         }
-
     ],
 
-
     filas: [
-
         {
             pergunta:
                 "Qual princípio é utilizado por uma fila?",
-
             resposta:
-                "FIFO — First In, First Out, ou seja, o primeiro elemento inserido é o primeiro a sair."
+                "FIFO — First In, First Out. O primeiro elemento inserido é o primeiro a sair."
         }
-
     ],
 
-
     arvores: [
-
         {
             pergunta:
                 "O que é uma árvore em estruturas de dados?",
-
             resposta:
                 "É uma estrutura não linear formada por nós organizados de maneira hierárquica."
         }
-
     ],
 
-
     grafos: [
-
         {
             pergunta:
                 "O que é um grafo?",
-
             resposta:
                 "É uma estrutura formada por vértices e arestas utilizada para representar relações entre elementos."
         }
-
     ],
 
-
     hash: [
-
         {
             pergunta:
                 "Para que serve uma tabela hash?",
-
             resposta:
                 "Para armazenar e localizar informações utilizando uma função de espalhamento."
         }
-
     ],
 
-
     ordenacao: [
-
         {
             pergunta:
                 "Qual é o objetivo de um algoritmo de ordenação?",
-
             resposta:
                 "Organizar elementos de acordo com determinado critério."
         }
-
     ],
 
-
     complexidade: [
-
         {
             pergunta:
                 "O que a notação Big O representa?",
-
             resposta:
                 "Representa uma forma de analisar como o custo de um algoritmo cresce em relação ao tamanho da entrada."
         }
-
     ],
 
-
     "programacao-dinamica": [
-
         {
             pergunta:
                 "O que é programação dinâmica?",
-
             resposta:
                 "É uma técnica que resolve problemas dividindo-os em subproblemas e armazenando resultados para evitar cálculos repetidos."
         }
-
     ]
-
 };
 
 
 /* =========================================================
-   GERAR ATIVIDADE
+   OBTER QUESTÕES
 ========================================================= */
+
+function obterTodasQuestoes() {
+
+    return Object.values(
+        bancoQuestoes
+    ).flat();
+}
+
+
+function embaralhar(array) {
+
+    const copia = [...array];
+
+    for (
+        let i = copia.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+        [
+            copia[i],
+            copia[j]
+        ] = [
+            copia[j],
+            copia[i]
+        ];
+    }
+
+    return copia;
+}
+
+
+/* =========================================================
+   GERADOR DE ATIVIDADES DA AULA
+========================================================= */
+
+function iniciarGeradorDeAtividades() {
+
+    const botao =
+        document.getElementById(
+            "btnGerarAtividades"
+        );
+
+    if (!botao) {
+        return;
+    }
+
+    botao.addEventListener(
+        "click",
+        gerarListaDeAtividades
+    );
+}
+
+
+function gerarListaDeAtividades() {
+
+    const quantidade =
+        Number(
+            document.getElementById(
+                "quantidadeQuestoes"
+            )?.value || 10
+        );
+
+
+    const lista =
+        document.getElementById(
+            "listaQuestoes"
+        );
+
+    const resultado =
+        document.getElementById(
+            "resultadoAtividade"
+        );
+
+    const status =
+        document.getElementById(
+            "statusAtividade"
+        );
+
+
+    if (!lista) {
+        return;
+    }
+
+
+    const questoes =
+        embaralhar(
+            obterTodasQuestoes()
+        ).slice(
+            0,
+            quantidade
+        );
+
+
+    lista.innerHTML = "";
+
+    if (resultado) {
+        resultado.innerHTML = "";
+    }
+
+
+    if (status) {
+        status.textContent =
+            `${questoes.length} questão(ões) gerada(s).`;
+    }
+
+
+    questoes.forEach(
+        (questao, indice) => {
+
+            const elemento =
+                document.createElement(
+                    "article"
+                );
+
+            elemento.className =
+                "questao";
+
+            elemento.style.marginBottom =
+                "15px";
+
+
+            elemento.innerHTML = `
+                <h3>
+                    📝 Questão ${indice + 1}
+                </h3>
+
+                <p>
+                    ${escaparHTML(
+                        questao.pergunta
+                    )}
+                </p>
+
+                <button
+                    type="button"
+                    class="btn-resposta"
+                >
+                    Mostrar resposta
+                </button>
+
+                <div class="resposta" hidden>
+                    <strong>Resposta:</strong>
+
+                    <p>
+                        ${escaparHTML(
+                            questao.resposta
+                        )}
+                    </p>
+                </div>
+            `;
+
+
+            const botaoResposta =
+                elemento.querySelector(
+                    ".btn-resposta"
+                );
+
+            const resposta =
+                elemento.querySelector(
+                    ".resposta"
+                );
+
+
+            botaoResposta.addEventListener(
+                "click",
+                () => {
+
+                    const aberta =
+                        !resposta.hidden;
+
+                    resposta.hidden =
+                        aberta;
+
+                    botaoResposta.textContent =
+                        aberta
+                            ? "Mostrar resposta"
+                            : "Ocultar resposta";
+                }
+            );
+
+
+            lista.appendChild(elemento);
+        }
+    );
+}
+
+
+/* =========================================================
+   GERADOR POR TÓPICO
+========================================================= */
+
+function iniciarGeradorPorTopico() {
+
+    const botao =
+        document.getElementById(
+            "btnGerarAtividadeTopico"
+        );
+
+    if (!botao) {
+        return;
+    }
+
+    botao.addEventListener(
+        "click",
+        gerarAtividade
+    );
+}
+
 
 function gerarAtividade() {
 
@@ -1332,12 +1019,10 @@ function gerarAtividade() {
             "topico"
         );
 
-
     const area =
         document.getElementById(
             "atividade"
         );
-
 
     const resultado =
         document.getElementById(
@@ -1354,37 +1039,28 @@ function gerarAtividade() {
         select.value;
 
 
-    let questoes = [];
+    let questoes;
 
 
-    if (
-        topico === "todos"
-    ) {
+    if (topico === "todos") {
 
-        Object.values(
-            bancoQuestoes
-        ).forEach(lista => {
-
-            questoes =
-                questoes.concat(lista);
-
-        });
+        questoes =
+            obterTodasQuestoes();
 
     } else {
 
         questoes =
             bancoQuestoes[topico] || [];
-
     }
 
 
-    if (
-        questoes.length === 0
-    ) {
+    if (questoes.length === 0) {
 
         area.innerHTML = `
             <div class="atividade-inicial">
-                <h3>Nenhuma questão encontrada.</h3>
+                <h3>
+                    Nenhuma questão encontrada.
+                </h3>
             </div>
         `;
 
@@ -1402,14 +1078,16 @@ function gerarAtividade() {
 
 
     area.innerHTML = `
-        <div class="questao">
-            
+        <article class="questao">
+
             <h3>
                 📝 Questão
             </h3>
 
             <p>
-                ${questao.pergunta}
+                ${escaparHTML(
+                    questao.pergunta
+                )}
             </p>
 
             <button
@@ -1421,30 +1099,24 @@ function gerarAtividade() {
 
             <div
                 id="respostaQuestao"
-                style="
-                    display:none;
-                    margin-top:20px;
-                    padding:20px;
-                    background:#fff3e6;
-                    border-left:4px solid #ff6b00;
-                    border-radius:10px;
-                "
+                class="resposta"
+                hidden
             >
                 <strong>Resposta:</strong>
 
                 <p>
-                    ${questao.resposta}
+                    ${escaparHTML(
+                        questao.resposta
+                    )}
                 </p>
             </div>
 
-        </div>
+        </article>
     `;
 
 
     if (resultado) {
-
         resultado.innerHTML = "";
-
     }
 
 
@@ -1452,7 +1124,6 @@ function gerarAtividade() {
         document.getElementById(
             "btnMostrarResposta"
         );
-
 
     const resposta =
         document.getElementById(
@@ -1469,22 +1140,19 @@ function gerarAtividade() {
             "click",
             () => {
 
-                resposta.style.display =
-                    resposta.style.display === "none"
-                        ? "block"
-                        : "none";
+                const aberta =
+                    !resposta.hidden;
 
+                resposta.hidden =
+                    aberta;
 
                 btnResposta.textContent =
-                    resposta.style.display === "none"
+                    aberta
                         ? "Mostrar resposta"
                         : "Ocultar resposta";
-
             }
         );
-
     }
-
 }
 
 
@@ -1496,7 +1164,7 @@ function iniciarMenuAtivo() {
 
     const links =
         document.querySelectorAll(
-            "nav a"
+            ".menu-principal a"
         );
 
 
@@ -1507,12 +1175,10 @@ function iniciarMenuAtivo() {
             .toLowerCase();
 
 
-    links.forEach(link => {
+    links.forEach((link) => {
 
         const href =
-            link
-                .getAttribute("href");
-
+            link.getAttribute("href");
 
         if (!href) {
             return;
@@ -1527,15 +1193,16 @@ function iniciarMenuAtivo() {
 
 
         if (
-            paginaLink === paginaAtual
+            paginaLink === paginaAtual ||
+            (
+                paginaAtual === "" &&
+                paginaLink === "index.html"
+            )
         ) {
 
             link.classList.add(
                 "active"
             );
-
         }
-
     });
-
 }
