@@ -6,15 +6,31 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
+html,
 body {
+    width: 100%;
+    max-width: 100%;
     min-width: 320px;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: #1e293b;
+    background:
+        linear-gradient(
+            180deg,
+            #fffaf5 0%,
+            #f5f7fa 45%,
+            #eef2f7 100%
+        );
+    line-height: 1.7;
 }
 
 
@@ -23,7 +39,6 @@ body {
 ========================================================= */
 
 :root {
-
     --laranja: #ff6b00;
     --laranja-claro: #ff9500;
     --laranja-forte: #ff4500;
@@ -32,22 +47,16 @@ body {
     --laranja-fundo: #ffe0c2;
     --laranja-borda: #ffb366;
 
-    --amarelo: #ffd60a;
-    --amarelo-forte: #ffb800;
-
-    --fundo: #f5f7fa;
     --branco: #ffffff;
-    --fundo-card: #f8fafc;
 
     --texto: #1e293b;
     --texto-secundario: #475569;
     --cinza: #64748b;
-    --cinza-claro: #94a3b8;
+
+    --fundo-card: #f8fafc;
+    --borda: #e2e8f0;
 
     --codigo-fundo: #172033;
-    --codigo-texto: #f8fafc;
-
-    --borda: #e2e8f0;
 
     --sombra-pequena:
         0 3px 10px rgba(15, 23, 42, 0.08);
@@ -64,62 +73,33 @@ body {
     --sombra-laranja-forte:
         0 10px 25px rgba(255, 107, 0, 0.35);
 
-    --botao-altura: 44px;
-    --botao-altura-mobile: 42px;
+    --altura-botao: 44px;
+    --altura-mobile: 42px;
 
-    --botao-largura-minima: 120px;
+    --radius: 8px;
 
-    --botao-padding-vertical: 9px;
-    --botao-padding-horizontal: 18px;
-
-    --botao-radius: 8px;
-
-    --botao-fonte: 14px;
-    --botao-peso: 600;
-
-    --botao-laranja:
+    --botao:
         linear-gradient(
             135deg,
             #ff5a00,
             #ff7a00
         );
 
-    --botao-laranja-hover:
+    --botao-hover:
         linear-gradient(
             135deg,
             #ff4500,
             #ff6500
         );
-
-    --botao-sombra:
-        0 4px 10px rgba(255, 107, 0, 0.20);
-
-    --botao-sombra-hover:
-        0 7px 16px rgba(255, 107, 0, 0.32);
 }
 
 
 /* =========================================================
-   BODY
+   LINKS
 ========================================================= */
 
-body {
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    background:
-        linear-gradient(
-            180deg,
-            #fffaf5 0%,
-            #f5f7fa 45%,
-            #eef2f7 100%
-        );
-
-    color: var(--texto);
-
-    line-height: 1.8;
+a {
+    color: inherit;
 }
 
 
@@ -127,18 +107,15 @@ body {
    HEADER
 ========================================================= */
 
-header {
-
+.header {
     width: 100%;
+    min-height: 90px;
 
     display: flex;
-
+    align-items: center;
     justify-content: space-between;
 
-    align-items: center;
-
     gap: 20px;
-
     padding: 12px 40px;
 
     background:
@@ -150,8 +127,7 @@ header {
         );
 
     position: relative;
-
-    z-index: 900;
+    z-index: 10;
 
     box-shadow:
         0 6px 20px
@@ -163,21 +139,16 @@ header {
    LOGOS
 ========================================================= */
 
-.logo-esquerda,
-.logo-direita {
-
+.logo-link {
     display: flex;
-
     align-items: center;
 
-    flex-shrink: 0;
+    flex: 0 0 auto;
 
     text-decoration: none;
 }
 
-
 .logo-img {
-
     width: 65px;
     height: 65px;
 
@@ -188,7 +159,6 @@ header {
     background: var(--branco);
 
     border-radius: 50%;
-
     padding: 4px;
 
     transition:
@@ -196,16 +166,12 @@ header {
         box-shadow 0.3s ease;
 }
 
-
 .logo-img:hover {
-
-    transform:
-        scale(1.08)
-        rotate(3deg);
+    transform: scale(1.06);
 
     box-shadow:
         0 8px 20px
-        rgba(0, 0, 0, 0.20);
+        rgba(0, 0, 0, 0.2);
 }
 
 
@@ -214,18 +180,18 @@ header {
 ========================================================= */
 
 .titulo-link {
-
     flex: 1;
+    min-width: 0;
 
     text-decoration: none;
 }
 
+.titulo-link h1 {
+    margin: 0;
 
-.titulo-barra {
+    color: #ffffff;
 
-    color: var(--branco);
-
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 3vw, 2rem);
 
     font-weight: 700;
 
@@ -238,25 +204,14 @@ header {
     text-shadow:
         0 2px 5px
         rgba(0, 0, 0, 0.15);
-
-    transition:
-        color 0.3s ease;
-}
-
-
-.titulo-barra:hover {
-
-    color: #fff7d6;
 }
 
 
 /* =========================================================
-   MENU PRINCIPAL
-   BOTÕES SEMPRE LADO A LADO
+   MENU
 ========================================================= */
 
-nav {
-
+.menu-principal {
     width: 100%;
 
     background: var(--branco);
@@ -269,271 +224,100 @@ nav {
         var(--sombra-pequena);
 
     position: sticky;
-
     top: 0;
 
-    z-index: 1000;
-
-    /*
-       Permite que a barra seja rolada horizontalmente
-       quando não houver espaço suficiente.
-    */
-
-    overflow-x: auto;
-
-    overflow-y: hidden;
-
-    scrollbar-width: thin;
-
-    scrollbar-color:
-        var(--laranja)
-        #fff3e6;
+    z-index: 100;
 }
 
 
-/* =========================================================
-   LISTA DO MENU
-========================================================= */
+/*
+   O menu ocupa apenas a largura disponível.
+   Não cria overflow no body.
+*/
 
-nav ul {
+.menu-wrapper {
+    width: 100%;
+    max-width: 1500px;
 
-    width: max-content;
-
-    min-width: 100%;
+    margin: 0 auto;
 
     min-height: 68px;
 
-    margin: 0;
-
-    padding: 10px 25px;
+    padding: 10px 20px;
 
     display: flex;
 
-    flex-direction: row;
-
-    flex-wrap: nowrap;
-
     justify-content: center;
-
     align-items: center;
 
     gap: 10px;
 
-    list-style: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+
+    -ms-overflow-style: none;
 }
 
-
-nav li {
-
-    flex: 0 0 auto;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    white-space: nowrap;
+.menu-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 
 /* =========================================================
-   LINKS DO MENU
+   BOTÕES DO MENU
 ========================================================= */
 
-nav a {
+.btn-menu {
+    flex: 0 0 auto;
 
-    position: relative;
+    min-height: var(--altura-botao);
 
     display: inline-flex;
-
+    align-items: center;
     justify-content: center;
 
-    align-items: center;
+    padding: 9px 18px;
 
-    width: max-content;
+    color: #ffffff;
 
-    min-width: var(--botao-largura-minima);
+    background: var(--botao);
 
-    min-height: var(--botao-altura);
+    border: 1px solid var(--laranja);
 
-    height: var(--botao-altura);
-
-    padding:
-        var(--botao-padding-vertical)
-        var(--botao-padding-horizontal);
-
-    color: var(--texto);
-
-    background: transparent;
-
-    border:
-        1px solid
-        transparent;
-
-    border-radius:
-        var(--botao-radius);
+    border-radius: var(--radius);
 
     text-decoration: none;
 
     text-align: center;
 
-    font-family:
-        "Poppins",
-        sans-serif;
+    font-size: 14px;
+    font-weight: 600;
 
-    font-size:
-        var(--botao-fonte);
-
-    font-weight:
-        var(--botao-peso);
-
-    line-height: 1;
-
-    letter-spacing: 0.2px;
-
-    /*
-       FUNDAMENTAL:
-       nunca permite quebra do texto.
-    */
+    line-height: 1.2;
 
     white-space: nowrap;
 
-    flex-shrink: 0;
+    box-shadow:
+        0 4px 10px
+        rgba(255, 107, 0, 0.2);
 
     transition:
-        color 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease,
         transform 0.25s ease,
+        background 0.25s ease,
         box-shadow 0.25s ease;
 }
 
-
-/* =========================================================
-   HOVER
-========================================================= */
-
-nav a:hover {
-
-    color: var(--laranja);
-
-    background: var(--laranja-suave);
-
-    border-color: var(--laranja-borda);
+.btn-menu:hover,
+.btn-menu.active {
+    background: var(--botao-hover);
 
     transform: translateY(-2px);
 
     box-shadow:
-        0 4px 10px
-        rgba(255, 107, 0, 0.10);
-}
-
-
-/* =========================================================
-   LINHA INFERIOR
-========================================================= */
-
-nav a::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-
-    bottom: 4px;
-
-    width: 0;
-
-    height: 3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--laranja-forte),
-            var(--laranja-claro)
-        );
-
-    border-radius: 10px;
-
-    transform:
-        translateX(-50%);
-
-    transition:
-        width 0.25s ease;
-}
-
-
-nav a:hover::after,
-nav a.active::after {
-
-    width: 40%;
-}
-
-
-/* =========================================================
-   LINK ATIVO
-========================================================= */
-
-nav a.active {
-
-    color: var(--laranja);
-
-    background: var(--laranja-suave);
-
-    border-color: var(--laranja-borda);
-}
-
-
-/* =========================================================
-   BOTÕES DA BARRA
-========================================================= */
-
-nav a.btn-menu {
-
-    min-width: var(--botao-largura-minima);
-
-    width: max-content;
-
-    height: var(--botao-altura);
-
-    color: #ffffff;
-
-    background: var(--botao-laranja);
-
-    border:
-        1px solid
-        var(--laranja);
-
-    font-weight: 700;
-
-    white-space: nowrap;
-
-    flex-shrink: 0;
-
-    box-shadow: var(--botao-sombra);
-}
-
-
-nav a.btn-menu:hover {
-
-    color: #ffffff;
-
-    background:
-        var(--botao-laranja-hover);
-
-    border-color:
-        var(--laranja-forte);
-
-    box-shadow:
-        var(--botao-sombra-hover);
-}
-
-
-nav a.btn-menu::after {
-
-    display: none;
+        0 7px 16px
+        rgba(255, 107, 0, 0.32);
 }
 
 
@@ -542,75 +326,47 @@ nav a.btn-menu::after {
 ========================================================= */
 
 main {
-
     width: 100%;
-
     max-width: 1200px;
 
     margin: 25px auto;
 
-    padding: 10px 20px;
+    padding: 0 20px;
 }
-
-
-main h1 {
-
-    text-align: center;
-
-    margin-bottom: 25px;
-}
-
 
 h2,
 h3,
-h4,
-h5,
-h6 {
-
+h4 {
     color: var(--laranja);
 }
 
-
-/* =========================================================
-   TEXTO
-========================================================= */
-
 p,
 li {
-
     color: var(--texto);
 }
 
-
 p {
-
     text-align: justify;
-
     text-indent: 2em;
 }
 
-
 .conteudo p,
 .aula-conteudo p {
-
     margin-bottom: 15px;
 }
 
 
 /* =========================================================
-   ACCORDION
+   ACCORDION PRINCIPAL
 ========================================================= */
 
 .accordion {
-
     width: 100%;
-
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
-
-.accordion > summary {
-
+.accordion > summary,
+.aula > summary {
     position: relative;
 
     list-style: none;
@@ -619,18 +375,34 @@ p {
 
     width: 100%;
 
-    min-height: var(--botao-altura);
+    min-height: var(--altura-botao);
 
     display: flex;
-
     align-items: center;
 
-    padding:
-        var(--botao-padding-vertical)
-        55px
-        var(--botao-padding-vertical)
-        var(--botao-padding-horizontal);
+    padding: 9px 55px 9px 18px;
 
+    line-height: 1.4;
+
+    border-radius: var(--radius);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.accordion > summary::-webkit-details-marker,
+.aula > summary::-webkit-details-marker {
+    display: none;
+}
+
+
+/* =========================================================
+   ACCORDION PRINCIPAL - SUMMARY
+========================================================= */
+
+.accordion > summary {
     color: #ffffff;
 
     background:
@@ -641,35 +413,15 @@ p {
             #ff8500
         );
 
-    border:
-        1px solid
-        var(--laranja);
-
-    border-radius:
-        var(--botao-radius);
+    border: 1px solid var(--laranja);
 
     font-size: 1rem;
-
     font-weight: 700;
 
-    line-height: 1.4;
-
-    white-space: normal;
-
-    overflow-wrap: break-word;
-
-    box-shadow:
-        var(--sombra-laranja);
-
-    transition:
-        background 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.25s ease;
+    box-shadow: var(--sombra-laranja);
 }
 
-
 .accordion > summary:hover {
-
     background:
         linear-gradient(
             90deg,
@@ -685,32 +437,67 @@ p {
 }
 
 
-.accordion > summary::-webkit-details-marker {
+/* =========================================================
+   AULAS
+========================================================= */
 
-    display: none;
+.aula {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.aula > summary {
+    color: var(--texto);
+
+    background: var(--branco);
+
+    border: 1px solid var(--borda);
+
+    border-left:
+        4px solid
+        var(--laranja);
+
+    font-weight: 600;
+
+    box-shadow: var(--sombra-pequena);
+}
+
+.aula > summary:hover {
+    color: var(--laranja);
+
+    background: var(--laranja-suave);
+
+    border-color: var(--laranja-borda);
+
+    transform: translateX(2px);
+
+    box-shadow:
+        0 5px 14px
+        rgba(255, 107, 0, 0.12);
 }
 
 
-.accordion > summary::after {
+/* =========================================================
+   ÍCONE DOS ACCORDIONS
+========================================================= */
 
+.accordion > summary::after,
+.aula > summary::after {
     content: "+";
 
     position: absolute;
 
     right: 20px;
-
     top: 50%;
 
     transform: translateY(-50%);
 
-    font-size: 24px;
-
+    font-size: 23px;
     line-height: 1;
 }
 
-
-.accordion[open] > summary::after {
-
+.accordion[open] > summary::after,
+.aula[open] > summary::after {
     content: "−";
 }
 
@@ -720,149 +507,24 @@ p {
 ========================================================= */
 
 .conteudo {
+    width: 100%;
 
     padding: 20px 10px;
 
     animation:
-        abrir 0.3s ease;
+        abrir 0.25s ease;
 }
 
-
 @keyframes abrir {
-
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(-8px);
+        transform: translateY(-6px);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
-}
-
-
-/* =========================================================
-   AULAS
-========================================================= */
-
-.aula {
-
-    width: 100%;
-
-    margin-bottom: 12px;
-}
-
-
-.aula > summary {
-
-    position: relative;
-
-    list-style: none;
-
-    cursor: pointer;
-
-    width: 100%;
-
-    min-height: var(--botao-altura);
-
-    display: flex;
-
-    align-items: center;
-
-    padding:
-        var(--botao-padding-vertical)
-        55px
-        var(--botao-padding-vertical)
-        var(--botao-padding-horizontal);
-
-    color: var(--texto);
-
-    background: var(--branco);
-
-    border:
-        1px solid
-        var(--borda);
-
-    border-left:
-        4px solid
-        var(--laranja);
-
-    border-radius:
-        var(--botao-radius);
-
-    font-weight: 600;
-
-    line-height: 1.4;
-
-    white-space: normal;
-
-    overflow-wrap: break-word;
-
-    box-shadow:
-        var(--sombra-pequena);
-
-    transition:
-        background 0.25s ease,
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        color 0.25s ease;
-}
-
-
-.aula > summary:hover {
-
-    color: var(--laranja);
-
-    background:
-        var(--laranja-suave);
-
-    border-color:
-        var(--laranja-borda);
-
-    transform:
-        translateX(3px);
-
-    box-shadow:
-        0 5px 14px
-        rgba(255, 107, 0, 0.12);
-}
-
-
-.aula > summary::-webkit-details-marker {
-
-    display: none;
-}
-
-
-.aula > summary::after {
-
-    content: "+";
-
-    position: absolute;
-
-    right: 20px;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    font-size: 22px;
-
-    line-height: 1;
-}
-
-
-.aula[open] > summary::after {
-
-    content: "−";
 }
 
 
@@ -871,6 +533,7 @@ p {
 ========================================================= */
 
 .aula-conteudo {
+    width: 100%;
 
     padding: 25px 20px;
 
@@ -886,27 +549,19 @@ p {
         0 0 10px 10px;
 }
 
-
 .aula-conteudo h2 {
+    margin: 10px 0 30px;
 
     text-align: center;
 
-    margin:
-        10px 0 30px;
-
-    color:
-        var(--laranja);
+    color: var(--laranja);
 }
 
-
 .aula-conteudo h3 {
-
     margin-top: 30px;
-
     margin-bottom: 10px;
 
-    color:
-        var(--laranja);
+    color: var(--laranja);
 
     border-left:
         4px solid
@@ -921,14 +576,11 @@ p {
 ========================================================= */
 
 .aula-conteudo ul {
-
     margin:
         10px 0 20px 30px;
 }
 
-
 .aula-conteudo li {
-
     margin-bottom: 7px;
 }
 
@@ -938,18 +590,15 @@ p {
 ========================================================= */
 
 pre {
-
     width: 100%;
 
-    background:
-        var(--codigo-fundo);
-
-    color:
-        var(--codigo-texto);
+    margin: 20px 0;
 
     padding: 18px;
 
-    margin: 20px 0;
+    color: #f8fafc;
+
+    background: var(--codigo-fundo);
 
     border:
         1px solid
@@ -963,13 +612,13 @@ pre {
 
     overflow-x: auto;
 
-    box-shadow:
-        var(--sombra-media);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+
+    box-shadow: var(--sombra-media);
 }
 
-
 code {
-
     font-family:
         "Courier New",
         monospace;
@@ -981,7 +630,6 @@ code {
 ========================================================= */
 
 .mapa-mental-section {
-
     width: 100%;
 
     margin: 50px auto;
@@ -1001,33 +649,26 @@ code {
 
     border-radius: 18px;
 
-    box-shadow:
-        var(--sombra-media);
+    box-shadow: var(--sombra-media);
 
     overflow: hidden;
 }
 
-
 .titulo-secao {
+    margin-bottom: 10px;
+
+    color: var(--laranja);
 
     text-align: center;
-
-    color:
-        var(--laranja);
-
-    margin-bottom: 10px;
 }
 
-
 .descricao-mapa {
-
     max-width: 800px;
 
     margin:
         0 auto 25px;
 
-    color:
-        var(--cinza);
+    color: var(--cinza);
 
     text-align: center;
 
@@ -1035,17 +676,18 @@ code {
 }
 
 
-#mapa-mental {
+/*
+   O mapa não aumenta a largura da página.
+*/
 
+#mapa-mental {
     position: relative;
 
     width: 100%;
 
-    min-height: 650px;
+    height: 650px;
 
-    overflow-x: auto;
-
-    overflow-y: hidden;
+    overflow: hidden;
 
     border-radius: 15px;
 
@@ -1058,59 +700,43 @@ code {
         );
 }
 
-
-/* =========================================================
-   SVG DO MAPA
-========================================================= */
-
 #mapa-mental svg {
-
     display: block;
 
-    width: 1200px;
+    width: 100%;
+    height: 100%;
 
-    min-width: 1200px;
-
-    height: 650px;
+    max-width: 1200px;
 
     margin: 0 auto;
 }
 
 
 /* =========================================================
-   LINHAS
+   MAPA - LINHAS
 ========================================================= */
 
 .linha-mapa {
-
     fill: none;
 
-    stroke:
-        var(--laranja);
+    stroke: var(--laranja);
 
     stroke-width: 4;
 
     stroke-linecap: round;
 
     opacity: 0.65;
-
-    transition:
-        stroke-width 0.3s ease,
-        opacity 0.3s ease;
 }
 
 
 /* =========================================================
-   NÓ CENTRAL
+   MAPA - NÓ CENTRAL
 ========================================================= */
 
 .no-central {
+    fill: var(--laranja-forte);
 
-    fill:
-        var(--laranja-forte);
-
-    stroke:
-        #ffffff;
+    stroke: #ffffff;
 
     stroke-width: 5;
 
@@ -1123,16 +749,13 @@ code {
 
 
 /* =========================================================
-   NÓ PRINCIPAL
+   MAPA - NÓS
 ========================================================= */
 
 .no-principal {
+    fill: var(--laranja);
 
-    fill:
-        var(--laranja);
-
-    stroke:
-        #ffffff;
+    stroke: #ffffff;
 
     stroke-width: 3;
 
@@ -1141,27 +764,15 @@ code {
             0 5px 8px
             rgba(255, 107, 0, 0.25)
         );
+
+    cursor: pointer;
 }
 
-
-/* =========================================================
-   NÓ SECUNDÁRIO
-========================================================= */
-
-.no-secundario {
-
-    fill:
-        #ffffff;
-
-    stroke:
-        var(--laranja);
-
-    stroke-width: 3;
-
+.no-principal:hover {
     filter:
         drop-shadow(
-            0 3px 6px
-            rgba(255, 107, 0, 0.18)
+            0 8px 15px
+            rgba(255, 69, 0, 0.45)
         );
 }
 
@@ -1171,12 +782,9 @@ code {
 ========================================================= */
 
 .texto-central {
-
     fill: #ffffff;
 
-    font-family:
-        "Poppins",
-        sans-serif;
+    font-family: "Poppins", sans-serif;
 
     font-size: 17px;
 
@@ -1187,14 +795,10 @@ code {
     dominant-baseline: middle;
 }
 
-
 .texto-principal {
-
     fill: #ffffff;
 
-    font-family:
-        "Poppins",
-        sans-serif;
+    font-family: "Poppins", sans-serif;
 
     font-size: 12px;
 
@@ -1206,100 +810,67 @@ code {
 }
 
 
-.texto-secundario {
-
-    fill: #222222;
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size: 10px;
-
-    font-weight: 500;
-
-    text-anchor: middle;
-
-    dominant-baseline: middle;
-}
-
-
 /* =========================================================
-   ANIMAÇÃO DOS NÓS
-========================================================= */
-
-.no-principal,
-.no-secundario {
-
-    cursor: pointer;
-
-    transition:
-        transform 0.3s ease,
-        filter 0.3s ease;
-}
-
-
-.no-principal:hover {
-
-    filter:
-        drop-shadow(
-            0 8px 15px
-            rgba(255, 69, 0, 0.45)
-        );
-}
-
-
-.no-secundario:hover {
-
-    filter:
-        drop-shadow(
-            0 7px 13px
-            rgba(255, 107, 0, 0.40)
-        );
-}
-
-
-/* =========================================================
-   CARREGANDO
+   CARREGAMENTO DO MAPA
 ========================================================= */
 
 .carregando-mapa {
-
     width: 100%;
 
-    text-align: center;
-
     padding: 100px 20px;
+
+    text-align: center;
 
     color: var(--cinza);
 
     text-indent: 0;
 }
 
+.spinner-mapa {
+    width: 40px;
+    height: 40px;
+
+    margin: 0 auto 15px;
+
+    border:
+        4px solid
+        #ffe0c2;
+
+    border-top-color:
+        var(--laranja);
+
+    border-radius: 50%;
+
+    animation:
+        girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 /* =========================================================
-   VÍDEOS
+   VÍDEO
 ========================================================= */
 
 .video-container {
+    width: 100%;
 
     display: flex;
 
     justify-content: center;
-
     align-items: center;
-
-    width: 100%;
 
     margin: 30px auto;
 }
 
-
 .video-container video {
-
     width: 400px;
 
-    max-width: 90%;
+    max-width: 100%;
 
     height: auto;
 
@@ -1307,21 +878,7 @@ code {
 
     border-radius: 12px;
 
-    box-shadow:
-        var(--sombra-media);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-
-.video-container video:hover {
-
-    transform: scale(1.02);
-
-    box-shadow:
-        var(--sombra-laranja);
+    box-shadow: var(--sombra-media);
 }
 
 
@@ -1330,32 +887,29 @@ code {
 ========================================================= */
 
 .cards {
+    width: 100%;
 
-    display: flex;
+    display: grid;
 
-    justify-content: center;
-
-    align-items: flex-start;
-
-    flex-wrap: wrap;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px, 1fr)
+        );
 
     gap: 25px;
-
-    width: 100%;
 
     margin-top: 30px;
 }
 
-
 .card {
-
     position: relative;
-
-    width: 280px;
 
     min-height: 180px;
 
     padding: 22px;
+
+    color: #f8fafc;
 
     background:
         linear-gradient(
@@ -1366,7 +920,7 @@ code {
 
     border:
         1px solid
-        rgba(255, 255, 255, 0.10);
+        rgba(255, 255, 255, 0.1);
 
     border-left:
         5px solid
@@ -1374,129 +928,81 @@ code {
 
     border-radius: 14px;
 
-    color: #f8fafc;
-
     cursor: pointer;
 
     overflow: hidden;
 
-    box-shadow:
-        var(--sombra-media);
+    box-shadow: var(--sombra-media);
 
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease,
-        border-color 0.3s ease;
+        box-shadow 0.3s ease;
 }
 
-
-.card:hover {
-
-    transform:
-        translateY(-7px);
-
-    border-left-color:
-        var(--laranja-claro);
+.card:hover,
+.card.ativo {
+    transform: translateY(-6px);
 
     box-shadow:
         var(--sombra-laranja-forte);
+
+    border-left-color:
+        var(--laranja-claro);
 }
 
-
 .card h3 {
+    margin-bottom: 12px;
 
     color: #ffffff;
 
-    font-size: 1.15rem;
-
-    margin-bottom: 12px;
+    font-size: 1.1rem;
 
     text-align: center;
 }
 
-
-.card .info-extra {
+.info-extra {
+    max-height: 0;
 
     opacity: 0;
-
-    max-height: 0;
 
     overflow: hidden;
 
     margin-top: 0;
-
     padding-top: 0;
 
     border-top:
         1px solid
         rgba(255, 255, 255, 0.15);
 
-    color:
-        #cbd5e1;
-
-    font-size: 0.88rem;
-
-    line-height: 1.6;
-
     transition:
-        max-height 0.45s ease,
-        opacity 0.35s ease,
-        margin-top 0.35s ease,
-        padding-top 0.35s ease;
+        max-height 0.4s ease,
+        opacity 0.3s ease,
+        margin-top 0.3s ease,
+        padding-top 0.3s ease;
 }
-
-
-.card .info-extra p {
-
-    color:
-        #cbd5e1;
-
-    text-align: left;
-
-    text-indent: 0;
-
-    margin-bottom: 10px;
-}
-
-
-.card .info-extra strong {
-
-    color:
-        #ffbd2e;
-}
-
-
-.card.ativo {
-
-    transform:
-        translateY(-7px);
-
-    background:
-        linear-gradient(
-            145deg,
-            #475569,
-            #334155
-        );
-
-    border-left-color:
-        var(--laranja-claro);
-
-    box-shadow:
-        0 14px 35px
-        rgba(255, 107, 0, 0.30);
-}
-
 
 .card.ativo .info-extra {
+    max-height: 500px;
 
     opacity: 1;
-
-    max-height: 500px;
 
     margin-top: 18px;
 
     padding-top: 15px;
+}
+
+.info-extra p {
+    margin-bottom: 10px;
+
+    color: #cbd5e1;
+
+    text-align: left;
+
+    text-indent: 0;
+}
+
+.info-extra strong {
+    color: #ffbd2e;
 }
 
 
@@ -1504,9 +1010,7 @@ code {
    ATIVIDADES
 ========================================================= */
 
-#atividades,
 #atividades-gerador {
-
     width: 100%;
 
     margin: 30px auto;
@@ -1525,13 +1029,10 @@ code {
 
     border-radius: 15px;
 
-    box-shadow:
-        var(--sombra-media);
+    box-shadow: var(--sombra-media);
 }
 
-
 .descricao-atividade {
-
     color: var(--cinza);
 
     text-align: center;
@@ -1541,14 +1042,11 @@ code {
     margin-bottom: 25px;
 }
 
-
 .config-atividade,
 .seletor-atividade {
-
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     flex-wrap: wrap;
@@ -1560,97 +1058,55 @@ code {
 
 
 /* =========================================================
-   BOTÕES GERAIS
+   BOTÕES
 ========================================================= */
 
-button,
-.btn,
-.config-atividade button,
-.seletor-atividade button {
+button {
+    min-height: var(--altura-botao);
 
-    width: auto;
-
-    min-width:
-        var(--botao-largura-minima);
-
-    min-height:
-        var(--botao-altura);
-
-    height:
-        var(--botao-altura);
-
-    padding:
-        var(--botao-padding-vertical)
-        var(--botao-padding-horizontal);
+    padding: 9px 18px;
 
     display: inline-flex;
 
+    align-items: center;
     justify-content: center;
 
-    align-items: center;
+    color: #ffffff;
 
-    text-align: center;
-
-    white-space: nowrap;
+    background: var(--botao);
 
     border:
         1px solid
         var(--laranja);
 
-    border-radius:
-        var(--botao-radius);
+    border-radius: var(--radius);
 
-    background:
-        var(--botao-laranja);
+    font-family: "Poppins", sans-serif;
 
-    color: #ffffff;
+    font-size: 14px;
 
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size:
-        var(--botao-fonte);
-
-    font-weight:
-        var(--botao-peso);
-
-    line-height: 1;
+    font-weight: 600;
 
     cursor: pointer;
 
-    text-decoration: none;
-
     box-shadow:
-        var(--botao-sombra);
+        0 4px 10px
+        rgba(255, 107, 0, 0.2);
 
     transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease,
         transform 0.25s ease,
+        background 0.25s ease,
         box-shadow 0.25s ease;
 }
 
+button:hover {
+    background: var(--botao-hover);
 
-button:hover,
-.btn:hover,
-.config-atividade button:hover,
-.seletor-atividade button:hover {
-
-    color: #ffffff;
-
-    background:
-        var(--botao-laranja-hover);
-
-    border-color:
-        var(--laranja-forte);
-
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
     box-shadow:
-        var(--botao-sombra-hover);
+        0 7px 16px
+        rgba(255, 107, 0, 0.32);
 }
 
 
@@ -1658,60 +1114,41 @@ button:hover,
    SELECT
 ========================================================= */
 
-.config-atividade select,
-.seletor-atividade select {
-
-    width: auto;
-
-    min-width:
-        var(--botao-largura-minima);
-
-    min-height:
-        var(--botao-altura);
-
-    height:
-        var(--botao-altura);
+select {
+    min-height: var(--altura-botao);
 
     padding:
-        var(--botao-padding-vertical)
-        35px
-        var(--botao-padding-vertical)
-        12px;
+        9px 35px 9px 12px;
+
+    color: var(--texto);
+
+    background: var(--branco);
 
     border:
         1px solid
         var(--borda);
 
-    border-radius:
-        var(--botao-radius);
+    border-radius: var(--radius);
 
-    background:
-        var(--branco);
+    font-family: "Poppins", sans-serif;
 
-    color:
-        var(--texto);
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size:
-        var(--botao-fonte);
+    font-size: 14px;
 
     cursor: pointer;
 }
 
 
 /* =========================================================
-   RESULTADO
+   RESULTADOS
 ========================================================= */
 
 .resultado,
 .resultado-atividade {
-
     margin-top: 25px;
 
     padding: 20px;
+
+    background: #f8fafc;
 
     border:
         1px solid
@@ -1722,43 +1159,141 @@ button:hover,
         var(--laranja);
 
     border-radius: 12px;
+}
 
-    background: #f8fafc;
+.status-atividade {
+    margin-bottom: 15px;
+
+    color: var(--cinza);
+
+    text-align: center;
 }
 
 
 /* =========================================================
-   FOOTER
+   QUESTÃO
 ========================================================= */
 
-footer {
+.questao {
+    padding: 20px;
 
-    width: 100%;
+    background: #ffffff;
 
-    background:
-        var(--branco);
+    border:
+        1px solid
+        var(--borda);
+
+    border-radius: 12px;
+
+    box-shadow: var(--sombra-pequena);
+}
+
+.questao h3 {
+    margin-bottom: 15px;
+}
+
+.questao p {
+    text-indent: 0;
+}
+
+
+/* =========================================================
+   RESPOSTA
+========================================================= */
+
+.resposta {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: var(--laranja-suave);
+
+    border-left:
+        4px solid
+        var(--laranja);
+
+    border-radius: 10px;
+}
+
+.resposta p {
+    margin-top: 8px;
+
+    text-indent: 0;
+}
+
+
+/* =========================================================
+   ATIVIDADE INICIAL
+========================================================= */
+
+.atividade-inicial {
+    padding: 40px 20px;
+
+    text-align: center;
+}
+
+.atividade-inicial span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 2.5rem;
+}
+
+.atividade-inicial p {
+    text-indent: 0;
 
     text-align: center;
 
-    padding: 30px;
+    color: var(--cinza);
+}
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+
+footer {
+    width: 100%;
 
     margin-top: 50px;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background: var(--branco);
 
     border-top:
         3px solid
         var(--laranja);
 }
 
-
 footer p {
+    margin: 0;
+
+    color: var(--cinza);
 
     text-align: center;
 
     text-indent: 0;
+}
 
-    margin: 0;
 
-    color: var(--cinza);
+/* =========================================================
+   FOCO / ACESSIBILIDADE
+========================================================= */
+
+button:focus-visible,
+select:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+.card:focus-visible {
+    outline:
+        3px solid
+        rgba(255, 107, 0, 0.35);
+
+    outline-offset: 3px;
 }
 
 
@@ -1768,128 +1303,48 @@ footer p {
 
 @media (max-width: 768px) {
 
-    header {
+    .header {
+        min-height: auto;
 
-        flex-direction: column;
-
-        justify-content: center;
+        padding: 18px 20px;
 
         gap: 12px;
-
-        padding: 20px;
-
-        text-align: center;
     }
-
-
-    .titulo-link {
-
-        width: 100%;
-    }
-
-
-    .titulo-barra {
-
-        font-size: 1.4rem;
-    }
-
 
     .logo-img {
-
         width: 55px;
-
         height: 55px;
     }
 
-
-    /*
-       MENU CONTINUA LADO A LADO
-       E GANHA ROLAGEM HORIZONTAL.
-    */
-
-    nav ul {
-
-        width: max-content;
-
-        min-width: max-content;
-
+    .menu-wrapper {
         justify-content: flex-start;
 
         padding:
-            12px 15px;
-
-        gap: 8px;
+            10px 15px;
     }
-
-
-    nav a,
-    nav a.btn-menu {
-
-        min-width: max-content;
-
-        width: max-content;
-
-        min-height:
-            var(--botao-altura-mobile);
-
-        height:
-            var(--botao-altura-mobile);
-
-        padding:
-            8px 15px;
-
-        font-size: 13px;
-
-        white-space: nowrap;
-    }
-
 
     main {
-
-        width: 100%;
-
-        padding: 5px 15px;
+        padding:
+            0 15px;
     }
-
 
     .aula-conteudo {
-
-        padding: 20px 10px;
+        padding:
+            20px 15px;
     }
-
-
-    .mapa-mental-section {
-
-        padding: 15px 5px;
-    }
-
 
     #mapa-mental {
-
-        min-height: 550px;
+        height: 520px;
     }
 
-
-    #mapa-mental svg {
-
-        width: 1000px;
-
-        min-width: 1000px;
-
-        height: 550px;
+    .mapa-mental-section {
+        padding:
+            20px 10px;
     }
 
-
-    .cards {
-
-        gap: 18px;
-    }
-
-
-    #atividades,
     #atividades-gerador {
-
-        padding: 20px 15px;
+        padding:
+            20px 15px;
     }
 }
 
@@ -1900,217 +1355,132 @@ footer p {
 
 @media (max-width: 480px) {
 
-    header {
-
+    .header {
         padding: 15px;
     }
 
-
-    .titulo-barra {
-
-        font-size: 1.1rem;
-    }
-
-
     .logo-img {
-
         width: 45px;
-
         height: 45px;
     }
 
+    .titulo-link h1 {
+        font-size: 1rem;
 
-    /*
-       IMPORTANTE:
-       NÃO usamos flex-direction: column no menu.
-       Os botões continuam lado a lado.
-    */
+        letter-spacing: 0.5px;
+    }
 
-    nav ul {
-
-        width: max-content;
-
-        min-width: max-content;
-
-        padding: 10px;
-
+    .menu-wrapper {
         gap: 7px;
 
-        justify-content: flex-start;
+        padding:
+            9px 10px;
     }
 
-
-    nav li {
-
-        flex: 0 0 auto;
-
-        min-width: max-content;
-    }
-
-
-    nav a,
-    nav a.btn-menu {
-
-        width: max-content;
-
-        min-width: max-content;
-
-        max-width: none;
-
+    .btn-menu {
         min-height:
-            var(--botao-altura-mobile);
-
-        height:
-            var(--botao-altura-mobile);
+            var(--altura-mobile);
 
         padding:
             8px 12px;
 
         font-size: 12px;
-
-        line-height: 1;
-
-        white-space: nowrap;
-
-        flex-shrink: 0;
     }
 
+    main {
+        margin-top: 18px;
+
+        padding:
+            0 10px;
+    }
 
     .accordion > summary,
     .aula > summary {
-
         min-height:
-            var(--botao-altura-mobile);
-
-        font-size: 0.9rem;
-
-        line-height: 1.35;
+            var(--altura-mobile);
 
         padding:
-            8px 45px 8px 15px;
+            8px 45px 8px 14px;
+
+        font-size: 0.88rem;
     }
 
+    .aula-conteudo {
+        padding:
+            18px 12px;
+    }
 
     .aula-conteudo h2 {
-
-        font-size: 1.3rem;
+        font-size: 1.25rem;
     }
-
 
     .aula-conteudo h3 {
-
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 
-
-    pre {
-
-        font-size: 0.75rem;
-
-        padding: 14px;
+    p {
+        text-align: left;
+        text-indent: 1em;
     }
 
+    .aula-conteudo ul {
+        margin-left: 22px;
+    }
 
     #mapa-mental {
-
-        min-height: 500px;
+        height: 400px;
     }
-
-
-    #mapa-mental svg {
-
-        width: 900px;
-
-        min-width: 900px;
-
-        height: 500px;
-    }
-
 
     .cards {
+        grid-template-columns: 1fr;
 
-        flex-direction: column;
-
-        align-items: center;
+        gap: 18px;
     }
-
 
     .card {
-
-        width: 95%;
-
-        max-width: 340px;
+        width: 100%;
     }
-
 
     .video-container video {
-
-        width: 280px;
-
-        max-width: 100%;
+        width: 100%;
+        max-width: 320px;
     }
-
-
-    #atividades,
-    #atividades-gerador {
-
-        padding: 18px 12px;
-    }
-
 
     .config-atividade,
     .seletor-atividade {
-
         flex-direction: column;
 
         align-items: stretch;
     }
 
-
     .config-atividade select,
     .config-atividade button,
     .seletor-atividade select,
     .seletor-atividade button {
-
         width: 100%;
-
-        min-width: 0;
-
-        max-width: none;
     }
 
+    #atividades-gerador {
+        padding:
+            18px 12px;
+    }
 
     footer {
-
-        padding: 25px 15px;
+        padding:
+            25px 15px;
     }
 }
 
 
 /* =========================================================
-   ACESSIBILIDADE
+   REDUÇÃO DE MOVIMENTO
 ========================================================= */
-
-button:focus-visible,
-.btn:focus-visible,
-nav a:focus-visible,
-select:focus-visible,
-summary:focus-visible {
-
-    outline:
-        3px solid
-        rgba(255, 107, 0, 0.30);
-
-    outline-offset: 2px;
-}
-
 
 @media (prefers-reduced-motion: reduce) {
 
     *,
     *::before,
     *::after {
-
         scroll-behavior: auto !important;
 
         animation-duration:
