@@ -102,32 +102,334 @@
         ================================================== -->
         <details class="aula">
             <summary>
-                • Introdução a disciplina Algoritmos e Estrutura de Dados
+                • INTRODUÇÃO À PROGRAMAÇÃO
             </summary>
             <div class="aula-conteudo">
                 <h2>
                     Algoritmos e Estruturas de Dados:
                     fundamentos e aplicações na programação
                 </h2>
-                <p> Algoritmos e estruturas de dados são fundamentos essenciais da ciência da computação e da programação, pois permitem desenvolver sistemas eficientes, organizados, confiáveis e escaláveis.   </p>
-<p>Um algoritmo é uma sequência finita e lógica de instruções usada para resolver um problema ou executar uma tarefa. Já uma estrutura de dados define como as informações são armazenadas, organizadas, acessadas e manipuladas.   </p>
-<p><b>Principais estruturas de dados </b>   </p>
-<p><b>Arrays:</b> armazenam elementos de forma sequencial e permitem acesso por índices.   </p>
-<p><b>Listas encadeadas:</b> formadas por nós que armazenam dados e referências para outros nós, facilitando inserções e remoções.   </p>
-<p><b>Filas: </b>seguem o princípio FIFO — primeiro a entrar, primeiro a sair.   </p>
-<p><b>Pilhas: </b>seguem o princípio LIFO — último a entrar, primeiro a sair.   </p>
-<p><b>Árvores:</b>organizam dados hierarquicamente, com uma raiz e ramificações.   </p>
-<p><b>Grafos:</b> representam relações entre elementos por meio de vértices e arestas, sendo úteis em redes, mapas e conexões sociais.   </p>
-<p><b>Tabelas hash:</b> associam chaves a valores e permitem buscas eficientes.   </p>
-<p> <b>Algoritmos e complexidade </b></p>
-<p>Algoritmos podem ser representados por textos, fluxogramas ou pseudocódigo e incluem técnicas de busca, ordenação, recursão, criptografia, processamento de dados e inteligência artificial.   </p>
-<p>A combinação entre algoritmos e estruturas de dados é conhecida como DSA (Data Structures and Algorithms). A escolha adequada de ambos influencia diretamente o desempenho de uma solução.   </p>
-<p>A complexidade computacional avalia os recursos necessários para executar um algoritmo, principalmente tempo e espaço. A notação Big O descreve como o custo de um algoritmo cresce conforme aumenta o tamanho da entrada. Por exemplo, uma busca linear pode ter complexidade O(n).   </p>
-<p>A programação dinâmica é uma técnica que divide problemas em subproblemas menores e reutiliza resultados já calculados, evitando processamento repetido.   </p>
-<p><b>Aplicações e importância </b>  </p>
-<p>Estruturas de dados e algoritmos são utilizados em bancos de dados, sistemas operacionais, sistemas de arquivos, redes sociais, mecanismos de busca, sistemas de rotas e inteligência artificial.   </p>
-<p>O estudo desses conceitos normalmente começa pelos fundamentos de programação e avança para arrays, listas, pilhas, filas, recursão, busca, ordenação, árvores, grafos, tabelas hash e análise de complexidade.   </p>
-<p>Em síntese: algoritmos determinam como uma tarefa será executada, enquanto estruturas de dados determinam como os dados serão organizados. Dominar ambos é fundamental para criar softwares eficientes, robustos e escaláveis.   </p>
+                <p> 1. Organização Básica de um Computador
+Para compreender os fundamentos da programação de computadores, é importante conhecer, ainda que de forma introdutória, como um computador é organizado e como seus principais componentes trabalham em conjunto.
+
+De maneira simplificada, podemos entender um computador como um sistema formado por quatro elementos fundamentais:
+
+Unidade de entrada;
+Unidade de saída;
+Unidade Central de Processamento (CPU);
+Memória.
+Esses componentes estão interligados e trabalham de forma coordenada para receber dados, processá-los, armazená-los e apresentar os resultados ao usuário.
+
+1.1 Unidade de Entrada
+A unidade de entrada é responsável por permitir que o usuário forneça dados e informações ao computador.
+
+Quando digitamos um texto, clicamos em um botão ou utilizamos algum dispositivo para enviar informações ao computador, estamos utilizando um meio de entrada.
+
+Alguns exemplos comuns são:
+
+Teclado — utilizado para inserir letras, números e comandos;
+Mouse — utilizado para movimentar o cursor, selecionar opções e executar ações;
+Microfone — utilizado para capturar sons e voz;
+Câmera — utilizada para capturar imagens e vídeos;
+Scanner — utilizado para digitalizar documentos e imagens.
+Portanto, podemos resumir a função da unidade de entrada como:
+
+Entrada → informações fornecidas ao computador.
+
+1.2 Unidade de Saída
+A unidade de saída é responsável por apresentar ao usuário os resultados obtidos pelo computador após o processamento dos dados.
+
+Por exemplo, quando digitamos uma mensagem e ela aparece na tela, o monitor está funcionando como um dispositivo de saída.
+
+Entre os principais exemplos estão:
+
+Monitor — apresenta textos, imagens, vídeos e outras informações;
+Impressora — produz uma cópia física de documentos ou imagens;
+Alto-falantes — reproduzem sons;
+Projetor — apresenta imagens e vídeos em uma superfície maior.
+Assim, podemos resumir:
+
+Saída → informações apresentadas pelo computador ao usuário.
+
+1.3 Unidade Central de Processamento — CPU
+A Unidade Central de Processamento, conhecida pela sigla CPU (Central Processing Unit), é um dos principais componentes responsáveis pela execução das instruções de um computador.
+
+De maneira simplificada, podemos comparar a CPU ao "centro de processamento" do computador. Ela executa instruções, realiza cálculos e operações lógicas e coordena diversas atividades necessárias para o funcionamento dos programas.
+
+Por exemplo, quando um programa precisa realizar a operação:
+
+25 + 17
+
+a CPU participa do processamento necessário para obter o resultado:
+
+42
+
+Além das operações aritméticas, a CPU também realiza operações lógicas e toma decisões de acordo com as instruções recebidas pelos programas.
+
+É importante destacar que a CPU não trabalha isoladamente. Para executar um programa, ela precisa constantemente buscar instruções e dados na memória, processá-los e, quando necessário, enviar os resultados para outros componentes.
+
+1.4 Memória
+A memória é responsável por armazenar temporariamente os dados e as instruções que estão sendo utilizados pelo computador.
+
+Quando um programa é executado, suas instruções e os dados necessários para sua execução precisam estar disponíveis para o processador. A memória permite que essas informações sejam armazenadas e acessadas durante o processamento.
+
+Uma forma simples de imaginar a memória é como um grande conjunto de espaços de armazenamento. Cada espaço possui um endereço, que permite localizar e acessar a informação armazenada nele.
+
+Por exemplo, podemos imaginar uma memória simplificada:
+
+Endereço	Conteúdo
+1000	25
+1001	17
+1002	42
+
+Nesse exemplo, cada posição possui um endereço e pode armazenar determinado conteúdo.
+
+1.5 Memória RAM e Volatilidade
+A memória RAM (Random Access Memory, ou Memória de Acesso Aleatório) é utilizada para armazenar temporariamente os dados e programas que estão sendo utilizados pelo computador.
+
+Uma característica importante da RAM é sua volatilidade. Isso significa que os dados armazenados nela são perdidos quando o computador é desligado ou quando a alimentação elétrica é interrompida.
+
+Por exemplo, ao abrir um programa, seus dados podem ser carregados para a memória RAM para que a CPU consiga acessá-los rapidamente. Quando o computador é desligado, essas informações temporárias deixam de estar disponíveis na RAM.
+
+É importante não confundir memória RAM com armazenamento, como SSD ou HD. A RAM é utilizada principalmente durante a execução dos programas, enquanto SSDs e HDs são utilizados para armazenar dados de forma persistente, mesmo após o desligamento do computador.
+
+De modo geral:
+
+RAM → armazenamento temporário utilizado durante o funcionamento do computador.
+
+SSD/HD → armazenamento persistente de arquivos, programas e dados.
+
+Além disso, uma maior quantidade de RAM não significa, por si só, que a CPU será mais rápida. Entretanto, uma quantidade adequada de memória RAM pode permitir que o computador execute mais programas e trabalhe com mais dados simultaneamente, evitando a necessidade de utilizar o armazenamento como uma extensão lenta da memória.
+
+2. Como os Componentes do Computador Trabalham Juntos
+Os componentes de um computador não funcionam de maneira isolada. Existe um fluxo contínuo de dados e informações entre eles.
+
+Podemos imaginar uma situação simples: um usuário deseja realizar uma soma utilizando um programa de calculadora.
+
+O processo pode ser representado da seguinte forma:
+
+1. Entrada → 2. Memória → 3. CPU → 4. Memória → 5. Saída
+
+Primeiramente, o usuário fornece os números por meio do teclado. Esses dados são recebidos pelo computador e armazenados temporariamente na memória.
+
+Em seguida, a CPU busca os dados necessários, executa a operação matemática e produz o resultado.
+
+O resultado pode ser armazenado novamente na memória e, posteriormente, enviado para o monitor, permitindo que o usuário visualize a resposta.
+
+Esse processo demonstra uma ideia fundamental para a programação:
+
+Os programas manipulam dados que são armazenados na memória e processados pela CPU.
+
+É justamente nesse contexto que surge um dos conceitos mais importantes da programação: a variável.
+
+Uma variável pode ser entendida, inicialmente, como um espaço identificado utilizado por um programa para armazenar um determinado valor que poderá ser utilizado ou modificado durante a execução.
+
+Por exemplo:
+
+idade = 20
+
+Nesse caso, podemos imaginar que o programa possui um espaço chamado idade, no qual o valor 20 está armazenado.
+
+Posteriormente, esse valor pode ser utilizado em cálculos, comparações ou outras operações.
+
+3. Linguagem de Máquina
+Para que os diferentes componentes de um computador possam trabalhar em conjunto, é necessário que exista uma forma de comunicação entre eles.
+
+Os seres humanos utilizam diferentes linguagens para se comunicar, como a linguagem falada e a linguagem escrita. Essas linguagens são formadas por símbolos e regras que permitem representar e transmitir informações.
+
+Os computadores também precisam de uma forma de representar informações e instruções.
+
+No nível mais básico, os computadores utilizam a chamada linguagem de máquina, formada por sequências de bits.
+
+3.1 O que é um bit?
+A palavra bit vem de binary digit, que significa dígito binário.
+
+Um bit pode assumir apenas dois valores:
+
+0 ou 1
+
+Esses dois valores estão relacionados à forma como os computadores representam diferentes estados físicos e elétricos em seus circuitos.
+
+De maneira simplificada, podemos imaginar:
+
+0 → estado desligado ou ausência de determinado sinal;
+1 → estado ligado ou presença de determinado sinal.
+É importante entender que essa é apenas uma simplificação didática. Internamente, os computadores utilizam diferentes fenômenos físicos e circuitos eletrônicos para representar e processar esses estados.
+
+Como cada bit possui apenas dois valores possíveis, vários bits podem ser combinados para representar uma quantidade muito maior de informações.
+
+Por exemplo:
+
+0
+1
+10
+11
+100
+101
+110
+111
+
+Cada uma dessas sequências é formada por bits e pode representar valores diferentes no sistema binário.
+
+3.2 Bits e Bytes
+Um conjunto de 8 bits é tradicionalmente chamado de byte.
+
+Por exemplo:
+
+01000001
+
+Essa sequência possui oito bits e, dependendo do sistema de codificação utilizado, pode representar um determinado caractere.
+
+A utilização de conjuntos de bits permite representar números, letras, símbolos, imagens, sons, instruções de programas e diversos outros tipos de informação.
+
+Por isso, quando dizemos que um computador é digital, estamos nos referindo, em termos gerais, à utilização de representações baseadas em valores discretos, especialmente bits, para armazenar e processar informações.
+
+4. Representação de Caracteres
+Uma pergunta importante é: se o computador trabalha internamente com 0 e 1, como ele consegue representar letras, números e símbolos?
+
+Para isso, são utilizadas codificações.
+
+Uma codificação estabelece uma correspondência entre determinados caracteres e sequências de bits ou valores numéricos.
+
+Por exemplo, podemos estabelecer uma tabela como:
+
+Caractere	Código
+A	65
+B	66
+C	67
+a	97
+b	98
+c	99
+
+Essa correspondência permite que o computador represente caracteres utilizando valores numéricos.
+
+Um dos sistemas de codificação historicamente mais importantes é o ASCII (American Standard Code for Information Interchange — Código Padrão Americano para o Intercâmbio de Informações).
+
+O ASCII original utiliza 7 bits para representar 128 caracteres. Em muitos contextos, esses códigos eram armazenados em unidades de 8 bits, ou seja, em bytes.
+
+O padrão inclui letras, números, sinais de pontuação, caracteres de controle e outros símbolos.
+
+Por exemplo:
+
+A → 65
+B → 66
+C → 67
+
+O número 65, por sua vez, pode ser representado no sistema binário como:
+
+1000001
+
+Assim, podemos estabelecer a seguinte relação:
+
+A
+↓
+65
+↓
+1000001
+
+Isso demonstra como uma informação que para nós representa uma letra pode ser representada numericamente e, em um nível mais baixo, por uma sequência de bits.
+
+5. Por que Existem Diferentes Códigos para Letras Maiúsculas e Minúsculas?
+Observe os exemplos:
+
+A → 65
+a → 97
+
+Embora A e a representem a mesma letra em formas diferentes, eles possuem códigos distintos.
+
+Isso é importante porque os computadores precisam conseguir diferenciar letras maiúsculas de letras minúsculas.
+
+Essa diferença permite, por exemplo, que um programa considere:
+
+Casa
+
+e
+
+casa
+
+como textos diferentes quando isso for necessário.
+
+O mesmo princípio é utilizado para representar números, espaços, sinais de pontuação e diversos outros caracteres.
+
+O espaço em branco, por exemplo, também possui uma representação própria. Isso é necessário porque o computador precisa diferenciar uma sequência de caracteres contínua de palavras separadas por espaços.
+
+6. Do ASCII ao Unicode
+Embora o ASCII tenha sido extremamente importante para a história da computação, ele possui uma limitação: seu conjunto de caracteres é pequeno e não foi criado para representar adequadamente todas as línguas e símbolos utilizados no mundo.
+
+Para resolver esse tipo de problema, foram desenvolvidos padrões mais abrangentes, especialmente o Unicode.
+
+O Unicode permite representar uma enorme variedade de caracteres utilizados em diferentes idiomas, além de símbolos e emojis.
+
+Por exemplo, textos que utilizam caracteres como:
+
+á
+ç
+ã
+中
+Ж
+🙂
+
+podem ser representados utilizando sistemas baseados em Unicode.
+
+Um dos formatos de codificação mais utilizados atualmente é o UTF-8.
+
+Assim, enquanto o ASCII é importante para compreender os fundamentos históricos da representação de caracteres, o Unicode e codificações como UTF-8 são fundamentais para compreender como textos são representados nos sistemas computacionais modernos.
+
+7. A Relação entre Hardware, Memória e Programação
+Agora podemos reunir os conceitos apresentados.
+
+Um computador recebe informações por meio dos dispositivos de entrada, armazena e manipula dados na memória, executa instruções utilizando a CPU e apresenta os resultados por meio dos dispositivos de saída.
+
+Podemos representar esse processo de forma simplificada:
+
+        USUÁRIO
+           ↓
+    ┌───────────────┐
+    │    ENTRADA    │
+    └───────┬───────┘
+            ↓
+    ┌───────────────┐
+    │    MEMÓRIA    │
+    └───────┬───────┘
+            ↓
+    ┌───────────────┐
+    │      CPU      │
+    │   PROCESSA    │
+    └───────┬───────┘
+            ↓
+    ┌───────────────┐
+    │    MEMÓRIA    │
+    └───────┬───────┘
+            ↓
+    ┌───────────────┐
+    │     SAÍDA     │
+    └───────┬───────┘
+            ↓
+        USUÁRIO
+
+Esse fluxo é fundamental para compreender a programação.
+
+Quando escrevemos um programa, estamos criando instruções que orientam o computador sobre quais operações devem ser realizadas com os dados.
+
+Por exemplo, um programa pode receber dois números, armazená-los em variáveis, realizar uma soma e apresentar o resultado ao usuário:
+
+número1 = 10
+número2 = 20
+
+resultado = número1 + número2
+
+mostrar(resultado)
+
+De forma simplificada, podemos imaginar que:
+
+os números são dados de entrada;
+as variáveis representam espaços utilizados para armazenar esses dados;
+a CPU executa a operação de soma;
+o resultado é armazenado;
+o programa envia o resultado para um dispositivo de saída.
+Dessa forma, compreender a organização básica de um computador é um passo importante para entender conceitos fundamentais da programação, como variáveis, tipos de dados, operadores, memória, instruções e algoritmos.
+
+Em resumo: programar significa criar instruções que permitem ao computador manipular dados e realizar tarefas de maneira organizada e automatizada.</p>
                 <!-- =================================================
                      MAPA MENTAL
                 ================================================== -->
