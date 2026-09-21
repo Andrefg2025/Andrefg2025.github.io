@@ -61,7 +61,7 @@ body {
 
 
     /* =====================================================
-       BOTÕES
+       BOTÕES — PADRÃO GERAL
     ===================================================== */
 
     --altura-botao: 44px;
@@ -94,9 +94,7 @@ body {
         0 7px 16px rgba(255, 107, 0, 0.32);
 
 
-    /* =====================================================
-       SOMBRAS
-    ===================================================== */
+    /* SOMBRAS */
 
     --sombra-pequena:
         0 3px 10px rgba(15, 23, 42, 0.08);
@@ -114,9 +112,7 @@ body {
         0 8px 20px rgba(255, 107, 0, 0.30);
 
 
-    /* =====================================================
-       TRANSIÇÕES
-    ===================================================== */
+    /* TRANSIÇÕES */
 
     --transicao-botao:
         transform 0.25s ease,
@@ -128,21 +124,8 @@ body {
 
 
 /* =========================================================
-   ELEMENTOS GERAIS
+   LINKS
 ========================================================= */
-
-img,
-video,
-svg {
-    max-width: 100%;
-}
-
-button,
-input,
-textarea,
-select {
-    font: inherit;
-}
 
 a {
     color: inherit;
@@ -216,7 +199,7 @@ a {
     transform: scale(1.06);
 
     box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.2);
+        0 8px 20px rgba(0, 0, 0, 0.20);
 }
 
 
@@ -294,11 +277,8 @@ a {
 
     gap: 10px;
 
-    /*
-       Permite rolagem horizontal no celular
-       sem cortar os botões.
-    */
     overflow-x: auto;
+
     overflow-y: hidden;
 
     scrollbar-width: none;
@@ -312,14 +292,17 @@ a {
 
 
 /* =========================================================
-   PADRÃO GERAL DOS BOTÕES
+   BOTÕES — PADRÃO GERAL
 ========================================================= */
 
 .btn-menu,
-button {
+button,
+.btn {
     min-height: var(--altura-botao);
 
     height: auto;
+
+    max-width: 100%;
 
     padding:
         var(--botao-padding-y)
@@ -335,8 +318,7 @@ button {
 
     color: #fff;
 
-    background:
-        var(--botao);
+    background: var(--botao);
 
     border:
         1px solid var(--laranja);
@@ -361,9 +343,6 @@ button {
 
     cursor: pointer;
 
-    /*
-       Permite o texto quebrar quando necessário.
-    */
     white-space: normal;
 
     overflow-wrap: anywhere;
@@ -379,24 +358,22 @@ button {
 
 
 /* =========================================================
-   BOTÕES DO MENU
+   BOTÃO DO MENU
 ========================================================= */
 
 .btn-menu {
-    /*
-       Mantém cada botão inteiro no menu.
-    */
     flex: 0 0 auto;
-
-    /*
-       Evita que um botão muito grande
-       ultrapasse a tela.
-    */
-    max-width: 100%;
 }
 
+
+/* =========================================================
+   HOVER DOS BOTÕES
+========================================================= */
+
 .btn-menu:hover,
-button:hover {
+button:hover,
+.btn:hover {
+
     color: #fff;
 
     background:
@@ -412,8 +389,15 @@ button:hover {
         var(--botao-sombra-hover);
 }
 
+
+/* =========================================================
+   BOTÃO AO CLICAR
+========================================================= */
+
 .btn-menu:active,
-button:active {
+button:active,
+.btn:active {
+
     transform:
         translateY(0);
 
@@ -421,7 +405,14 @@ button:active {
         var(--botao-sombra);
 }
 
-.btn-menu.active {
+
+/* =========================================================
+   BOTÃO ATIVO
+========================================================= */
+
+.btn-menu.active,
+.btn.active {
+
     color: #fff;
 
     background:
@@ -439,20 +430,6 @@ button:active {
 
 
 /* =========================================================
-   FOCO — ACESSIBILIDADE
-========================================================= */
-
-.btn-menu:focus-visible,
-button:focus-visible,
-summary:focus-visible {
-    outline:
-        3px solid rgba(255, 107, 0, 0.35);
-
-    outline-offset: 3px;
-}
-
-
-/* =========================================================
    ACCORDIONS
 ========================================================= */
 
@@ -464,6 +441,7 @@ summary:focus-visible {
 
 .accordion > summary,
 .aula > summary {
+
     position: relative;
 
     width: 100%;
@@ -471,14 +449,12 @@ summary:focus-visible {
     min-height:
         var(--altura-botao);
 
+    height: auto;
+
     display: flex;
 
     align-items: center;
 
-    /*
-       Espaço à direita reservado
-       para o símbolo + / −.
-    */
     padding:
         var(--botao-padding-y)
         50px
@@ -494,11 +470,6 @@ summary:focus-visible {
 
     list-style: none;
 
-    /*
-       Evita corte de palavras.
-    */
-    white-space: normal;
-
     overflow-wrap: anywhere;
 
     word-break: normal;
@@ -509,6 +480,7 @@ summary:focus-visible {
 
 .accordion > summary::-webkit-details-marker,
 .aula > summary::-webkit-details-marker {
+
     display: none;
 }
 
@@ -518,15 +490,15 @@ summary:focus-visible {
 ========================================================= */
 
 .accordion > summary {
+
     color: #fff;
 
-    background:
-        linear-gradient(
-            90deg,
-            #ff5000,
-            #ff6b00,
-            #ff8500
-        );
+    background: linear-gradient(
+        90deg,
+        #ff5000,
+        #ff6b00,
+        #ff8500
+    );
 
     border:
         1px solid var(--laranja);
@@ -541,15 +513,15 @@ summary:focus-visible {
 }
 
 .accordion > summary:hover {
+
     color: #fff;
 
-    background:
-        linear-gradient(
-            90deg,
-            #ff4500,
-            #ff6500,
-            #ff8000
-        );
+    background: linear-gradient(
+        90deg,
+        #ff4500,
+        #ff6500,
+        #ff8000
+    );
 
     border-color:
         var(--laranja-forte);
@@ -567,12 +539,14 @@ summary:focus-visible {
 ========================================================= */
 
 .aula {
+
     width: 100%;
 
     margin-bottom: 12px;
 }
 
 .aula > summary {
+
     color:
         var(--texto);
 
@@ -593,6 +567,7 @@ summary:focus-visible {
 }
 
 .aula > summary:hover {
+
     color:
         var(--laranja);
 
@@ -616,6 +591,7 @@ summary:focus-visible {
 
 .accordion > summary::after,
 .aula > summary::after {
+
     content: "+";
 
     position: absolute;
@@ -624,8 +600,9 @@ summary:focus-visible {
 
     top: 50%;
 
-    width: 26px;
-    height: 26px;
+    width: 24px;
+
+    height: 24px;
 
     display: flex;
 
@@ -641,51 +618,47 @@ summary:focus-visible {
 
     transform:
         translateY(-50%);
-
-    pointer-events: none;
 }
 
 .accordion[open] > summary::after,
 .aula[open] > summary::after {
+
     content: "−";
 }
 
 
 /* =========================================================
-   MAIN
+   MAIN / TIPOGRAFIA
 ========================================================= */
 
 main {
+
     width: 100%;
 
     max-width: 1200px;
 
-    margin:
-        25px auto;
+    margin: 25px auto;
 
-    padding:
-        0 20px;
+    padding: 0 20px;
 }
-
-
-/* =========================================================
-   TIPOGRAFIA
-========================================================= */
 
 h2,
 h3,
 h4 {
+
     color:
         var(--laranja);
 }
 
 p,
 li {
+
     color:
         var(--texto);
 }
 
 p {
+
     text-align:
         justify;
 
@@ -695,6 +668,7 @@ p {
 
 .conteudo p,
 .aula-conteudo p {
+
     margin-bottom:
         15px;
 }
@@ -705,6 +679,7 @@ p {
 ========================================================= */
 
 .conteudo {
+
     width: 100%;
 
     padding:
@@ -717,6 +692,7 @@ p {
 @keyframes abrir {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -724,6 +700,7 @@ p {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -737,6 +714,7 @@ p {
 ========================================================= */
 
 .aula-conteudo {
+
     width: 100%;
 
     padding:
@@ -756,6 +734,7 @@ p {
 }
 
 .aula-conteudo h2 {
+
     margin:
         10px 0 30px;
 
@@ -767,6 +746,7 @@ p {
 }
 
 .aula-conteudo h3 {
+
     margin-top:
         30px;
 
@@ -789,11 +769,13 @@ p {
 ========================================================= */
 
 .aula-conteudo ul {
+
     margin:
         10px 0 20px 30px;
 }
 
 .aula-conteudo li {
+
     margin-bottom:
         7px;
 }
@@ -804,6 +786,7 @@ p {
 ========================================================= */
 
 pre {
+
     width: 100%;
 
     margin:
@@ -827,23 +810,24 @@ pre {
     border-radius:
         10px;
 
-    /*
-       Código pode ser rolado horizontalmente
-       quando necessário.
-    */
-    overflow-x: auto;
+    overflow-x:
+        auto;
 
-    white-space: pre-wrap;
+    white-space:
+        pre-wrap;
 
-    overflow-wrap: anywhere;
+    overflow-wrap:
+        anywhere;
 
-    word-break: break-word;
+    word-break:
+        break-word;
 
     box-shadow:
         var(--sombra-media);
 }
 
 code {
+
     font-family:
         "Courier New", monospace;
 }
@@ -854,6 +838,7 @@ code {
 ========================================================= */
 
 .mapa-mental-section {
+
     width: 100%;
 
     margin:
@@ -883,6 +868,7 @@ code {
 }
 
 .titulo-secao {
+
     margin-bottom:
         10px;
 
@@ -894,6 +880,7 @@ code {
 }
 
 .descricao-mapa {
+
     max-width:
         800px;
 
@@ -911,14 +898,13 @@ code {
 }
 
 #mapa-mental {
+
     position:
         relative;
 
-    width:
-        100%;
+    width: 100%;
 
-    height:
-        650px;
+    height: 650px;
 
     overflow:
         hidden;
@@ -936,14 +922,13 @@ code {
 }
 
 #mapa-mental svg {
+
     display:
         block;
 
-    width:
-        100%;
+    width: 100%;
 
-    height:
-        100%;
+    height: 100%;
 
     max-width:
         1200px;
@@ -958,8 +943,8 @@ code {
 ========================================================= */
 
 .linha-mapa {
-    fill:
-        none;
+
+    fill: none;
 
     stroke:
         var(--laranja);
@@ -975,6 +960,7 @@ code {
 }
 
 .no-central {
+
     fill:
         var(--laranja-forte);
 
@@ -992,6 +978,7 @@ code {
 }
 
 .no-principal {
+
     fill:
         var(--laranja);
 
@@ -1012,6 +999,7 @@ code {
 }
 
 .no-principal:hover {
+
     filter:
         drop-shadow(
             0 8px 15px
@@ -1026,6 +1014,7 @@ code {
 
 .texto-central,
 .texto-principal {
+
     fill:
         #fff;
 
@@ -1040,6 +1029,7 @@ code {
 }
 
 .texto-central {
+
     font-size:
         17px;
 
@@ -1048,6 +1038,7 @@ code {
 }
 
 .texto-principal {
+
     font-size:
         12px;
 
@@ -1061,8 +1052,8 @@ code {
 ========================================================= */
 
 .carregando-mapa {
-    width:
-        100%;
+
+    width: 100%;
 
     padding:
         100px 20px;
@@ -1078,6 +1069,7 @@ code {
 }
 
 .spinner-mapa {
+
     width:
         40px;
 
@@ -1103,6 +1095,7 @@ code {
 @keyframes girar {
 
     to {
+
         transform:
             rotate(360deg);
     }
@@ -1114,8 +1107,8 @@ code {
 ========================================================= */
 
 .video-container {
-    width:
-        100%;
+
+    width: 100%;
 
     display:
         flex;
@@ -1131,6 +1124,7 @@ code {
 }
 
 .video-container video {
+
     width:
         400px;
 
@@ -1156,8 +1150,8 @@ code {
 ========================================================= */
 
 .cards {
-    width:
-        100%;
+
+    width: 100%;
 
     display:
         grid;
@@ -1176,6 +1170,7 @@ code {
 }
 
 .card {
+
     position:
         relative;
 
@@ -1221,4 +1216,445 @@ code {
 
 .card:hover,
 .card.ativo {
-    transform
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        var(--sombra-laranja-forte);
+
+    border-left-color:
+        var(--laranja-claro);
+}
+
+.card h3 {
+
+    margin-bottom:
+        12px;
+
+    color:
+        #fff;
+
+    font-size:
+        1.1rem;
+
+    text-align:
+        center;
+}
+
+.info-extra {
+
+    max-height:
+        0;
+
+    opacity:
+        0;
+
+    overflow:
+        hidden;
+
+    margin-top:
+        0;
+
+    padding-top:
+        0;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    transition:
+        max-height 0.4s ease,
+        opacity 0.3s ease,
+        margin-top 0.3s ease,
+        padding-top 0.3s ease;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .header {
+
+        padding:
+            12px 20px;
+
+        gap:
+            12px;
+    }
+
+    .logo-img {
+
+        width:
+            58px;
+
+        height:
+            58px;
+    }
+
+    .menu-wrapper {
+
+        justify-content:
+            flex-start;
+
+        padding:
+            10px 15px;
+    }
+
+    main {
+
+        padding:
+            0 15px;
+    }
+
+    #mapa-mental {
+
+        height:
+            550px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    :root {
+
+        --altura-botao:
+            var(--altura-mobile);
+
+        --botao-padding-x:
+            12px;
+
+        --botao-padding-y:
+            7px;
+
+        --botao-fonte:
+            13px;
+
+        --botao-radius:
+            7px;
+    }
+
+
+    /* HEADER */
+
+    .header {
+
+        min-height:
+            72px;
+
+        padding:
+            10px 12px;
+
+        gap:
+            10px;
+    }
+
+    .logo-img {
+
+        width:
+            50px;
+
+        height:
+            50px;
+    }
+
+    .titulo-link h1 {
+
+        font-size:
+            clamp(
+                1rem,
+                5vw,
+                1.35rem
+            );
+
+        letter-spacing:
+            0.5px;
+    }
+
+
+    /* MENU */
+
+    .menu-wrapper {
+
+        min-height:
+            60px;
+
+        padding:
+            8px 10px;
+
+        justify-content:
+            flex-start;
+
+        gap:
+            7px;
+    }
+
+
+    /* BOTÕES */
+
+    .btn-menu,
+    button,
+    .btn {
+
+        min-height:
+            var(--altura-mobile);
+
+        max-width:
+            100%;
+
+        padding:
+            7px 12px;
+
+        font-size:
+            13px;
+
+        line-height:
+            1.3;
+
+        white-space:
+            normal;
+
+        overflow-wrap:
+            anywhere;
+    }
+
+
+    /* ACCORDIONS */
+
+    .accordion > summary,
+    .aula > summary {
+
+        min-height:
+            var(--altura-mobile);
+
+        padding:
+            9px 42px 9px 12px;
+
+        font-size:
+            13px;
+
+        line-height:
+            1.35;
+    }
+
+
+    /* ÍCONE */
+
+    .accordion > summary::after,
+    .aula > summary::after {
+
+        right:
+            10px;
+
+        width:
+            22px;
+
+        height:
+            22px;
+
+        font-size:
+            20px;
+    }
+
+
+    /* MAIN */
+
+    main {
+
+        margin:
+            20px auto;
+
+        padding:
+            0 10px;
+    }
+
+
+    /* CONTEÚDO */
+
+    .conteudo {
+
+        padding:
+            15px 5px;
+    }
+
+    .aula-conteudo {
+
+        padding:
+            20px 14px;
+    }
+
+
+    /* TEXTO */
+
+    p {
+
+        text-align:
+            left;
+
+        text-indent:
+            1em;
+    }
+
+
+    /* LISTAS */
+
+    .aula-conteudo ul {
+
+        margin-left:
+            20px;
+    }
+
+
+    /* CÓDIGO */
+
+    pre {
+
+        padding:
+            14px;
+
+        font-size:
+            12px;
+
+        border-radius:
+            8px;
+    }
+
+
+    /* MAPA */
+
+    .mapa-mental-section {
+
+        margin:
+            30px auto;
+
+        padding:
+            18px 10px;
+
+        border-radius:
+            14px;
+    }
+
+    #mapa-mental {
+
+        height:
+            450px;
+
+        border-radius:
+            10px;
+    }
+
+
+    /* VÍDEO */
+
+    .video-container {
+
+        margin:
+            20px auto;
+    }
+
+    .video-container video {
+
+        width:
+            100%;
+
+        max-width:
+            400px;
+    }
+
+
+    /* CARDS */
+
+    .cards {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            15px;
+
+        margin-top:
+            20px;
+    }
+
+    .card {
+
+        min-height:
+            160px;
+
+        padding:
+            18px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — CELULARES MUITO PEQUENOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .header {
+
+        padding:
+            8px 10px;
+    }
+
+    .logo-img {
+
+        width:
+            44px;
+
+        height:
+            44px;
+    }
+
+    .titulo-link h1 {
+
+        font-size:
+            0.95rem;
+    }
+
+    .menu-wrapper {
+
+        padding:
+            7px 8px;
+
+        gap:
+            6px;
+    }
+
+    .btn-menu,
+    button,
+    .btn {
+
+        padding:
+            7px 10px;
+
+        font-size:
+            12px;
+    }
+
+    .accordion > summary,
+    .aula > summary {
+
+        padding:
+            8px 38px 8px 10px;
+
+        font-size:
+            12px;
+    }
+
+    #mapa-mental {
+
+        height:
+            380px;
+    }
+}
