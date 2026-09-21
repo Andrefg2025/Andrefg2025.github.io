@@ -1,14 +1,17 @@
 /* =========================================================
    RESET
 ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 html,
 body {
     width: 100%;
@@ -16,71 +19,129 @@ body {
     min-width: 320px;
     overflow-x: hidden;
 }
+
 body {
     font-family: "Poppins", sans-serif;
     color: var(--texto);
-    background: linear-gradient(
-        180deg,
-        #fffaf5 0%,
-        #f5f7fa 45%,
-        #eef2f7 100%
-    );
     line-height: 1.7;
+
+    /*
+       FUNDO PRINCIPAL
+       Gradiente preto + laranja
+    */
+    background:
+        radial-gradient(
+            circle at 85% 8%,
+            rgba(255, 107, 0, 0.22) 0%,
+            rgba(255, 107, 0, 0.08) 18%,
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 10% 45%,
+            rgba(255, 69, 0, 0.12) 0%,
+            transparent 32%
+        ),
+        linear-gradient(
+            180deg,
+            #050505 0%,
+            #0b0b0b 28%,
+            #111111 55%,
+            #0b0b0b 78%,
+            #050505 100%
+        );
+
+    background-attachment: fixed;
 }
+
+
 /* =========================================================
    VARIÁVEIS
 ========================================================= */
+
 :root {
-    /* CORES */
+
+    /* CORES PRINCIPAIS */
+
     --laranja: #ff6b00;
     --laranja-claro: #ff9500;
     --laranja-forte: #ff4500;
-    --laranja-suave: #fff3e6;
-    --laranja-fundo: #ffe0c2;
-    --laranja-borda: #ffb366;
+
+    --laranja-suave: rgba(255, 107, 0, 0.10);
+    --laranja-fundo: rgba(255, 107, 0, 0.16);
+    --laranja-borda: rgba(255, 149, 0, 0.45);
+
     --branco: #ffffff;
-    --texto: #1e293b;
-    --texto-secundario: #475569;
-    --cinza: #64748b;
-    --fundo-card: #f8fafc;
-    --borda: #e2e8f0;
-    --codigo-fundo: #172033;
+
+    --texto: #f1f5f9;
+    --texto-secundario: #cbd5e1;
+    --cinza: #94a3b8;
+
+    --fundo-card: #151515;
+    --fundo-card-2: #1c1c1c;
+
+    --borda: #292929;
+    --borda-clara: #3a3a3a;
+
+    --codigo-fundo: #090d14;
+
     /* =====================================================
-       BOTÕES — PADRÃO GERAL
+       BOTÕES
     ===================================================== */
+
     --altura-botao: 44px;
     --altura-mobile: 42px;
+
     --botao-padding-x: 16px;
     --botao-padding-y: 8px;
+
     --botao-radius: 8px;
+
     --botao-fonte: 14px;
     --botao-peso: 600;
-    --botao: linear-gradient(
-        135deg,
-        #ff5a00,
-        #ff7a00
-    );
-    --botao-hover: linear-gradient(
-        135deg,
-        #ff4500,
-        #ff6500
-    );
+
+    --botao:
+        linear-gradient(
+            135deg,
+            #ff5a00,
+            #ff7a00
+        );
+
+    --botao-hover:
+        linear-gradient(
+            135deg,
+            #ff4500,
+            #ff6500
+        );
+
     --botao-sombra:
-        0 4px 10px rgba(255, 107, 0, 0.20);
+        0 4px 12px rgba(255, 107, 0, 0.22);
+
     --botao-sombra-hover:
-        0 7px 16px rgba(255, 107, 0, 0.32);
-    /* SOMBRAS */
+        0 8px 22px rgba(255, 107, 0, 0.38);
+
+    /* =====================================================
+       SOMBRAS
+    ===================================================== */
+
     --sombra-pequena:
-        0 3px 10px rgba(15, 23, 42, 0.08);
+        0 3px 10px rgba(0, 0, 0, 0.35);
+
     --sombra-media:
-        0 6px 18px rgba(15, 23, 42, 0.12);
+        0 8px 22px rgba(0, 0, 0, 0.42);
+
     --sombra-grande:
-        0 12px 30px rgba(15, 23, 42, 0.15);
+        0 15px 40px rgba(0, 0, 0, 0.55);
+
     --sombra-laranja:
-        0 5px 14px rgba(255, 107, 0, 0.20);
+        0 5px 16px rgba(255, 107, 0, 0.22);
+
     --sombra-laranja-forte:
-        0 8px 20px rgba(255, 107, 0, 0.30);
-    /* TRANSIÇÕES */
+        0 8px 25px rgba(255, 107, 0, 0.38);
+
+    /* =====================================================
+       TRANSIÇÕES
+    ===================================================== */
+
     --transicao-botao:
         transform 0.25s ease,
         background 0.25s ease,
@@ -89,784 +150,1331 @@ body {
         color 0.25s ease;
 }
 
+
 /* =========================================================
    LINKS
 ========================================================= */
+
 a {
     color: inherit;
+    text-decoration: none;
 }
+
+
 /* =========================================================
    HEADER
 ========================================================= */
+
 .header {
     width: 100%;
     min-height: 90px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 20px;
     padding: 12px 40px;
-    background: linear-gradient(
-        90deg,
-        #ff4500,
-        #ff6b00,
-        #ff8500
-    );
+
+    /*
+       HEADER PRETO + LARANJA
+    */
+
+    background:
+        linear-gradient(
+            135deg,
+            #050505 0%,
+            #111111 45%,
+            #2a1205 75%,
+            #ff5a00 150%
+        );
+
+    border-bottom:
+        1px solid rgba(255, 107, 0, 0.45);
+
     position: relative;
     z-index: 10;
+
     box-shadow:
-        0 6px 20px rgba(255, 107, 0, 0.28);
+        0 6px 25px rgba(0, 0, 0, 0.55);
 }
+
+
 /* =========================================================
    LOGO
 ========================================================= */
+
 .logo-link {
     display: flex;
     align-items: center;
+
     flex: 0 0 auto;
+
     text-decoration: none;
 }
+
 .logo-img {
     width: 65px;
     height: 65px;
+
     display: block;
+
     object-fit: contain;
-    background: var(--branco);
+
+    background: #ffffff;
+
     border-radius: 50%;
+
     padding: 4px;
+
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
+
 .logo-img:hover {
     transform: scale(1.06);
+
     box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.20);
+        0 8px 25px rgba(255, 107, 0, 0.35);
 }
+
+
 /* =========================================================
    TÍTULO
 ========================================================= */
+
 .titulo-link {
     flex: 1;
     min-width: 0;
+
     text-decoration: none;
 }
+
 .titulo-link h1 {
     margin: 0;
-    color: #fff;
+
+    color: #ffffff;
+
     font-size:
         clamp(1.2rem, 3vw, 2rem);
+
     font-weight: 700;
+
     line-height: 1.2;
+
     text-align: center;
+
     letter-spacing: 1px;
+
     text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.15);
+        0 2px 8px rgba(0, 0, 0, 0.45);
 }
+
+
 /* =========================================================
    MENU PRINCIPAL
 ========================================================= */
+
 .menu-principal {
     width: 100%;
-    background: var(--branco);
+
+    background:
+        rgba(10, 10, 10, 0.96);
+
     border-bottom:
-        2px solid var(--laranja-borda);
+        1px solid rgba(255, 107, 0, 0.40);
+
     box-shadow:
-        var(--sombra-pequena);
+        0 5px 18px rgba(0, 0, 0, 0.45);
+
     position: sticky;
+
     top: 0;
+
     z-index: 100;
+
+    backdrop-filter:
+        blur(12px);
 }
+
 .menu-wrapper {
     width: 100%;
     max-width: 1500px;
+
     min-height: 68px;
+
     margin: 0 auto;
+
     padding: 10px 20px;
+
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     gap: 10px;
+
     overflow-x: auto;
     overflow-y: hidden;
+
     scrollbar-width: none;
+
     -ms-overflow-style: none;
 }
+
 .menu-wrapper::-webkit-scrollbar {
     display: none;
 }
+
+
 /* =========================================================
-   BOTÕES — PADRÃO GERAL
+   BOTÕES
 ========================================================= */
+
 .btn-menu,
 button,
 .btn {
-    min-height: var(--altura-botao);
+    min-height:
+        var(--altura-botao);
+
     height: auto;
+
     max-width: 100%;
+
     padding:
         var(--botao-padding-y)
         var(--botao-padding-x);
+
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 8px;
-    color: #fff;
-    background: var(--botao);
+
+    color: #ffffff;
+
+    background:
+        var(--botao);
+
     border:
         1px solid var(--laranja);
+
     border-radius:
         var(--botao-radius);
+
     font-family:
         "Poppins", sans-serif;
+
     font-size:
         var(--botao-fonte);
+
     font-weight:
         var(--botao-peso);
+
     line-height: 1.3;
+
     text-align: center;
+
     text-decoration: none;
+
     cursor: pointer;
+
     white-space: normal;
+
     overflow-wrap: anywhere;
+
     word-break: normal;
+
     box-shadow:
         var(--botao-sombra);
+
     transition:
         var(--transicao-botao);
 }
 
+
 /* =========================================================
    BOTÃO DO MENU
 ========================================================= */
+
 .btn-menu {
     flex: 0 0 auto;
 }
+
+
 /* =========================================================
-   HOVER DOS BOTÕES
+   HOVER
 ========================================================= */
+
 .btn-menu:hover,
 button:hover,
 .btn:hover {
-    color: #fff;
+    color: #ffffff;
+
     background:
         var(--botao-hover);
+
     border-color:
         var(--laranja-forte);
+
     transform:
         translateY(-2px);
+
     box-shadow:
         var(--botao-sombra-hover);
 }
+
+
 /* =========================================================
-   BOTÃO AO CLICAR
+   ACTIVE
 ========================================================= */
+
 .btn-menu:active,
 button:active,
 .btn:active {
     transform:
         translateY(0);
+
     box-shadow:
         var(--botao-sombra);
 }
+
+
 /* =========================================================
    BOTÃO ATIVO
 ========================================================= */
+
 .btn-menu.active,
 .btn.active {
-    color: #fff;
+    color: #ffffff;
+
     background:
         var(--botao-hover);
+
     border-color:
         var(--laranja-forte);
+
     box-shadow:
         var(--botao-sombra-hover);
+
     transform:
         translateY(-1px);
 }
+
+
 /* =========================================================
    ACCORDIONS
 ========================================================= */
+
 .accordion {
     width: 100%;
+
     margin-bottom: 18px;
 }
+
 .accordion > summary,
 .aula > summary {
+
     position: relative;
+
     width: 100%;
+
     min-height:
         var(--altura-botao);
+
     height: auto;
+
     display: flex;
+
     align-items: center;
+
     padding:
         var(--botao-padding-y)
         50px
         var(--botao-padding-y)
         var(--botao-padding-x);
+
     line-height: 1.4;
+
     border-radius:
         var(--botao-radius);
+
     cursor: pointer;
+
     list-style: none;
+
     overflow-wrap: anywhere;
+
     word-break: normal;
+
     transition:
         var(--transicao-botao);
 }
+
 .accordion > summary::-webkit-details-marker,
 .aula > summary::-webkit-details-marker {
     display: none;
 }
+
+
 /* =========================================================
    ACCORDION PRINCIPAL
 ========================================================= */
+
 .accordion > summary {
-    color: #fff;
-    background: linear-gradient(
-        90deg,
-        #ff5000,
-        #ff6b00,
-        #ff8500
-    );
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4500,
+            #ff6b00,
+            #ff8500
+        );
+
     border:
         1px solid var(--laranja);
+
     font-size:
         var(--botao-fonte);
+
     font-weight: 700;
+
     box-shadow:
         var(--sombra-laranja);
 }
+
 .accordion > summary:hover {
-    color: #fff;
-    background: linear-gradient(
-        90deg,
-        #ff4500,
-        #ff6500,
-        #ff8000
-    );
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4500,
+            #ff6500,
+            #ff8000
+        );
+
     border-color:
         var(--laranja-forte);
+
     transform:
         translateY(-2px);
+
     box-shadow:
         var(--sombra-laranja-forte);
 }
+
+
 /* =========================================================
    AULAS
 ========================================================= */
+
 .aula {
     width: 100%;
+
     margin-bottom: 12px;
 }
+
 .aula > summary {
+
     color:
         var(--texto);
+
     background:
-        var(--branco);
+        linear-gradient(
+            135deg,
+            #181818,
+            #111111
+        );
+
     border:
         1px solid var(--borda);
+
     border-left:
         4px solid var(--laranja);
+
     font-weight:
         600;
+
     box-shadow:
         var(--sombra-pequena);
 }
+
 .aula > summary:hover {
+
     color:
-        var(--laranja);
+        var(--laranja-claro);
+
     background:
-        var(--laranja-suave);
+        linear-gradient(
+            135deg,
+            #24150c,
+            #181818
+        );
+
     border-color:
         var(--laranja-borda);
+
     transform:
         translateX(2px);
+
     box-shadow:
-        0 5px 14px rgba(255, 107, 0, 0.12);
+        0 5px 18px rgba(255, 107, 0, 0.15);
 }
+
+
 /* =========================================================
    ÍCONE DOS ACCORDIONS
 ========================================================= */
+
 .accordion > summary::after,
 .aula > summary::after {
+
     content: "+";
+
     position: absolute;
+
     right: 18px;
+
     top: 50%;
+
     width: 24px;
     height: 24px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     font-size: 22px;
+
     font-weight: 400;
+
     line-height: 1;
+
     transform:
         translateY(-50%);
 }
+
 .accordion[open] > summary::after,
 .aula[open] > summary::after {
     content: "−";
 }
+
+
 /* =========================================================
-   MAIN / TIPOGRAFIA
+   MAIN
 ========================================================= */
+
 main {
     width: 100%;
     max-width: 1200px;
+
     margin: 25px auto;
+
     padding: 0 20px;
 }
+
+
+/* =========================================================
+   TIPOGRAFIA
+========================================================= */
+
 h2,
 h3,
 h4 {
     color:
-        var(--laranja);
+        var(--laranja-claro);
 }
+
 p,
 li {
     color:
-        var(--texto);
+        var(--texto-secundario);
 }
+
 p {
-    text-align:
-        justify;
-    text-indent:
-        2em;
+    text-align: justify;
+
+    text-indent: 2em;
 }
+
 .conteudo p,
 .aula-conteudo p {
-    margin-bottom:
-        15px;
+    margin-bottom: 15px;
 }
+
+
 /* =========================================================
    CONTEÚDO
 ========================================================= */
+
 .conteudo {
+
     width: 100%;
+
     padding:
         20px 10px;
+
     animation:
         abrir 0.25s ease;
 }
+
 @keyframes abrir {
+
     from {
         opacity: 0;
+
         transform:
             translateY(-6px);
     }
+
     to {
         opacity: 1;
+
         transform:
             translateY(0);
     }
 }
+
+
 /* =========================================================
    CONTEÚDO DA AULA
 ========================================================= */
+
 .aula-conteudo {
+
     width: 100%;
+
     padding:
         25px 20px;
+
     background:
-        var(--branco);
+        linear-gradient(
+            145deg,
+            #151515,
+            #0f0f0f
+        );
+
     border:
         1px solid var(--borda);
+
     border-top:
         none;
+
     border-radius:
         0 0 10px 10px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.30);
 }
+
 .aula-conteudo h2 {
+
     margin:
         10px 0 30px;
+
     color:
         var(--laranja);
+
     text-align:
         center;
 }
+
 .aula-conteudo h3 {
+
     margin-top:
         30px;
+
     margin-bottom:
         10px;
+
     padding-left:
         10px;
+
     color:
-        var(--laranja);
+        var(--laranja-claro);
+
     border-left:
         4px solid var(--laranja);
 }
+
+
 /* =========================================================
    LISTAS
 ========================================================= */
+
 .aula-conteudo ul {
+
     margin:
         10px 0 20px 30px;
 }
+
 .aula-conteudo li {
     margin-bottom:
         7px;
 }
+
+
 /* =========================================================
    CÓDIGO
 ========================================================= */
+
 pre {
+
     width: 100%;
+
     margin:
         20px 0;
+
     padding:
         18px;
+
     color:
         #f8fafc;
+
     background:
-        var(--codigo-fundo);
+        linear-gradient(
+            145deg,
+            #111827,
+            #070b12
+        );
+
     border:
         1px solid #334155;
+
     border-left:
         4px solid var(--laranja);
+
     border-radius:
         10px;
+
     overflow-x:
         auto;
+
     white-space:
         pre-wrap;
+
     overflow-wrap:
         anywhere;
+
     word-break:
         break-word;
+
     box-shadow:
         var(--sombra-media);
 }
+
 code {
     font-family:
         "Courier New", monospace;
 }
+
+
 /* =========================================================
    MAPA MENTAL
 ========================================================= */
+
 .mapa-mental-section {
+
     width: 100%;
+
     margin:
         50px auto;
+
     padding:
         25px 15px;
+
     background:
         linear-gradient(
-            135deg,
-            #fff,
-            #fff8f0
+            145deg,
+            #171717,
+            #0d0d0d
         );
+
     border:
         1px solid var(--laranja-borda);
+
     border-radius:
         18px;
+
     box-shadow:
-        var(--sombra-media);
+        var(--sombra-grande);
+
     overflow:
         hidden;
 }
+
 .titulo-secao {
+
     margin-bottom:
         10px;
+
     color:
-        var(--laranja);
+        var(--laranja-claro);
+
     text-align:
         center;
 }
+
 .descricao-mapa {
+
     max-width:
         800px;
+
     margin:
         0 auto 25px;
+
     color:
         var(--cinza);
+
     text-align:
         center;
+
     text-indent:
         0;
 }
+
+
+/* =========================================================
+   MAPA MENTAL
+========================================================= */
+
 #mapa-mental {
+
     position:
         relative;
+
     width: 100%;
+
     height: 650px;
+
     overflow:
         hidden;
+
     border-radius:
         15px;
+
+    /*
+       EFEITO PRETO + LARANJA
+    */
+
     background:
         radial-gradient(
             circle at center,
-            rgba(255, 107, 0, 0.12),
-            rgba(255, 149, 0, 0.05),
-            transparent 70%
+            rgba(255, 107, 0, 0.22) 0%,
+            rgba(255, 107, 0, 0.10) 25%,
+            rgba(0, 0, 0, 0.20) 55%,
+            rgba(0, 0, 0, 0.65) 100%
         );
+
+    border:
+        1px solid rgba(255, 107, 0, 0.20);
 }
+
 #mapa-mental svg {
+
     display:
         block;
+
     width: 100%;
+
     height: 100%;
+
     max-width:
         1200px;
+
     margin:
         0 auto;
 }
+
+
 /* =========================================================
    MAPA — ELEMENTOS SVG
 ========================================================= */
+
 .linha-mapa {
+
     fill: none;
+
     stroke:
         var(--laranja);
+
     stroke-width:
         4;
+
     stroke-linecap:
         round;
+
     opacity:
         0.65;
 }
+
 .no-central {
+
     fill:
         var(--laranja-forte);
+
     stroke:
-        #fff;
+        #ffffff;
+
     stroke-width:
         5;
+
     filter:
         drop-shadow(
-            0 6px 10px
-            rgba(255, 69, 0, 0.35)
+            0 6px 12px
+            rgba(255, 69, 0, 0.50)
         );
 }
+
 .no-principal {
+
     fill:
         var(--laranja);
+
     stroke:
-        #fff;
+        #ffffff;
+
     stroke-width:
         3;
+
     filter:
         drop-shadow(
-            0 5px 8px
-            rgba(255, 107, 0, 0.25)
+            0 5px 10px
+            rgba(255, 107, 0, 0.35)
         );
+
     cursor:
         pointer;
 }
+
 .no-principal:hover {
+
     filter:
         drop-shadow(
-            0 8px 15px
-            rgba(255, 69, 0, 0.45)
+            0 8px 18px
+            rgba(255, 69, 0, 0.60)
         );
 }
+
+
 /* =========================================================
    TEXTO DO MAPA
 ========================================================= */
+
 .texto-central,
 .texto-principal {
+
     fill:
-        #fff;
+        #ffffff;
+
     font-family:
         "Poppins", sans-serif;
+
     text-anchor:
         middle;
+
     dominant-baseline:
         middle;
 }
+
 .texto-central {
+
     font-size:
         17px;
+
     font-weight:
         700;
 }
+
 .texto-principal {
+
     font-size:
         12px;
 
     font-weight:
         600;
 }
+
+
 /* =========================================================
    CARREGAMENTO DO MAPA
 ========================================================= */
+
 .carregando-mapa {
+
     width: 100%;
+
     padding:
         100px 20px;
+
     color:
         var(--cinza);
+
     text-align:
         center;
+
     text-indent:
         0;
 }
+
 .spinner-mapa {
+
     width:
         40px;
+
     height:
         40px;
+
     margin:
         0 auto 15px;
+
     border:
-        4px solid #ffe0c2;
+        4px solid rgba(255, 107, 0, 0.20);
+
     border-top-color:
         var(--laranja);
+
     border-radius:
         50%;
+
     animation:
         girar 0.8s linear infinite;
 }
+
 @keyframes girar {
+
     to {
         transform:
             rotate(360deg);
     }
 }
+
+
 /* =========================================================
    VÍDEO
 ========================================================= */
+
 .video-container {
+
     width: 100%;
+
     display:
         flex;
+
     justify-content:
         center;
+
     align-items:
         center;
+
     margin:
         30px auto;
 }
+
 .video-container video {
+
     width:
         400px;
+
     max-width:
         100%;
+
     height:
         auto;
+
     display:
         block;
+
+    border:
+        1px solid rgba(255, 107, 0, 0.30);
+
     border-radius:
         12px;
+
     box-shadow:
-        var(--sombra-media);
+        var(--sombra-grande);
 }
+
+
 /* =========================================================
    CARDS
 ========================================================= */
+
 .cards {
+
     width: 100%;
+
     display:
         grid;
+
     grid-template-columns:
         repeat(
             auto-fit,
             minmax(240px, 1fr)
         );
+
     gap:
         25px;
 
     margin-top:
         30px;
 }
+
 .card {
+
     position:
         relative;
+
     min-height:
         180px;
+
     padding:
         22px;
+
     color:
         #f8fafc;
+
+    /*
+       CARDS PRETOS COM GRADIENTE
+    */
+
     background:
         linear-gradient(
             145deg,
-            #334155,
-            #1e293b
+            #252525 0%,
+            #151515 55%,
+            #0d0d0d 100%
         );
+
     border:
         1px solid
-        rgba(255, 255, 255, 0.1);
+        rgba(255, 255, 255, 0.08);
+
     border-left:
         5px solid var(--laranja);
+
     border-radius:
         14px;
+
     cursor:
         pointer;
+
     overflow:
         hidden;
+
     box-shadow:
         var(--sombra-media);
+
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease;
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -80px;
+    right: -80px;
+
+    width: 160px;
+    height: 160px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 107, 0, 0.18),
+            transparent 70%
+        );
+
+    pointer-events:
+        none;
+}
+
 .card:hover,
 .card.ativo {
+
     transform:
         translateY(-6px);
+
     box-shadow:
         var(--sombra-laranja-forte);
+
     border-left-color:
         var(--laranja-claro);
 }
+
 .card h3 {
+
     margin-bottom:
         12px;
+
     color:
-        #fff;
+        #ffffff;
+
     font-size:
         1.1rem;
+
     text-align:
         center;
 }
+
+.card p {
+
+    color:
+        #cbd5e1;
+}
+
+
+/* =========================================================
+   INFORMAÇÃO EXTRA
+========================================================= */
+
 .info-extra {
+
     max-height:
         0;
+
     opacity:
         0;
+
     overflow:
         hidden;
+
     margin-top:
         0;
+
     padding-top:
         0;
+
     border-top:
         1px solid
         rgba(255, 255, 255, 0.15);
+
     transition:
         max-height 0.4s ease,
         opacity 0.3s ease,
         margin-top 0.3s ease,
         padding-top 0.3s ease;
 }
+
+
+/* =========================================================
+   EFEITO GRADIENTE NAS ÁREAS DO MAIN
+========================================================= */
+
+main::before {
+
+    content: "";
+
+    position: fixed;
+
+    top: 20%;
+
+    left: -200px;
+
+    width: 500px;
+
+    height: 500px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 69, 0, 0.10),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+main::after {
+
+    content: "";
+
+    position: fixed;
+
+    right: -200px;
+
+    bottom: 5%;
+
+    width: 500px;
+
+    height: 500px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 107, 0, 0.10),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   SELEÇÃO DE TEXTO
+========================================================= */
+
+::selection {
+
+    color:
+        #ffffff;
+
+    background:
+        var(--laranja);
+}
+
+
 /* =========================================================
    RESPONSIVIDADE — TABLET
 ========================================================= */
+
 @media (max-width: 900px) {
+
     .header {
+
         padding:
             12px 20px;
+
         gap:
             12px;
     }
+
     .logo-img {
+
         width:
             58px;
+
         height:
             58px;
     }
+
     .menu-wrapper {
+
         justify-content:
             flex-start;
+
         padding:
             10px 15px;
     }
+
     main {
+
         padding:
             0 15px;
     }
@@ -877,223 +1485,41 @@ code {
             550px;
     }
 }
+
+
 /* =========================================================
    RESPONSIVIDADE — CELULAR
 ========================================================= */
+
 @media (max-width: 600px) {
+
     :root {
+
         --altura-botao:
             var(--altura-mobile);
+
         --botao-padding-x:
             12px;
+
         --botao-padding-y:
             7px;
+
         --botao-fonte:
             13px;
+
         --botao-radius:
             7px;
     }
+
+
     /* HEADER */
+
     .header {
+
         min-height:
             72px;
+
         padding:
             10px 12px;
-        gap:
-            10px;
-    }
-    .logo-img {
-        width:
-            50px;
-        height:
-            50px;
-    }
-    .titulo-link h1 {
-        font-size:
-            clamp(
-                1rem,
-                5vw,
-                1.35rem
-            );
-        letter-spacing:
-            0.5px;
-    }
-    /* MENU */
-    .menu-wrapper {
-        min-height:
-            60px;
-        padding:
-            8px 10px;
 
-        justify-content:
-            flex-start;
-        gap:
-            7px;
-    }
-    /* BOTÕES */
-    .btn-menu,
-    button,
-    .btn {
-        min-height:
-            var(--altura-mobile);
-        max-width:
-            100%;
-        padding:
-            7px 12px;
-        font-size:
-            13px;
-        line-height:
-            1.3;
-        white-space:
-            normal;
-        overflow-wrap:
-            anywhere;
-    }
-    /* ACCORDIONS */
-    .accordion > summary,
-    .aula > summary {
-        min-height:
-            var(--altura-mobile);
-        padding:
-            9px 42px 9px 12px;
-        font-size:
-            13px;
-        line-height:
-            1.35;
-    }
-    /* ÍCONE */
-    .accordion > summary::after,
-    .aula > summary::after {
-        right:
-            10px;
-        width:
-            22px;
-        height:
-            22px;
-        font-size:
-            20px;
-    }
-    /* MAIN */
-    main {
-        margin:
-            20px auto;
-        padding:
-            0 10px;
-    }
-    /* CONTEÚDO */
-    .conteudo {
-        padding:
-            15px 5px;
-    }
-    .aula-conteudo {
-        padding:
-            20px 14px;
-    }
-    /* TEXTO */
-    p {
-        text-align:
-            left;
-        text-indent:
-            1em;
-    }
-    /* LISTAS */
-    .aula-conteudo ul {
-        margin-left:
-            20px;
-    }
-    /* CÓDIGO */
-    pre {
-        padding:
-            14px;
-        font-size:
-            12px;
-        border-radius:
-            8px;
-    }
-    /* MAPA */
-    .mapa-mental-section {
-        margin:
-            30px auto;
-        padding:
-            18px 10px;
-        border-radius:
-            14px;
-    }
-    #mapa-mental {
-        height:
-            450px;
-        border-radius:
-            10px;
-    }
-    /* VÍDEO */
-    .video-container {
-        margin:
-            20px auto;
-    }
-    .video-container video {
-        width:
-            100%;
-        max-width:
-            400px;
-    }
-    /* CARDS */
-    .cards {
-        grid-template-columns:
-            1fr;
-        gap:
-            15px;
-        margin-top:
-            20px;
-    }
-    .card {
-        min-height:
-            160px;
-        padding:
-            18px;
-    }
-}
-/* =========================================================
-   RESPONSIVIDADE — CELULARES MUITO PEQUENOS
-========================================================= */
-@media (max-width: 380px) {
-    .header {
-        padding:
-            8px 10px;
-    }
-    .logo-img {
-        width:
-            44px;
-        height:
-            44px;
-    }
-    .titulo-link h1 {
-        font-size:
-            0.95rem;
-    }
-    .menu-wrapper {
-        padding:
-            7px 8px;
-        gap:
-            6px;
-    }
-    .btn-menu,
-    button,
-    .btn {
-        padding:
-            7px 10px;
-
-        font-size:
-            12px;
-    }
-    .accordion > summary,
-    .aula > summary {
-        padding:
-            8px 38px 8px 10px;
-        font-size:
-            12px;
-    }
-    #mapa-mental {
-        height:
-            380px;
-    }
-}
+        gap
