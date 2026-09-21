@@ -3,67 +3,32 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="Plataforma de estudo de Desenvolvimento de Sistemas, com conteúdos, aulas, vídeos e atividades."
+        content="Plataforma de estudo de Desenvolvimento de Sistemas"
     >
 
-    <meta name="theme-color" content="#0f172a">
+    <title>Plataforma de Estudo</title>
 
-    <title>Plataforma de Estudo | Desenvolvimento de Sistemas</title>
-
-    <!-- =====================================================
-         FONTE
-    ====================================================== -->
-
+    <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
-    <!-- =====================================================
-         CSS
-    ====================================================== -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-    <!-- =====================================================
-         FAVICON
-    ====================================================== -->
-
-    <link
-        rel="icon"
-        type="image/png"
-        href="DS.png"
-    >
-
-    <!-- =====================================================
-         GOOGLE ADSENSE
-    ====================================================== -->
-
-    <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5163863087577444"
-        crossorigin="anonymous">
-    </script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="DS.png">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5163863087577444"
+     crossorigin="anonymous"></script>
 </head>
-
 
 <body>
 
@@ -73,42 +38,25 @@
 
     <header class="header">
 
-        <div class="header-container">
-
-            <a
-                href="index.html"
-                class="logo-link"
-                aria-label="Ir para a página inicial"
+        <a href="index.html" class="logo-link" aria-label="Página inicial">
+            <img
+                src="DS.png"
+                alt="Logo principal"
+                class="logo-img"
             >
-                <img
-                    src="DS.png"
-                    alt="Logo da Plataforma de Estudo"
-                    class="logo-img"
-                >
-            </a>
+        </a>
 
+        <a href="index.html" class="titulo-link">
+            <h1>PLATAFORMA DE ESTUDO</h1>
+        </a>
 
-            <a
-                href="index.html"
-                class="titulo-link"
+        <a href="index.html" class="logo-link" aria-label="Página inicial">
+            <img
+                src="l.png"
+                alt="Logo Desenvolvimento de Sistemas"
+                class="logo-img"
             >
-                <h1>PLATAFORMA DE ESTUDO</h1>
-            </a>
-
-
-            <a
-                href="index.html"
-                class="logo-link"
-                aria-label="Ir para a página inicial"
-            >
-                <img
-                    src="l.png"
-                    alt="Logo Desenvolvimento de Sistemas"
-                    class="logo-img"
-                >
-            </a>
-
-        </div>
+        </a>
 
     </header>
 
@@ -117,53 +65,31 @@
          MENU PRINCIPAL
     ====================================================== -->
 
-    <nav
-        class="menu-principal"
-        aria-label="Menu principal"
-    >
+    <nav class="menu-principal" aria-label="Menu principal">
 
         <div class="menu-wrapper">
 
-            <a
-                href="AlgoritmoeEstruturadeDados.html"
-                class="btn-menu ativo"
-                aria-current="page"
-            >
-                Algoritmos e Estrutura de Dados
+            <a href="AlgoritmoeEstruturadeDados.html" class="btn-menu">
+                Algoritmo e Estrutura de Dados
             </a>
 
-            <a
-                href="ArquiteturadeSistemas.html"
-                class="btn-menu"
-            >
+            <a href="ArquiteturadeSistemas.html" class="btn-menu">
                 Arquitetura de Sistemas
             </a>
 
-            <a
-                href="DesenvolvimentoFrontEndI.html"
-                class="btn-menu"
-            >
-                Desenvolvimento Front-End I
+            <a href="DesenvolvimentoFrontEndI.html" class="btn-menu">
+                Desenvolvimento Front End I
             </a>
 
-            <a
-                href="DesenvolvimentodeAplicativos.html"
-                class="btn-menu"
-            >
+            <a href="DesenvolvimentodeAplicativos.html" class="btn-menu">
                 Desenvolvimento de Aplicativos
             </a>
 
-            <a
-                href="DesenvolvimentodeSoftwares.html"
-                class="btn-menu"
-            >
+            <a href="DesenvolvimentodeSoftwares.html" class="btn-menu">
                 Desenvolvimento de Softwares
             </a>
 
-            <a
-                href="DesenvolvimentoBackEnd.html"
-                class="btn-menu"
-            >
+            <a href="DesenvolvimentoBackEnd.html" class="btn-menu">
                 Desenvolvimento Back-End
             </a>
 
@@ -176,1292 +102,715 @@
          CONTEÚDO PRINCIPAL
     ====================================================== -->
 
-    <main id="conteudo-principal">
-
+    <main>
 
         <!-- =================================================
              DISCIPLINA
         ================================================== -->
 
-        <section
-            class="accordion disciplina"
-            aria-labelledby="titulo-disciplina"
-        >
+        <details class="accordion disciplina" open>
 
-            <details open>
+            <summary>
+                DISCIPLINA - ALGORITMOS E ESTRUTURA DE DADOS
+            </summary>
 
-                <summary id="titulo-disciplina">
-                    DISCIPLINA — ALGORITMOS E ESTRUTURA DE DADOS
-                </summary>
+            <div class="conteudo">
 
+                <!-- =================================================
+                     AULA PRINCIPAL
+                ================================================== -->
 
-                <div class="conteudo">
+                <details class="aula" open>
 
+                    <summary>
+                       INTRODUÇÃO À LÓGICA DE PROGRAMAÇÃO 
+                    </summary>
 
-                    <!-- =================================================
-                         AULA 01
-                    ================================================== -->
+                    <div class="aula-conteudo">
 
-                    <details
-                        class="aula"
-                        open
-                    >
+<p>Quando comecei a conhecer a programação, percebi que, antes de aprender uma linguagem de programação, eu precisava aprender a pensar como um programador. Foi nesse momento que compreendi a importância da lógica de programação.</p>
 
-                        <summary>
-                            INTRODUÇÃO À LÓGICA DE PROGRAMAÇÃO
-                        </summary>
+<p>Eu posso definir a lógica de programação como a maneira de organizar meus pensamentos para encontrar soluções para diferentes problemas. Ela me permite dividir um problema em pequenas etapas e determinar uma sequência de instruções que devem ser realizadas para chegar a um determinado resultado.</p>
 
+<p>Para mim, programar é semelhante a seguir uma receita. Quando quero preparar um prato, preciso seguir algumas etapas em uma determinada ordem: separar os ingredientes, preparar cada um deles e, depois, realizar o preparo. Se eu mudar a ordem de algumas etapas ou esquecer uma delas, o resultado pode não ser o esperado. Na programação, acontece algo parecido. O computador precisa receber instruções claras, organizadas e na sequência correta.</p>
 
-                        <div class="aula-conteudo">
+<p>A lógica de programação também me ajuda a desenvolver o raciocínio lógico. Em vez de tentar resolver um problema de uma única vez, eu posso analisá-lo, identificar suas partes e encontrar uma solução passo a passo. Esse processo é importante porque os computadores não interpretam nossas intenções; eles apenas executam as instruções que recebem.</p>
 
+<p>Um exemplo simples é imaginar um programa que precisa verificar se uma pessoa é maior de idade. Primeiro, eu preciso obter a idade da pessoa. Depois, comparo essa idade com 18. Se a idade for maior ou igual a 18, o programa poderá informar que a pessoa é maior de idade. Caso contrário, poderá informar que ela é menor de idade.</p>
 
-                            <!-- =================================================
-                                 TEXTO
-                            ================================================== -->
+<p>Nesse exemplo, estou utilizando uma estrutura de decisão. Esse é um dos conceitos fundamentais da lógica de programação. Existem também outros conceitos importantes, como variáveis, operadores, estruturas de repetição e algoritmos. Todos eles me ajudam a construir soluções cada vez mais completas.</p>
 
-                            <article class="texto-aula">
+<p>Outro conceito fundamental é o algoritmo. Eu posso entender um algoritmo como uma sequência organizada de passos utilizada para resolver um problema ou realizar uma tarefa. Um algoritmo não precisa necessariamente estar escrito em uma linguagem de programação. Ele pode ser representado por textos, diagramas ou pseudocódigo.</p>
 
-                                <p>
-                                    Quando comecei a conhecer a programação,
-                                    percebi que, antes de aprender uma linguagem
-                                    de programação, eu precisava aprender a pensar
-                                    como um programador. Foi nesse momento que
-                                    compreendi a importância da lógica de programação.
-                                </p>
+<p>Ao aprender lógica de programação, percebo que ela não serve apenas para criar programas. Ela também pode ser aplicada a situações do cotidiano, pois me ensina a analisar problemas, organizar informações, estabelecer prioridades e buscar soluções de maneira estruturada.</p>
 
-                                <p>
-                                    Eu posso definir a lógica de programação como
-                                    a maneira de organizar meus pensamentos para
-                                    encontrar soluções para diferentes problemas.
-                                    Ela me permite dividir um problema em pequenas
-                                    etapas e determinar uma sequência de instruções
-                                    que devem ser realizadas para chegar a um
-                                    determinado resultado.
-                                </p>
+<p>Por isso, considero a lógica de programação uma das bases mais importantes para quem deseja aprender a programar. Antes de ensinar o computador a executar uma tarefa, preciso saber exatamente o que quero que ele faça e quais passos serão necessários para alcançar o resultado. Quanto mais desenvolvo minha capacidade de raciocinar logicamente, mais preparado fico para transformar ideias e problemas em soluções por meio da programação.</p>
+                    </div>
+    <!-- =================================================
+                             MAPA MENTAL
+                        ================================================== -->
 
-                                <p>
-                                    Para mim, programar é semelhante a seguir uma
-                                    receita. Quando quero preparar um prato, preciso
-                                    seguir algumas etapas em uma determinada ordem:
-                                    separar os ingredientes, preparar cada um deles
-                                    e, depois, realizar o preparo.
-                                </p>
+                        <section class="mapa-mental-section" aria-labelledby="titulo-mapa">
 
-                                <p>
-                                    Se eu mudar a ordem de algumas etapas ou esquecer
-                                    uma delas, o resultado pode não ser o esperado.
-                                    Na programação, acontece algo parecido. O
-                                    computador precisa receber instruções claras,
-                                    organizadas e na sequência correta.
-                                </p>
+                            <h2 id="titulo-mapa" class="titulo-secao">
+                                🧠 Mapa Mental
+                            </h2>
 
-                                <p>
-                                    A lógica de programação também me ajuda a
-                                    desenvolver o raciocínio lógico. Em vez de tentar
-                                    resolver um problema de uma única vez, eu posso
-                                    analisá-lo, identificar suas partes e encontrar
-                                    uma solução passo a passo.
-                                </p>
+                            <p class="descricao-mapa">
+                                <! //O mapa mental é gerado automaticamente a partir
+                                dos títulos e subtítulos desta aula.//>
+                            </p>
 
-                                <p>
-                                    Esse processo é importante porque os computadores
-                                    não interpretam nossas intenções; eles apenas
-                                    executam as instruções que recebem.
-                                </p>
-
-                                <p>
-                                    Um exemplo simples é imaginar um programa que
-                                    precisa verificar se uma pessoa é maior de idade.
-                                    Primeiro, eu preciso obter a idade da pessoa.
-                                    Depois, comparo essa idade com 18.
-                                </p>
-
-                                <p>
-                                    Se a idade for maior ou igual a 18, o programa
-                                    poderá informar que a pessoa é maior de idade.
-                                    Caso contrário, poderá informar que ela é menor
-                                    de idade.
-                                </p>
-
-                                <p>
-                                    Nesse exemplo, estou utilizando uma estrutura
-                                    de decisão. Esse é um dos conceitos fundamentais
-                                    da lógica de programação.
-                                </p>
-
-                                <p>
-                                    Existem também outros conceitos importantes,
-                                    como variáveis, operadores, estruturas de
-                                    repetição e algoritmos. Todos eles me ajudam
-                                    a construir soluções cada vez mais completas.
-                                </p>
-
-                                <p>
-                                    Outro conceito fundamental é o algoritmo.
-                                    Eu posso entender um algoritmo como uma sequência
-                                    organizada de passos utilizada para resolver um
-                                    problema ou realizar uma tarefa.
-                                </p>
-
-                                <p>
-                                    Um algoritmo não precisa necessariamente estar
-                                    escrito em uma linguagem de programação. Ele pode
-                                    ser representado por textos, diagramas ou
-                                    pseudocódigo.
-                                </p>
-
-                                <p>
-                                    Ao aprender lógica de programação, percebo que ela
-                                    não serve apenas para criar programas. Ela também
-                                    pode ser aplicada a situações do cotidiano, pois
-                                    me ensina a analisar problemas, organizar
-                                    informações, estabelecer prioridades e buscar
-                                    soluções de maneira estruturada.
-                                </p>
-
-                                <p>
-                                    Por isso, considero a lógica de programação uma
-                                    das bases mais importantes para quem deseja
-                                    aprender a programar.
-                                </p>
-
-                                <p>
-                                    Antes de ensinar o computador a executar uma
-                                    tarefa, preciso saber exatamente o que quero
-                                    que ele faça e quais passos serão necessários
-                                    para alcançar o resultado.
-                                </p>
-
-                                <p>
-                                    Quanto mais desenvolvo minha capacidade de
-                                    raciocinar logicamente, mais preparado fico
-                                    para transformar ideias e problemas em soluções
-                                    por meio da programação.
-                                </p>
-
-                            </article>
-
-
-                            <!-- =================================================
-                                 MAPA MENTAL
-                            ================================================== -->
-
-                            <section
-                                class="mapa-mental-section"
-                                aria-labelledby="titulo-mapa-introducao"
+                            <div
+                                id="mapa-mental"
+                                data-titulo="Algoritmos e Estruturas de Dados"
                             >
+                                <div class="carregando-mapa">
+                                    <div class="spinner-mapa"></div>
+                                    <p>Gerando mapa mental...</p>
+                                </div>
+                            </div>
 
-                                <h2
-                                    id="titulo-mapa-introducao"
-                                    class="titulo-secao"
-                                >
-                                    🧠 Mapa Mental
-                                </h2>
+                        </section>
 
-                                <p class="descricao-mapa">
-                                    O mapa mental é gerado automaticamente a partir
-                                    dos títulos e subtítulos desta aula.
-                                </p>
 
-                                <div
-                                    id="mapa-mental-introducao"
-                                    class="mapa-mental"
-                                    data-titulo="Introdução à Lógica de Programação"
-                                >
+                        <!-- =================================================
+                             VÍDEO
+                        ================================================== -->
 
-                                    <div class="carregando-mapa">
+                        <section id="video">
 
-                                        <div class="spinner-mapa"></div>
+                            <h2 class="titulo-secao">
+                                🎥 Vídeo — Algoritmos
+                            </h2>
+
+                            <div class="video-container">
+
+                                <video controls preload="metadata">
+
+                                    <source
+                                        src="Algoritmos__A_Base.mp4"
+                                        type="video/mp4"
+                                    >
+
+                                    Seu navegador não suporta vídeos HTML5.
+
+                                </video>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                             CARDS
+                        ================================================== -->
+
+                        <section id="tecnologias">
+
+                            <h2 class="titulo-secao">
+                                Estudar
+                            </h2>
+
+                            <div class="cards">
+
+                                <article class="card" tabindex="0">
+
+                                    <h3>
+                                        Algoritmos e Estruturas de Dados
+                                    </h3>
+
+                                    <div class="info-extra">
 
                                         <p>
-                                            Gerando mapa mental...
+                                            <strong>Algoritmos:</strong>
+                                            sequência lógica de instruções para
+                                            resolver problemas e executar tarefas.
+                                        </p>
+
+                                        <p>
+                                            <strong>Estruturas de dados:</strong>
+                                            formas de organizar, armazenar e
+                                            manipular informações de maneira eficiente.
                                         </p>
 
                                     </div>
 
-                                </div>
+                                </article>
 
-                            </section>
+                                <article class="card" tabindex="0">
 
+                                    <h3>
+                                        Principais estruturas
+                                    </h3>
 
-                            <!-- =================================================
-                                 VÍDEO
-                            ================================================== -->
-
-                            <section
-                                id="video-introducao"
-                                class="video-section"
-                                aria-labelledby="titulo-video-introducao"
-                            >
-
-                                <h2
-                                    id="titulo-video-introducao"
-                                    class="titulo-secao"
-                                >
-                                    🎥 Vídeo — Algoritmos
-                                </h2>
-
-                                <div class="video-container">
-
-                                    <video
-                                        controls
-                                        preload="metadata"
-                                    >
-
-                                        <source
-                                            src="Algoritmos__A_Base.mp4"
-                                            type="video/mp4"
-                                        >
-
-                                        Seu navegador não suporta vídeos HTML5.
-
-                                    </video>
-
-                                </div>
-
-                            </section>
-
-
-                            <!-- =================================================
-                                 CARDS
-                            ================================================== -->
-
-                            <section
-                                id="conceitos-introducao"
-                                class="tecnologias"
-                                aria-labelledby="titulo-conceitos"
-                            >
-
-                                <h2
-                                    id="titulo-conceitos"
-                                    class="titulo-secao"
-                                >
-                                    📚 O que estudar
-                                </h2>
-
-
-                                <div class="cards">
-
-
-                                    <article
-                                        class="card"
-                                        tabindex="0"
-                                    >
-
-                                        <h3>
-                                            Algoritmos e Estruturas de Dados
-                                        </h3>
-
-                                        <div class="info-extra">
-
-                                            <p>
-                                                <strong>Algoritmos:</strong>
-                                                sequência lógica de instruções
-                                                para resolver problemas e
-                                                executar tarefas.
-                                            </p>
-
-                                            <p>
-                                                <strong>Estruturas de dados:</strong>
-                                                formas de organizar, armazenar
-                                                e manipular informações de
-                                                maneira eficiente.
-                                            </p>
-
-                                        </div>
-
-                                    </article>
-
-
-                                    <article
-                                        class="card"
-                                        tabindex="0"
-                                    >
-
-                                        <h3>
-                                            Principais estruturas
-                                        </h3>
-
-                                        <div class="info-extra">
-
-                                            <p>
-                                                Arrays, listas encadeadas,
-                                                filas, pilhas, árvores,
-                                                grafos e tabelas hash.
-                                            </p>
-
-                                            <p>
-                                                Cada estrutura possui
-                                                características próprias.
-                                            </p>
-
-                                        </div>
-
-                                    </article>
-
-
-                                    <article
-                                        class="card"
-                                        tabindex="0"
-                                    >
-
-                                        <h3>
-                                            Aplicações
-                                        </h3>
-
-                                        <div class="info-extra">
-
-                                            <p>
-                                                Bancos de dados, sistemas
-                                                de arquivos, redes sociais,
-                                                sistemas operacionais,
-                                                mecanismos de busca e
-                                                inteligência artificial.
-                                            </p>
-
-                                        </div>
-
-                                    </article>
-
-
-                                </div>
-
-                            </section>
-
-
-                            <!-- =================================================
-                                 ATIVIDADES DA AULA 01
-                            ================================================== -->
-
-                            <details
-                                class="aula atividades-container"
-                            >
-
-                                <summary>
-                                    📝 Atividades de Fixação
-                                </summary>
-
-
-                                <div class="aula-conteudo">
-
-                                    <p class="descricao-atividade">
-                                        Responda às questões sobre lógica
-                                        de programação e algoritmos.
-                                    </p>
-
-
-                                    <div class="config-atividade">
-
-                                        <label for="quantidadeQuestoesIntroducao">
-                                            Quantidade de questões:
-                                        </label>
-
-                                        <select
-                                            id="quantidadeQuestoesIntroducao"
-                                        >
-
-                                            <option value="5">
-                                                5 questões
-                                            </option>
-
-                                            <option
-                                                value="10"
-                                                selected
-                                            >
-                                                10 questões
-                                            </option>
-
-                                            <option value="15">
-                                                15 questões
-                                            </option>
-
-                                        </select>
-
-
-                                        <button
-                                            type="button"
-                                            id="btnGerarAtividadesIntroducao"
-                                            class="btn-gerar"
-                                        >
-                                            🎲 Gerar Atividades
-                                        </button>
-
-                                    </div>
-
-
-                                    <div
-                                        id="statusAtividadeIntroducao"
-                                        class="status-atividade"
-                                        aria-live="polite"
-                                    ></div>
-
-
-                                    <div
-                                        id="listaQuestoesIntroducao"
-                                    ></div>
-
-
-                                    <div
-                                        id="resultadoAtividadeIntroducao"
-                                        class="resultado-atividade"
-                                    ></div>
-
-                                </div>
-
-                            </details>
-
-                        </div>
-
-                    </details>
-
-
-                    <!-- =================================================
-                         AULA 02 — ALGORITMOS
-                    ================================================== -->
-
-                    <details
-                        class="aula"
-                        open
-                    >
-
-                        <summary>
-                            ALGORITMOS E ESTRUTURAS DE DADOS
-                        </summary>
-
-
-                        <div class="aula-conteudo">
-
-
-                            <article class="texto-aula">
-
-                                <h2>
-                                    Algoritmos e Estruturas de Dados
-                                </h2>
-
-
-                                <h3>
-                                    Conceito e importância dos algoritmos
-                                </h3>
-
-                                <p>
-                                    Um algoritmo pode ser definido como um
-                                    conjunto ordenado de etapas utilizado
-                                    para solucionar um determinado problema.
-                                    Na área da computação, os algoritmos
-                                    possuem papel fundamental, pois permitem
-                                    descrever de forma lógica e organizada
-                                    as instruções que deverão ser executadas
-                                    por um computador para alcançar um resultado.
-                                </p>
-
-                                <p>
-                                    O desenvolvimento de algoritmos envolve
-                                    diferentes aspectos, entre os quais se
-                                    destacam a correção e a eficiência.
-                                </p>
-
-                                <p>
-                                    A correção está relacionada à capacidade
-                                    de o algoritmo apresentar resultados
-                                    adequados para todas as situações previstas.
-                                </p>
-
-                                <p>
-                                    A eficiência, por sua vez, está associada
-                                    aos recursos necessários para que o algoritmo
-                                    seja executado. Entre os principais fatores
-                                    analisados estão o tempo de processamento e
-                                    a quantidade de memória utilizada.
-                                </p>
-
-
-                                <h3>
-                                    Entrada, processamento e saída
-                                </h3>
-
-                                <p>
-                                    O funcionamento de um algoritmo geralmente
-                                    parte de um conjunto de informações denominado
-                                    entrada.
-                                </p>
-
-                                <p>
-                                    Após o processamento das informações,
-                                    o algoritmo produz uma saída, que representa
-                                    o resultado obtido.
-                                </p>
-
-                                <p>
-                                    Durante a execução, os dados de entrada podem
-                                    ser transformados, organizados ou utilizados
-                                    para gerar novas informações.
-                                </p>
-
-
-                                <h3>
-                                    Tipos abstratos de dados
-                                </h3>
-
-                                <p>
-                                    Quando um conjunto de dados é organizado
-                                    segundo determinadas características e
-                                    acompanhado por operações que podem ser
-                                    realizadas sobre ele, tem-se o conceito
-                                    de tipo abstrato de dado.
-                                </p>
-
-                                <p>
-                                    Um tipo abstrato de dado pode ser entendido
-                                    como a combinação entre um modelo que define
-                                    os dados e um conjunto de operações permitidas
-                                    sobre esse modelo.
-                                </p>
-
-
-                                <h3>
-                                    Implementação dos dados
-                                </h3>
-
-                                <p>
-                                    Embora os algoritmos possam ser planejados
-                                    utilizando conceitos abstratos, sua execução
-                                    em um computador exige uma representação
-                                    concreta.
-                                </p>
-
-                                <p>
-                                    A representação utilizada para organizar
-                                    os dados na memória do computador é
-                                    denominada estrutura de dados.
-                                </p>
-
-
-                                <h3>
-                                    Organização das estruturas de dados
-                                </h3>
-
-                                <p>
-                                    As estruturas de dados podem assumir
-                                    diferentes formas de organização. Cada
-                                    uma possui características próprias que
-                                    determinam como seus elementos são
-                                    dispostos e quais operações podem
-                                    ser realizadas.
-                                </p>
-
-                                <p>
-                                    A escolha de uma determinada estrutura
-                                    deve considerar as características
-                                    do problema que será solucionado.
-                                </p>
-
-
-                                <h3>
-                                    Relação entre algoritmos e estruturas de dados
-                                </h3>
-
-                                <p>
-                                    O estudo de estruturas de dados está
-                                    diretamente relacionado ao conhecimento
-                                    de algoritmos.
-                                </p>
-
-                                <p>
-                                    A estrutura mais adequada depende das
-                                    necessidades de cada problema. Em algumas
-                                    situações, pode ser importante realizar
-                                    buscas rapidamente; em outras, pode ser
-                                    necessário facilitar inserções, remoções
-                                    ou alterações de elementos.
-                                </p>
-
-
-                                <h3>
-                                    Complexidade computacional
-                                </h3>
-
-                                <p>
-                                    A complexidade computacional é um conceito
-                                    importante para avaliar o desempenho
-                                    de algoritmos e estruturas de dados.
-                                </p>
-
-                                <p>
-                                    Ela permite analisar a quantidade de
-                                    recursos necessária para executar
-                                    determinado procedimento, principalmente
-                                    em relação ao tempo e ao espaço de memória.
-                                </p>
-
-
-                                <h3>
-                                    Notação O
-                                </h3>
-
-                                <p>
-                                    Uma das formas utilizadas para representar
-                                    o comportamento de um algoritmo é a notação O,
-                                    também conhecida como notação de ordem
-                                    de crescimento.
-                                </p>
-
-                                <p>
-                                    Ela permite expressar como o custo
-                                    computacional de um procedimento tende
-                                    a aumentar à medida que cresce o tamanho
-                                    da entrada.
-                                </p>
-
-
-                                <h3>
-                                    Recursividade
-                                </h3>
-
-                                <p>
-                                    Alguns algoritmos utilizam a recursividade,
-                                    técnica na qual um procedimento pode realizar
-                                    uma chamada a si próprio para solucionar
-                                    partes menores do mesmo problema.
-                                </p>
-
-                                <p>
-                                    Para que esse processo seja válido,
-                                    é necessário estabelecer uma condição
-                                    de parada que impeça a execução de
-                                    continuar indefinidamente.
-                                </p>
-
-
-                                <h3>
-                                    Algoritmos eficientes
-                                </h3>
-
-                                <p>
-                                    A busca por soluções eficientes demonstra
-                                    a importância de estudar conjuntamente
-                                    algoritmos, estruturas de dados e
-                                    complexidade computacional.
-                                </p>
-
-                                <p>
-                                    Esses conhecimentos permitem desenvolver
-                                    programas mais organizados, eficientes
-                                    e adequados às características dos
-                                    problemas que precisam ser solucionados.
-                                </p>
-
-                            </article>
-
-
-                            <!-- =================================================
-                                 MAPA MENTAL — ALGORITMOS
-                            ================================================== -->
-
-                            <section
-                                class="mapa-mental-section"
-                                aria-labelledby="titulo-mapa-algoritmos"
-                            >
-
-                                <h2
-                                    id="titulo-mapa-algoritmos"
-                                    class="titulo-secao"
-                                >
-                                    🧠 Mapa Mental
-                                </h2>
-
-                                <p class="descricao-mapa">
-                                    O mapa mental é gerado automaticamente
-                                    a partir dos títulos e subtítulos desta aula.
-                                </p>
-
-
-                                <div
-                                    id="mapa-mental-algoritmos"
-                                    class="mapa-mental"
-                                    data-titulo="Algoritmos e Estruturas de Dados"
-                                >
-
-                                    <div class="carregando-mapa">
-
-                                        <div class="spinner-mapa"></div>
+                                    <div class="info-extra">
 
                                         <p>
-                                            Gerando mapa mental...
+                                            Arrays, listas encadeadas, filas,
+                                            pilhas, árvores, grafos e tabelas hash.
+                                        </p>
+
+                                        <p>
+                                            Cada estrutura possui características
+                                            próprias.
                                         </p>
 
                                     </div>
 
-                                </div>
-
-                            </section>
+                                </article>
 
 
-                            <!-- =================================================
-                                 VÍDEO — ALGORITMOS
-                            ================================================== -->
+                                <article class="card" tabindex="0">
 
-                            <section
-                                id="video-algoritmos"
-                                class="video-section"
-                                aria-labelledby="titulo-video-algoritmos"
-                            >
+                                    <h3>
+                                        Aplicações
+                                    </h3>
 
-                                <h2
-                                    id="titulo-video-algoritmos"
-                                    class="titulo-secao"
-                                >
-                                    🎥 Vídeo — Algoritmos
-                                </h2>
+                                    <div class="info-extra">
 
-
-                                <div class="video-container">
-
-                                    <video
-                                        controls
-                                        preload="metadata"
-                                    >
-
-                                        <source
-                                            src="Algoritmos__A_Base.mp4"
-                                            type="video/mp4"
-                                        >
-
-                                        Seu navegador não suporta vídeos HTML5.
-
-                                    </video>
-
-                                </div>
-
-                            </section>
-
-
-                            <!-- =================================================
-                                 CARDS — ALGORITMOS
-                            ================================================== -->
-
-                            <section
-                                id="conceitos-algoritmos"
-                                class="tecnologias"
-                                aria-labelledby="titulo-estudo-algoritmos"
-                            >
-
-                                <h2
-                                    id="titulo-estudo-algoritmos"
-                                    class="titulo-secao"
-                                >
-                                    📚 Pontos importantes
-                                </h2>
-
-
-                                <div class="cards">
-
-
-                                    <article
-                                        class="card"
-                                        tabindex="0"
-                                    >
-
-                                        <h3>
-                                            Algoritmos
-                                        </h3>
-
-                                        <div class="info-extra">
-
-                                            <p>
-                                                Sequência lógica de instruções
-                                                utilizada para resolver
-                                                problemas e executar tarefas.
-                                            </p>
-
-                                        </div>
-
-                                    </article>
-
-
-                                    <article
-                                        class="card"
-                                        tabindex="0"
-                                    >
-
-                                        <h3>
-                                            Estruturas de dados
-                                        </h3>
-
-                                        <div class="info-extra">
-
-                                            <p>
-                                                Formas de organizar,
-                                                armazenar e manipular
-                                                informações.
-                                            </p>
-
-                                        </div>
-
-                                    </article>
-
-
-                                    <article
-                                        class="card"
-                                        tabindex="0"
-                                    >
-
-                                        <h3>
-                                            Complexidade
-                                        </h3>
-
-                                        <div class="info-extra">
-
-                                            <p>
-                                                Permite analisar o custo
-                                                computacional de diferentes
-                                                soluções.
-                                            </p>
-
-                                        </div>
-
-                                    </article>
-
-
-                                </div>
-
-                            </section>
-
-
-                            <!-- =================================================
-                                 ATIVIDADES — ALGORITMOS
-                            ================================================== -->
-
-                            <details
-                                class="aula atividades-container"
-                            >
-
-                                <summary>
-                                    📝 Atividades de Fixação
-                                </summary>
-
-
-                                <div class="aula-conteudo">
-
-                                    <p class="descricao-atividade">
-                                        Responda às questões sobre
-                                        Algoritmos e Estruturas de Dados.
-                                    </p>
-
-
-                                    <div class="config-atividade">
-
-                                        <label for="quantidadeQuestoesAlgoritmos">
-                                            Quantidade de questões:
-                                        </label>
-
-
-                                        <select
-                                            id="quantidadeQuestoesAlgoritmos"
-                                        >
-
-                                            <option value="5">
-                                                5 questões
-                                            </option>
-
-                                            <option
-                                                value="10"
-                                                selected
-                                            >
-                                                10 questões
-                                            </option>
-
-                                            <option value="15">
-                                                15 questões
-                                            </option>
-
-                                        </select>
-
-
-                                        <button
-                                            type="button"
-                                            id="btnGerarAtividadesAlgoritmos"
-                                            class="btn-gerar"
-                                        >
-                                            🎲 Gerar Atividades
-                                        </button>
+                                        <p>
+                                            Bancos de dados, sistemas de arquivos,
+                                            redes sociais, sistemas operacionais,
+                                            mecanismos de busca e inteligência artificial.
+                                        </p>
 
                                     </div>
 
+                                </article>
 
-                                    <div
-                                        id="statusAtividadeAlgoritmos"
-                                        class="status-atividade"
-                                        aria-live="polite"
-                                    ></div>
+                            </div>
 
-
-                                    <div
-                                        id="listaQuestoesAlgoritmos"
-                                    ></div>
+                        </section>
 
 
-                                    <div
-                                        id="resultadoAtividadeAlgoritmos"
-                                        class="resultado-atividade"
-                                    ></div>
+                        <!-- =================================================
+                             ATIVIDADES DA AULA
+                        ================================================== -->
+
+                        <details class="aula atividades-container">
+
+                            <summary>
+                                📝 Atividades de fixação
+                            </summary>
+
+                            <div class="aula-conteudo">
+
+                                <p class="descricao-atividade">
+                                    Responda às questões sobre Algoritmos e
+                                    Estruturas de Dados.
+                                </p>
+
+                                <div class="config-atividade">
+
+                                    <label for="quantidadeQuestoes">
+                                        Quantidade de questões:
+                                    </label>
+
+                                    <select id="quantidadeQuestoes">
+                                        <option value="5">5 questões</option>
+                                        <option value="10" selected>10 questões</option>
+                                        <option value="15">15 questões</option>
+                                    </select>
+
+                                    <button
+                                        type="button"
+                                        id="btnGerarAtividades"
+                                        class="btn-gerar"
+                                    >
+                                        🎲 Gerar Atividades
+                                    </button>
 
                                 </div>
 
-                            </details>
+                                <div
+                                    id="statusAtividade"
+                                    class="status-atividade"
+                                    aria-live="polite"
+                                ></div>
 
-                        </div>
+                                <div id="listaQuestoes"></div>
 
-                    </details>
+                                <div
+                                    id="resultadoAtividade"
+                                    class="resultado-atividade"
+                                ></div>
 
+                            </div>
 
-                    <!-- =================================================
-                         OUTRAS AULAS
-                    ================================================== -->
+                        </details>
 
-                    <details class="aula">
+                    </div>
 
-                        <summary>
-                            Introdução à Disciplina
-                        </summary>
+                </details>
+                        <details class="aula" open>
+                    <summary>
+                        ALGORÍTMOS
+                    </summary>
 
-                        <div class="aula-conteudo">
+                    <div class="aula-conteudo">
 
-                            <p>
-                                Algoritmos são conjuntos de instruções
-                                passo a passo utilizados para resolver
-                                problemas.
+                        <h2> Algoritmos e Estruturas de Dados </h2>
+<h3> Conceito e importância dos algoritmos </h3>
+<p>Um algoritmo pode ser definido como um conjunto ordenado de etapas utilizado para solucionar um determinado problema. Na área da computação, os algoritmos possuem papel fundamental, pois permitem descrever de forma lógica e organizada as instruções que deverão ser executadas por um computador para alcançar um resultado.</p>
+
+<p>O desenvolvimento de algoritmos envolve diferentes aspectos, entre os quais se destacam a correção e a eficiência. A correção está relacionada à capacidade de o algoritmo apresentar resultados adequados para todas as situações previstas. Sua validação pode ser realizada por meio de métodos matemáticos que comprovem a validade do procedimento.</p>
+
+<p>A eficiência, por sua vez, está associada aos recursos necessários para que o algoritmo seja executado. Entre os principais fatores analisados estão o tempo de processamento e a quantidade de memória utilizada. Dessa forma, analisar um algoritmo permite compreender seu comportamento e verificar se ele é adequado para resolver determinado problema.</p>
+
+<h3>Entrada, processamento e saída</h3>
+<p>O funcionamento de um algoritmo geralmente parte de um conjunto de informações denominado entrada. Esses dados fornecem os elementos necessários para a execução das operações previstas no procedimento. Após o processamento das informações, o algoritmo produz uma saída, que representa o resultado obtido.</p>
+
+<p>Durante a execução, os dados de entrada podem ser transformados, organizados ou utilizados para gerar novas informações. A forma como esses dados são armazenados e manipulados interfere diretamente no desempenho e na organização do algoritmo.</p>
+
+<h3>Tipos abstratos de dados</h3>
+<p>Quando um conjunto de dados é organizado segundo determinadas características e acompanhado por operações que podem ser realizadas sobre ele, tem-se o conceito de tipo abstrato de dado. Essa abstração permite representar matematicamente um conjunto de informações sem depender, inicialmente, da forma como elas serão implementadas em uma linguagem de programação.</p>
+
+<p>Um tipo abstrato de dado pode ser entendido, portanto, como a combinação entre um modelo que define os dados e um conjunto de operações permitidas sobre esse modelo. Essa abordagem facilita o desenvolvimento de algoritmos, pois permite concentrar a atenção no comportamento dos dados antes de definir sua implementação.</p>
+
+<h3>Implementação dos dados</h3>
+<p>Embora os algoritmos possam ser planejados utilizando conceitos abstratos, sua execução em um computador exige uma representação concreta. Para isso, é necessário utilizar os recursos disponíveis na linguagem de programação escolhida, como tipos de dados, variáveis e operações.</p>
+
+<p>A representação utilizada para organizar os dados na memória do computador é denominada estrutura de dados. Ela estabelece como as informações serão armazenadas e de que maneira poderão ser acessadas ou modificadas durante a execução de um programa.</p>
+
+<h3>Organização das estruturas de dados</h3>
+<p>As estruturas de dados podem assumir diferentes formas de organização. Cada uma delas possui características próprias que determinam como seus elementos são dispostos e quais operações podem ser realizadas.</p>
+
+<p>A escolha de uma determinada estrutura deve considerar as características do problema que será solucionado. Uma organização adequada pode facilitar o acesso às informações e reduzir o custo das operações realizadas pelo programa. Por isso, compreender as propriedades de cada estrutura é essencial para desenvolver soluções eficientes.</p>
+
+<h3>Relação entre algoritmos e estruturas de dados</h3>
+<p>O estudo de estruturas de dados está diretamente relacionado ao conhecimento de algoritmos. Não basta apenas escolher uma estrutura capaz de armazenar as informações; também é necessário compreender como realizar operações sobre ela de maneira eficiente.</p>
+
+<p>A estrutura mais adequada depende das necessidades de cada problema. Em algumas situações, pode ser importante realizar buscas rapidamente; em outras, pode ser necessário facilitar inserções, remoções ou alterações de elementos. Assim, a escolha da estrutura deve estar associada aos algoritmos que serão utilizados para manipulá-la.</p>
+
+<h3>Complexidade computacional</h3>
+<p>A complexidade computacional é um conceito importante para avaliar o desempenho de algoritmos e estruturas de dados. Ela permite analisar a quantidade de recursos necessária para executar determinado procedimento, principalmente em relação ao tempo e ao espaço de memória.</p>
+
+<p>Essa análise é especialmente relevante quando o volume de dados aumenta. Um algoritmo que apresenta bom desempenho para pequenas quantidades de informação pode se tornar pouco eficiente quando submetido a entradas maiores. Por esse motivo, conhecer a complexidade de uma solução auxilia na escolha do algoritmo e da estrutura de dados mais apropriados.</p>
+
+<h3>Notação O</h3>
+<p>Uma das formas utilizadas para representar o comportamento de um algoritmo é a notação O, também conhecida como notação de ordem de crescimento. Ela permite expressar como o custo computacional de um procedimento tende a aumentar à medida que cresce o tamanho da entrada.</p>
+
+<p>Por meio dessa notação, é possível comparar diferentes algoritmos e identificar quais apresentam melhor desempenho em determinadas situações. A análise pode considerar, por exemplo, o número de operações realizadas ou o espaço de memória necessário para a execução.</p>
+
+<h3>Recursividade</h3>
+<p>Alguns algoritmos utilizam a recursividade, técnica na qual um procedimento pode realizar uma chamada a si próprio para solucionar partes menores do mesmo problema. Para que esse processo seja válido, é necessário estabelecer uma condição de parada que impeça a execução de continuar indefinidamente.</p>
+
+<p>A recursividade é particularmente útil para problemas que possuem uma estrutura naturalmente dividida em subproblemas semelhantes ao problema original. Apesar de facilitar a representação de determinadas soluções, seu uso também deve considerar os custos relacionados ao processamento e à memória.</p>
+
+<h3>Algoritmos ótimos</h3>
+<p>O conceito de algoritmo ótimo está relacionado à busca por uma solução que apresente o melhor desempenho possível dentro das condições de um determinado problema. Para avaliar essa característica, é necessário considerar os recursos utilizados pelo algoritmo e compará-los com outras alternativas capazes de produzir o mesmo resultado.</p>
+
+<p>A busca por soluções eficientes demonstra a importância de estudar conjuntamente algoritmos, estruturas de dados e complexidade computacional. Esses conhecimentos permitem desenvolver programas mais organizados, eficientes e adequados às características dos problemas que precisam ser solucionados.</p>
+
+                        <!-- =================================================
+                             MAPA MENTAL
+                        ================================================== -->
+
+                        <section class="mapa-mental-section" aria-labelledby="titulo-mapa">
+
+                            <h2 id="titulo-mapa" class="titulo-secao">
+                                🧠 Mapa Mental
+                            </h2>
+
+                            <p class="descricao-mapa">
+                                <! //O mapa mental é gerado automaticamente a partir
+                                dos títulos e subtítulos desta aula.//>
                             </p>
 
-                        </div>
+                            <div
+                                id="mapa-mental"
+                                data-titulo="Algoritmos e Estruturas de Dados"
+                            >
+                                <div class="carregando-mapa">
+                                    <div class="spinner-mapa"></div>
+                                    <p>Gerando mapa mental...</p>
+                                </div>
+                            </div>
 
-                    </details>
+                        </section>
 
 
-                    <details class="aula">
+                        <!-- =================================================
+                             VÍDEO
+                        ================================================== -->
 
-                        <summary>
-                            Introdução à Análise de Algoritmos
-                        </summary>
+                        <section id="video">
 
-                        <div class="aula-conteudo">
+                            <h2 class="titulo-secao">
+                                🎥 Vídeo — Algoritmos
+                            </h2>
 
-                            <p>
-                                Estudo dos princípios utilizados para
-                                avaliar o desempenho dos algoritmos.
-                            </p>
+                            <div class="video-container">
 
-                        </div>
+                                <video controls preload="metadata">
 
-                    </details>
+                                    <source
+                                        src="Algoritmos__A_Base.mp4"
+                                        type="video/mp4"
+                                    >
 
+                                    Seu navegador não suporta vídeos HTML5.
 
-                    <details class="aula">
+                                </video>
 
-                        <summary>
-                            Dimensões de Complexidade
-                        </summary>
+                            </div>
 
-                        <div class="aula-conteudo">
+                        </section>
 
-                            <p>
-                                A complexidade considera principalmente
-                                o tempo e o espaço utilizados por um algoritmo.
-                            </p>
 
-                        </div>
+                        <!-- =================================================
+                             CARDS
+                        ================================================== -->
 
-                    </details>
+                        <section id="tecnologias">
 
+                            <h2 class="titulo-secao">
+                                Estudar
+                            </h2>
 
-                    <details class="aula">
+                            <div class="cards">
 
-                        <summary>
-                            Divisão e Conquista
-                        </summary>
+                                <article class="card" tabindex="0">
 
-                        <div class="aula-conteudo">
+                                    <h3>
+                                        Algoritmos e Estruturas de Dados
+                                    </h3>
 
-                            <p>
-                                Estratégia que divide um problema em
-                                problemas menores, resolve-os e combina
-                                os resultados.
-                            </p>
+                                    <div class="info-extra">
 
-                        </div>
+                                        <p>
+                                            <strong>Algoritmos:</strong>
+                                            sequência lógica de instruções para
+                                            resolver problemas e executar tarefas.
+                                        </p>
 
-                    </details>
+                                        <p>
+                                            <strong>Estruturas de dados:</strong>
+                                            formas de organizar, armazenar e
+                                            manipular informações de maneira eficiente.
+                                        </p>
 
+                                    </div>
 
-                    <details class="aula">
+                                </article>
 
-                        <summary>
-                            Insertion Sort
-                        </summary>
 
-                        <div class="aula-conteudo">
+                                <article class="card" tabindex="0">
 
-                            <p>
-                                Algoritmo que insere cada elemento
-                                na posição correta.
-                            </p>
+                                    <h3>
+                                        Principais estruturas
+                                    </h3>
 
-                        </div>
+                                    <div class="info-extra">
 
-                    </details>
+                                        <p>
+                                            Arrays, listas encadeadas, filas,
+                                            pilhas, árvores, grafos e tabelas hash.
+                                        </p>
 
+                                        <p>
+                                            Cada estrutura possui características
+                                            próprias.
+                                        </p>
 
-                    <details class="aula">
+                                    </div>
 
-                        <summary>
-                            Selection Sort
-                        </summary>
+                                </article>
 
-                        <div class="aula-conteudo">
 
-                            <p>
-                                Algoritmo que procura repetidamente
-                                o menor elemento.
-                            </p>
+                                <article class="card" tabindex="0">
 
-                        </div>
+                                    <h3>
+                                        Aplicações
+                                    </h3>
 
-                    </details>
+                                    <div class="info-extra">
 
+                                        <p>
+                                            Bancos de dados, sistemas de arquivos,
+                                            redes sociais, sistemas operacionais,
+                                            mecanismos de busca e inteligência artificial.
+                                        </p>
 
-                    <details class="aula">
+                                    </div>
 
-                        <summary>
-                            Merge Sort
-                        </summary>
+                                </article>
 
-                        <div class="aula-conteudo">
+                            </div>
 
-                            <p>
-                                Algoritmo baseado na estratégia
-                                de divisão e conquista.
-                            </p>
+                        </section>
 
-                        </div>
 
-                    </details>
+                        <!-- =================================================
+                             ATIVIDADES DA AULA
+                        ================================================== -->
 
+                        <details class="aula atividades-container">
 
-                    <details class="aula">
+                            <summary>
+                                📝 Atividades de fixação
+                            </summary>
 
-                        <summary>
-                            Quick Sort
-                        </summary>
+                            <div class="aula-conteudo">
 
-                        <div class="aula-conteudo">
+                                <p class="descricao-atividade">
+                                    Responda às questões sobre Algoritmos e
+                                    Estruturas de Dados.
+                                </p>
 
-                            <p>
-                                Algoritmo que utiliza um elemento
-                                pivô para dividir os dados.
-                            </p>
+                                <div class="config-atividade">
 
-                        </div>
+                                    <label for="quantidadeQuestoes">
+                                        Quantidade de questões:
+                                    </label>
 
-                    </details>
+                                    <select id="quantidadeQuestoes">
+                                        <option value="5">5 questões</option>
+                                        <option value="10" selected>10 questões</option>
+                                        <option value="15">15 questões</option>
+                                    </select>
 
+                                    <button
+                                        type="button"
+                                        id="btnGerarAtividades"
+                                        class="btn-gerar"
+                                    >
+                                        🎲 Gerar Atividades
+                                    </button>
 
-                    <details class="aula">
+                                </div>
 
-                        <summary>
-                            Pilhas
-                        </summary>
+                                <div
+                                    id="statusAtividade"
+                                    class="status-atividade"
+                                    aria-live="polite"
+                                ></div>
 
-                        <div class="aula-conteudo">
+                                <div id="listaQuestoes"></div>
 
-                            <p>
-                                Estrutura baseada no princípio LIFO.
-                            </p>
+                                <div
+                                    id="resultadoAtividade"
+                                    class="resultado-atividade"
+                                ></div>
 
-                        </div>
+                            </div>
 
-                    </details>
+                        </details>
 
+                    </div>
 
-                    <details class="aula">
+                </details>
 
-                        <summary>
-                            Filas
-                        </summary>
 
-                        <div class="aula-conteudo">
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
 
-                            <p>
-                                Estrutura baseada no princípio FIFO.
-                            </p>
+                <details class="aula">
+                    <summary>Introdução à disciplina</summary>
 
-                        </div>
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmos são conjuntos de instruções passo a passo
+                            para resolver problemas.
+                        </p>
+                    </div>
+                </details>
 
-                    </details>
 
+                <details class="aula">
+                    <summary>Introdução à Análise de Algoritmos</summary>
 
-                    <details class="aula">
+                    <div class="aula-conteudo">
+                        <p>
+                            Estudo dos princípios utilizados para avaliar o
+                            desempenho dos algoritmos.
+                        </p>
+                    </div>
+                </details>
 
-                        <summary>
-                            Árvores
-                        </summary>
 
-                        <div class="aula-conteudo">
+                <details class="aula">
+                    <summary>Dimensões de complexidade</summary>
 
-                            <p>
-                                Estruturas não lineares organizadas
-                                hierarquicamente.
-                            </p>
+                    <div class="aula-conteudo">
+                        <p>
+                            A complexidade considera principalmente o tempo
+                            e o espaço utilizados por um algoritmo.
+                        </p>
+                    </div>
+                </details>
 
-                        </div>
 
-                    </details>
+                <details class="aula">
+                    <summary>Divisão e Conquista</summary>
 
-                </div>
+                    <div class="aula-conteudo">
+                        <p>
+                            Estratégia que divide um problema em problemas menores,
+                            resolve-os e combina os resultados.
+                        </p>
+                    </div>
+                </details>
 
-            </details>
 
-        </section>
+                <details class="aula">
+                    <summary>Insertion Sort</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmo que insere cada elemento na posição correta.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Selection Sort</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmo que procura repetidamente o menor elemento.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Merge Sort</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmo baseado na estratégia de divisão e conquista.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Quick Sort</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmo que utiliza um elemento pivô para dividir os dados.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Pilhas</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Estrutura baseada no princípio LIFO.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Filas</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Estrutura baseada no princípio FIFO.
+                        </p>
+                    </div>
+                </details>
+
+
+                <details class="aula">
+                    <summary>Árvores</summary>
+
+                    <div class="aula-conteudo">
+                        <p>
+                            Estruturas não lineares organizadas hierarquicamente.
+                        </p>
+                    </div>
+                </details>
+
+            </div>
+
+        </details>
 
 
         <!-- =================================================
              GERADOR DE ATIVIDADES
         ================================================== -->
 
-        <section
-            class="accordion gerador-atividades"
-            id="atividades-gerador"
-            aria-labelledby="titulo-gerador"
-        >
+        <details class="accordion" id="atividades-gerador">
 
-            <details>
+            <summary>
+                🎲 Gerador de Atividades
+            </summary>
 
-                <summary id="titulo-gerador">
-                    🎲 Gerador de Atividades
-                </summary>
+            <div class="conteudo">
 
+                <h3>Pronto para estudar?</h3>
 
-                <div class="conteudo">
+                <p>
+                    Escolha um tópico e gere uma atividade aleatória.
+                </p>
 
-                    <h2>
-                        Pronto para estudar?
-                    </h2>
+                <div class="seletor-atividade">
 
-                    <p>
-                        Escolha um tópico e gere uma atividade aleatória
-                        para testar seus conhecimentos.
-                    </p>
+                    <label for="topico">
+                        Escolha o tópico:
+                    </label>
 
+                    <select id="topico">
 
-                    <div class="seletor-atividade">
+                        <option value="todos">Todos os tópicos</option>
+                        <option value="algoritmos">Algoritmos</option>
+                        <option value="estruturas">Estruturas de Dados</option>
+                        <option value="arrays">Arrays</option>
+                        <option value="listas">Listas Encadeadas</option>
+                        <option value="pilhas">Pilhas</option>
+                        <option value="filas">Filas</option>
+                        <option value="arvores">Árvores</option>
+                        <option value="grafos">Grafos</option>
+                        <option value="hash">Tabelas Hash</option>
+                        <option value="ordenacao">Algoritmos de Ordenação</option>
+                        <option value="complexidade">Complexidade e Big O</option>
 
+                    </select>
 
-                        <div class="campo-formulario">
-
-                            <label for="topico">
-                                Escolha o tópico:
-                            </label>
-
-
-                            <select id="topico">
-
-                                <option value="todos">
-                                    Todos os tópicos
-                                </option>
-
-                                <option value="algoritmos">
-                                    Algoritmos
-                                </option>
-
-                                <option value="estruturas">
-                                    Estruturas de Dados
-                                </option>
-
-                                <option value="arrays">
-                                    Arrays
-                                </option>
-
-                                <option value="listas">
-                                    Listas Encadeadas
-                                </option>
-
-                                <option value="pilhas">
-                                    Pilhas
-                                </option>
-
-                                <option value="filas">
-                                    Filas
-                                </option>
-
-                                <option value="arvores">
-                                    Árvores
-                                </option>
-
-                                <option value="grafos">
-                                    Grafos
-                                </option>
-
-                                <option value="hash">
-                                    Tabelas Hash
-                                </option>
-
-                                <option value="ordenacao">
-                                    Algoritmos de Ordenação
-                                </option>
-
-                                <option value="complexidade">
-                                    Complexidade e Big O
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <button
-                            type="button"
-                            id="btnGerarAtividadeTopico"
-                            class="btn-gerar"
-                        >
-                            🎲 Gerar Atividade
-                        </button>
-
-                    </div>
-
-
-                    <div
-                        id="atividade"
-                        class="atividade"
+                    <button
+                        type="button"
+                        id="btnGerarAtividadeTopico"
+                        class="btn-gerar"
                     >
-
-                        <div class="atividade-inicial">
-
-                            <span class="atividade-icon">
-                                📚
-                            </span>
-
-                            <h3>
-                                Escolha um tópico
-                            </h3>
-
-                            <p>
-                                Clique em "Gerar Atividade"
-                                para começar.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        id="resultado"
-                        class="resultado"
-                    ></div>
+                        🎲 Gerar Atividade
+                    </button>
 
                 </div>
 
-            </details>
+                <div id="atividade" class="atividade">
 
-        </section>
+                    <div class="atividade-inicial">
+
+                        <span>📚</span>
+
+                        <h3>Escolha um tópico</h3>
+
+                        <p>
+                            Clique em "Gerar Atividade" para começar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div
+                    id="resultado"
+                    class="resultado"
+                ></div>
+
+            </div>
+
+        </details>
 
     </main>
 
@@ -1470,26 +819,18 @@
          RODAPÉ
     ====================================================== -->
 
-    <footer class="footer">
+    <footer>
 
-        <div class="footer-container">
-
-            <p>
-                &copy; 2026 Plataforma de Estudo —
-                Todos os direitos reservados.
-            </p>
-
-        </div>
+        <p>
+            &copy; 2026 Plataforma de Estudo -
+            Todos os direitos reservados.
+        </p>
 
     </footer>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
-
+    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>
-
 </html>
