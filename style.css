@@ -58,7 +58,7 @@ body {
 
     --codigo-fundo: #172033;
 
-    /* BOTÕES — PADRÃO ÚNICO */
+    /* BOTÕES */
     --altura-botao: 44px;
     --altura-mobile: 42px;
 
@@ -82,18 +82,29 @@ body {
         #ff6500
     );
 
-    --botao-sombra: 0 4px 10px rgba(255, 107, 0, 0.20);
-    --botao-sombra-hover: 0 7px 16px rgba(255, 107, 0, 0.32);
+    --botao-sombra:
+        0 4px 10px rgba(255, 107, 0, 0.20);
+
+    --botao-sombra-hover:
+        0 7px 16px rgba(255, 107, 0, 0.32);
 
     /* SOMBRAS */
-    --sombra-pequena: 0 3px 10px rgba(15, 23, 42, 0.08);
-    --sombra-media: 0 6px 18px rgba(15, 23, 42, 0.12);
-    --sombra-grande: 0 12px 30px rgba(15, 23, 42, 0.15);
-}
+    --sombra-pequena:
+        0 3px 10px rgba(15, 23, 42, 0.08);
 
+    --sombra-media:
+        0 6px 18px rgba(15, 23, 42, 0.12);
 
-    /* TRANSIÇÃO */
+    --sombra-grande:
+        0 12px 30px rgba(15, 23, 42, 0.15);
 
+    --sombra-laranja:
+        0 5px 14px rgba(255, 107, 0, 0.20);
+
+    --sombra-laranja-forte:
+        0 8px 20px rgba(255, 107, 0, 0.30);
+
+    /* TRANSIÇÕES */
     --transicao-botao:
         transform 0.25s ease,
         background 0.25s ease,
@@ -127,33 +138,29 @@ a {
     gap: 20px;
     padding: 12px 40px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #ff4500,
-            #ff6b00,
-            #ff8500
-        );
+    background: linear-gradient(
+        90deg,
+        #ff4500,
+        #ff6b00,
+        #ff8500
+    );
 
     position: relative;
     z-index: 10;
 
     box-shadow:
-        0 6px 20px
-        rgba(255, 107, 0, 0.28);
+        0 6px 20px rgba(255, 107, 0, 0.28);
 }
 
 
 /* =========================================================
-   LOGOS
+   LOGO
 ========================================================= */
 
 .logo-link {
     display: flex;
     align-items: center;
-
     flex: 0 0 auto;
-
     text-decoration: none;
 }
 
@@ -162,11 +169,9 @@ a {
     height: 65px;
 
     display: block;
-
     object-fit: contain;
 
     background: var(--branco);
-
     border-radius: 50%;
     padding: 4px;
 
@@ -179,8 +184,7 @@ a {
     transform: scale(1.06);
 
     box-shadow:
-        0 8px 20px
-        rgba(0, 0, 0, 0.2);
+        0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -191,28 +195,23 @@ a {
 .titulo-link {
     flex: 1;
     min-width: 0;
-
     text-decoration: none;
 }
 
 .titulo-link h1 {
     margin: 0;
 
-    color: #ffffff;
+    color: #fff;
 
     font-size: clamp(1.2rem, 3vw, 2rem);
-
     font-weight: 700;
-
     line-height: 1.2;
 
     text-align: center;
-
     letter-spacing: 1px;
 
     text-shadow:
-        0 2px 5px
-        rgba(0, 0, 0, 0.15);
+        0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -226,15 +225,13 @@ a {
     background: var(--branco);
 
     border-bottom:
-        2px solid
-        var(--laranja-borda);
+        2px solid var(--laranja-borda);
 
     box-shadow:
         var(--sombra-pequena);
 
     position: sticky;
     top: 0;
-
     z-index: 100;
 }
 
@@ -242,14 +239,12 @@ a {
     width: 100%;
     max-width: 1500px;
 
-    margin: 0 auto;
-
     min-height: 68px;
 
+    margin: 0 auto;
     padding: 10px 20px;
 
     display: flex;
-
     justify-content: center;
     align-items: center;
 
@@ -259,7 +254,6 @@ a {
     overflow-y: hidden;
 
     scrollbar-width: none;
-
     -ms-overflow-style: none;
 }
 
@@ -269,13 +263,8 @@ a {
 
 
 /* =========================================================
-   PADRÃO GERAL DOS BOTÕES
+   BOTÕES
 ========================================================= */
-
-/*
-   Todos os botões principais do site utilizam
-   exatamente o mesmo padrão visual.
-*/
 
 .btn-menu,
 button {
@@ -286,26 +275,22 @@ button {
         var(--botao-padding-x);
 
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
     gap: 8px;
 
-    color: #ffffff;
-
+    color: #fff;
     background: var(--botao);
 
     border:
-        1px solid
-        var(--laranja);
+        1px solid var(--laranja);
 
     border-radius:
         var(--botao-radius);
 
     font-family:
-        "Poppins",
-        sans-serif;
+        "Poppins", sans-serif;
 
     font-size:
         var(--botao-fonte);
@@ -316,11 +301,9 @@ button {
     line-height: 1.2;
 
     text-align: center;
-
     text-decoration: none;
 
     cursor: pointer;
-
     white-space: nowrap;
 
     box-shadow:
@@ -330,24 +313,13 @@ button {
         var(--transicao-botao);
 }
 
-
-/* =========================================================
-   BOTÃO DO MENU
-========================================================= */
-
 .btn-menu {
     flex: 0 0 auto;
 }
 
-
-/* =========================================================
-   HOVER PADRÃO
-========================================================= */
-
 .btn-menu:hover,
 button:hover {
-
-    color: #ffffff;
+    color: #fff;
 
     background:
         var(--botao-hover);
@@ -362,14 +334,8 @@ button:hover {
         var(--botao-sombra-hover);
 }
 
-
-/* =========================================================
-   ACTIVE
-========================================================= */
-
 .btn-menu:active,
 button:active {
-
     transform:
         translateY(0);
 
@@ -377,13 +343,7 @@ button:active {
         var(--botao-sombra);
 }
 
-
-/* =========================================================
-   BOTÃO DO MENU ATIVO
-========================================================= */
-
 .btn-menu.active {
-
     background:
         var(--botao-hover);
 
@@ -407,27 +367,14 @@ button:active {
     margin-bottom: 18px;
 }
 
-
-/* =========================================================
-   SUMMARY PADRÃO
-========================================================= */
-
 .accordion > summary,
 .aula > summary {
-
     position: relative;
 
-    list-style: none;
-
-    cursor: pointer;
-
     width: 100%;
-
-    min-height:
-        var(--altura-botao);
+    min-height: var(--altura-botao);
 
     display: flex;
-
     align-items: center;
 
     padding:
@@ -440,6 +387,9 @@ button:active {
 
     border-radius:
         var(--botao-radius);
+
+    cursor: pointer;
+    list-style: none;
 
     transition:
         var(--transicao-botao);
@@ -456,40 +406,34 @@ button:active {
 ========================================================= */
 
 .accordion > summary {
+    color: #fff;
 
-    color: #ffffff;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff5000,
-            #ff6b00,
-            #ff8500
-        );
+    background: linear-gradient(
+        90deg,
+        #ff5000,
+        #ff6b00,
+        #ff8500
+    );
 
     border:
-        1px solid
-        var(--laranja);
+        1px solid var(--laranja);
 
     font-size:
         var(--botao-fonte);
 
-    font-weight:
-        700;
+    font-weight: 700;
 
     box-shadow:
         var(--sombra-laranja);
 }
 
 .accordion > summary:hover {
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff4500,
-            #ff6500,
-            #ff8000
-        );
+    background: linear-gradient(
+        90deg,
+        #ff4500,
+        #ff6500,
+        #ff8000
+    );
 
     border-color:
         var(--laranja-forte);
@@ -512,32 +456,24 @@ button:active {
 }
 
 .aula > summary {
+    color: var(--texto);
 
-    color:
-        var(--texto);
-
-    background:
-        var(--branco);
+    background: var(--branco);
 
     border:
-        1px solid
-        var(--borda);
+        1px solid var(--borda);
 
     border-left:
-        4px solid
-        var(--laranja);
+        4px solid var(--laranja);
 
-    font-weight:
-        600;
+    font-weight: 600;
 
     box-shadow:
         var(--sombra-pequena);
 }
 
 .aula > summary:hover {
-
-    color:
-        var(--laranja);
+    color: var(--laranja);
 
     background:
         var(--laranja-suave);
@@ -549,8 +485,7 @@ button:active {
         translateX(2px);
 
     box-shadow:
-        0 5px 14px
-        rgba(255, 107, 0, 0.12);
+        0 5px 14px rgba(255, 107, 0, 0.12);
 }
 
 
@@ -560,31 +495,25 @@ button:active {
 
 .accordion > summary::after,
 .aula > summary::after {
-
     content: "+";
 
     position: absolute;
-
     right: 20px;
-
     top: 50%;
-
-    transform:
-        translateY(-50%);
 
     width: 24px;
     height: 24px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     font-size: 22px;
-
+    font-weight: 400;
     line-height: 1;
 
-    font-weight: 400;
+    transform:
+        translateY(-50%);
 }
 
 .accordion[open] > summary::after,
@@ -594,7 +523,7 @@ button:active {
 
 
 /* =========================================================
-   MAIN
+   MAIN / TIPOGRAFIA
 ========================================================= */
 
 main {
@@ -602,7 +531,6 @@ main {
     max-width: 1200px;
 
     margin: 25px auto;
-
     padding: 0 20px;
 }
 
@@ -634,7 +562,6 @@ p {
 
 .conteudo {
     width: 100%;
-
     padding: 20px 10px;
 
     animation:
@@ -642,7 +569,6 @@ p {
 }
 
 @keyframes abrir {
-
     from {
         opacity: 0;
         transform:
@@ -662,55 +588,44 @@ p {
 ========================================================= */
 
 .aula-conteudo {
-
     width: 100%;
 
-    padding:
-        25px 20px;
+    padding: 25px 20px;
 
     background:
         var(--branco);
 
     border:
-        1px solid
-        var(--borda);
+        1px solid var(--borda);
 
-    border-top:
-        none;
+    border-top: none;
 
     border-radius:
         0 0 10px 10px;
 }
 
 .aula-conteudo h2 {
-
     margin:
         10px 0 30px;
 
-    text-align:
-        center;
-
     color:
         var(--laranja);
+
+    text-align:
+        center;
 }
 
 .aula-conteudo h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
 
-    margin-top:
-        30px;
-
-    margin-bottom:
-        10px;
+    padding-left: 10px;
 
     color:
         var(--laranja);
 
     border-left:
-        4px solid
-        var(--laranja);
-
-    padding-left:
-        10px;
+        4px solid var(--laranja);
 }
 
 
@@ -719,15 +634,12 @@ p {
 ========================================================= */
 
 .aula-conteudo ul {
-
     margin:
         10px 0 20px 30px;
 }
 
 .aula-conteudo li {
-
-    margin-bottom:
-        7px;
+    margin-bottom: 7px;
 }
 
 
@@ -736,50 +648,37 @@ p {
 ========================================================= */
 
 pre {
-
     width: 100%;
 
-    margin:
-        20px 0;
+    margin: 20px 0;
+    padding: 18px;
 
-    padding:
-        18px;
-
-    color:
-        #f8fafc;
+    color: #f8fafc;
 
     background:
         var(--codigo-fundo);
 
     border:
-        1px solid
-        #334155;
+        1px solid #334155;
 
     border-left:
-        4px solid
-        var(--laranja);
+        4px solid var(--laranja);
 
     border-radius:
         10px;
 
-    overflow-x:
-        auto;
+    overflow-x: auto;
 
-    white-space:
-        pre-wrap;
-
-    overflow-wrap:
-        anywhere;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 
     box-shadow:
         var(--sombra-media);
 }
 
 code {
-
     font-family:
-        "Courier New",
-        monospace;
+        "Courier New", monospace;
 }
 
 
@@ -788,25 +687,20 @@ code {
 ========================================================= */
 
 .mapa-mental-section {
-
     width: 100%;
 
-    margin:
-        50px auto;
-
-    padding:
-        25px 15px;
+    margin: 50px auto;
+    padding: 25px 15px;
 
     background:
         linear-gradient(
             135deg,
-            #ffffff,
+            #fff,
             #fff8f0
         );
 
     border:
-        1px solid
-        var(--laranja-borda);
+        1px solid var(--laranja-borda);
 
     border-radius:
         18px;
@@ -819,9 +713,7 @@ code {
 }
 
 .titulo-secao {
-
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 
     color:
         var(--laranja);
@@ -831,9 +723,7 @@ code {
 }
 
 .descricao-mapa {
-
-    max-width:
-        800px;
+    max-width: 800px;
 
     margin:
         0 auto 25px;
@@ -849,21 +739,14 @@ code {
 }
 
 #mapa-mental {
+    position: relative;
 
-    position:
-        relative;
+    width: 100%;
+    height: 650px;
 
-    width:
-        100%;
+    overflow: hidden;
 
-    height:
-        650px;
-
-    overflow:
-        hidden;
-
-    border-radius:
-        15px;
+    border-radius: 15px;
 
     background:
         radial-gradient(
@@ -875,61 +758,40 @@ code {
 }
 
 #mapa-mental svg {
+    display: block;
 
-    display:
-        block;
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
 
-    width:
-        100%;
-
-    height:
-        100%;
-
-    max-width:
-        1200px;
-
-    margin:
-        0 auto;
+    margin: 0 auto;
 }
 
 
 /* =========================================================
-   MAPA — LINHAS
+   MAPA — ELEMENTOS SVG
 ========================================================= */
 
 .linha-mapa {
-
-    fill:
-        none;
+    fill: none;
 
     stroke:
         var(--laranja);
 
-    stroke-width:
-        4;
+    stroke-width: 4;
+    stroke-linecap: round;
 
-    stroke-linecap:
-        round;
-
-    opacity:
-        0.65;
+    opacity: 0.65;
 }
 
-
-/* =========================================================
-   MAPA — NÓ CENTRAL
-========================================================= */
-
 .no-central {
-
     fill:
         var(--laranja-forte);
 
     stroke:
-        #ffffff;
+        #fff;
 
-    stroke-width:
-        5;
+    stroke-width: 5;
 
     filter:
         drop-shadow(
@@ -938,21 +800,14 @@ code {
         );
 }
 
-
-/* =========================================================
-   MAPA — NÓS
-========================================================= */
-
 .no-principal {
-
     fill:
         var(--laranja);
 
     stroke:
-        #ffffff;
+        #fff;
 
-    stroke-width:
-        3;
+    stroke-width: 3;
 
     filter:
         drop-shadow(
@@ -965,7 +820,6 @@ code {
 }
 
 .no-principal:hover {
-
     filter:
         drop-shadow(
             0 8px 15px
@@ -978,20 +832,12 @@ code {
    TEXTO DO MAPA
 ========================================================= */
 
-.texto-central {
-
-    fill:
-        #ffffff;
+.texto-central,
+.texto-principal {
+    fill: #fff;
 
     font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size:
-        17px;
-
-    font-weight:
-        700;
+        "Poppins", sans-serif;
 
     text-anchor:
         middle;
@@ -1000,26 +846,14 @@ code {
         middle;
 }
 
+.texto-central {
+    font-size: 17px;
+    font-weight: 700;
+}
+
 .texto-principal {
-
-    fill:
-        #ffffff;
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size:
-        12px;
-
-    font-weight:
-        600;
-
-    text-anchor:
-        middle;
-
-    dominant-baseline:
-        middle;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 
@@ -1028,37 +862,30 @@ code {
 ========================================================= */
 
 .carregando-mapa {
-
-    width:
-        100%;
+    width: 100%;
 
     padding:
         100px 20px;
 
-    text-align:
-        center;
-
     color:
         var(--cinza);
+
+    text-align:
+        center;
 
     text-indent:
         0;
 }
 
 .spinner-mapa {
-
-    width:
-        40px;
-
-    height:
-        40px;
+    width: 40px;
+    height: 40px;
 
     margin:
         0 auto 15px;
 
     border:
-        4px solid
-        #ffe0c2;
+        4px solid #ffe0c2;
 
     border-top-color:
         var(--laranja);
@@ -1071,7 +898,6 @@ code {
 }
 
 @keyframes girar {
-
     to {
         transform:
             rotate(360deg);
@@ -1084,36 +910,21 @@ code {
 ========================================================= */
 
 .video-container {
+    width: 100%;
 
-    width:
-        100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    display:
-        flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-    margin:
-        30px auto;
+    margin: 30px auto;
 }
 
 .video-container video {
+    width: 400px;
+    max-width: 100%;
+    height: auto;
 
-    width:
-        400px;
-
-    max-width:
-        100%;
-
-    height:
-        auto;
-
-    display:
-        block;
+    display: block;
 
     border-radius:
         12px;
@@ -1128,12 +939,9 @@ code {
 ========================================================= */
 
 .cards {
+    width: 100%;
 
-    width:
-        100%;
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(
@@ -1141,26 +949,19 @@ code {
             minmax(240px, 1fr)
         );
 
-    gap:
-        25px;
+    gap: 25px;
 
-    margin-top:
-        30px;
+    margin-top: 30px;
 }
 
 .card {
+    position: relative;
 
-    position:
-        relative;
+    min-height: 180px;
 
-    min-height:
-        180px;
+    padding: 22px;
 
-    padding:
-        22px;
-
-    color:
-        #f8fafc;
+    color: #f8fafc;
 
     background:
         linear-gradient(
@@ -1174,8 +975,7 @@ code {
         rgba(255, 255, 255, 0.1);
 
     border-left:
-        5px solid
-        var(--laranja);
+        5px solid var(--laranja);
 
     border-radius:
         14px;
@@ -1196,7 +996,6 @@ code {
 
 .card:hover,
 .card.ativo {
-
     transform:
         translateY(-6px);
 
@@ -1208,12 +1007,11 @@ code {
 }
 
 .card h3 {
-
     margin-bottom:
         12px;
 
     color:
-        #ffffff;
+        #fff;
 
     font-size:
         1.1rem;
@@ -1223,21 +1021,14 @@ code {
 }
 
 .info-extra {
+    max-height: 0;
 
-    max-height:
-        0;
+    opacity: 0;
 
-    opacity:
-        0;
+    overflow: hidden;
 
-    overflow:
-        hidden;
-
-    margin-top:
-        0;
-
-    padding-top:
-        0;
+    margin-top: 0;
+    padding-top: 0;
 
     border-top:
         1px solid
@@ -1247,651 +1038,4 @@ code {
         max-height 0.4s ease,
         opacity 0.3s ease,
         margin-top 0.3s ease,
-        padding-top 0.3s ease;
-}
-
-.card.ativo .info-extra {
-
-    max-height:
-        500px;
-
-    opacity:
-        1;
-
-    margin-top:
-        18px;
-
-    padding-top:
-        15px;
-}
-
-.info-extra p {
-
-    margin-bottom:
-        10px;
-
-    color:
-        #cbd5e1;
-
-    text-align:
-        left;
-
-    text-indent:
-        0;
-}
-
-.info-extra strong {
-
-    color:
-        #ffbd2e;
-}
-
-
-/* =========================================================
-   ATIVIDADES
-========================================================= */
-
-#atividades-gerador {
-
-    width:
-        100%;
-
-    margin:
-        30px auto;
-
-    padding:
-        25px;
-
-    background:
-        var(--branco);
-
-    border:
-        1px solid
-        var(--borda);
-
-    border-top:
-        4px solid
-        var(--laranja);
-
-    border-radius:
-        15px;
-
-    box-shadow:
-        var(--sombra-media);
-}
-
-.descricao-atividade {
-
-    color:
-        var(--cinza);
-
-    text-align:
-        center;
-
-    text-indent:
-        0;
-
-    margin-bottom:
-        25px;
-}
-
-.config-atividade,
-.seletor-atividade {
-
-    display:
-        flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        12px;
-
-    margin-bottom:
-        25px;
-}
-
-
-/* =========================================================
-   SELECT
-========================================================= */
-
-select {
-
-    min-height:
-        var(--altura-botao);
-
-    padding:
-        9px 35px 9px 12px;
-
-    color:
-        var(--texto);
-
-    background:
-        var(--branco);
-
-    border:
-        1px solid
-        var(--borda);
-
-    border-radius:
-        var(--botao-radius);
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size:
-        var(--botao-fonte);
-
-    cursor:
-        pointer;
-
-    transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-select:hover {
-
-    border-color:
-        var(--laranja-borda);
-}
-
-select:focus {
-
-    border-color:
-        var(--laranja);
-
-    outline:
-        none;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(255, 107, 0, 0.15);
-}
-
-
-/* =========================================================
-   RESULTADOS
-========================================================= */
-
-.resultado,
-.resultado-atividade {
-
-    margin-top:
-        25px;
-
-    padding:
-        20px;
-
-    background:
-        #f8fafc;
-
-    border:
-        1px solid
-        var(--borda);
-
-    border-left:
-        4px solid
-        var(--laranja);
-
-    border-radius:
-        12px;
-}
-
-.status-atividade {
-
-    margin-bottom:
-        15px;
-
-    color:
-        var(--cinza);
-
-    text-align:
-        center;
-}
-
-
-/* =========================================================
-   QUESTÃO
-========================================================= */
-
-.questao {
-
-    padding:
-        20px;
-
-    background:
-        #ffffff;
-
-    border:
-        1px solid
-        var(--borda);
-
-    border-radius:
-        12px;
-
-    box-shadow:
-        var(--sombra-pequena);
-}
-
-.questao h3 {
-
-    margin-bottom:
-        15px;
-}
-
-.questao p {
-
-    text-indent:
-        0;
-}
-
-
-/* =========================================================
-   RESPOSTA
-========================================================= */
-
-.resposta {
-
-    margin-top:
-        20px;
-
-    padding:
-        20px;
-
-    background:
-        var(--laranja-suave);
-
-    border-left:
-        4px solid
-        var(--laranja);
-
-    border-radius:
-        10px;
-}
-
-.resposta p {
-
-    margin-top:
-        8px;
-
-    text-indent:
-        0;
-}
-
-
-/* =========================================================
-   ATIVIDADE INICIAL
-========================================================= */
-
-.atividade-inicial {
-
-    padding:
-        40px 20px;
-
-    text-align:
-        center;
-}
-
-.atividade-inicial span {
-
-    display:
-        block;
-
-    margin-bottom:
-        10px;
-
-    font-size:
-        2.5rem;
-}
-
-.atividade-inicial p {
-
-    text-indent:
-        0;
-
-    text-align:
-        center;
-
-    color:
-        var(--cinza);
-}
-
-
-/* =========================================================
-   RODAPÉ
-========================================================= */
-
-footer {
-
-    width:
-        100%;
-
-    margin-top:
-        50px;
-
-    padding:
-        30px 20px;
-
-    text-align:
-        center;
-
-    background:
-        var(--branco);
-
-    border-top:
-        3px solid
-        var(--laranja);
-}
-
-footer p {
-
-    margin:
-        0;
-
-    color:
-        var(--cinza);
-
-    text-align:
-        center;
-
-    text-indent:
-        0;
-}
-
-
-/* =========================================================
-   FOCO / ACESSIBILIDADE
-========================================================= */
-
-button:focus-visible,
-select:focus-visible,
-a:focus-visible,
-summary:focus-visible,
-.card:focus-visible {
-
-    outline:
-        3px solid
-        rgba(255, 107, 0, 0.35);
-
-    outline-offset:
-        3px;
-}
-
-
-/* =========================================================
-   TABLETS
-========================================================= */
-
-@media (max-width: 768px) {
-
-    .header {
-
-        min-height:
-            auto;
-
-        padding:
-            18px 20px;
-
-        gap:
-            12px;
-    }
-
-    .logo-img {
-
-        width:
-            55px;
-
-        height:
-            55px;
-    }
-
-    .menu-wrapper {
-
-        justify-content:
-            flex-start;
-
-        padding:
-            10px 15px;
-    }
-
-    main {
-
-        padding:
-            0 15px;
-    }
-
-    .aula-conteudo {
-
-        padding:
-            20px 15px;
-    }
-
-    #mapa-mental {
-
-        height:
-            520px;
-    }
-
-    .mapa-mental-section {
-
-        padding:
-            20px 10px;
-    }
-
-    #atividades-gerador {
-
-        padding:
-            20px 15px;
-    }
-}
-
-
-/* =========================================================
-   CELULARES
-========================================================= */
-
-@media (max-width: 480px) {
-
-    .header {
-
-        padding:
-            15px;
-    }
-
-    .logo-img {
-
-        width:
-            45px;
-
-        height:
-            45px;
-    }
-
-    .titulo-link h1 {
-
-        font-size:
-            1rem;
-
-        letter-spacing:
-            0.5px;
-    }
-
-    .menu-wrapper {
-
-        gap:
-            7px;
-
-        padding:
-            9px 10px;
-    }
-
-    .btn-menu,
-    button {
-
-        min-height:
-            var(--altura-mobile);
-
-        padding:
-            8px 12px;
-
-        font-size:
-            12px;
-    }
-
-    main {
-
-        margin-top:
-            18px;
-
-        padding:
-            0 10px;
-    }
-
-    .accordion > summary,
-    .aula > summary {
-
-        min-height:
-            var(--altura-mobile);
-
-        padding:
-            8px 45px 8px 14px;
-
-        font-size:
-            0.88rem;
-    }
-
-    .accordion > summary::after,
-    .aula > summary::after {
-
-        right:
-            14px;
-    }
-
-    .aula-conteudo {
-
-        padding:
-            18px 12px;
-    }
-
-    .aula-conteudo h2 {
-
-        font-size:
-            1.25rem;
-    }
-
-    .aula-conteudo h3 {
-
-        font-size:
-            1rem;
-    }
-
-    p {
-
-        text-align:
-            left;
-
-        text-indent:
-            1em;
-    }
-
-    .aula-conteudo ul {
-
-        margin-left:
-            22px;
-    }
-
-    #mapa-mental {
-
-        height:
-            400px;
-    }
-
-    .cards {
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            18px;
-    }
-
-    .card {
-
-        width:
-            100%;
-    }
-
-    .video-container video {
-
-        width:
-            100%;
-
-        max-width:
-            320px;
-    }
-
-    .config-atividade,
-    .seletor-atividade {
-
-        flex-direction:
-            column;
-
-        align-items:
-            stretch;
-    }
-
-    .config-atividade select,
-    .config-atividade button,
-    .seletor-atividade select,
-    .seletor-atividade button {
-
-        width:
-            100%;
-    }
-
-    #atividades-gerador {
-
-        padding:
-            18px 12px;
-    }
-
-    footer {
-
-        padding:
-            25px 15px;
-    }
-}
-
-
-/* =========================================================
-   REDUÇÃO DE MOVIMENTO
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-
-        scroll-behavior:
-            auto !important;
-
-        animation-duration:
-            0.01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            0.01ms !important;
-    }
-}
+        padding-top 0.3s ease
