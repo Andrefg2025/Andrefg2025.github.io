@@ -25,10 +25,6 @@ body {
     color: var(--texto);
     line-height: 1.7;
 
-    /*
-       FUNDO PRINCIPAL
-       Gradiente preto + laranja
-    */
     background:
         radial-gradient(
             circle at 85% 8%,
@@ -84,6 +80,7 @@ body {
 
     --codigo-fundo: #090d14;
 
+
     /* =====================================================
        BOTÕES
     ===================================================== */
@@ -119,6 +116,7 @@ body {
     --botao-sombra-hover:
         0 8px 22px rgba(255, 107, 0, 0.38);
 
+
     /* =====================================================
        SOMBRAS
     ===================================================== */
@@ -137,6 +135,7 @@ body {
 
     --sombra-laranja-forte:
         0 8px 25px rgba(255, 107, 0, 0.38);
+
 
     /* =====================================================
        TRANSIÇÕES
@@ -175,10 +174,6 @@ a {
 
     gap: 20px;
     padding: 12px 40px;
-
-    /*
-       HEADER PRETO + LARANJA
-    */
 
     background:
         linear-gradient(
@@ -335,6 +330,7 @@ a {
 .btn-menu,
 button,
 .btn {
+
     min-height:
         var(--altura-botao);
 
@@ -411,6 +407,7 @@ button,
 .btn-menu:hover,
 button:hover,
 .btn:hover {
+
     color: #ffffff;
 
     background:
@@ -434,6 +431,7 @@ button:hover,
 .btn-menu:active,
 button:active,
 .btn:active {
+
     transform:
         translateY(0);
 
@@ -448,6 +446,7 @@ button:active,
 
 .btn-menu.active,
 .btn.active {
+
     color: #ffffff;
 
     background:
@@ -513,10 +512,11 @@ button:active,
         var(--transicao-botao);
 }
 
-.accordion > summary::after,
-.aula > summary::after {
+.accordion > summary::-webkit-details-marker,
+.aula > summary::-webkit-details-marker {
     display: none;
 }
+
 
 /* =========================================================
    ACCORDION PRINCIPAL
@@ -629,10 +629,17 @@ button:active,
 
 /* =========================================================
    ÍCONE DOS ACCORDIONS
+
+   ALTERAÇÃO:
+   O símbolo + / - foi removido das AULAS.
+
+   O accordion principal continua mostrando + e -.
 ========================================================= */
 
-.accordion > summary::after,
-.aula > summary::after {
+
+/* SINAL SOMENTE DO ACCORDION PRINCIPAL */
+
+.accordion > summary::after {
 
     content: "+";
 
@@ -660,9 +667,24 @@ button:active,
         translateY(-50%);
 }
 
-.accordion[open] > summary::after,
-.aula[open] > summary::after {
+
+/* QUANDO O ACCORDION PRINCIPAL ESTIVER ABERTO */
+
+.accordion[open] > summary::after {
     content: "−";
+}
+
+
+/* =========================================================
+   GARANTE QUE AS AULAS NÃO TENHAM + OU -
+========================================================= */
+
+.aula > summary::after {
+    display: none !important;
+}
+
+.aula[open] > summary::after {
+    display: none !important;
 }
 
 
@@ -815,6 +837,7 @@ p {
 }
 
 .aula-conteudo li {
+
     margin-bottom:
         7px;
 }
@@ -870,6 +893,7 @@ pre {
 }
 
 code {
+
     font-family:
         "Courier New", monospace;
 }
@@ -958,10 +982,6 @@ code {
 
     border-radius:
         15px;
-
-    /*
-       EFEITO PRETO + LARANJA
-    */
 
     background:
         radial-gradient(
@@ -1150,6 +1170,7 @@ code {
 @keyframes girar {
 
     to {
+
         transform:
             rotate(360deg);
     }
@@ -1240,10 +1261,6 @@ code {
     color:
         #f8fafc;
 
-    /*
-       CARDS PRETOS COM GRADIENTE
-    */
-
     background:
         linear-gradient(
             145deg,
@@ -1281,13 +1298,20 @@ code {
 
     content: "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    top: -80px;
-    right: -80px;
+    top:
+        -80px;
 
-    width: 160px;
-    height: 160px;
+    right:
+        -80px;
+
+    width:
+        160px;
+
+    height:
+        160px;
 
     background:
         radial-gradient(
@@ -1376,15 +1400,20 @@ main::before {
 
     content: "";
 
-    position: fixed;
+    position:
+        fixed;
 
-    top: 20%;
+    top:
+        20%;
 
-    left: -200px;
+    left:
+        -200px;
 
-    width: 500px;
+    width:
+        500px;
 
-    height: 500px;
+    height:
+        500px;
 
     background:
         radial-gradient(
@@ -1393,24 +1422,31 @@ main::before {
             transparent 70%
         );
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
-    z-index: -1;
+    z-index:
+        -1;
 }
 
 main::after {
 
     content: "";
 
-    position: fixed;
+    position:
+        fixed;
 
-    right: -200px;
+    right:
+        -200px;
 
-    bottom: 5%;
+    bottom:
+        5%;
 
-    width: 500px;
+    width:
+        500px;
 
-    height: 500px;
+    height:
+        500px;
 
     background:
         radial-gradient(
@@ -1419,9 +1455,11 @@ main::after {
             transparent 70%
         );
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
-    z-index: -1;
+    z-index:
+        -1;
 }
 
 
@@ -1521,4 +1559,123 @@ main::after {
         padding:
             10px 12px;
 
-        gap
+        gap:
+            12px;
+    }
+
+    .logo-img {
+
+        width:
+            48px;
+
+        height:
+            48px;
+    }
+
+    .titulo-link h1 {
+
+        font-size:
+            1.1rem;
+    }
+
+    .menu-wrapper {
+
+        gap:
+            8px;
+
+        padding:
+            8px 12px;
+    }
+
+    .btn-menu {
+
+        font-size:
+            12px;
+    }
+
+    main {
+
+        margin:
+            18px auto;
+
+        padding:
+            0 10px;
+    }
+
+    .conteudo {
+
+        padding:
+            15px 5px;
+    }
+
+    .aula-conteudo {
+
+        padding:
+            20px 15px;
+    }
+
+    .accordion > summary,
+    .aula > summary {
+
+        padding:
+            8px 15px;
+    }
+
+    /* Mantém o accordion principal com espaço para o ícone */
+
+    .accordion > summary {
+
+        padding-right:
+            45px;
+    }
+
+    /* As aulas não precisam de espaço reservado para + / - */
+
+    .aula > summary {
+
+        padding-right:
+            15px;
+    }
+
+    #mapa-mental {
+
+        height:
+            450px;
+    }
+
+    .mapa-mental-section {
+
+        margin:
+            30px auto;
+
+        padding:
+            20px 10px;
+    }
+
+    .cards {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            18px;
+    }
+
+    .card {
+
+        min-height:
+            160px;
+    }
+
+    .video-container {
+
+        margin:
+            20px auto;
+    }
+
+    .video-container video {
+
+        width:
+            100%;
+    }
+}
