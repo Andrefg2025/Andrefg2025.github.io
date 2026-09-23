@@ -21,6 +21,11 @@ body {
 }
 
 body {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
     font-family: "Poppins", sans-serif;
     color: var(--texto);
     line-height: 1.7;
@@ -56,7 +61,7 @@ body {
 
 :root {
 
-    /* CORES PRINCIPAIS */
+    /* CORES */
 
     --laranja: #ff6b00;
     --laranja-claro: #ff9500;
@@ -81,9 +86,7 @@ body {
     --codigo-fundo: #090d14;
 
 
-    /* =====================================================
-       BOTÕES
-    ===================================================== */
+    /* BOTÕES */
 
     --altura-botao: 44px;
     --altura-mobile: 42px;
@@ -117,9 +120,7 @@ body {
         0 8px 22px rgba(255, 107, 0, 0.38);
 
 
-    /* =====================================================
-       SOMBRAS
-    ===================================================== */
+    /* SOMBRAS */
 
     --sombra-pequena:
         0 3px 10px rgba(0, 0, 0, 0.35);
@@ -137,9 +138,7 @@ body {
         0 8px 25px rgba(255, 107, 0, 0.38);
 
 
-    /* =====================================================
-       TRANSIÇÕES
-    ===================================================== */
+    /* TRANSIÇÕES */
 
     --transicao-botao:
         transform 0.25s ease,
@@ -202,9 +201,7 @@ a {
 .logo-link {
     display: flex;
     align-items: center;
-
     flex: 0 0 auto;
-
     text-decoration: none;
 }
 
@@ -242,7 +239,6 @@ a {
 .titulo-link {
     flex: 1;
     min-width: 0;
-
     text-decoration: none;
 }
 
@@ -330,7 +326,6 @@ a {
 .btn-menu,
 button,
 .btn {
-
     min-height:
         var(--altura-botao);
 
@@ -407,7 +402,6 @@ button,
 .btn-menu:hover,
 button:hover,
 .btn:hover {
-
     color: #ffffff;
 
     background:
@@ -431,7 +425,6 @@ button:hover,
 .btn-menu:active,
 button:active,
 .btn:active {
-
     transform:
         translateY(0);
 
@@ -446,7 +439,6 @@ button:active,
 
 .btn-menu.active,
 .btn.active {
-
     color: #ffffff;
 
     background:
@@ -469,13 +461,11 @@ button:active,
 
 .accordion {
     width: 100%;
-
     margin-bottom: 18px;
 }
 
 .accordion > summary,
 .aula > summary {
-
     position: relative;
 
     width: 100%;
@@ -523,7 +513,6 @@ button:active,
 ========================================================= */
 
 .accordion > summary {
-
     color: #ffffff;
 
     background:
@@ -547,7 +536,6 @@ button:active,
 }
 
 .accordion > summary:hover {
-
     color: #ffffff;
 
     background:
@@ -575,12 +563,10 @@ button:active,
 
 .aula {
     width: 100%;
-
     margin-bottom: 12px;
 }
 
 .aula > summary {
-
     color:
         var(--texto);
 
@@ -605,7 +591,6 @@ button:active,
 }
 
 .aula > summary:hover {
-
     color:
         var(--laranja-claro);
 
@@ -628,20 +613,11 @@ button:active,
 
 
 /* =========================================================
-   ÍCONE DOS ACCORDIONS
-
-   ALTERAÇÃO:
-   O símbolo + / - foi removido das AULAS.
-
-   O accordion principal continua mostrando + e -.
+   ÍCONE DO ACCORDION PRINCIPAL
 ========================================================= */
 
-
-/* SINAL SOMENTE DO ACCORDION PRINCIPAL */
-
 .accordion > summary::after {
-
-    content: "";
+    content: "+";
 
     position: absolute;
 
@@ -667,22 +643,16 @@ button:active,
         translateY(-50%);
 }
 
-
-/* QUANDO O ACCORDION PRINCIPAL ESTIVER ABERTO */
-
 .accordion[open] > summary::after {
-    content: "";
+    content: "−";
 }
 
 
 /* =========================================================
-   GARANTE QUE AS AULAS NÃO TENHAM + OU -
+   AULAS SEM ÍCONE
 ========================================================= */
 
-.aula > summary::after {
-    display: none !important;
-}
-
+.aula > summary::after,
 .aula[open] > summary::after {
     display: none !important;
 }
@@ -695,6 +665,8 @@ button:active,
 main {
     width: 100%;
     max-width: 1200px;
+
+    flex: 1;
 
     margin: 25px auto;
 
@@ -721,7 +693,6 @@ li {
 
 p {
     text-align: justify;
-
     text-indent: 2em;
 }
 
@@ -736,7 +707,6 @@ p {
 ========================================================= */
 
 .conteudo {
-
     width: 100%;
 
     padding:
@@ -747,17 +717,14 @@ p {
 }
 
 @keyframes abrir {
-
     from {
         opacity: 0;
-
         transform:
             translateY(-6px);
     }
 
     to {
         opacity: 1;
-
         transform:
             translateY(0);
     }
@@ -769,7 +736,6 @@ p {
 ========================================================= */
 
 .aula-conteudo {
-
     width: 100%;
 
     padding:
@@ -796,7 +762,6 @@ p {
 }
 
 .aula-conteudo h2 {
-
     margin:
         10px 0 30px;
 
@@ -808,7 +773,6 @@ p {
 }
 
 .aula-conteudo h3 {
-
     margin-top:
         30px;
 
@@ -831,13 +795,11 @@ p {
 ========================================================= */
 
 .aula-conteudo ul {
-
     margin:
         10px 0 20px 30px;
 }
 
 .aula-conteudo li {
-
     margin-bottom:
         7px;
 }
@@ -848,7 +810,6 @@ p {
 ========================================================= */
 
 pre {
-
     width: 100%;
 
     margin:
@@ -893,7 +854,6 @@ pre {
 }
 
 code {
-
     font-family:
         "Courier New", monospace;
 }
@@ -904,7 +864,6 @@ code {
 ========================================================= */
 
 .mapa-mental-section {
-
     width: 100%;
 
     margin:
@@ -934,7 +893,6 @@ code {
 }
 
 .titulo-secao {
-
     margin-bottom:
         10px;
 
@@ -946,7 +904,6 @@ code {
 }
 
 .descricao-mapa {
-
     max-width:
         800px;
 
@@ -969,7 +926,6 @@ code {
 ========================================================= */
 
 #mapa-mental {
-
     position:
         relative;
 
@@ -997,7 +953,6 @@ code {
 }
 
 #mapa-mental svg {
-
     display:
         block;
 
@@ -1014,11 +969,10 @@ code {
 
 
 /* =========================================================
-   MAPA — ELEMENTOS SVG
+   MAPA — SVG
 ========================================================= */
 
 .linha-mapa {
-
     fill: none;
 
     stroke:
@@ -1035,7 +989,6 @@ code {
 }
 
 .no-central {
-
     fill:
         var(--laranja-forte);
 
@@ -1053,7 +1006,6 @@ code {
 }
 
 .no-principal {
-
     fill:
         var(--laranja);
 
@@ -1074,7 +1026,6 @@ code {
 }
 
 .no-principal:hover {
-
     filter:
         drop-shadow(
             0 8px 18px
@@ -1089,7 +1040,6 @@ code {
 
 .texto-central,
 .texto-principal {
-
     fill:
         #ffffff;
 
@@ -1104,7 +1054,6 @@ code {
 }
 
 .texto-central {
-
     font-size:
         17px;
 
@@ -1113,7 +1062,6 @@ code {
 }
 
 .texto-principal {
-
     font-size:
         12px;
 
@@ -1127,7 +1075,6 @@ code {
 ========================================================= */
 
 .carregando-mapa {
-
     width: 100%;
 
     padding:
@@ -1144,7 +1091,6 @@ code {
 }
 
 .spinner-mapa {
-
     width:
         40px;
 
@@ -1168,9 +1114,7 @@ code {
 }
 
 @keyframes girar {
-
     to {
-
         transform:
             rotate(360deg);
     }
@@ -1182,7 +1126,6 @@ code {
 ========================================================= */
 
 .video-container {
-
     width: 100%;
 
     display:
@@ -1199,7 +1142,6 @@ code {
 }
 
 .video-container video {
-
     width:
         400px;
 
@@ -1228,7 +1170,6 @@ code {
 ========================================================= */
 
 .cards {
-
     width: 100%;
 
     display:
@@ -1248,7 +1189,6 @@ code {
 }
 
 .card {
-
     position:
         relative;
 
@@ -1295,7 +1235,6 @@ code {
 }
 
 .card::before {
-
     content: "";
 
     position:
@@ -1326,7 +1265,6 @@ code {
 
 .card:hover,
 .card.ativo {
-
     transform:
         translateY(-6px);
 
@@ -1338,7 +1276,6 @@ code {
 }
 
 .card h3 {
-
     margin-bottom:
         12px;
 
@@ -1353,7 +1290,6 @@ code {
 }
 
 .card p {
-
     color:
         #cbd5e1;
 }
@@ -1364,7 +1300,6 @@ code {
 ========================================================= */
 
 .info-extra {
-
     max-height:
         0;
 
@@ -1393,11 +1328,10 @@ code {
 
 
 /* =========================================================
-   EFEITO GRADIENTE NAS ÁREAS DO MAIN
+   EFEITOS DO MAIN
 ========================================================= */
 
 main::before {
-
     content: "";
 
     position:
@@ -1430,7 +1364,6 @@ main::before {
 }
 
 main::after {
-
     content: "";
 
     position:
@@ -1464,11 +1397,212 @@ main::after {
 
 
 /* =========================================================
-   SELEÇÃO DE TEXTO
+   RODAPÉ
+========================================================= */
+
+footer {
+    width: 100%;
+
+    margin-top: auto;
+
+    padding:
+        35px 20px 25px;
+
+    color:
+        var(--texto-secundario);
+
+    text-align:
+        center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #111111 0%,
+            #0a0a0a 55%,
+            #050505 100%
+        );
+
+    border-top:
+        2px solid var(--laranja);
+
+    box-shadow:
+        0 -8px 30px rgba(0, 0, 0, 0.45);
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+}
+
+
+/* EFEITO DE LUZ NO RODAPÉ */
+
+footer::before {
+    content: "";
+
+    position:
+        absolute;
+
+    top:
+        -100px;
+
+    left:
+        50%;
+
+    width:
+        500px;
+
+    height:
+        180px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255, 107, 0, 0.18),
+            transparent 70%
+        );
+
+    pointer-events:
+        none;
+}
+
+
+/* CONTEÚDO DO RODAPÉ */
+
+footer > * {
+    position:
+        relative;
+
+    z-index:
+        1;
+}
+
+
+/* PARÁGRAFOS DO RODAPÉ */
+
+footer p {
+    margin:
+        5px auto;
+
+    color:
+        var(--cinza);
+
+    text-align:
+        center;
+
+    text-indent:
+        0;
+
+    font-size:
+        14px;
+}
+
+
+/* PRIMEIRO TEXTO DO RODAPÉ */
+
+footer p:first-child {
+    color:
+        #ffffff;
+
+    font-weight:
+        600;
+}
+
+
+/* LINKS DO RODAPÉ */
+
+footer a {
+    color:
+        var(--laranja-claro);
+
+    font-weight:
+        600;
+
+    transition:
+        color 0.25s ease,
+        text-shadow 0.25s ease;
+}
+
+footer a:hover {
+    color:
+        #ffffff;
+
+    text-shadow:
+        0 0 10px rgba(255, 107, 0, 0.70);
+}
+
+
+/* LISTAS NO RODAPÉ */
+
+footer ul {
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px 25px;
+
+    margin:
+        10px auto;
+
+    padding:
+        0;
+
+    list-style:
+        none;
+}
+
+footer li {
+    color:
+        var(--cinza);
+}
+
+
+/* LINHA DECORATIVA */
+
+footer hr {
+    width:
+        min(500px, 80%);
+
+    height:
+        1px;
+
+    margin:
+        18px auto;
+
+    border:
+        none;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--laranja),
+            transparent
+        );
+
+    opacity:
+        0.65;
+}
+
+
+/* =========================================================
+   SELEÇÃO
 ========================================================= */
 
 ::selection {
-
     color:
         #ffffff;
 
@@ -1484,7 +1618,6 @@ main::after {
 @media (max-width: 900px) {
 
     .header {
-
         padding:
             12px 20px;
 
@@ -1493,7 +1626,6 @@ main::after {
     }
 
     .logo-img {
-
         width:
             58px;
 
@@ -1502,7 +1634,6 @@ main::after {
     }
 
     .menu-wrapper {
-
         justify-content:
             flex-start;
 
@@ -1511,15 +1642,18 @@ main::after {
     }
 
     main {
-
         padding:
             0 15px;
     }
 
     #mapa-mental {
-
         height:
             550px;
+    }
+
+    footer {
+        padding:
+            30px 18px 22px;
     }
 }
 
@@ -1531,7 +1665,6 @@ main::after {
 @media (max-width: 600px) {
 
     :root {
-
         --altura-botao:
             var(--altura-mobile);
 
@@ -1552,7 +1685,6 @@ main::after {
     /* HEADER */
 
     .header {
-
         min-height:
             72px;
 
@@ -1564,22 +1696,22 @@ main::after {
     }
 
     .logo-img {
-
         width:
             48px;
 
         height:
-            48px; 
+            48px;
     }
 
     .titulo-link h1 {
-
         font-size:
             1.1rem;
     }
 
-    .menu-wrapper {
 
+    /* MENU */
+
+    .menu-wrapper {
         gap:
             8px;
 
@@ -1588,13 +1720,14 @@ main::after {
     }
 
     .btn-menu {
-
         font-size:
             12px;
     }
 
-    main {
 
+    /* MAIN */
+
+    main {
         margin:
             18px auto;
 
@@ -1603,48 +1736,43 @@ main::after {
     }
 
     .conteudo {
-
         padding:
             15px 5px;
     }
 
     .aula-conteudo {
-
         padding:
             20px 15px;
     }
 
+
+    /* ACCORDIONS */
+
     .accordion > summary,
     .aula > summary {
-
         padding:
             8px 15px;
     }
 
-    /* Mantém o accordion principal com espaço para o ícone */
-
     .accordion > summary {
-
         padding-right:
             45px;
     }
 
-    /* As aulas não precisam de espaço reservado para + / - */
-
     .aula > summary {
-
         padding-right:
             15px;
     }
 
-    #mapa-mental {
 
+    /* MAPA */
+
+    #mapa-mental {
         height:
             450px;
     }
 
     .mapa-mental-section {
-
         margin:
             30px auto;
 
@@ -1652,8 +1780,10 @@ main::after {
             20px 10px;
     }
 
-    .cards {
 
+    /* CARDS */
+
+    .cards {
         grid-template-columns:
             1fr;
 
@@ -1662,20 +1792,52 @@ main::after {
     }
 
     .card {
-
         min-height:
             160px;
     }
 
-    .video-container {
 
+    /* VÍDEO */
+
+    .video-container {
         margin:
             20px auto;
     }
 
     .video-container video {
-
         width:
             100%;
+    }
+
+
+    /* RODAPÉ */
+
+    footer {
+        padding:
+            28px 15px 20px;
+    }
+
+    footer p {
+        font-size:
+            13px;
+
+        line-height:
+            1.6;
+    }
+
+    footer ul {
+        flex-direction:
+            column;
+
+        gap:
+            8px;
+    }
+
+    footer hr {
+        width:
+            90%;
+
+        margin:
+            15px auto;
     }
 }
