@@ -513,11 +513,10 @@ button:active,
         var(--transicao-botao);
 }
 
-.accordion > summary::-webkit-details-marker,
-.aula > summary::-webkit-details-marker {
+.accordion > summary::after,
+.aula > summary::after {
     display: none;
 }
-
 
 /* =========================================================
    ACCORDION PRINCIPAL
