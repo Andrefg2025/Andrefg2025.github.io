@@ -617,7 +617,7 @@ button:active,
 ========================================================= */
 
 .accordion > summary::after {
-    content: "+";
+    content: "";
 
     position: absolute;
 
@@ -644,7 +644,7 @@ button:active,
 }
 
 .accordion[open] > summary::after {
-    content: "−";
+    content: "";
 }
 
 
