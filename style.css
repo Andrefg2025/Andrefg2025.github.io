@@ -671,7 +671,7 @@ button:active,
 /* QUANDO O ACCORDION PRINCIPAL ESTIVER ABERTO */
 
 .accordion[open] > summary::after {
-    content: "−";
+    content: "";
 }
 
 
