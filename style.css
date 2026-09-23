@@ -641,7 +641,7 @@ button:active,
 
 .accordion > summary::after {
 
-    content: "+";
+    content: "";
 
     position: absolute;
 
