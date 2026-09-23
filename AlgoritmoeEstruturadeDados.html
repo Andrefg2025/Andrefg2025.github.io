@@ -464,12 +464,554 @@
 
                     <div class="aula-conteudo">
                         <p>
-                            Algoritmos são conjuntos de instruções passo a passo
-                            para resolver problemas.
+                           ALGORITMO DA IDEIA A EXECUÇÃO
+1. O que é um algoritmo?
+
+Poucos conceitos são tão fundamentais para a Ciência da Computação quanto o de algoritmo. Antes mesmo de escrever um programa, é necessário compreender como um problema pode ser descrito de maneira suficientemente precisa para que suas etapas de solução possam ser executadas por alguém — ou por uma máquina.
+
+Em termos gerais, um algoritmo pode ser entendido como uma sequência organizada e finita de instruções destinada à realização de uma tarefa ou à solução de um problema.
+
+Essa definição parece simples, mas contém algumas ideias importantes. Um algoritmo possui uma sequência de ações, essas ações precisam ser compreensíveis para quem as executará e, finalmente, sua execução deve produzir algum resultado.
+
+Embora hoje a palavra algoritmo esteja quase sempre associada aos computadores, algoritmos não são uma invenção da computação. Sempre que uma atividade pode ser descrita por meio de uma sequência organizada de procedimentos, encontramos, em alguma medida, uma estrutura algorítmica.
+
+Uma receita culinária é um exemplo bastante intuitivo. Para preparar determinado prato, seguimos instruções como misturar ingredientes, aquecer uma preparação, acrescentar determinado componente ou aguardar um intervalo de tempo. A sequência dessas ações conduz a um resultado previamente esperado.
+
+Uma partitura musical apresenta uma situação semelhante. O músico recebe informações sobre as notas, sua duração, intensidade e ordem de execução. Ao seguir essas instruções, produz uma determinada composição musical.
+
+Também podemos encontrar uma estrutura algorítmica em um manual de operação de um equipamento. Para realizar uma gravação, por exemplo, o usuário pode precisar selecionar um canal, inserir uma mídia, verificar determinadas condições e iniciar a gravação.
+
+Em todos esses casos existe uma relação fundamental:
+
+instruções → execução → resultado
+
+Essa relação está no centro da ideia de algoritmo.
+
+2. Algoritmo e execução
+
+Um algoritmo, entretanto, não realiza uma tarefa por si mesmo. É necessário que exista algum agente capaz de executar suas instruções.
+
+Podemos chamar esse agente de processador.
+
+O processador não precisa necessariamente ser um computador. Em uma receita culinária, por exemplo, o processador pode ser uma pessoa equipada com os utensílios necessários para preparar o alimento. Em uma apresentação musical, pode ser o conjunto formado pelo músico e pelo instrumento. Em um sistema computacional, o processador é constituído pelos componentes capazes de interpretar e executar as instruções de um programa.
+
+Essa distinção é importante porque o mesmo algoritmo pode produzir resultados diferentes se o processador não possuir os recursos necessários para executá-lo.
+
+Imagine, por exemplo, uma instrução como:
+
+Aqueça o recipiente até atingir determinada temperatura.
+
+Essa instrução pressupõe a existência de um equipamento capaz de produzir e controlar calor, além de algum mecanismo que permita verificar a temperatura. Se esses recursos não estiverem disponíveis, a instrução não poderá ser executada adequadamente.
+
+Portanto, um algoritmo não deve ser analisado isoladamente. É necessário considerar também quem ou o que irá executá-lo.
+
+Podemos representar essa relação da seguinte maneira:
+
+Algoritmo + Processador → Processo → Resultado
+
+Chamaremos de processo a execução efetiva de um algoritmo.
+
+Assim, o algoritmo corresponde à descrição das ações, enquanto o processo corresponde à realização dessas ações.
+
+Essa distinção aparece constantemente na computação. Um programa armazenado em um computador pode permanecer inativo durante determinado período. Quando é iniciado, suas instruções passam a ser executadas e um processo é criado para realizar essa execução.
+
+3. As características de um algoritmo
+
+Se qualquer sequência de ações pudesse ser considerada um algoritmo, o conceito seria pouco útil. É necessário estabelecer algumas propriedades que permitam distinguir um procedimento bem definido de uma simples descrição informal de ações.
+
+Uma primeira característica é a clareza.
+
+As instruções devem ser suficientemente precisas para que o processador saiba o que fazer. Uma instrução como “faça rapidamente” pode ser compreensível para uma pessoa em determinado contexto, mas é inadequada quando precisamos definir exatamente o comportamento de um sistema computacional.
+
+Uma segunda característica é a determinação da sequência de execução.
+
+Depois que uma instrução é realizada, deve ser possível identificar qual ação deverá ocorrer em seguida. Quando existem diferentes possibilidades, o algoritmo precisa estabelecer explicitamente quais condições determinam cada caminho.
+
+A terceira característica é a finitude.
+
+Um algoritmo deve possuir uma execução capaz de terminar. Não basta realizar ações indefinidamente; é necessário que, depois de uma quantidade finita de etapas, seja possível alcançar o resultado pretendido.
+
+Podemos resumir essas propriedades em três ideias:
+
+Precisão: as instruções devem ser claras e não ambíguas.
+
+Determinação: a sequência de execução deve ser definida, inclusive quando houver decisões.
+
+Finitude: a execução deve terminar após um número finito de etapas.
+
+Essas características não são meros detalhes formais. Elas são essenciais para que um algoritmo possa ser executado de maneira confiável.
+
+4. Entrada e saída
+
+Existe ainda outro aspecto fundamental.
+
+Muitos algoritmos dependem de informações fornecidas antes ou durante sua execução. Essas informações constituem a entrada do algoritmo.
+
+Considere um algoritmo destinado a calcular a média de três números. Os três números fornecidos para o cálculo representam a entrada.
+
+Da mesma maneira, em uma receita culinária, os ingredientes disponíveis podem ser considerados dados de entrada. Em um sistema bancário, informações como número da conta, valor da operação e tipo de transação podem constituir entradas para determinados algoritmos.
+
+A entrada, portanto, representa aquilo que o algoritmo recebe para realizar seu trabalho.
+
+Ao final da execução, espera-se obter algum resultado. Esse resultado constitui a saída.
+
+No algoritmo da média, a saída será o valor calculado. Em uma receita, o resultado pode ser o alimento preparado. Em um sistema de processamento de dados, pode ser um relatório, uma mensagem, um valor calculado ou alguma alteração realizada em uma base de dados.
+
+Podemos então ampliar nosso modelo:
+
+Entrada → Algoritmo → Saída
+
+Essa representação simples é uma das formas mais importantes de compreender o funcionamento de sistemas computacionais.
+
+O algoritmo recebe determinados dados, realiza uma sequência de operações e produz um resultado.
+
+5. Um algoritmo aparentemente correto
+
+Considere agora uma situação cotidiana.
+
+Suponha que alguém queira gravar um programa de televisão em uma fita e escreva as seguintes instruções:
+
+Selecione o canal desejado.
+
+Insira a fita no aparelho.
+
+Pressione a tecla REC.
+
+A sequência parece perfeitamente razoável. Entretanto, uma análise mais cuidadosa revela uma situação que não foi considerada.
+
+E se a fita já tiver sido utilizada e estiver parcialmente gravada?
+
+Nesse caso, o aparelho começará a gravação a partir da posição atual da fita. O resultado provavelmente não será aquele que se pretendia obter.
+
+O problema não está necessariamente nas instruções isoladamente, mas na ausência de uma consideração importante sobre a entrada.
+
+O algoritmo pressupõe que a fita esteja posicionada corretamente, mas essa condição não foi explicitada.
+
+Uma possível solução seria acrescentar uma etapa:
+
+Selecione o canal desejado.
+
+Insira a fita no aparelho.
+
+Rebobine a fita.
+
+Pressione a tecla REC.
+
+Agora surge outro problema. Se a fita já estiver no início, a operação de rebobinamento talvez seja desnecessária.
+
+Podemos melhorar o procedimento introduzindo uma condição:
+
+Selecione o canal desejado.
+
+Insira a fita no aparelho.
+
+Verifique se a fita está rebobinada.
+
+Se não estiver, rebobine-a.
+
+Pressione a tecla REC.
+
+O exemplo é simples, mas apresenta uma ideia essencial da construção de algoritmos: um algoritmo precisa considerar as situações que podem ocorrer durante sua execução.
+
+6. Condições e tomada de decisão
+
+Nem sempre um algoritmo pode ser descrito como uma sequência linear de instruções.
+
+Em muitos problemas, uma ação depende do resultado de uma verificação anterior.
+
+Imagine um sistema que precise determinar se um aluno foi aprovado. Uma regra poderia ser:
+
+Se a média for maior ou igual a 60, o aluno está aprovado; caso contrário, está reprovado.
+
+O algoritmo possui agora dois possíveis caminhos.
+
+          Média >= 60?
+           /       \
+        Sim         Não
+        /             \
+   Aprovado        Reprovado
+
+
+Esse mecanismo é chamado de estrutura condicional.
+
+As estruturas condicionais são fundamentais porque permitem que um algoritmo reaja de maneira diferente diante de diferentes entradas.
+
+É justamente essa capacidade que torna os algoritmos suficientemente expressivos para representar situações do mundo real. Nem todos os casos são iguais, e um procedimento precisa ser capaz de distinguir entre eles.
+
+7. O algoritmo como uma transformação
+
+Podemos agora olhar para o conceito de algoritmo de uma maneira mais abstrata.
+
+Um algoritmo recebe uma determinada entrada, transforma essa informação por meio de uma sequência organizada de operações e produz uma saída.
+
+Podemos representar esse processo por:
+
+Entrada → Processamento → Saída
+
+O processamento é constituído pelas instruções do algoritmo.
+
+Essa visão é particularmente importante na Ciência da Computação porque permite separar três elementos que frequentemente aparecem misturados em problemas cotidianos:
+
+dados: aquilo que será utilizado pelo algoritmo;
+
+processamento: as operações realizadas sobre esses dados;
+
+resultado: aquilo que é produzido ao final.
+
+Considere, por exemplo, um algoritmo para calcular o valor total de uma compra.
+
+A entrada pode ser constituída pelos preços dos produtos e suas respectivas quantidades. O processamento consiste em multiplicar cada preço pela quantidade e somar os valores obtidos. A saída será o valor total da compra.
+
+Embora o problema seja simples, a estrutura permanece a mesma em aplicações muito mais complexas.
+
+Um sistema de comércio eletrônico, um programa de controle financeiro ou uma aplicação científica podem manipular milhões de dados e executar milhares de operações, mas continuam obedecendo ao mesmo princípio fundamental: receber informações, processá-las segundo regras definidas e produzir resultados.
+
+8. Por que estudar algoritmos?
+
+A importância dos algoritmos não está apenas na capacidade de programar computadores.
+
+Estudar algoritmos significa aprender a organizar o pensamento para resolver problemas.
+
+Quando um problema é transformado em um algoritmo, é necessário identificar quais informações estão disponíveis, quais resultados são desejados, quais operações precisam ser realizadas e quais situações especiais podem surgir durante a execução.
+
+Esse processo exige precisão.
+
+Um ser humano pode interpretar uma instrução incompleta usando seu conhecimento e sua experiência. Um computador, por outro lado, não possui essa liberdade de interpretação. A instrução precisa ser apresentada dentro das regras que o sistema consegue compreender.
+
+Por isso, programar não consiste simplesmente em escrever comandos em uma linguagem de programação. Antes de escrever o programa, é necessário construir uma solução suficientemente precisa para o problema.
+
+A linguagem de programação é, nesse contexto, uma forma de representar o algoritmo para que ele possa ser executado por um computador.
+
+Podemos, portanto, estabelecer uma sequência conceitual:
+
+Problema → Solução → Algoritmo → Programa → Execução → Resultado
+
+O problema representa aquilo que desejamos resolver. A solução descreve uma estratégia para resolvê-lo. O algoritmo organiza essa estratégia em etapas precisas. O programa traduz essas etapas para uma linguagem compreendida pelo computador. A execução transforma o programa em ações efetivas, produzindo finalmente um resultado.
+
+9. Uma primeira definição formal
+
+Depois dessas observações, podemos formular uma definição mais cuidadosa:
+
+Um algoritmo é uma sequência finita, ordenada e não ambígua de instruções que, a partir de uma determinada entrada, realiza um processamento e produz uma saída em tempo finito.
+
+Essa definição reúne os principais conceitos apresentados neste capítulo.
+
+Um algoritmo possui entrada, porque pode receber dados para serem processados. Possui instruções, porque precisa determinar as ações que serão realizadas. Possui uma ordem de execução, porque as ações não acontecem de maneira arbitrária. Possui condições, quando diferentes situações exigem diferentes caminhos. E possui uma saída, que representa o resultado produzido após o processamento.
+
+Além disso, sua execução deve ser finita e suas instruções precisam ser suficientemente precisas para que o processador possa realizá-las.
+
+Esses princípios constituem a base sobre a qual serão construídos conceitos mais avançados da Ciência da Computação.
+
+À medida que avançarmos, veremos que existem diferentes maneiras de representar um algoritmo, desde descrições textuais até estruturas gráficas e linguagens de programação. Também veremos que dois algoritmos podem resolver o mesmo problema de maneiras diferentes, utilizando quantidades distintas de tempo e memória.
+
+É nesse momento que o estudo de algoritmos deixa de ser apenas uma maneira de descrever procedimentos e passa a constituir uma das ferramentas centrais para compreender como problemas podem ser resolvidos de forma sistemática, eficiente e computável.
                         </p>
                     </div>
                 </details>
              
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+                <details class="aula">
+                    <summary>
+                        ALGORITMO E EXECUÇÃO
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                           Um algoritmo, entretanto, não realiza uma tarefa por si mesmo. É necessário que exista algum agente capaz de executar suas instruções.
+
+Podemos chamar esse agente de processador.
+
+O processador não precisa necessariamente ser um computador. Em uma receita culinária, por exemplo, o processador pode ser uma pessoa equipada com os utensílios necessários para preparar o alimento. Em uma apresentação musical, pode ser o conjunto formado pelo músico e pelo instrumento. Em um sistema computacional, o processador é constituído pelos componentes capazes de interpretar e executar as instruções de um programa.
+
+Essa distinção é importante porque o mesmo algoritmo pode produzir resultados diferentes se o processador não possuir os recursos necessários para executá-lo.
+
+Imagine, por exemplo, uma instrução como:
+
+Aqueça o recipiente até atingir determinada temperatura.
+
+Essa instrução pressupõe a existência de um equipamento capaz de produzir e controlar calor, além de algum mecanismo que permita verificar a temperatura. Se esses recursos não estiverem disponíveis, a instrução não poderá ser executada adequadamente.
+
+Portanto, um algoritmo não deve ser analisado isoladamente. É necessário considerar também quem ou o que irá executá-lo.
+
+Podemos representar essa relação da seguinte maneira:
+
+Algoritmo + Processador → Processo → Resultado
+
+Chamaremos de processo a execução efetiva de um algoritmo.
+
+Assim, o algoritmo corresponde à descrição das ações, enquanto o processo corresponde à realização dessas ações.
+
+Essa distinção aparece constantemente na computação. Um programa armazenado em um computador pode permanecer inativo durante determinado período. Quando é iniciado, suas instruções passam a ser executadas e um processo é criado para realizar essa execução.
+                        </p>
+                    </div>
+                </details>
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <!--
+                <details class="aula">
+                    <summary>
+                        AS CARACTERÍSTICAS DE UM ALGORITMO
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                           Se qualquer sequência de ações pudesse ser considerada um algoritmo, o conceito seria pouco útil. É necessário estabelecer algumas propriedades que permitam distinguir um procedimento bem definido de uma simples descrição informal de ações.
+
+Uma primeira característica é a clareza.
+
+As instruções devem ser suficientemente precisas para que o processador saiba o que fazer. Uma instrução como “faça rapidamente” pode ser compreensível para uma pessoa em determinado contexto, mas é inadequada quando precisamos definir exatamente o comportamento de um sistema computacional.
+
+Uma segunda característica é a determinação da sequência de execução.
+
+Depois que uma instrução é realizada, deve ser possível identificar qual ação deverá ocorrer em seguida. Quando existem diferentes possibilidades, o algoritmo precisa estabelecer explicitamente quais condições determinam cada caminho.
+
+A terceira característica é a finitude.
+
+Um algoritmo deve possuir uma execução capaz de terminar. Não basta realizar ações indefinidamente; é necessário que, depois de uma quantidade finita de etapas, seja possível alcançar o resultado pretendido.
+
+Podemos resumir essas propriedades em três ideias:
+
+Precisão: as instruções devem ser claras e não ambíguas.
+
+Determinação: a sequência de execução deve ser definida, inclusive quando houver decisões.
+
+Finitude: a execução deve terminar após um número finito de etapas.
+
+Essas características não são meros detalhes formais. Elas são essenciais para que um algoritmo possa ser executado de maneira confiável.
+                        </p>
+                    </div>
+                </details>
+    
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <!--
+                <details class="aula">
+                    <summary>
+                        ENTRADA E SAÍDA
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                           Existe ainda outro aspecto fundamental.
+
+Muitos algoritmos dependem de informações fornecidas antes ou durante sua execução. Essas informações constituem a entrada do algoritmo.
+
+Considere um algoritmo destinado a calcular a média de três números. Os três números fornecidos para o cálculo representam a entrada.
+
+Da mesma maneira, em uma receita culinária, os ingredientes disponíveis podem ser considerados dados de entrada. Em um sistema bancário, informações como número da conta, valor da operação e tipo de transação podem constituir entradas para determinados algoritmos.
+
+A entrada, portanto, representa aquilo que o algoritmo recebe para realizar seu trabalho.
+
+Ao final da execução, espera-se obter algum resultado. Esse resultado constitui a saída.
+
+No algoritmo da média, a saída será o valor calculado. Em uma receita, o resultado pode ser o alimento preparado. Em um sistema de processamento de dados, pode ser um relatório, uma mensagem, um valor calculado ou alguma alteração realizada em uma base de dados.
+
+Podemos então ampliar nosso modelo:
+
+Entrada → Algoritmo → Saída
+
+Essa representação simples é uma das formas mais importantes de compreender o funcionamento de sistemas computacionais.
+
+O algoritmo recebe determinados dados, realiza uma sequência de operações e produz um resultado.
+                        </p>
+                    </div>
+                </details>
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+                <details class="aula">
+                    <summary>
+                        UM ALGORITMO APARTENTEMENTE CORRETO
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                           Considere agora uma situação cotidiana.
+
+Suponha que alguém queira gravar um programa de televisão em uma fita e escreva as seguintes instruções:
+
+Selecione o canal desejado.
+
+Insira a fita no aparelho.
+
+Pressione a tecla REC.
+
+A sequência parece perfeitamente razoável. Entretanto, uma análise mais cuidadosa revela uma situação que não foi considerada.
+
+E se a fita já tiver sido utilizada e estiver parcialmente gravada?
+
+Nesse caso, o aparelho começará a gravação a partir da posição atual da fita. O resultado provavelmente não será aquele que se pretendia obter.
+
+O problema não está necessariamente nas instruções isoladamente, mas na ausência de uma consideração importante sobre a entrada.
+
+O algoritmo pressupõe que a fita esteja posicionada corretamente, mas essa condição não foi explicitada.
+
+Uma possível solução seria acrescentar uma etapa:
+
+Selecione o canal desejado.
+
+Insira a fita no aparelho.
+
+Rebobine a fita.
+
+Pressione a tecla REC.
+
+Agora surge outro problema. Se a fita já estiver no início, a operação de rebobinamento talvez seja desnecessária.
+
+Podemos melhorar o procedimento introduzindo uma condição:
+
+Selecione o canal desejado.
+
+Insira a fita no aparelho.
+
+Verifique se a fita está rebobinada.
+
+Se não estiver, rebobine-a.
+
+Pressione a tecla REC.
+
+O exemplo é simples, mas apresenta uma ideia essencial da construção de algoritmos: um algoritmo precisa considerar as situações que podem ocorrer durante sua execução.
+
+                        </p>
+                    </div>
+                </details>
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <!--
+                <details class="aula">
+                    <summary>
+                        CONDIÇÕES E TOMADA DE DESCISÃO
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Nem sempre um algoritmo pode ser descrito como uma sequência linear de instruções.
+
+Em muitos problemas, uma ação depende do resultado de uma verificação anterior.
+
+Imagine um sistema que precise determinar se um aluno foi aprovado. Uma regra poderia ser:
+
+Se a média for maior ou igual a 60, o aluno está aprovado; caso contrário, está reprovado.
+
+O algoritmo possui agora dois possíveis caminhos.
+
+          Média >= 60?
+           /       \
+        Sim         Não
+        /             \
+   Aprovado        Reprovado
+
+Esse mecanismo é chamado de estrutura condicional.
+
+As estruturas condicionais são fundamentais porque permitem que um algoritmo reaja de maneira diferente diante de diferentes entradas.
+
+É justamente essa capacidade que torna os algoritmos suficientemente expressivos para representar situações do mundo real. Nem todos os casos são iguais, e um procedimento precisa ser capaz de distinguir entre eles.
+                        </p>
+                    </div>
+                </details>
+                -->
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <details class="aula">
+                    <summary>
+                        O ALGORITMO COMO UMA TRANSFORMAÇÃO
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Podemos agora olhar para o conceito de algoritmo de uma maneira mais abstrata.
+
+Um algoritmo recebe uma determinada entrada, transforma essa informação por meio de uma sequência organizada de operações e produz uma saída.
+
+Podemos representar esse processo por:
+
+Entrada → Processamento → Saída
+
+O processamento é constituído pelas instruções do algoritmo.
+
+Essa visão é particularmente importante na Ciência da Computação porque permite separar três elementos que frequentemente aparecem misturados em problemas cotidianos:
+
+dados: aquilo que será utilizado pelo algoritmo;
+
+processamento: as operações realizadas sobre esses dados;
+
+resultado: aquilo que é produzido ao final.
+
+Considere, por exemplo, um algoritmo para calcular o valor total de uma compra.
+
+A entrada pode ser constituída pelos preços dos produtos e suas respectivas quantidades. O processamento consiste em multiplicar cada preço pela quantidade e somar os valores obtidos. A saída será o valor total da compra.
+
+Embora o problema seja simples, a estrutura permanece a mesma em aplicações muito mais complexas.
+
+Um sistema de comércio eletrônico, um programa de controle financeiro ou uma aplicação científica podem manipular milhões de dados e executar milhares de operações, mas continuam obedecendo ao mesmo princípio fundamental: receber informações, processá-las segundo regras definidas e produzir resultados.
+                        </p>
+                    </div>
+                </details>
+              
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+                <details class="aula">
+                    <summary>
+                        PORQUE ESTUDAR ALGORITMOS
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            A importância dos algoritmos não está apenas na capacidade de programar computadores.
+
+Estudar algoritmos significa aprender a organizar o pensamento para resolver problemas.
+
+Quando um problema é transformado em um algoritmo, é necessário identificar quais informações estão disponíveis, quais resultados são desejados, quais operações precisam ser realizadas e quais situações especiais podem surgir durante a execução.
+
+Esse processo exige precisão.
+
+Um ser humano pode interpretar uma instrução incompleta usando seu conhecimento e sua experiência. Um computador, por outro lado, não possui essa liberdade de interpretação. A instrução precisa ser apresentada dentro das regras que o sistema consegue compreender.
+
+Por isso, programar não consiste simplesmente em escrever comandos em uma linguagem de programação. Antes de escrever o programa, é necessário construir uma solução suficientemente precisa para o problema.
+
+A linguagem de programação é, nesse contexto, uma forma de representar o algoritmo para que ele possa ser executado por um computador.
+
+Podemos, portanto, estabelecer uma sequência conceitual:
+
+Problema → Solução → Algoritmo → Programa → Execução → Resultado
+
+O problema representa aquilo que desejamos resolver. A solução descreve uma estratégia para resolvê-lo. O algoritmo organiza essa estratégia em etapas precisas. O programa traduz essas etapas para uma linguagem compreendida pelo computador. A execução transforma o programa em ações efetivas, produzindo finalmente um resultado.
+                        </p>
+                    </div>
+                </details>
+             
+                 <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+                <details class="aula">
+                    <summary>
+                        UMA PRIMEIRA DEFINIÇÃO FORMAL
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                           Depois dessas observações, podemos formular uma definição mais cuidadosa:
+
+Um algoritmo é uma sequência finita, ordenada e não ambígua de instruções que, a partir de uma determinada entrada, realiza um processamento e produz uma saída em tempo finito.
+
+Essa definição reúne os principais conceitos apresentados neste capítulo.
+
+Um algoritmo possui entrada, porque pode receber dados para serem processados. Possui instruções, porque precisa determinar as ações que serão realizadas. Possui uma ordem de execução, porque as ações não acontecem de maneira arbitrária. Possui condições, quando diferentes situações exigem diferentes caminhos. E possui uma saída, que representa o resultado produzido após o processamento.
+
+Além disso, sua execução deve ser finita e suas instruções precisam ser suficientemente precisas para que o processador possa realizá-las.
+
+Esses princípios constituem a base sobre a qual serão construídos conceitos mais avançados da Ciência da Computação.
+
+À medida que avançarmos, veremos que existem diferentes maneiras de representar um algoritmo, desde descrições textuais até estruturas gráficas e linguagens de programação. Também veremos que dois algoritmos podem resolver o mesmo problema de maneiras diferentes, utilizando quantidades distintas de tempo e memória.
+
+É nesse momento que o estudo de algoritmos deixa de ser apenas uma maneira de descrever procedimentos e passa a constituir uma das ferramentas centrais para compreender como problemas podem ser resolvidos de forma sistemática, eficiente e computável.
+                        </p>
+                    </div>
+                </details>
+            
                 <!-- =================================================
                      OUTRAS AULAS
                 ================================================== -->
@@ -501,9 +1043,6 @@
                         <h3>
                             Pronto para estudar?
                         </h3>
-                        <p>
-                            Escolha um tópico e gere uma atividade aleatória.
-                        </p>
                         <div class="seletor-atividade">
                             <label for="topico">
                                 Escolha o tópico:
@@ -546,7 +1085,6 @@
                                 <option value="complexidade">
                                     Complexidade e Big O
                                 </option>
-
                             </select>
                             <button
                                 type="button"
@@ -555,21 +1093,11 @@
                             >
                                 🎲 Gerar Atividade
                             </button>
-
                         </div>
                         <div
                             id="atividade"
                             class="atividade"
                         >
-                            <div class="atividade-inicial">
-                                <span>📚</span>
-                                <h3>
-                                    Escolha um tópico
-                                </h3>
-                                <p>
-                                    Clique em "Gerar Atividade" para começar.
-                                </p>
-                            </div>
                         </div>
                         <div
                             id="resultado"
