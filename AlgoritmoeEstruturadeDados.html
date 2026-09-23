@@ -1015,6 +1015,614 @@ Esses princípios constituem a base sobre a qual serão construídos conceitos m
                 <!-- =================================================
                      OUTRAS AULAS
                 ================================================== -->
+                <details class="aula">
+                    <summary>
+                        REPRESENTANDO ALGORITMO
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                           Compreender um algoritmo é uma coisa; conseguir expressá-lo de maneira clara é outra. À medida que os problemas se tornam mais complexos, uma simples descrição em linguagem cotidiana deixa de ser suficiente. Torna-se necessário utilizar formas de representação que permitam visualizar a sequência de ações, as decisões envolvidas e as possíveis repetições.
+
+Existem diversas maneiras de representar um algoritmo. Entre as mais utilizadas estão a descrição textual, o fluxograma e o pseudocódigo.
+
+A descrição textual é a forma mais próxima da linguagem cotidiana. É adequada para apresentar uma ideia geral, especialmente quando o problema ainda está sendo analisado.
+
+O fluxograma utiliza símbolos gráficos para representar as diferentes etapas de um algoritmo. Ele permite visualizar o fluxo de execução e identificar pontos em que uma decisão ou repetição ocorre.
+
+O pseudocódigo, por sua vez, procura aproximar a estrutura de um programa de computador da linguagem humana. Embora não esteja necessariamente associado a uma linguagem de programação específica, ele permite representar algoritmos de maneira estruturada.
+
+Essas formas não competem entre si. Cada uma pode ser útil em uma etapa diferente do desenvolvimento da solução.
+                        </p>
+                    </div>
+                </details>
+
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+                <details class="aula">
+                    <summary>
+                        UM PRIMEIRO ALGORITMO
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Considere um problema bastante simples: determinar a soma de dois números.
+
+Antes de pensar em uma linguagem de programação, podemos descrever a solução em termos de suas etapas fundamentais.
+
+Receber o primeiro número.
+
+Receber o segundo número.
+
+Somar os dois números.
+
+Apresentar o resultado.
+
+Temos aqui um algoritmo completo.
+
+Observe que ele possui uma entrada — os dois números — e uma saída — o resultado da soma.
+
+Podemos representá-lo por meio do seguinte pseudocódigo:
+
+Algoritmo SomaDoisNumeros
+
+    leia número1
+    leia número2
+
+    resultado ← número1 + número2
+
+    escreva resultado
+
+FimAlgoritmo
+
+O símbolo ← indica uma atribuição. Nesse caso, significa que o valor obtido pela soma será armazenado na variável resultado.
+
+Essa representação introduz um novo conceito fundamental: a variável.
+                        </p>
+                    </div>
+                </details>
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <details class="aula">
+                    <summary>
+                      VARIÁVEIS: MEMÓRIAS PARA DADOS
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Durante a execução de um algoritmo, frequentemente precisamos guardar informações para utilizá-las posteriormente.
+
+Uma variável pode ser entendida, inicialmente, como um espaço identificado capaz de armazenar um valor.
+
+Imagine uma caixa com uma etiqueta chamada idade. Podemos colocar dentro dela o valor 25. Em outro momento, podemos substituir esse valor por 26.
+
+A ideia de variável é semelhante.
+
+idade ← 25
+
+Nesse momento, a variável idade passa a armazenar o valor 25.
+
+Posteriormente:
+
+idade ← 26
+
+O valor armazenado passa a ser 26.
+
+É importante perceber que a variável possui um nome e, durante a execução do algoritmo, pode assumir diferentes valores.
+
+Podemos ter, por exemplo:
+
+nome ← "Mariana"
+idade ← 21
+altura ← 1.68
+aprovado ← verdadeiro
+
+Essas variáveis armazenam informações de naturezas diferentes.
+
+nome representa um texto, idade representa um número inteiro, altura representa um número real e aprovado representa uma informação lógica.
+
+Essa distinção nos conduz ao conceito de tipo de dado.
+                        </p>
+                    </div>
+                </details>
+
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <details class="aula">
+                    <summary>
+                        TIPOS DE DADOS
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                           Um algoritmo precisa saber que tipo de informação está manipulando.
+
+Os tipos mais elementares encontrados em grande parte das linguagens de programação são:
+
+Inteiro: representa números sem parte fracionária, como 10, -3 e 250.
+
+Real: representa números que podem possuir parte fracionária, como 3.14 e 7.5.
+
+Caractere ou texto: representa símbolos e sequências de caracteres, como "Ana" ou "Ciência da Computação".
+
+Lógico: representa valores de verdadeiro ou falso.
+
+A existência de tipos não é apenas uma questão de organização. Ela permite determinar quais operações podem ser realizadas sobre cada informação.
+
+Podemos somar dois números:
+
+10 + 5
+
+Mas não faz sentido realizar uma soma aritmética diretamente entre:
+
+"João" + 5
+
+A menos que a linguagem tenha alguma regra específica para essa operação.
+
+A definição adequada dos tipos de dados contribui para que o algoritmo seja mais claro e para que erros possam ser identificados antes ou durante sua execução.
+                        </p>
+                    </div>
+                </details>
+   
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <details class="aula">
+                    <summary>
+                        OPERADORES
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Para transformar os dados de entrada em resultados, os algoritmos precisam realizar operações.
+
+Os operadores aritméticos são utilizados para cálculos matemáticos. Entre os mais comuns estão:
+
++    soma
+-    subtração
+*    multiplicação
+/    divisão
+
+Assim, podemos escrever:
+
+total ← preço * quantidade
+
+Se preço valer 20 e quantidade valer 3, a variável total receberá o valor 60.
+
+Além dos operadores aritméticos, existem os operadores relacionais, utilizados para comparar valores:
+
+>     maior que
+<     menor que
+>=    maior ou igual
+<=    menor ou igual
+=     igual
+<>    diferente
+
+Essas operações produzem um valor lógico: verdadeiro ou falso.
+
+Por exemplo:
+
+idade >= 18
+
+será verdadeiro quando a idade for maior ou igual a 18.
+
+Essa possibilidade de comparar valores é fundamental para a construção de algoritmos que tomam decisões.
+                        </p>
+                    </div>
+                </details>
+
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <details class="aula">
+                    <summary>
+                        ESTRUTURAS CONDICIONAIS
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Até este ponto, nossos algoritmos seguiram uma sequência linear. Cada instrução era executada depois da anterior.
+
+Na prática, muitos problemas exigem decisões.
+
+Considere a seguinte situação:
+
+Dado o valor de uma idade, informar se a pessoa é maior de idade.
+
+A solução pode ser descrita assim:
+
+Ler a idade.
+
+Verificar se a idade é maior ou igual a 18.
+
+Se a condição for verdadeira, informar que a pessoa é maior de idade.
+
+Caso contrário, informar que a pessoa é menor de idade.
+
+Em pseudocódigo:
+
+leia idade
+
+se idade >= 18 então
+    escreva "Maior de idade"
+senão
+    escreva "Menor de idade"
+fimse
+
+A palavra se introduz uma condição.
+
+O algoritmo deixa de possuir um único caminho de execução. Dependendo do valor da entrada, um caminho será escolhido.
+
+Podemos imaginar sua execução como uma bifurcação:
+
+                 idade >= 18?
+                  /       \
+               sim         não
+               /             \
+   "Maior de idade"    "Menor de idade"
+
+Esse mecanismo é fundamental para a computação. Programas reais precisam tomar decisões constantemente: verificar se uma senha está correta, determinar se existe saldo suficiente, descobrir se um arquivo existe, identificar se uma temperatura ultrapassou determinado limite e assim por diante.
+                        </p>
+                    </div>
+                </details>
+
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+                <details class="aula">
+                    <summary>
+                        CONDIÇÕES COMPOSTAS
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Uma condição também pode envolver mais de uma comparação.
+
+Imagine que uma pessoa só possa receber determinado benefício quando sua idade estiver entre 18 e 65 anos.
+
+Não basta verificar apenas uma condição. É necessário verificar duas:
+
+idade >= 18
+
+e
+
+idade <= 65
+
+Podemos combiná-las utilizando operadores lógicos.
+
+Os principais são:
+
+E
+OU
+NÃO
+
+O operador E exige que todas as condições sejam verdadeiras.
+
+idade >= 18 E idade <= 65
+
+A expressão será verdadeira somente quando as duas comparações forem verdadeiras.
+
+O operador OU permite que pelo menos uma das condições seja verdadeira:
+
+pagamento = "pix" OU pagamento = "cartão"
+
+Já o operador NÃO inverte o valor lógico de uma condição.
+
+NÃO aprovado
+
+representa uma condição verdadeira quando aprovado for falso.
+
+Esses operadores permitem construir decisões mais elaboradas sem abandonar a estrutura fundamental dos algoritmos.
+
+                        </p>
+                    </div>
+                </details>
+    
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <details class="aula">
+                    <summary>
+                       REPETIÇÃO: QUANDO UMA VARIÁVEL PRECISA SER REPETIDA VÁRIAS VEZES
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Outro problema frequente ocorre quando precisamos executar a mesma operação repetidamente.
+
+Imagine um algoritmo que deve apresentar os números de 1 até 10.
+
+Uma solução poderia ser escrever dez instruções:
+
+escreva 1
+escreva 2
+escreva 3
+...
+escreva 10
+
+Embora funcione, essa solução é pouco elegante. Imagine agora que fossem necessários os números de 1 até 1.000. Teríamos de escrever centenas de instruções.
+
+A solução adequada é utilizar uma estrutura de repetição.
+
+Por exemplo:
+
+para contador de 1 até 10 faça
+    escreva contador
+fimpara
+
+A variável contador assume sucessivamente os valores de 1 a 10, e a instrução de saída é executada a cada repetição.
+
+Essa estrutura permite representar uma grande quantidade de operações por meio de poucas instruções.
+
+É uma das ideias mais poderosas da programação: uma instrução pode representar uma quantidade potencialmente grande de ações durante a execução.
+                        </p>
+                    </div>
+                </details>
+      
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+                <details class="aula">
+                    <summary>
+                        REPETIÇÕES CONDICIONAIS
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Nem sempre sabemos antecipadamente quantas vezes uma ação deverá ser repetida.
+
+Considere um sistema que solicita uma senha ao usuário. O sistema deve continuar solicitando a senha enquanto ela estiver incorreta.
+
+Nesse caso, a quantidade de tentativas não é necessariamente conhecida.
+
+Podemos escrever:
+
+leia senha
+
+enquanto senha estiver incorreta faça
+    escreva "Senha incorreta. Tente novamente."
+    leia senha
+fimenquanto
+
+escreva "Acesso permitido."
+
+A repetição depende de uma condição.
+
+Enquanto a condição for verdadeira, o conjunto de instruções continuará sendo executado.
+
+Esse tipo de estrutura aparece constantemente em sistemas computacionais: enquanto houver dados para processar, enquanto uma conexão estiver ativa, enquanto o usuário não escolher sair, enquanto determinada condição não for satisfeita.
+
+                        </p>
+                    </div>
+                </details>
+
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <details class="aula">
+                    <summary>
+                        A IMPORTÂNCIA DA ORDEM
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                           A sequência das instruções é uma característica essencial dos algoritmos.
+
+Considere:
+
+a ← 10
+b ← 20
+soma ← a + b
+
+O cálculo de soma depende dos valores de a e b. Portanto, essas variáveis precisam receber seus valores antes que a soma seja realizada.
+
+Se invertermos a ordem:
+
+soma ← a + b
+a ← 10
+b ← 20
+
+o resultado poderá ser diferente ou até mesmo inválido, dependendo do ambiente em que o algoritmo for executado.
+
+Isso mostra que um algoritmo não é simplesmente um conjunto de instruções. É uma sequência estruturada de instruções.
+
+A ordem faz parte do significado.
+
+Essa característica parece evidente em exemplos simples, mas torna-se extremamente importante em algoritmos complexos, nos quais centenas ou milhares de operações podem depender umas das outras.
+                        </p>
+                    </div>
+                </details>
+
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <details class="aula">
+                    <summary>
+                        DO ALGORITMO AO PROGRAMA
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Até aqui, estamos descrevendo soluções por meio de pseudocódigo. Mas como essas soluções chegam ao computador?
+
+Para que um computador execute um algoritmo, precisamos representá-lo utilizando uma linguagem de programação.
+
+Linguagens como Python, Java, C, C++, JavaScript e muitas outras fornecem regras para expressar algoritmos de forma que possam ser processados por um sistema computacional.
+
+Por exemplo, o algoritmo:
+
+leia dois números
+some os dois valores
+mostre o resultado
+
+poderia ser representado em Python como:
+
+numero1 = float(input("Digite o primeiro número: "))
+numero2 = float(input("Digite o segundo número: "))
+
+resultado = numero1 + numero2
+
+print("Resultado:", resultado)
+
+O programa é uma implementação concreta do algoritmo.
+
+Essa distinção é importante porque algoritmo e programa não são sinônimos.
+
+Um algoritmo descreve uma solução de maneira independente, ou relativamente independente, da linguagem utilizada. Um programa é uma implementação dessa solução em uma linguagem específica.
+
+O mesmo algoritmo pode, portanto, ser implementado em diferentes linguagens.
+                        </p>
+                    </div>
+                </details>
+    
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <details class="aula">
+                    <summary>
+                        UM MESMO PROBLEMA - DIFERENTES ALGORIMOS
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                           Uma característica particularmente interessante da Ciência da Computação é que um problema pode possuir diversas soluções algorítmicas.
+
+Imagine que precisamos encontrar determinado valor em uma coleção de números.
+
+Uma solução simples seria examinar os elementos um por um, começando pelo primeiro, até encontrar o valor procurado.
+
+Outra solução poderia explorar alguma propriedade da organização dos dados para reduzir a quantidade de elementos que precisam ser examinados.
+
+As duas soluções podem produzir o mesmo resultado, mas podem apresentar comportamentos muito diferentes quando o tamanho da entrada aumenta.
+
+É nesse ponto que surge uma questão central:
+
+Não basta encontrar um algoritmo que funcione. Muitas vezes precisamos encontrar um algoritmo que funcione de maneira eficiente.
+
+Essa preocupação conduz ao estudo da complexidade de algoritmos.
+                        </p>
+                    </div>
+                </details>
+    
+                <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <details class="aula">
+                    <summary>
+                      CORREÇÃO E EFICIÊNCIA
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Quando analisamos um algoritmo, pelo menos duas perguntas são fundamentais.
+
+A primeira é:
+
+O algoritmo produz o resultado correto?
+
+Essa é uma questão de correção.
+
+Um algoritmo que produz resultados incorretos não resolve o problema, mesmo que seja extremamente rápido.
+
+A segunda pergunta é:
+
+Quanto custa executar esse algoritmo?
+
+Aqui entram fatores como tempo de execução e quantidade de memória utilizada.
+
+Imagine dois algoritmos capazes de resolver o mesmo problema. O primeiro realiza 10 operações para uma determinada entrada, enquanto o segundo realiza 1.000. Para uma entrada pequena, talvez a diferença seja irrelevante. Entretanto, se o tamanho da entrada aumentar significativamente, essa diferença poderá se tornar decisiva.
+
+Por isso, a análise de algoritmos procura compreender como os recursos necessários para sua execução crescem à medida que o tamanho do problema aumenta.
+                        </p>
+                    </div>
+                </details>
+
+               <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <details class="aula">
+                    <summary>
+                        O TAMANHO DA ENTRADA
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Considere um algoritmo que precisa somar todos os elementos de uma lista.
+
+Se a lista possui cinco elementos, precisamos realizar poucas operações:
+
+5 elementos → poucas operações
+
+Se possui um milhão de elementos:
+
+1.000.000 de elementos → muito mais operações
+
+Podemos então perguntar:
+
+Como o número de operações cresce em relação ao tamanho da entrada?
+
+Essa pergunta está no centro da análise de complexidade.
+
+Em muitos casos, não estamos interessados no número exato de operações, mas na forma como esse número cresce.
+
+Um algoritmo que percorre todos os elementos de uma lista, por exemplo,
+                        </p>
+                    </div>
+                </details>
+                -->
+     <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <!--
+                <details class="aula">
+                    <summary>
+                        FUNDAMENTOS
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmos são conjuntos de instruções passo a passo
+                            para resolver problemas.
+                        </p>
+                    </div>
+                </details>
+                -->
+     <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <!--
+                <details class="aula">
+                    <summary>
+                        FUNDAMENTOS
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmos são conjuntos de instruções passo a passo
+                            para resolver problemas.
+                        </p>
+                    </div>
+                </details>
+                -->
+     <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
+
+                <!--
+                <details class="aula">
+                    <summary>
+                        FUNDAMENTOS
+                    </summary>
+                    <div class="aula-conteudo">
+                        <p>
+                            Algoritmos são conjuntos de instruções passo a passo
+                            para resolver problemas.
+                        </p>
+                    </div>
+                </details>
+                -->
+     <!-- =================================================
+                     OUTRAS AULAS
+                ================================================== -->
 
                 <!--
                 <details class="aula">
