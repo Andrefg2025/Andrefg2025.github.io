@@ -2468,6 +2468,449 @@ Aprovado   Reprovado
 
         </details>
 
+
+ <details
+                    class="aula"
+                    open>
+
+                    <summary>
+                        Aula 7 — Representação de algoritmos
+                    </summary>
+
+
+                    <div class="aula-conteudo">
+Introdução à Arquitetura de Computadores
+Os computadores estão presentes em praticamente todas as atividades da sociedade contemporânea. Smartphones, servidores, computadores pessoais, sistemas automotivos, equipamentos médicos, dispositivos embarcados, sistemas de inteligência artificial e grandes centros de processamento dependem de computadores capazes de executar milhões ou bilhões de operações em intervalos extremamente pequenos. Apesar dessa presença cotidiana, grande parte dos usuários interage com essas máquinas sem conhecer os mecanismos responsáveis por transformar um programa escrito em uma linguagem de programação em operações realizadas fisicamente por circuitos eletrônicos.
+
+É nesse contexto que surge o estudo da Arquitetura de Computadores. Essa área procura explicar como um sistema computacional é concebido para executar programas e como diferentes componentes de hardware e software trabalham em conjunto para transformar dados de entrada em resultados. Em uma visão mais ampla, estudar arquitetura de computadores significa compreender o caminho existente entre uma instrução escrita por um programador e sua execução pelo processador, passando pela representação dos dados, pelo conjunto de instruções, pelos registradores, pela memória, pelos dispositivos de entrada e saída e pelos mecanismos utilizados para obter desempenho, eficiência e confiabilidade. Essa perspectiva é recorrente em obras clássicas e modernas da área, como Computer Architecture: A Quantitative Approach, de Hennessy, Patterson e colaboradores, e Computer Organization and Design: The Hardware/Software Interface. 
+E
+Educate Elsevier
++2
+
+Um dos primeiros conceitos necessários para compreender essa área é a distinção entre arquitetura e organização de computadores. Embora os termos sejam frequentemente utilizados em conjunto, eles representam aspectos diferentes de um sistema. A arquitetura está relacionada às características do computador que são relevantes para o software, especialmente àquilo que é definido pela Instruction Set Architecture (ISA), ou Arquitetura do Conjunto de Instruções. A ISA estabelece, entre outros elementos, quais instruções o processador reconhece, quais registradores estão disponíveis, como os dados são representados e como as instruções acessam esses dados. Já a organização diz respeito à maneira como essas características são efetivamente implementadas por componentes como unidades funcionais, unidades de controle, registradores, caches, barramentos e circuitos internos. A própria estrutura de cursos universitários de arquitetura de computadores costuma iniciar justamente pela diferenciação entre arquitetura e organização. 
+I
+IME USP
++2
+
+Essa separação pode ser compreendida por meio de uma analogia simples. A arquitetura pode ser comparada às regras que determinam o que o computador deve ser capaz de fazer, enquanto a organização está relacionada à maneira como o hardware é construído para realizar essas funções. Dois processadores podem implementar uma mesma arquitetura de conjunto de instruções e, ainda assim, possuir organizações internas diferentes. Eles podem utilizar diferentes tamanhos de cache, diferentes quantidades de unidades funcionais, diferentes técnicas de execução e diferentes níveis de paralelismo, mantendo uma interface de programação compatível. Dessa forma, a arquitetura funciona como uma importante camada de abstração entre o software e a implementação física do processador.
+
+O computador como um sistema integrado
+Um computador moderno não deve ser entendido apenas como um processador. Ele é um sistema formado por diversos componentes interdependentes. De maneira simplificada, podemos identificar quatro grandes grupos: processador, memória, dispositivos de entrada e saída e mecanismos de interconexão entre esses componentes.
+
+O processador, também chamado de CPU (Central Processing Unit), é responsável pela execução das instruções. Ele realiza operações aritméticas e lógicas, controla o fluxo de execução dos programas e coordena o acesso a dados e recursos do sistema. Internamente, um processador possui elementos como registradores, unidades de execução, unidade de controle e mecanismos destinados a buscar, decodificar e executar instruções.
+
+A memória fornece os meios necessários para armazenar programas e dados durante sua utilização. Entretanto, a memória de um computador não constitui um único componente homogêneo. Os sistemas computacionais empregam uma hierarquia de memória, formada por diferentes níveis que apresentam diferentes características de capacidade, custo e velocidade. Registradores, memória cache, memória principal e armazenamento secundário participam dessa hierarquia. O objetivo é oferecer ao processador acesso rápido aos dados utilizados com maior frequência, sem tornar o sistema excessivamente caro ou complexo. A hierarquia de memória é considerada um dos conceitos fundamentais no estudo da arquitetura moderna. 
+C
+CS:APP
++2
+
+Os dispositivos de entrada e saída (I/O) permitem que o computador interaja com o ambiente externo. Teclados, telas, discos, redes, câmeras, sensores, impressoras e inúmeros outros dispositivos precisam trocar informações com o sistema computacional. Essa comunicação exige mecanismos específicos de controle, endereçamento, interrupções e transferência de dados.
+
+Por fim, os mecanismos de interconexão permitem que processador, memória e dispositivos se comuniquem. Dependendo da arquitetura, essa comunicação pode envolver barramentos, interconexões ponto a ponto, controladores de memória e outras estruturas especializadas. Assim, o desempenho de um sistema não depende exclusivamente da velocidade da CPU, mas do funcionamento conjunto de todos esses elementos.
+
+Da informação ao código de máquina
+Para compreender a arquitetura de um computador, também é necessário compreender como as informações são representadas internamente. Embora seres humanos trabalhem naturalmente com números decimais, textos, imagens, sons e outros formatos abstratos, os circuitos digitais operam fundamentalmente com sinais representados por estados discretos.
+
+O sistema binário tornou-se fundamental para a computação digital porque permite representar informações por meio de bits, geralmente associados a dois estados lógicos. A combinação de bits possibilita representar números inteiros, caracteres, instruções, endereços, imagens, sons e diversos outros tipos de informação.
+
+Essa representação, entretanto, possui consequências importantes. Um número armazenado em uma quantidade limitada de bits possui um intervalo limitado de valores representáveis. Da mesma forma, números inteiros e números de ponto flutuante possuem representações distintas e podem apresentar comportamentos diferentes durante cálculos. Por isso, a representação de dados não é apenas uma questão de armazenamento: ela influencia diretamente a forma como os programas são executados pelo hardware. Essa relação entre representação de dados e comportamento dos programas é destacada tanto em cursos de arquitetura quanto em obras voltadas à compreensão de sistemas computacionais. 
+C
+CS:APP
++1
+
+Quando um programador escreve uma instrução em uma linguagem de alto nível, como C, C++, Java ou outra linguagem, essa instrução não é executada diretamente pelo hardware na mesma forma em que foi escrita. Existe uma cadeia de transformação que pode envolver compiladores, montadores, ligadores e carregadores. O resultado final precisa ser convertido em uma forma que o processador consiga interpretar e executar.
+
+Nesse nível surge o código de máquina, constituído por instruções codificadas de acordo com a arquitetura do processador. A ISA estabelece quais operações podem ser expressas por essas instruções e como elas devem ser interpretadas. A relação entre linguagem de programação, código de máquina e hardware constitui uma das principais pontes entre software e arquitetura de computadores. 
+C
+CS:APP
++1
+
+O processador e o ciclo de execução
+Uma das ideias fundamentais da arquitetura de computadores é o chamado ciclo de instrução. De maneira simplificada, o processador precisa buscar uma instrução na memória, interpretá-la e executar a operação correspondente. Esse processo é frequentemente apresentado por meio das etapas de busca (fetch), decodificação (decode) e execução (execute), embora processadores modernos utilizem mecanismos muito mais sofisticados.
+
+Durante a execução, o processador utiliza registradores para armazenar temporariamente informações importantes. Uma instrução pode, por exemplo, solicitar uma operação aritmética envolvendo valores armazenados em determinados registradores. A unidade de execução realiza a operação e o resultado pode ser armazenado novamente em um registrador ou encaminhado para a memória.
+
+Processadores modernos, entretanto, não executam necessariamente uma única instrução de cada vez de maneira estritamente sequencial. Técnicas como pipeline, execução superescalar, execução fora de ordem, previsão de desvios, execução especulativa e paralelismo em nível de instrução procuram aumentar a quantidade de trabalho realizada em determinado intervalo de tempo. Esses mecanismos são alguns dos responsáveis pela complexidade das CPUs contemporâneas. Cursos de arquitetura de computadores tradicionalmente apresentam pipeline, arquiteturas RISC e CISC, instruções superescalares e processadores multicore como elementos importantes do estudo de desempenho. 
+E
+e-Aulas USP
++1
+
+Arquiteturas RISC e CISC
+Ao longo da evolução dos computadores surgiram diferentes estratégias para definir conjuntos de instruções. Entre os conceitos mais conhecidos estão as arquiteturas RISC (Reduced Instruction Set Computer) e CISC (Complex Instruction Set Computer).
+
+De maneira geral, arquiteturas RISC procuram trabalhar com um conjunto de instruções mais regular e com características que favoreçam implementações eficientes, enquanto arquiteturas CISC historicamente incorporaram conjuntos de instruções mais complexos. É importante, entretanto, evitar uma visão simplificada segundo a qual uma dessas abordagens seria universalmente superior à outra. Processadores modernos incorporam diversas técnicas de implementação que tornam a distinção mais complexa do que a classificação histórica sugere.
+
+O RISC-V constitui um exemplo contemporâneo importante de arquitetura baseada nos princípios RISC. Trata-se de uma ISA aberta e padronizada, mantida pela RISC-V International, com uma arquitetura modular formada por uma base e extensões. A documentação oficial atual também contempla variantes de 32 e 64 bits, extensões para diferentes funcionalidades e mecanismos voltados a sistemas multicore e outros tipos de implementação. 
+R
+RISC-V International
++2
+
+O estudo de arquiteturas como RISC-V é particularmente interessante porque permite observar de maneira relativamente direta a relação entre especificação arquitetural e implementação. A ISA define uma interface que pode ser implementada por diferentes microarquiteturas, demonstrando na prática a diferença entre o que o processador oferece ao software e como o hardware realiza essas operações internamente. 
+R
+RISC-V Docs
+
+A importância da memória
+Um dos maiores desafios da arquitetura de computadores é a diferença de velocidade entre o processador e os diferentes níveis de memória. A CPU pode executar operações em uma velocidade muito elevada, mas acessar determinados níveis de armazenamento pode demandar muito mais tempo. Por isso, os computadores utilizam mecanismos destinados a reduzir a frequência com que o processador precisa esperar por dados.
+
+A memória cache é um desses mecanismos. Ela armazena cópias de dados e instruções que possuem elevada probabilidade de serem utilizados novamente. Seu funcionamento está relacionado a propriedades conhecidas como localidade temporal e localidade espacial. A primeira está associada à tendência de um programa reutilizar informações recentemente acessadas; a segunda, à tendência de acessar posições de memória próximas umas das outras.
+
+A partir desses princípios, a arquitetura estabelece uma hierarquia na qual memórias menores e mais rápidas ficam próximas do processador, enquanto memórias maiores e mais lentas ficam em níveis inferiores. O estudo dessa hierarquia é essencial para compreender por que a capacidade de armazenamento, a velocidade da memória e o desempenho do processador não podem ser analisados isoladamente. 
+C
+CS:APP
++1
+
+Desempenho: muito além da frequência do processador
+Durante muito tempo, a frequência do processador foi utilizada como uma referência simples para comparar computadores. Embora a frequência seja uma característica importante, ela não é suficiente para determinar o desempenho de um sistema.
+
+O desempenho depende de diversos fatores, incluindo o número de instruções executadas, o número de ciclos necessários para executar essas instruções, a frequência do relógio, a eficiência do pipeline, o comportamento das caches, a largura e velocidade das interconexões, o paralelismo disponível e as características do software.
+
+Uma forma clássica de analisar esse problema consiste em relacionar tempo de execução, número de instruções, ciclos por instrução (CPI) e tempo de ciclo do processador. Essa abordagem quantitativa é uma característica marcante dos trabalhos de Hennessy e Patterson, que tratam arquitetura como uma área na qual decisões de projeto devem ser avaliadas considerando desempenho, energia, custo e outros fatores. 
+E
+Educate Elsevier
++1
+
+Assim, estudar arquitetura de computadores também significa aprender a fazer perguntas quantitativas: quanto tempo determinada operação demora? Quantas instruções são necessárias? Qual é o impacto de uma cache maior? Como o paralelismo modifica o desempenho? Qual é o custo energético de uma determinada solução? Essas questões aproximam a arquitetura da engenharia e mostram que o projeto de computadores envolve compromissos entre diferentes objetivos.
+
+Paralelismo e computadores multicore
+O aumento contínuo do desempenho dos computadores levou ao desenvolvimento de diferentes formas de paralelismo. Em vez de depender exclusivamente do aumento da frequência de um único núcleo, os sistemas passaram a explorar múltiplos níveis de execução simultânea.
+
+Dentro de um processador podem existir unidades capazes de executar diferentes operações em paralelo. Além disso, técnicas como SIMD (Single Instruction, Multiple Data) permitem aplicar uma mesma operação a vários elementos de dados. Em uma escala maior, processadores podem possuir múltiplos núcleos (multicore), possibilitando a execução simultânea de diferentes fluxos de instruções.
+
+Em sistemas ainda maiores, vários processadores podem compartilhar recursos e memória ou trabalhar de maneira distribuída. Dessa forma, o conceito de paralelismo atravessa praticamente todos os níveis da arquitetura, desde as unidades internas do processador até grandes sistemas de computação de alto desempenho. Materiais acadêmicos de arquitetura incluem justamente pipeline, execução superescalar, multicore e múltiplos processadores entre os principais tópicos da área. 
+E
+e-Aulas USP
++1
+
+Arquitetura como interface entre software e hardware
+Uma das ideias mais importantes para quem está iniciando o estudo da área é perceber que hardware e software não são mundos independentes. Existe uma relação contínua entre eles.
+
+Um programa é escrito utilizando abstrações fornecidas pelas linguagens de programação. O compilador transforma essas abstrações em instruções adequadas a uma determinada arquitetura. O sistema operacional administra recursos como processadores, memória e dispositivos de entrada e saída. O hardware, por sua vez, executa as instruções e fornece os mecanismos físicos necessários para que todo o sistema funcione.
+
+Essa perspectiva é especialmente enfatizada por Bryant e O'Hallaron, que propõem estudar sistemas computacionais observando como as características do hardware influenciam o comportamento dos programas. A abordagem percorre representação de dados, linguagem de máquina, arquitetura do processador, otimização, hierarquia de memória, memória virtual, entrada e saída e concorrência. 
+C
+CS:APP
++1
+
+Portanto, compreender arquitetura de computadores não significa simplesmente memorizar nomes de componentes. O objetivo é entender como as diferentes camadas de um sistema se relacionam.
+
+A evolução da arquitetura de computadores
+A arquitetura de computadores também é resultado de uma longa evolução tecnológica. Os primeiros computadores eletrônicos ocupavam grandes espaços físicos e utilizavam tecnologias como válvulas eletrônicas. Posteriormente, os transistores permitiram construir máquinas menores e mais eficientes. A evolução dos circuitos integrados possibilitou aumentar progressivamente a quantidade de componentes em uma mesma área, conduzindo aos microprocessadores e aos sistemas altamente integrados atuais.
+
+Materiais didáticos universitários frequentemente apresentam essa evolução desde dispositivos mecânicos e os primeiros computadores eletrônicos até circuitos integrados, processadores modernos, sistemas multicore e supercomputadores. 
+I
+IME USP
++1
+
+A evolução tecnológica, entretanto, não modificou apenas o tamanho dos computadores. Ela transformou profundamente suas arquiteturas. O desenvolvimento das memórias cache, dos pipelines, da execução fora de ordem, dos processadores multicore, das GPUs, dos aceleradores especializados e de arquiteturas abertas como RISC-V mostra que a arquitetura de computadores continua sendo uma área dinâmica.
+
+Por que estudar Arquitetura de Computadores?
+O conhecimento de arquitetura é importante para diferentes áreas da computação. Um programador que compreende como a memória funciona pode escrever programas mais eficientes. Um desenvolvedor de sistemas embarcados precisa conhecer as limitações do processador e dos dispositivos. Um profissional que trabalha com sistemas operacionais precisa compreender memória virtual, interrupções, proteção e mecanismos de execução. Da mesma maneira, profissionais envolvidos com compiladores, bancos de dados, computação de alto desempenho, inteligência artificial e sistemas distribuídos precisam considerar as características do hardware sobre o qual seus programas serão executados.
+
+Por isso, a arquitetura de computadores funciona como uma ponte entre conceitos abstratos de software e a realidade física da computação. Ela permite compreender por que determinadas operações são rápidas ou lentas, como os dados circulam pelo sistema, por que a organização da memória influencia o desempenho e de que maneira um programa acaba se transformando em atividade elétrica dentro de um circuito integrado.
+
+Considerações iniciais
+Introduzir-se à Arquitetura de Computadores é, portanto, começar a enxergar o computador para além de sua interface. Em vez de vê-lo apenas como uma máquina que recebe comandos e produz resultados, passamos a analisá-lo como um sistema organizado em diferentes níveis de abstração, no qual cada componente desempenha uma função e depende dos demais.
+
+O estudo pode começar pelos conceitos básicos de representação de dados e organização do computador e, gradualmente, avançar para o conjunto de instruções, funcionamento da CPU, circuitos de controle e datapath, hierarquia de memória, entrada e saída, pipeline, paralelismo, processadores multicore e avaliação de desempenho. Essa sequência está alinhada com a estrutura encontrada em importantes livros-texto e cursos universitários da área. 
+E
+Elsevier Health
++2
+
+Ao final dessa jornada, o computador deixa de ser uma "caixa-preta". O programa passa a ser compreendido como uma sequência de instruções que utiliza representações específicas de dados, é traduzida para uma arquitetura de máquina e executada por uma organização física capaz de buscar, interpretar e processar essas instruções. A memória deixa de ser apenas um espaço para guardar arquivos; passa a ser entendida como uma hierarquia cuidadosamente projetada. O processador deixa de ser simplesmente "a parte que faz os cálculos" e passa a ser visto como uma complexa estrutura de execução, controle e comunicação.
+
+Essa compreensão constitui a base para o estudo de diversas outras áreas da computação. Conhecer arquitetura significa compreender um dos fundamentos sobre os quais todo sistema computacional moderno é construído.
+
+Fontes de referência utilizadas
+Hennessy, Patterson e Kozyrakis — Computer Architecture: A Quantitative Approach. A 7ª edição foi publicada em 2025 e mantém a abordagem quantitativa da arquitetura, tratando de desempenho, energia, custo, paralelismo e outras questões de projeto. 
+E
+Educate Elsevier
++1
+
+Patterson e Hennessy — Computer Organization and Design: The Hardware/Software Interface. A obra é particularmente relevante para a compreensão da relação entre hardware, software, ISA, processador, aritmética, pipeline e hierarquia de memória. 
+E
+Elsevier Health
++1
+
+Bryant e O'Hallaron — Computer Systems: A Programmer's Perspective. A abordagem conecta representação de dados, código de máquina, arquitetura do processador, memória e sistema operacional à perspectiva do programador. 
+C
+CS:APP
++1
+
+William Stallings — Computer Organization and Architecture. A obra aborda os fundamentos da estrutura e do funcionamento dos computadores. 
+P
+Pearson
+
+Universidade de São Paulo — MAC0344, Arquitetura de Computadores. O material da disciplina contempla arquitetura e organização, história, desempenho, pipeline, RISC, instruções superescalares, multicore, cache, DRAM, memória virtual, RISC/CISC e execução fora de ordem. 
+I
+IME USP
++1
+
+Cornell University — Computer System Organization and Programming. A disciplina relaciona conjunto de instruções, aritmética, datapath, hierarquia de memória, E/S, barramentos, multicore e pipeline. 
+C
+Ciências da Computação Cornell
+
+RISC-V International — especificações oficiais. Documentação contemporânea sobre ISA aberta, extensões, arquiteturas de 32/64 bits e arquitetura privilegiada. 
+R
+RISC-V International
++2
+
+RISC-V — especificações oficiais
+Computer Systems: A Programmer's Perspective — Carnegie Mellon University
+Materiais de Arquitetura de Computadores — USP
+Computer Architecture: A Quantitative Approach — Elsevier
+
+                    </div>
+
+
+                    <!-- =================================================
+                         VÍDEO
+                    ================================================== -->
+
+                    <section
+                        id="video"
+                        aria-label="Vídeo da aula">
+
+                        <div class="video-container">
+
+                            <video
+                                controls
+                                preload="metadata">
+
+                                <source
+                                    src="A_Estrutura_da_Verdade.mp4"
+                                    type="video/mp4">
+
+                                Seu navegador não suporta vídeos HTML5.
+
+                            </video>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         CARDS
+                    ================================================== -->
+
+                    <section
+                        id="tecnologias"
+                        aria-label="Conceitos principais">
+
+                        <div class="cards">
+
+
+                            <article
+                                class="card"
+                                tabindex="0">
+
+                                <h3>
+                                    Algoritmos e Estruturas de Dados
+                                </h3>
+
+                                <div class="info-extra">
+
+                                    <p>
+                                        <strong>Algoritmos:</strong>
+                                        sequência lógica de instruções para
+                                        resolver problemas e executar tarefas.
+                                    </p>
+
+                                    <p>
+                                        <strong>Estruturas de dados:</strong>
+                                        formas de organizar, armazenar e
+                                        manipular informações de maneira
+                                        eficiente.
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+
+                            <article
+                                class="card"
+                                tabindex="0">
+
+                                <h3>
+                                    Principais estruturas
+                                </h3>
+
+                                <div class="info-extra">
+
+                                    <p>
+                                        Arrays, listas encadeadas, filas,
+                                        pilhas, árvores, grafos e tabelas hash.
+                                    </p>
+
+                                    <p>
+                                        Cada estrutura possui características
+                                        próprias.
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+
+                            <article
+                                class="card"
+                                tabindex="0">
+
+                                <h3>
+                                    Aplicações
+                                </h3>
+
+                                <div class="info-extra">
+
+                                    <p>
+                                        Bancos de dados, sistemas de arquivos,
+                                        redes sociais, sistemas operacionais,
+                                        mecanismos de busca e inteligência
+                                        artificial.
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         MAPA MENTAL
+                    ================================================== -->
+
+                    <section
+                        class="mapa-mental-section"
+                        aria-labelledby="titulo-mapa-1">
+
+                        <h2
+                            class="titulo-secao"
+                            id="titulo-mapa-1">
+
+                            🧠 Mapa Mental
+
+                        </h2>
+
+
+                        <p class="descricao-mapa">
+
+                            O mapa mental é gerado automaticamente a partir
+                            dos títulos e subtítulos desta aula.
+
+                        </p>
+
+
+                        <div
+                            id="mapa-mental"
+                            data-titulo="Lógica de Programação">
+
+                            <div class="carregando-mapa">
+
+                                <div class="spinner-mapa"></div>
+
+                                <p>
+                                    Gerando mapa mental...
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         ATIVIDADES DA AULA
+                    ================================================== -->
+
+                    <details
+                        class="aula atividades-container">
+
+                        <summary>
+                            📝 Atividades de fixação
+                        </summary>
+
+
+                        <div class="aula-conteudo">
+
+                            <p class="descricao-atividade">
+
+                                Responda às questões sobre
+                                Lógica de Programação.
+
+                            </p>
+
+
+                            <div class="config-atividade">
+
+                                <label for="quantidadeQuestoes">
+
+                                    Quantidade de questões:
+
+                                </label>
+
+
+                                <select id="quantidadeQuestoes">
+
+                                    <option value="5">
+                                        5 questões
+                                    </option>
+
+                                    <option
+                                        value="10"
+                                        selected>
+
+                                        10 questões
+
+                                    </option>
+
+                                    <option value="15">
+                                        15 questões
+                                    </option>
+
+                                </select>
+
+
+                                <button
+                                    type="button"
+                                    class="btn-gerar"
+                                    id="btnGerarAtividades">
+
+                                    🎲 Gerar Atividades
+
+                                </button>
+
+                            </div>
+
+
+                            <div
+                                id="statusAtividade"
+                                class="status-atividade"
+                                aria-live="polite">
+                            </div>
+
+
+                            <div id="listaQuestoes"></div>
+
+
+                            <div
+                                id="resultadoAtividade"
+                                class="resultado-atividade">
+                            </div>
+
+                        </div>
+
+                    </details>
+
+                </details>
+
+
+
+        
     </main>
 
 
