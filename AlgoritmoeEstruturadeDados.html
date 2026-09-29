@@ -791,7 +791,50 @@ console.log("Olá, " + nome);</code></pre>
 
 <p><strong>Entrada de dados é o processo de fornecer informações a um sistema para que elas possam ser recebidas, verificadas, processadas, armazenadas e utilizadas.</strong></p>
 </article>
-<article class="card"><h3>Exemplo prático</h3><p>Relacione o conteúdo a uma situação cotidiana ou a um problema que possa ser resolvido por computador.</p></article>
+<article class="card"><h3>Exemplo prático</h3><h2>Formulário de Entrada de Dados</h2>
+
+<p>Preencha os campos abaixo. Ao clicar em "Enviar dados", as informações digitadas serão mostradas na tela.</p>
+
+<form id="formulario">
+
+```
+<label for="nome">Nome:</label><br>
+<input type="text" id="nome" placeholder="Digite seu nome" required><br><br>
+
+<label for="email">E-mail:</label><br>
+<input type="email" id="email" placeholder="Digite seu e-mail" required><br><br>
+
+<label for="idade">Idade:</label><br>
+<input type="number" id="idade" placeholder="Digite sua idade" required><br><br>
+
+<button type="submit">Enviar dados</button>
+```
+
+</form>
+
+<div id="resultado"></div>
+
+<script>
+    const formulario = document.querySelector("#formulario");
+    const resultado = document.querySelector("#resultado");
+
+    formulario.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const nome = document.querySelector("#nome").value;
+        const email = document.querySelector("#email").value;
+        const idade = document.querySelector("#idade").value;
+
+        resultado.innerHTML = `
+            <h3>Dados recebidos:</h3>
+            <p>Nome: ${nome}</p>
+            <p>E-mail: ${email}</p>
+            <p>Idade: ${idade} anos</p>
+        `;
+    });
+</script>
+/article>
 <article class="card"><h3>Prática</h3><p>Construa, teste ou analise uma solução utilizando o conhecimento estudado.</p></article>
 </div>
 <section class="mapa-mental-section">
