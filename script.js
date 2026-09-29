@@ -18,6 +18,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/*=====================================================
+campo de busca 
+=======================================================*/
+const formularioBusca = document.querySelector(".barra-busca");
+const campoBusca = document.querySelector("#campoBusca");
+
+formularioBusca.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const pesquisa = campoBusca.value.trim();
+
+    if (pesquisa === "") {
+        alert("Digite algo para pesquisar.");
+        return;
+    }
+
+    window.location.href =
+        "busca.html?q=" + encodeURIComponent(pesquisa);
+});
+
+
 /* =========================================================
    UTILITÁRIOS
 ========================================================= */
