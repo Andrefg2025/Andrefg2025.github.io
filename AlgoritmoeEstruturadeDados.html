@@ -1098,8 +1098,81 @@ console.log("Olá, " + nome);</code></pre>
 <summary>Aula 20 — SE...SENÃO - MATHEUS BATISTA DA CUNHA ALEXANDRE</summary>
 <div class="aula-conteudo">
 <h3>SE...SENÃO</h3>
-<p>Esta aula integra a <strong>Unidade 4 — Estruturas Condicionais</strong> e desenvolve os conhecimentos necessários para avançar na sequência de Algoritmos e Estruturas de Dados.</p>
-<p>Estudo orientado sobre <strong>SE...SENÃO</strong>, com conceitos, exemplos, exercícios e aplicação prática.</p>
+<section class="aula-algoritmos-condicionais" style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;">
+    
+    <!-- Introdução Solicitada -->
+    <div class="introducao-aula" style="background-color: #e9ecef; padding: 15px; border-left: 5px solid #0056b3; border-radius: 4px; margin-bottom: 30px;">
+        <p>Esta aula integra a <strong>Unidade 4 — Estruturas Condicionais</strong> e desenvolve os conhecimentos necessários para avançar na sequência de Algoritmos e Estruturas de Dados.</p>
+        <p>Estudo orientado sobre <strong>SE...SENÃO</strong>, com conceitos, exemplos, exercícios e aplicação prática.</p>
+    </div>
+
+    <!-- Seção de Conceitos -->
+    <h2>1. O Papel da Lógica e da Tomada de Decisão</h2>
+    <p>Em <strong>Algoritmos e Estruturas de Dados</strong>, um algoritmo é essencialmente uma sequência finita de passos para resolver um problema. No entanto, o mundo real não é linear. Para que um programa seja verdadeiramente útil, ele precisa ser inteligente o suficiente para tomar decisões com base nos dados que recebe.</p>
+    <p>É aqui que entram as <strong>Estruturas Condicionais</strong> (ou estruturas de controle de fluxo). Elas são o "cérebro" das operações lógicas, permitindo que o algoritmo avalie uma situação e escolha qual caminho seguir.</p>
+
+    <!-- Seção do SE...SENÃO -->
+    <h2>2. A Estrutura Composta: SE...SENÃO (IF...ELSE)</h2>
+    <p>A estrutura condicional <strong>SE...SENÃO</strong> é a ferramenta fundamental para bifurcar a execução de um programa de computador. Ela funciona através da avaliação de uma expressão lógica (uma pergunta matemática ou de comparação) que obrigatoriamente resultará em <em>Verdadeiro</em> ou <em>Falso</em>.</p>
+    
+    <ul style="margin-bottom: 25px;">
+        <li><strong>SE (IF):</strong> Testa uma condição. Se o resultado for <strong>Verdadeiro</strong>, o bloco de código atrelado a ele é executado e o "SENÃO" é ignorado.</li>
+        <li><strong>SENÃO (ELSE):</strong> É o caminho alternativo (o plano B). Se a condição do "SE" for <strong>Falsa</strong>, o programa pula o primeiro bloco e executa obrigatoriamente o código que está dentro do SENÃO.</li>
+    </ul>
+
+    <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border-left: 5px solid #ffc107; margin-bottom: 25px;">
+        <strong>Analogia do cotidiano:</strong><br>
+        <strong>SE</strong> (estiver chovendo) {<br>
+        &nbsp;&nbsp;Levo um guarda-chuva para a escola;<br>
+        } <strong>SENÃO</strong> {<br>
+        &nbsp;&nbsp;Vou de bicicleta;<br>
+        }
+    </div>
+
+    <!-- Exemplo Prático de Código -->
+    <h2>3. Exemplo na Prática (Pseudocódigo)</h2>
+    <p>Abaixo, veja como essa lógica é escrita em algoritmos clássicos, como um sistema de aprovação de notas de alunos:</p>
+    
+    <pre style="background-color: #282c34; color: #abb2bf; padding: 15px; border-radius: 8px; overflow-x: auto; font-family: 'Courier New', Courier, monospace;">
+<code>Algoritmo "VerificaAprovacao"
+Var
+   nota: real
+Inicio
+   Escreval("Digite a nota do aluno:")
+   Leia(nota)
+
+   // Início da Estrutura Condicional
+   SE (nota >= 6.0) ENTAO
+      Escreval("Aluno APROVADO!")
+   SENAO
+      Escreval("Aluno REPROVADO!")
+   FIMSE
+Fimalgoritmo</code>
+    </pre>
+
+    <!-- Exercícios de Fixação -->
+    <h2>4. Exercícios de Fixação</h2>
+    <p>Para consolidar o aprendizado, tente desenvolver o raciocínio lógico (em pseudocódigo ou na sua linguagem de programação favorita) para os seguintes problemas:</p>
+    <ol>
+        <li style="margin-bottom: 10px;"><strong>Controle de Maioridade:</strong> Crie um algoritmo que leia a idade de um usuário. Use a estrutura SE...SENÃO para imprimir "Acesso Liberado" caso a idade seja maior ou igual a 18 anos, ou "Acesso Negado" caso seja menor.</li>
+        <li style="margin-bottom: 10px;"><strong>Ímpar ou Par:</strong> Desenvolva um programa que receba um número inteiro. Se o resto da divisão desse número por 2 for zero (<code>numero % 2 == 0</code>), exiba "O número é Par", senão, exiba "O número é Ímpar".</li>
+    </ol>
+
+    <!-- Aplicação Prática -->
+    <h2>5. Aplicação Prática no Mercado de Trabalho</h2>
+    <p>Na vida real, você interage com a estrutura <strong>SE...SENÃO</strong> o tempo todo. Quando você tenta fazer login no seu e-mail ou rede social, o algoritmo no servidor do site executa algo muito parecido com isso:</p>
+    
+    <pre style="background-color: #f4f4f4; color: #333; border: 1px solid #ccc; padding: 15px; border-radius: 8px; overflow-x: auto; font-family: 'Courier New', Courier, monospace;">
+<code>SE (senha_digitada for IGUAL a senha_banco_de_dados) ENTAO
+    Iniciar sessão do usuário e carregar página inicial
+SENAO
+    Exibir mensagem de erro: "Usuário ou senha incorretos"
+FIMSE</code>
+    </pre>
+
+    <p style="margin-top: 20px;">Dominar o uso do <strong>SE...SENÃO</strong> é o primeiro grande passo para criar sistemas interativos, seguros e capazes de tomar decisões dinâmicas com base no comportamento do usuário.</p>
+    
+</section>
 <div class="cards">
 <article class="card"><h3>Conceitos-chave</h3><p>Identifique os conceitos centrais da aula e registre definições com suas próprias palavras.</p></article>
 <article class="card"><h3>Exemplo prático</h3><p>Relacione o conteúdo a uma situação cotidiana ou a um problema que possa ser resolvido por computador.</p></article>
