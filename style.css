@@ -864,10 +864,10 @@ code {
 ========================================================= */
 
 .mapa-mental-section {
-    width: 50%;
+    width: 100%;
 
     margin:
-        30px auto;
+        50px auto;
 
     padding:
         25px 15px;
