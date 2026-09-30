@@ -2540,17 +2540,181 @@ for numero in numeros:
 <summary>Aula 29 — Acumuladores - VITOR EMANUEL LOPES DA SILVA</summary>
 <div class="aula-conteudo">
 <h3>Acumuladores</h3>
-<p>Esta aula integra a <strong>Unidade 5 — Estruturas de Repetição</strong> e desenvolve os conhecimentos necessários para avançar na sequência de Algoritmos e Estruturas de Dados.</p>
-<p>Estudo orientado sobre <strong>Acumuladores</strong>, com conceitos, exemplos, exercícios e aplicação prática.</p>
+  <h2>Variáveis Acumuladoras</h2>
+
+  <p>
+    As <strong>variáveis acumuladoras</strong> são elementos fundamentais na
+    lógica de programação. Elas são usadas dentro de laços de repetição para
+    somar valores que mudam a cada repetição.
+  </p>
+
+  <p>
+    Diferente de um <strong>contador</strong>, que apenas registra quantas
+    vezes o código foi executado somando sempre um valor fixo, o
+    <strong>acumulador</strong> recebe o seu valor anterior somado a um novo
+    valor, que pode ser diferente a cada vez.
+  </p>
+
+  <p>
+    Para funcionar corretamente e não ser afetado por valores antigos que
+    ficam na memória, o acumulador deve começar sempre em zero, antes do início
+    do laço. A instrução usada é:
+  </p>
+
+  <pre><code>acumulador = acumulador + novo_valor</code></pre>
+
+  <p>
+    Na prática, esse recurso é muito usado para calcular médias, somar
+    faturamentos, montar folhas de pagamento e gerar relatórios estatísticos.
+  </p>
+
+  <h3>Fontes de Pesquisa</h3>
+  <ul class="referencias">
+    <li>
+      AGUILAR, Luis Joyanes. <em>Fundamentos de Programação: Algoritmos,
+      Estruturas de Dados e Objetos</em>. 3. ed. São Paulo: McGraw-Hill/Editora
+      AMGH, 2011.
+    </li>
+    <li>
+      UNIVERSIDADE FEDERAL DE MINAS GERAIS (UFMG).
+      <em>Estruturas de Repetição e Variáveis de Controle</em>, Departamento de
+      Ciência da Computação (DCC).
+    </li>
+  </ul>
+</section>>
 <div class="cards">
-<article class="card"><h3>Conceitos-chave</h3><p>Identifique os conceitos centrais da aula e registre definições com suas próprias palavras.</p></article>
-<article class="card"><h3>Exemplo prático</h3><p>Relacione o conteúdo a uma situação cotidiana ou a um problema que possa ser resolvido por computador.</p></article>
-<article class="card"><h3>Prática</h3><p>Construa, teste ou analise uma solução utilizando o conhecimento estudado.</p></article>
+
+    <article class="card"><h3>Conceitos-chave</h3><p>
+  <strong>Variável acumuladora:</strong> guarda um total que vai crescendo a
+  cada repetição do laço. Ela recebe o valor que já tinha somado a um novo
+  valor.
+</p>
+<p>
+  <strong>Contador:</strong> apenas conta quantas vezes algo aconteceu,
+  somando sempre o mesmo valor (normalmente 1).
+</p>
+<p>
+  <strong>Inicialização:</strong> o acumulador deve começar em zero, antes do
+  laço, para não ser afetado por valores antigos na memória.
+</p></article>
+<article class="card"><h3>Exemplo prático</h3><p>
+  Pense em um cofrinho: ele começa vazio e, a cada dia, você coloca algumas
+  moedas. O que está dentro é a soma de tudo o que foi guardado. Um mercado
+  faz o mesmo ao somar os preços dos produtos no caixa: o total começa em
+  zero e aumenta a cada item passado.
+</p></article>
+
+<article class="card"><h3>Prática</h3><p>
+  Some cinco números digitados pelo usuário e mostre o total no final:
+</p>
+<pre><code>soma = 0
+
+para i de 1 até 5:
+    ler numero
+    soma = soma + numero
+
+mostrar soma</code></pre>
+<p>
+  Depois, teste alterando o programa para calcular também a média (dica: use
+  um contador para saber quantos números foram somados).
+</p></article>
 </div>
 <section class="mapa-mental-section">
-<h2 class="titulo-secao">🧠 Mapa Mental</h2>
-<p>Use os conceitos desta aula para construir um mapa mental com o tema <strong>Acumuladores</strong>.</p>
-<div class="mapa-mental">Tema central → conceitos principais → exemplos → aplicações → conclusão.</div>
+  <h2 class="titulo-secao">🧠 Mapa Mental</h2>
+
+  <img
+    src="Vitor-mapa-mental.svg"
+    alt="Mapa mental sobre acumuladores: conceitos principais, exemplos, aplicações e conclusão"
+    style="display:block; width:100%; height:auto; margin-top:20px; border-radius:12px;"
+  >
+</section><h3>Acumuladores</h3>
+  <h2>Variáveis Acumuladoras</h2>
+
+  <p>
+    As <strong>variáveis acumuladoras</strong> são elementos fundamentais na
+    lógica de programação. Elas são usadas dentro de laços de repetição para
+    somar valores que mudam a cada repetição.
+  </p>
+
+  <p>
+    Diferente de um <strong>contador</strong>, que apenas registra quantas
+    vezes o código foi executado somando sempre um valor fixo, o
+    <strong>acumulador</strong> recebe o seu valor anterior somado a um novo
+    valor, que pode ser diferente a cada vez.
+  </p>
+
+  <p>
+    Para funcionar corretamente e não ser afetado por valores antigos que
+    ficam na memória, o acumulador deve começar sempre em zero, antes do início
+    do laço. A instrução usada é:
+  </p>
+
+  <pre><code>acumulador = acumulador + novo_valor</code></pre>
+
+  <p>
+    Na prática, esse recurso é muito usado para calcular médias, somar
+    faturamentos, montar folhas de pagamento e gerar relatórios estatísticos.
+  </p>
+
+  <h3>Fontes de Pesquisa</h3>
+  <ul class="referencias">
+    <li>
+      AGUILAR, Luis Joyanes. <em>Fundamentos de Programação: Algoritmos,
+      Estruturas de Dados e Objetos</em>. 3. ed. São Paulo: McGraw-Hill/Editora
+      AMGH, 2011.
+    </li>
+    <li>
+      UNIVERSIDADE FEDERAL DE MINAS GERAIS (UFMG).
+      <em>Estruturas de Repetição e Variáveis de Controle</em>, Departamento de
+      Ciência da Computação (DCC).
+    </li>
+  </ul>
+</section>>
+<div class="cards">
+
+    <article class="card"><h3>Conceitos-chave</h3><p>
+  <strong>Variável acumuladora:</strong> guarda um total que vai crescendo a
+  cada repetição do laço. Ela recebe o valor que já tinha somado a um novo
+  valor.
+</p>
+<p>
+  <strong>Contador:</strong> apenas conta quantas vezes algo aconteceu,
+  somando sempre o mesmo valor (normalmente 1).
+</p>
+<p>
+  <strong>Inicialização:</strong> o acumulador deve começar em zero, antes do
+  laço, para não ser afetado por valores antigos na memória.
+</p></article>
+<article class="card"><h3>Exemplo prático</h3><p>
+  Pense em um cofrinho: ele começa vazio e, a cada dia, você coloca algumas
+  moedas. O que está dentro é a soma de tudo o que foi guardado. Um mercado
+  faz o mesmo ao somar os preços dos produtos no caixa: o total começa em
+  zero e aumenta a cada item passado.
+</p></article>
+
+<article class="card"><h3>Prática</h3><p>
+  Some cinco números digitados pelo usuário e mostre o total no final:
+</p>
+<pre><code>soma = 0
+
+para i de 1 até 5:
+    ler numero
+    soma = soma + numero
+
+mostrar soma</code></pre>
+<p>
+  Depois, teste alterando o programa para calcular também a média (dica: use
+  um contador para saber quantos números foram somados).
+</p></article>
+</div>
+<section class="mapa-mental-section">
+  <h2 class="titulo-secao">🧠 Mapa Mental</h2>
+
+  <img
+    src="Vitor-mapa-mental.svg"
+    alt="Mapa mental sobre acumuladores: conceitos principais, exemplos, aplicações e conclusão"
+    style="display:block; width:100%; height:auto; margin-top:20px; border-radius:12px;"
+  >
 </section>
 <details class="aula atividades-container">
 <summary>📝 Atividades de fixação</summary>
