@@ -19,24 +19,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /*=====================================================
-campo de busca 
-=======================================================*/
+   CAMPO DE BUSCA
+=====================================================*/
+
 const formularioBusca = document.querySelector(".barra-busca");
 const campoBusca = document.querySelector("#campoBusca");
 
-formularioBusca.addEventListener("submit", function(event) {
-    event.preventDefault();
+if (formularioBusca && campoBusca) {
 
-    const pesquisa = campoBusca.value.trim();
+    formularioBusca.addEventListener("submit", function(event) {
 
-    if (pesquisa === "") {
-        alert("Digite algo para pesquisar.");
-        return;
-    }
+        event.preventDefault();
 
-    window.location.href =
-        "busca.html?q=" + encodeURIComponent(pesquisa);
-});
+        const pesquisa = campoBusca.value.trim();
+
+        if (pesquisa === "") {
+            alert("Digite algo para pesquisar.");
+            campoBusca.focus();
+            return;
+        }
+
+        window.location.href =
+            "busca.html?q=" + encodeURIComponent(pesquisa);
+
+    });
+
+}
 
 
 /* =========================================================
