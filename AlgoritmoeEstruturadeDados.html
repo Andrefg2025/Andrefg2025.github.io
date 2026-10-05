@@ -1017,6 +1017,34 @@ console.log("Olá, " + nome);</code></pre>
 </div>
 <div id="atividade-13" style="margin-top:15px">   defina oque e entrada de dados </div>
 </div>
+
+        <script>
+function gerarAtividade(numero){
+    const qtd = Number(document.getElementById('q-'+numero).value);
+    const area = document.getElementById('atividade-'+numero);
+    const modelos = [
+        'Explique, com suas palavras, o conceito central da aula.',
+        'Dê um exemplo prático relacionado ao conteúdo estudado.',
+        'Qual é a finalidade do conceito apresentado nesta aula?',
+        'Descreva as etapas necessárias para aplicar o conhecimento estudado.',
+        'Compare dois conceitos apresentados e indique uma diferença entre eles.',
+        'Como esse conteúdo pode ser utilizado em um programa de computador?',
+        'Identifique uma situação cotidiana que possa ser representada por esse conceito.',
+        'Proponha um pequeno problema e descreva uma possível solução.',
+        'O que poderia acontecer se esse conceito fosse aplicado de forma incorreta?',
+        'Faça um resumo dos principais pontos da aula.'
+    ];
+    let html = '<ol>';
+    for(let i=0;i<qtd;i++){
+        html += '<li style="margin:12px 0">'+modelos[i % modelos.length]+'</li>';
+    }
+    html += '</ol>';
+    area.innerHTML = html;
+}
+</script>
+
+
+        
 </details>
 </div>
 </details>
@@ -1049,31 +1077,6 @@ console.log("Olá, " + nome);</code></pre>
 </div>
 <div id="atividade-14" style="margin-top:15px"></div>
 </div>
-
-        <script>
-function gerarAtividade(numero){
-    const qtd = Number(document.getElementById('q-'+numero).value);
-    const area = document.getElementById('atividade-'+numero);
-    const modelos = [
-        'Explique, com suas palavras, o conceito central da aula.',
-        'Dê um exemplo prático relacionado ao conteúdo estudado.',
-        'Qual é a finalidade do conceito apresentado nesta aula?',
-        'Descreva as etapas necessárias para aplicar o conhecimento estudado.',
-        'Compare dois conceitos apresentados e indique uma diferença entre eles.',
-        'Como esse conteúdo pode ser utilizado em um programa de computador?',
-        'Identifique uma situação cotidiana que possa ser representada por esse conceito.',
-        'Proponha um pequeno problema e descreva uma possível solução.',
-        'O que poderia acontecer se esse conceito fosse aplicado de forma incorreta?',
-        'Faça um resumo dos principais pontos da aula.'
-    ];
-    let html = '<ol>';
-    for(let i=0;i<qtd;i++){
-        html += '<li style="margin:12px 0">'+modelos[i % modelos.length]+'</li>';
-    }
-    html += '</ol>';
-    area.innerHTML = html;
-}
-</script>
         
 </details>
 </div>
