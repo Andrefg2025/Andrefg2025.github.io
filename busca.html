@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Resultados de busca da Plataforma de Estudo"
+    >
+
+    <title>Busca - Plataforma de Estudo</title>
+
+    <link rel="stylesheet" href="estilo.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a href="index.html" class="logo-link" aria-label="Página inicial">
+            <img
+                src="DS.png"
+                alt="Logo principal"
+                class="logo-img"
+            >
+        </a>
+
+        <a href="index.html" class="titulo-link">
+            <h1>PLATAFORMA DE ESTUDO</h1>
+        </a>
+
+        <a href="index.html" class="logo-link" aria-label="Página inicial">
+            <img
+                src="l.png"
+                alt="Logo Desenvolvimento de Sistemas"
+                class="logo-img"
+            >
+        </a>
+
+    </header>
+
+
+    <nav class="menu-principal" aria-label="Menu principal">
+
+        <!-- BUSCA -->
+        <div class="busca-wrapper">
+
+            <form class="barra-busca" id="formBusca" role="search">
+
+                <input
+                    type="search"
+                    id="campoBusca"
+                    placeholder="Buscar conteúdo..."
+                    aria-label="Buscar conteúdo"
+                    autocomplete="off"
+                >
+
+                <button
+                    type="submit"
+                    class="btn-busca"
+                >
+                    🔍 Buscar
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- MENU -->
+        <div class="menu-wrapper">
+
+            <a
+                href="index.html"
+                class="btn-menu"
+            >
+                Início
+            </a>
+
+            <a
+                href="AlgoritmoeEstruturadeDados.html"
+                class="btn-menu"
+            >
+                Algoritmo e Estrutura de Dados
+            </a>
+
+            <a
+                href="ArquiteturadeSistemas.html"
+                class="btn-menu"
+            >
+                Arquitetura de Sistemas
+            </a>
+
+            <a
+                href="DesenvolvimentoFrontEndI.html"
+                class="btn-menu"
+            >
+                Desenvolvimento Front End I
+            </a>
+
+            <a
+                href="DesenvolvimentodeAplicativos.html"
+                class="btn-menu"
+            >
+                Desenvolvimento de Aplicativos
+            </a>
+
+            <a
+                href="DesenvolvimentodeSoftwares.html"
+                class="btn-menu"
+            >
+                Desenvolvimento de Softwares
+            </a>
+
+            <a
+                href="DesenvolvimentoBackEnd.html"
+                class="btn-menu"
+            >
+                Desenvolvimento Back-End
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="pagina-busca">
+
+        <h2>🔎 Resultados da busca</h2>
+
+        <p id="mensagemBusca">
+            Digite algo para pesquisar nas matérias.
+        </p>
+
+        <div id="resultadosBusca"></div>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            &copy; 2026 Plataforma de Estudo -
+            Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
