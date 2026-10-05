@@ -1944,46 +1944,45 @@ A pesquisa foi realizada com base em fontes institucionais brasileiras, especial
 <div class="aula-conteudo">
 <h1> O conceito de repetição aplicado à informática</h1>
 
-## Introdução
+<h2 style="color: orange;">Introdução</h2>
 
 <p>A repetição é uma ideia presente em diversas atividades humanas: contar objetos, executar uma tarefa várias vezes, verificar continuamente uma condição ou realizar uma mesma operação até alcançar determinado resultado. Na informática, entretanto, a repetição deixa de ser apenas uma ação realizada manualmente e passa a constituir um mecanismo fundamental para a construção de algoritmos e programas.</p>
 
-<p>Um computador é particularmente adequado para executar tarefas repetitivas porque consegue realizar uma sequência de instruções inúmeras vezes de maneira sistemática. Dessa característica surgiu um dos conceitos fundamentais da programação: a <strong>iteração</strong>, também conhecida como repetição ou <em>loop</em>. Por meio dela, o programador pode determinar que determinado conjunto de instruções seja executado novamente enquanto uma condição for satisfeita ou durante uma quantidade previamente estabelecida de vezes.</p>
+<p>Um computador é particularmente adequado para executar tarefas repetitivas, pois consegue realizar uma sequência de instruções inúmeras vezes de maneira sistemática. Dessa característica surgiu um dos conceitos fundamentais da programação: a <strong>iteração</strong>, também conhecida como repetição ou <em>loop</em>. Por meio dela, o programador pode determinar que determinado conjunto de instruções seja executado novamente enquanto uma condição for satisfeita ou durante uma quantidade previamente estabelecida de vezes.</p>
 
 <p>Assim, o conceito de repetição aplicado à informática não deve ser entendido simplesmente como "fazer a mesma coisa várias vezes". Ele envolve uma estrutura lógica composta por ações, condições, alterações de estado e critérios que determinam quando o processo deve continuar ou terminar.</p>
 
-## A repetição como parte da construção de algoritmos
+<h2 style="color: orange;">A repetição como parte da construção de algoritmos</h2>
 
-<p>Um algoritmo pode ser entendido como uma sequência organizada de procedimentos utilizada para solucionar um problema. Em muitos problemas computacionais, executar uma determinada operação apenas uma vez não é suficiente. É necessário aplicá-la sucessivamente sobre diferentes dados ou repetir o procedimento até que alguma situação específica seja alcançada.</p>
+<p>Um algoritmo pode ser entendido como uma sequência organizada de procedimentos utilizada para solucionar um problema. Em muitos problemas computacionais, executar determinada operação apenas uma vez não é suficiente. É necessário aplicá-la sucessivamente sobre diferentes dados ou repetir um procedimento até que uma situação específica seja alcançada.</p>
 
 <p>Imagine, por exemplo, um programa responsável por analisar as notas de uma turma. Em vez de criar uma instrução individual para cada aluno, pode-se estabelecer uma estrutura que percorra os dados dos estudantes e execute a mesma operação para cada registro. Dessa maneira, a repetição permite representar uma grande quantidade de operações utilizando uma estrutura relativamente compacta.</p>
 
-<p>Essa característica é importante porque evita a necessidade de escrever manualmente instruções semelhantes. Em vez de produzir cem comandos para executar cem operações, o programador pode criar uma única estrutura capaz de realizar a operação cem vezes. A repetição, portanto, contribui tanto para a redução do código quanto para a organização lógica dos programas.</p>
+<p>Essa característica evita a necessidade de escrever manualmente instruções semelhantes. Em vez de produzir cem comandos para executar cem operações, o programador pode criar uma única estrutura capaz de realizar a operação cem vezes. A repetição, portanto, contribui para a redução do código, a organização lógica dos programas e a possibilidade de trabalhar com quantidades variáveis de dados.</p>
 
-## Estruturas de repetição
+<h2 style="color: orange;">Estruturas de repetição</h2>
 
-<p>Na programação, a repetição normalmente aparece por meio de estruturas chamadas <strong>laços</strong>, <strong>loops</strong> ou <strong>estruturas de iteração</strong>. Apesar de existirem diferenças entre linguagens, a ideia central permanece semelhante: executar determinado bloco de instruções novamente de acordo com uma regra.</p>
+<p>Na programação, a repetição normalmente aparece por meio de estruturas chamadas <strong>laços</strong>, <strong>loops</strong> ou <strong>estruturas de iteração</strong>. Apesar de existirem diferenças de sintaxe entre as linguagens de programação, a ideia central permanece semelhante: executar determinado bloco de instruções novamente de acordo com uma regra.</p>
 
-<p>Uma forma de classificação consiste em separar os laços em dois grupos principais: aqueles controlados por uma quantidade de repetições e aqueles controlados por uma condição.</p>
+<p>De maneira geral, as estruturas de repetição podem ser classificadas de acordo com a forma como controlam sua execução. Em alguns casos, o programa conhece previamente a quantidade de repetições. Em outros, a execução continua enquanto determinada condição permanecer verdadeira.</p>
 
-<p>No primeiro caso, o programa sabe ou consegue determinar previamente quantas vezes deverá executar determinado bloco. Um exemplo seria imprimir os números de 1 a 100. Nesse cenário, um contador pode controlar o número de repetições.</p>
+<p>No primeiro caso, o programa consegue determinar previamente quantas vezes deverá executar determinado bloco. Um exemplo seria imprimir os números de 1 a 100. Nesse cenário, um contador pode controlar o número de repetições.</p>
 
 <p>No segundo caso, a quantidade exata de repetições pode não ser conhecida antes da execução. O programa continua funcionando enquanto determinada condição permanecer verdadeira. Esse modelo é particularmente útil quando o término depende dos dados encontrados durante a execução.</p>
 
-## O funcionamento de um loop
+<h2 style="color: orange;">O funcionamento de um loop</h2>
 
-<p>Embora diferentes linguagens possuam sintaxes próprias, um processo repetitivo normalmente apresenta alguns elementos básicos.</p>
+<p>Embora diferentes linguagens possuam sintaxes próprias, um processo repetitivo normalmente apresenta alguns elementos básicos. Primeiro, existe uma <strong>condição ou mecanismo de controle</strong>. Em seguida, existe o <strong>corpo do loop</strong>, que corresponde às instruções executadas durante cada repetição. Finalmente, deve existir alguma forma de determinar quando a execução deve terminar.</p>
 
-<p>Primeiro existe uma <strong>condição ou mecanismo de controle</strong>. Em seguida, existe o <strong>corpo do loop</strong>, que corresponde às instruções executadas durante cada repetição. Finalmente, deve existir alguma forma de determinar quando a execução deve terminar.</p>
+<p>Considere o seguinte exemplo de um contador que começa em zero:</p>
 
-<p>Considere um contador que começa em zero:</p>
-
-text
+```text
 contador = 0
 
 enquanto contador < 5:
     exibir contador
     contador = contador + 1
+```
 
 <p>Nesse caso, o programa verifica a condição <code>contador &lt; 5</code>. Se ela for verdadeira, executa o corpo do loop e modifica o contador. O processo continua até que o contador alcance 5. O resultado será a exibição dos valores de 0 a 4.</p>
 
@@ -1991,11 +1990,11 @@ enquanto contador < 5:
 
 <p>Esse fenômeno é conhecido como <strong>loop infinito</strong>. Ele pode ser intencional em determinados sistemas, como programas que precisam permanecer ativos continuamente, mas normalmente representa um erro quando ocorre em um algoritmo que deveria terminar.</p>
 
-## <code>for</code>, <code>while</code> e diferentes formas de repetição
+<h2 style="color: orange;">For, while e diferentes formas de repetição</h2>
 
-<p>Uma das formas mais conhecidas de repetição é o <code>for</code>. Ele costuma ser utilizado quando existe uma coleção de elementos a percorrer ou quando o número de repetições pode ser determinado por uma sequência.</p>
+<p>Entre as estruturas de repetição mais conhecidas estão <code>for</code> e <code>while</code>. Embora ambas permitam executar um conjunto de instruções várias vezes, cada uma apresenta características que podem torná-la mais adequada para determinadas situações.</p>
 
-<p>Por exemplo:</p>
+<p>O <code>for</code> costuma ser utilizado quando existe uma coleção de elementos a percorrer ou quando o número de repetições pode ser determinado por uma sequência.</p>
 
 ```python
 for numero in range(1, 6):
@@ -2014,9 +2013,11 @@ while numero <= 5:
     numero += 1
 ```
 
-<p>Embora os dois exemplos possam produzir resultados semelhantes, a forma de pensar o problema é diferente. No primeiro, a sequência de elementos determina o percurso. No segundo, a condição determina se uma nova execução deverá ocorrer.</p>
+<p>Embora os dois exemplos possam produzir resultados semelhantes, a forma de pensar o problema é diferente. No primeiro, uma sequência determina os elementos que serão percorridos. No segundo, uma condição determina se uma nova execução deverá ocorrer.</p>
 
-## Repetição e recursão
+<p>Essa diferença é importante porque a escolha da estrutura adequada pode tornar o algoritmo mais claro, organizado e fácil de compreender.</p>
+
+<h2 style="color: orange;">Repetição e recursão</h2>
 
 <p>A repetição na informática não está limitada aos loops tradicionais. Outra maneira de representar processos repetitivos é a <strong>recursão</strong>.</p>
 
@@ -2034,35 +2035,35 @@ fatorial(n):
 
 <p>Ao calcular <code>fatorial(4)</code>, a função cria sucessivamente problemas menores até alcançar o caso-base. A partir desse ponto, os resultados começam a retornar para as chamadas anteriores.</p>
 
-<p>A recursão e a iteração possuem objetivos semelhantes em muitos problemas, mas representam a repetição de maneiras diferentes. A maneira como o computador organiza as chamadas de função e os dados durante a execução também pode ser diferente.</p>
+<p>A recursão e a iteração possuem objetivos semelhantes em muitos problemas, mas representam a repetição de maneiras diferentes. A forma como o computador organiza as chamadas de função e os dados durante a execução também pode ser diferente.</p>
 
-## Repetição e eficiência computacional
+<h2 style="color: orange;">Repetição e eficiência computacional</h2>
 
-<p>A existência de uma repetição em um programa também possui consequências sobre seu desempenho.</p>
+<p>A existência de uma repetição em um programa também possui consequências sobre seu desempenho. A quantidade de vezes que determinada operação é executada pode influenciar diretamente o tempo necessário para que o algoritmo produza seu resultado.</p>
 
-<p>Considere um algoritmo que precisa analisar todos os elementos de uma lista. Se a lista possuir dez elementos, serão necessárias aproximadamente dez operações desse tipo. Se possuir mil elementos, serão necessárias aproximadamente mil. A quantidade de trabalho realizado pelo computador cresce conforme cresce a quantidade de dados.</p>
+<p>Considere um algoritmo que precisa analisar todos os elementos de uma lista. Se a lista possuir dez elementos, serão necessárias aproximadamente dez operações desse tipo. Se possuir mil elementos, serão necessárias aproximadamente mil. Dessa forma, a quantidade de trabalho realizado pelo computador cresce conforme aumenta a quantidade de dados.</p>
 
 <p>Esse tipo de análise é importante na Ciência da Computação porque dois programas podem produzir o mesmo resultado e, ainda assim, realizar quantidades muito diferentes de trabalho.</p>
 
 <p>Dessa forma, compreender a repetição não significa apenas saber escrever <code>for</code> ou <code>while</code>. É necessário compreender quantas vezes determinado procedimento será executado, quais dados serão modificados e como o custo da operação aumenta quando o volume de informações cresce.</p>
 
-## Repetição aplicada ao processamento de dados
+<h2 style="color: orange;">Repetição aplicada ao processamento de dados</h2>
 
-<p>Uma das aplicações mais importantes da repetição está no processamento de grandes quantidades de dados.</p>
+<p>Uma das aplicações mais importantes da repetição está no processamento de grandes quantidades de dados. Bancos de dados, planilhas, sistemas empresariais, mecanismos de busca e programas científicos frequentemente precisam executar operações semelhantes sobre grandes conjuntos de informações.</p>
 
-<p>Bancos de dados, planilhas, sistemas empresariais, mecanismos de busca e programas científicos frequentemente precisam executar operações semelhantes sobre grandes conjuntos de informações. Em vez de tratar cada elemento individualmente por meio de comandos independentes, algoritmos podem percorrer os dados e aplicar uma determinada operação de forma sistemática.</p>
+<p>Em vez de tratar cada elemento individualmente por meio de comandos independentes, os algoritmos podem percorrer os dados e aplicar determinada operação de forma sistemática.</p>
 
 <p>Um programa que procura determinado nome em uma lista, por exemplo, pode verificar cada elemento sucessivamente até encontrar o resultado desejado. Outro programa pode calcular a média de centenas de valores utilizando uma variável acumuladora atualizada a cada iteração.</p>
 
-<p>Nesse sentido, a repetição funciona como uma ponte entre uma instrução simples e uma tarefa de grande escala. Uma operação individual pode parecer pequena, mas sua execução sistemática sobre milhares ou milhões de elementos pode produzir uma operação computacional complexa.</p>
+<p>Nesse sentido, a repetição funciona como uma ponte entre uma instrução simples e uma tarefa de grande escala. Uma operação individual pode parecer pequena, mas sua execução sistemática sobre milhares ou milhões de elementos pode produzir uma operação computacional de grande importância.</p>
 
-## Repetição em sistemas que precisam permanecer ativos
+<h2 style="color: orange;">Repetição em sistemas que precisam permanecer ativos</h2>
 
-<p>Existe ainda um uso diferente da repetição: manter um sistema funcionando continuamente.</p>
+<p>Existe ainda outro uso importante da repetição: manter um sistema funcionando continuamente. Servidores, sistemas embarcados e determinados programas de controle precisam verificar constantemente eventos ou condições externas.</p>
 
-<p>Servidores, sistemas embarcados e determinados programas de controle precisam verificar constantemente eventos ou condições externas. Um sistema pode, por exemplo, verificar repetidamente se recebeu uma nova solicitação, se determinado sensor ultrapassou um limite ou se chegou o momento de executar uma tarefa.</p>
+<p>Um sistema pode, por exemplo, verificar repetidamente se recebeu uma nova solicitação, se determinado sensor ultrapassou um limite ou se chegou o momento de executar uma tarefa.</p>
 
-<p>Nesse caso, o conceito de repetição deixa de representar simplesmente "executar algo cinco ou cem vezes". O loop pode representar o próprio ciclo de funcionamento do sistema.</p>
+<p>Nesse caso, o conceito de repetição deixa de representar simplesmente "executar algo cinco ou cem vezes". O loop pode representar o próprio ciclo de funcionamento do sistema:</p>
 
 ```text
 enquanto o sistema estiver ligado:
@@ -2072,23 +2073,23 @@ enquanto o sistema estiver ligado:
     verificar novamente
 ```
 
-<p>O ciclo só termina quando ocorre algum evento capaz de desligar ou encerrar o sistema.</p>
+<p>O ciclo só termina quando ocorre algum evento capaz de desligar ou encerrar o sistema. Dessa maneira, a repetição também pode ser utilizada como mecanismo de funcionamento contínuo.</p>
 
-## Repetição, automação e a natureza dos computadores
+<h2 style="color: orange;">Repetição, automação e a natureza dos computadores</h2>
 
 <p>A relação entre computadores e repetição é particularmente importante porque a automação depende da capacidade de transformar uma tarefa repetitiva em um procedimento formal.</p>
 
-<p>Uma pessoa poderia copiar informações de uma tabela manualmente durante várias horas. Um programa pode receber uma regra e aplicá-la sucessivamente a milhares de registros. A diferença não está apenas na velocidade, mas na possibilidade de transformar uma atividade repetitiva em um processo previamente especificado.</p>
+<p>Uma pessoa poderia copiar informações de uma tabela manualmente durante várias horas. Um programa, por outro lado, pode receber uma regra e aplicá-la sucessivamente a milhares de registros. A diferença não está apenas na velocidade, mas também na possibilidade de transformar uma atividade repetitiva em um processo previamente especificado.</p>
 
-<p>Isso ajuda a explicar por que a repetição é um conceito tão presente na programação. Computadores precisam receber instruções suficientemente precisas para executar uma sequência de operações.</p>
+<p>Isso ajuda a explicar por que a repetição é um conceito tão presente na programação. Computadores precisam receber instruções suficientemente precisas para executar uma sequência de operações de maneira previsível.</p>
 
-<p>A repetição, portanto, transforma uma instrução individual em um procedimento capaz de atuar sobre uma quantidade variável de dados.</p>
+<p>Assim, a repetição transforma uma instrução individual em um procedimento capaz de atuar sobre uma quantidade variável de dados, contribuindo diretamente para a automação de tarefas.</p>
 
-## A importância da condição de parada
+<h2 style="color: orange;">A importância da condição de parada</h2>
 
-<p>Um dos aspectos mais importantes de qualquer estrutura repetitiva é saber <strong>quando parar</strong>.</p>
+<p>Um dos aspectos mais importantes de qualquer estrutura repetitiva é saber <strong>quando parar</strong>. Uma repetição sem um mecanismo adequado de encerramento pode continuar indefinidamente e comprometer o funcionamento do programa.</p>
 
-<p>Um algoritmo pode ser representado de maneira simplificada como:</p>
+<p>Um algoritmo pode ser representado de maneira simplificada da seguinte forma:</p>
 
 ```text
 início
@@ -2108,7 +2109,7 @@ condição satisfeita?
 
 <p>Essa ideia também é fundamental na recursão: uma função recursiva precisa possuir uma situação em que novas chamadas deixem de ser realizadas. Caso contrário, o processo pode continuar até provocar um erro relacionado ao excesso de chamadas ou de memória.</p>
 
-## A repetição como mecanismo de abstração
+<h2 style="color: orange;">A repetição como mecanismo de abstração</h2>
 
 <p>Um dos aspectos mais interessantes da repetição é que ela permite ao programador descrever <strong>uma regra geral em vez de enumerar todas as ações individualmente</strong>.</p>
 
@@ -2123,13 +2124,11 @@ para cada número de 1 até 1000:
 
 <p>O programa passa a representar uma ideia geral: "repita esta operação para cada número dentro do intervalo".</p>
 
-<p>Essa capacidade de generalização é uma das razões pelas quais estruturas repetitivas são tão importantes na programação. O programador deixa de descrever cada acontecimento individual e passa a descrever o comportamento que deve ser aplicado a uma classe inteira de situações.</p>
+<p>Essa capacidade de generalização é uma das razões pelas quais as estruturas repetitivas são tão importantes na programação. O programador deixa de descrever cada acontecimento individual e passa a descrever o comportamento que deve ser aplicado a uma classe inteira de situações.</p>
 
-## Repetição e desenvolvimento de software
+<h2 style="color: orange;">Repetição e desenvolvimento de software</h2>
 
-<p>No desenvolvimento de programas maiores, estruturas repetitivas aparecem combinadas com outras estruturas de controle.</p>
-
-<p>Um loop pode conter uma estrutura condicional:</p>
+<p>No desenvolvimento de programas maiores, estruturas repetitivas aparecem frequentemente combinadas com outras estruturas de controle. Um loop, por exemplo, pode conter uma estrutura condicional:</p>
 
 ```python
 for numero in numeros:
@@ -2141,23 +2140,23 @@ for numero in numeros:
 
 <p>Também podem existir loops dentro de outros loops, conhecidos como <strong>laços aninhados</strong>. Eles são úteis para trabalhar com estruturas multidimensionais, como tabelas e matrizes, embora possam aumentar significativamente a quantidade de operações realizadas.</p>
 
-<p>Essa combinação entre sequência, seleção e repetição permite construir algoritmos capazes de resolver problemas muito mais complexos do que aqueles que poderiam ser representados por instruções isoladas.</p>
+<p>Essa combinação entre <strong>sequência, seleção e repetição</strong> permite construir algoritmos capazes de resolver problemas muito mais complexos do que aqueles que poderiam ser representados por instruções isoladas.</p>
 
-## Conclusão
+<h2 style="color: orange;">Conclusão</h2>
 
-<p>O conceito de repetição ocupa uma posição central na informática porque permite transformar uma operação individual em um procedimento sistemático. Por meio da iteração, programas conseguem executar instruções várias vezes, percorrer coleções de dados, realizar cálculos sucessivos, monitorar condições e automatizar tarefas.</p>
+<p>O conceito de repetição ocupa uma posição central na informática porque permite transformar uma operação individual em um procedimento sistemático. Por meio da iteração, os programas conseguem executar instruções várias vezes, percorrer coleções de dados, realizar cálculos sucessivos, monitorar condições e automatizar tarefas.</p>
 
-<p>As estruturas <code>for</code>, <code>while</code> e equivalentes presentes em diferentes linguagens constituem algumas das manifestações mais conhecidas desse conceito. Entretanto, a ideia de repetição é mais ampla: ela também aparece na recursão, no processamento de grandes volumes de dados, em sistemas que permanecem continuamente ativos e em diversos algoritmos utilizados na computação.</p>
+<p>As estruturas <code>for</code>, <code>while</code> e seus equivalentes presentes em diferentes linguagens constituem algumas das manifestações mais conhecidas desse conceito. Entretanto, a ideia de repetição é mais ampla: ela também aparece na recursão, no processamento de grandes volumes de dados, em sistemas que permanecem continuamente ativos e em diversos algoritmos utilizados na computação.</p>
 
 <p>Compreender repetição significa, portanto, compreender uma das formas fundamentais pelas quais um computador transforma regras abstratas em processos concretos. O programador não precisa especificar individualmente cada execução de uma tarefa; ele pode estabelecer uma regra, definir como o estado do programa será modificado e determinar em que momento o processo deverá terminar.</p>
 
 <p>Nesse sentido, a repetição não é apenas uma ferramenta para evitar escrever o mesmo código várias vezes. Ela é um mecanismo de <strong>generalização, automação e controle de processos</strong>, permitindo que uma mesma lógica seja aplicada a quantidades diferentes de dados e a situações que podem ser muito maiores do que aquelas imaginadas no momento em que o algoritmo foi criado.</p>
 
-<p>A importância desse conceito permanece evidente tanto nos fundamentos da programação quanto no estudo mais avançado de algoritmos. Obras clássicas utilizadas no ensino de Ciência da Computação, como <em>Structure and Interpretation of Computer Programs</em> e <em>Introduction to Algorithms</em>, tratam de processos, recursão, algoritmos e análise computacional como elementos fundamentais para compreender como os programas funcionam.</p>
+<p>A importância desse conceito permanece evidente tanto nos fundamentos da programação quanto no estudo mais avançado de algoritmos. Obras clássicas utilizadas no ensino de Ciência da Computação, como <em>Structure and Interpretation of Computer Programs</em> e <em>Introduction to Algorithms</em>, abordam processos, recursão, algoritmos e análise computacional como elementos importantes para compreender o funcionamento dos programas.</p>
 
 <p>Assim, estudar a repetição é estudar uma das ideias que tornam possível a própria natureza automatizada da computação: <strong>uma instrução bem definida pode ser transformada em um processo capaz de se reproduzir sistematicamente, modificar seu estado, lidar com novos dados e continuar até que uma regra determine que é hora de parar.</strong></p>
 
-## Referências consultadas
+<h2 style="color: orange;">Referências consultadas</h2>
 
 <p>ABELSON, Harold; SUSSMAN, Gerald Jay; SUSSMAN, Julie. <em>Structure and Interpretation of Computer Programs</em>. 2. ed. Cambridge: MIT Press, 1996.</p>
 
@@ -2174,6 +2173,8 @@ for numero in numeros:
 <p>INSTITUTO FEDERAL DE MINAS GERAIS. <em>Algoritmos e Programação</em>. Material didático sobre estruturas de repetição.</p>
 
 <p>MIT OPENCOURSEWARE. <em>Structure and Interpretation of Computer Programs</em>. Massachusetts Institute of Technology, curso 6.001.</p>
+
+        
 
 <div class="cards">
 <article class="card"><h3>Conceitos-chave</h3><p>Iteração (repetição): é o processo de executar repetidamente um conjunto de instruções até que uma determinada condição seja satisfeita ou até que uma quantidade definida de repetições seja alcançada.</p></article>
