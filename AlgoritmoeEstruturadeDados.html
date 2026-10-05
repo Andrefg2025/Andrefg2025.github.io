@@ -1167,13 +1167,338 @@ console.log("Olá, " + nome);</code></pre>
 <h3>Operadores lógicos</h3>
 <p>Esta aula integra a <strong>Unidade 3 — Variáveis e Operadores</strong> e desenvolve os conhecimentos necessários para avançar na sequência de Algoritmos e Estruturas de Dados.</p>
 <p>Estudo orientado sobre <strong>Operadores lógicos</strong>, com conceitos, exemplos, exercícios e aplicação prática.</p>
-<p>Os operadores lógicos são símbolos ou palavras usados para combinar valores ou proposições verdadeiras (V ou true) e falsas (F or false), resultando em um único valor lógico. Eles são fundamentais na matemática, na lógica formal e na Linguagem C.
- </p>
-<p>• E (Conjunção — Símbolo: ∧ ou &&): Retorna verdadeiro apenas se todas as condições envolvidas forem verdadeiras.• Exemplo: V && V resulta em V; qualquer outro caso resulta em F.
-• OU (Disjunção — Símbolo: ∨ ou ||): Retorna verdadeiro se pelo menos uma das condições for verdadeira.• Exemplo: F || V resulta em V; apenas F || F resulta em F.
-• NÃO (Negação — Símbolo: ¬, ! ou not): Inverte o valor lógico atual. O que é verdadeiro vira falso, e o que é falso vira verdadeiro.</p>
+<section>
+    <h1>Tabelas-Verdade</h1>
 
-<p>As operações lógicas são ensinadas em vários cursos de tecnologia de diferentes formas, por exemplo, em cursos de eletrônica é ensinado portas lógicas, já em programação aprendemos os operadores lógicos. Mas no fundo é a mesma coisa e se você entender a ideia das operações lógicas você pode usar esse conhecimento em qualquer área da tecnologia.</p>
+    <article>
+        <h2>O que são operadores lógicos?</h2>
+
+        <p>
+            Os operadores lógicos são símbolos ou palavras usados para combinar
+            valores ou proposições verdadeiras (V ou true) e falsas (F ou false),
+            resultando em um único valor lógico.
+        </p>
+
+        <p>
+            Eles são fundamentais na matemática, na lógica formal e na
+            Linguagem C.
+        </p>
+
+        <p>
+            As operações lógicas são ensinadas em vários cursos de tecnologia
+            de diferentes formas. Em cursos de eletrônica, por exemplo, são
+            ensinadas as portas lógicas, enquanto em programação aprendemos
+            os operadores lógicos. No fundo, a ideia é a mesma.
+        </p>
+    </article>
+
+
+    <article>
+        <h2>Principais operadores lógicos</h2>
+
+        <section>
+            <h3>AND (E)</h3>
+
+            <p>
+                Também chamada de conjunção. Retorna verdadeiro apenas se todas
+                as condições envolvidas forem verdadeiras.
+            </p>
+
+            <p>
+                <strong>Símbolos:</strong> ∧ ou &&
+            </p>
+
+            <p>
+                <strong>Exemplo:</strong> V && V resulta em V.
+                Qualquer outro caso resulta em F.
+            </p>
+        </section>
+
+
+        <section>
+            <h3>OR (OU)</h3>
+
+            <p>
+                Também chamada de disjunção. Retorna verdadeiro se pelo menos
+                uma das condições for verdadeira.
+            </p>
+
+            <p>
+                <strong>Símbolos:</strong> ∨ ou ||
+            </p>
+
+            <p>
+                <strong>Exemplo:</strong> F || V resulta em V.
+                Apenas F || F resulta em F.
+            </p>
+        </section>
+
+
+        <section>
+            <h3>NOT (NÃO)</h3>
+
+            <p>
+                Também chamada de negação. Inverte o valor lógico atual.
+                O que é verdadeiro vira falso e o que é falso vira verdadeiro.
+            </p>
+
+            <p>
+                <strong>Símbolos:</strong> ¬, ! ou not
+            </p>
+        </section>
+
+
+        <section>
+            <h3>XOR (OU Exclusivo)</h3>
+
+            <p>
+                Retorna verdadeiro quando apenas uma das condições é verdadeira.
+                Se as duas forem verdadeiras, o resultado será falso.
+            </p>
+
+            <p>
+                <strong>Exemplo:</strong>
+                “Ou vou ao cinema, ou fico em casa.”
+            </p>
+        </section>
+    </article>
+
+
+    <article>
+        <h2>Tabelas-Verdade</h2>
+
+        <section>
+            <h3>AND (E)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Entrada 1</th>
+                        <th>Entrada 2</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+
+                    <tr>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>F</td>
+                    </tr>
+
+                    <tr>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>F</td>
+                    </tr>
+
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>F</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+        <section>
+            <h3>OR (OU)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Entrada 1</th>
+                        <th>Entrada 2</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+
+                    <tr>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+
+                    <tr>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>F</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+        <section>
+            <h3>NOT (NÃO)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Entrada</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>V</td>
+                        <td>F</td>
+                    </tr>
+
+                    <tr>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </article>
+
+
+    <article>
+        <h2>Como funcionam na prática?</h2>
+
+        <p>
+            Os operadores lógicos trabalham sempre com valores booleanos,
+            ou seja, verdadeiro ou falso. Eles são usados para tomar decisões
+            em programas, sistemas digitais e até em raciocínio matemático.
+        </p>
+
+        <section>
+            <h3>AND (E)</h3>
+
+            <p>
+                Só retorna verdadeiro se todas as condições forem verdadeiras.
+            </p>
+
+            <p>
+                <strong>Exemplo:</strong>
+                “Está ensolarado E é fim de semana.”
+                Só será verdadeiro se as duas condições forem verdadeiras.
+            </p>
+        </section>
+
+
+        <section>
+            <h3>OR (OU)</h3>
+
+            <p>
+                Retorna verdadeiro se pelo menos uma condição for verdadeira.
+            </p>
+
+            <p>
+                <strong>Exemplo:</strong>
+                “Vou ao parque se estiver ensolarado OU se for feriado.”
+                Basta uma das condições ser verdadeira.
+            </p>
+        </section>
+
+
+        <section>
+            <h3>NOT (NÃO)</h3>
+
+            <p>
+                Inverte o valor lógico.
+            </p>
+
+            <p>
+                <strong>Exemplo:</strong>
+                “NÃO está chovendo.”
+                Será verdadeiro se não estiver chovendo.
+            </p>
+        </section>
+
+
+        <section>
+            <h3>XOR (OU Exclusivo)</h3>
+
+            <p>
+                Retorna verdadeiro se apenas uma condição for verdadeira,
+                mas não as duas ao mesmo tempo.
+            </p>
+        </section>
+    </article>
+
+
+    <article>
+        <h2>Aplicações dos operadores lógicos</h2>
+
+        <ul>
+            <li>
+                <strong>Programação:</strong>
+                controle de fluxo em linguagens como Python (and, or, not),
+                JavaScript (&&, ||, !) e Linguagem C.
+            </li>
+
+            <li>
+                <strong>Circuitos digitais:</strong>
+                utilização de portas lógicas em eletrônica, como AND, OR,
+                NAND e NOR.
+            </li>
+
+            <li>
+                <strong>Filtros de busca:</strong>
+                combinação de critérios em bancos de dados.
+            </li>
+
+            <li>
+                <strong>Segurança:</strong>
+                alarmes que disparam apenas quando múltiplas condições
+                são atendidas.
+            </li>
+        </ul>
+    </article>
+
+
+    <article>
+        <h2>Riscos e erros comuns</h2>
+
+        <ul>
+            <li>
+                Usar <strong>AND</strong> quando deveria ser <strong>OR</strong>,
+                tornando as regras muito restritivas.
+            </li>
+
+            <li>
+                Presumir que <strong>OR</strong> significa “apenas uma condição”.
+                Na verdade, mais de uma condição pode ser verdadeira.
+            </li>
+
+            <li>
+                Criar dupla negação desnecessária, dificultando a compreensão
+                da lógica.
+            </li>
+
+            <li>
+                Esconder a intenção em expressões longas sem utilizar
+                parênteses.
+            </li>
+        </ul>
+    </article>
+
+</section>
+
 <div class="cards">
 <article class="card"><h3>Conceitos-chave</h3><p>Identifique os conceitos centrais da aula e registre definições com suas próprias palavras.</p></article>
 <article class="card"><h3>Exemplo prático</h3><p>Relacione o conteúdo a uma situação cotidiana ou a um problema que possa ser resolvido por computador.</p></article>
