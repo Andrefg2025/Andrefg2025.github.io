@@ -1475,34 +1475,41 @@ console.log("Olá, " + nome);</code></pre>
 <div class="aula-conteudo">
 <h3>SE...SENÃO</h3>
 <section class="aula-algoritmos-condicionais" style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;">
-<!-- Introdução Solicitada -->
-<div class="introducao-aula" style="background-color: #e9ecef; padding: 15px; border-left: 5px solid #0056b3; border-radius: 4px; margin-bottom: 30px;">
-<p>Esta aula integra a <strong>Unidade 4 — Estruturas Condicionais</strong> e desenvolve os conhecimentos necessários para avançar na sequência de Algoritmos e Estruturas de Dados.</p>
-<p>Estudo orientado sobre <strong>SE...SENÃO</strong>, com conceitos, exemplos, exercícios e aplicação prática.</p>
-</div>
-<!-- Seção de Conceitos -->
-<h2>1. O Papel da Lógica e da Tomada de Decisão</h2>
-<p>Em <strong>Algoritmos e Estruturas de Dados</strong>, um algoritmo é essencialmente uma sequência finita de passos para resolver um problema. No entanto, o mundo real não é linear. Para que um programa seja verdadeiramente útil, ele precisa ser inteligente o suficiente para tomar decisões com base nos dados que recebe.</p>
-<p>É aqui que entram as <strong>Estruturas Condicionais</strong> (ou estruturas de controle de fluxo). Elas são o "cérebro" das operações lógicas, permitindo que o algoritmo avalie uma situação e escolha qual caminho seguir.</p>
-<!-- Seção do SE...SENÃO -->
-<h2>2. A Estrutura Composta: SE...SENÃO (IF...ELSE)</h2>
-<p>A estrutura condicional <strong>SE...SENÃO</strong> é a ferramenta fundamental para bifurcar a execução de um programa de computador. Ela funciona através da avaliação de uma expressão lógica (uma pergunta matemática ou de comparação) que obrigatoriamente resultará em <em>Verdadeiro</em> ou <em>Falso</em>.</p>
-<ul style="margin-bottom: 25px;">
-<li><strong>SE (IF):</strong> Testa uma condição. Se o resultado for <strong>Verdadeiro</strong>, o bloco de código atrelado a ele é executado e o "SENÃO" é ignorado.</li>
-<li><strong>SENÃO (ELSE):</strong> É o caminho alternativo (o plano B). Se a condição do "SE" for <strong>Falsa</strong>, o programa pula o primeiro bloco e executa obrigatoriamente o código que está dentro do SENÃO.</li>
-</ul>
-<div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border-left: 5px solid #ffc107; margin-bottom: 25px;">
-<strong>Analogia do cotidiano:</strong><br/>
-<strong>SE</strong> (estiver chovendo) {<br/>
-          Levo um guarda-chuva para a escola;<br/>
-        } <strong>SENÃO</strong> {<br/>
-          Vou de bicicleta;<br/>
+    
+    <!-- Introdução Solicitada -->
+    <div class="introducao-aula" style="background-color: #e9ecef; padding: 15px; border-left: 5px solid #0056b3; border-radius: 4px; margin-bottom: 30px;">
+        <p>Esta aula integra a <strong>Unidade 4 — Estruturas Condicionais</strong> e desenvolve os conhecimentos necessários para avançar na sequência de Algoritmos e Estruturas de Dados.</p>
+        <p>Estudo orientado sobre <strong>SE...SENÃO</strong>, com conceitos, exemplos, exercícios e aplicação prática.</p>
+    </div>
+
+    <!-- Seção de Conceitos -->
+    <h2>1. O Papel da Lógica e da Tomada de Decisão</h2>
+    <p>Em <strong>Algoritmos e Estruturas de Dados</strong>, um algoritmo é essencialmente uma sequência finita de passos para resolver um problema. No entanto, o mundo real não é linear. Para que um programa seja verdadeiramente útil, ele precisa ser inteligente o suficiente para tomar decisões com base nos dados que recebe.</p>
+    <p>É aqui que entram as <strong>Estruturas Condicionais</strong> (ou estruturas de controle de fluxo). Elas são o "cérebro" das operações lógicas, permitindo que o algoritmo avalie uma situação e escolha qual caminho seguir.</p>
+
+    <!-- Seção do SE...SENÃO -->
+    <h2>2. A Estrutura Composta: SE...SENÃO (IF...ELSE)</h2>
+    <p>A estrutura condicional <strong>SE...SENÃO</strong> é a ferramenta fundamental para bifurcar a execução de um programa de computador. Ela funciona através da avaliação de uma expressão lógica (uma pergunta matemática ou de comparação) que obrigatoriamente resultará em <em>Verdadeiro</em> ou <em>Falso</em>.</p>
+    
+    <ul style="margin-bottom: 25px;">
+        <li><strong>SE (IF):</strong> Testa uma condição. Se o resultado for <strong>Verdadeiro</strong>, o bloco de código atrelado a ele é executado e o "SENÃO" é ignorado.</li>
+        <li><strong>SENÃO (ELSE):</strong> É o caminho alternativo (o plano B). Se a condição do "SE" for <strong>Falsa</strong>, o programa pula o primeiro bloco e executa obrigatoriamente o código que está dentro do SENÃO.</li>
+    </ul>
+
+    <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border-left: 5px solid #ffc107; margin-bottom: 25px;">
+        <strong>Analogia do cotidiano:</strong><br>
+        <strong>SE</strong> (estiver chovendo) {<br>
+        &nbsp;&nbsp;Levo um guarda-chuva para a escola;<br>
+        } <strong>SENÃO</strong> {<br>
+        &nbsp;&nbsp;Vou de bicicleta;<br>
         }
     </div>
-<!-- Exemplo Prático de Código -->
-<h2>3. Exemplo na Prática (Pseudocódigo)</h2>
-<p>Abaixo, veja como essa lógica é escrita em algoritmos clássicos, como um sistema de aprovação de notas de alunos:</p>
-<pre style="background-color: #282c34; color: #abb2bf; padding: 15px; border-radius: 8px; overflow-x: auto; font-family: 'Courier New', Courier, monospace;">
+
+    <!-- Exemplo Prático de Código -->
+    <h2>3. Exemplo na Prática (Pseudocódigo)</h2>
+    <p>Abaixo, veja como essa lógica é escrita em algoritmos clássicos, como um sistema de aprovação de notas de alunos:</p>
+    
+    <pre style="background-color: #282c34; color: #abb2bf; padding: 15px; border-radius: 8px; overflow-x: auto; font-family: 'Courier New', Courier, monospace;">
 <code>Algoritmo "VerificaAprovacao"
 Var
    nota: real
@@ -1511,58 +1518,398 @@ Inicio
    Leia(nota)
 
    // Início da Estrutura Condicional
-   SE (nota &gt;= 6.0) ENTAO
+   SE (nota >= 6.0) ENTAO
       Escreval("Aluno APROVADO!")
    SENAO
       Escreval("Aluno REPROVADO!")
    FIMSE
 Fimalgoritmo</code>
     </pre>
-<!-- Exercícios de Fixação -->
-<h2>4. Exercícios de Fixação</h2>
-<p>Para consolidar o aprendizado, tente desenvolver o raciocínio lógico (em pseudocódigo ou na sua linguagem de programação favorita) para os seguintes problemas:</p>
-<ol>
-<li style="margin-bottom: 10px;"><strong>Controle de Maioridade:</strong> Crie um algoritmo que leia a idade de um usuário. Use a estrutura SE...SENÃO para imprimir "Acesso Liberado" caso a idade seja maior ou igual a 18 anos, ou "Acesso Negado" caso seja menor.</li>
-<li style="margin-bottom: 10px;"><strong>Ímpar ou Par:</strong> Desenvolva um programa que receba um número inteiro. Se o resto da divisão desse número por 2 for zero (<code>numero % 2 == 0</code>), exiba "O número é Par", senão, exiba "O número é Ímpar".</li>
-</ol>
-<!-- Aplicação Prática -->
-<h2>5. Aplicação Prática no Mercado de Trabalho</h2>
-<p>Na vida real, você interage com a estrutura <strong>SE...SENÃO</strong> o tempo todo. Quando você tenta fazer login no seu e-mail ou rede social, o algoritmo no servidor do site executa algo muito parecido com isso:</p>
-<pre style="background-color: #f4f4f4; color: #333; border: 1px solid #ccc; padding: 15px; border-radius: 8px; overflow-x: auto; font-family: 'Courier New', Courier, monospace;">
+
+    <!-- Exercícios de Fixação -->
+    <h2>4. Exercícios de Fixação</h2>
+    <p>Para consolidar o aprendizado, tente desenvolver o raciocínio lógico (em pseudocódigo ou na sua linguagem de programação favorita) para os seguintes problemas:</p>
+    <ol>
+        <li style="margin-bottom: 10px;"><strong>Controle de Maioridade:</strong> Crie um algoritmo que leia a idade de um usuário. Use a estrutura SE...SENÃO para imprimir "Acesso Liberado" caso a idade seja maior ou igual a 18 anos, ou "Acesso Negado" caso seja menor.</li>
+        <li style="margin-bottom: 10px;"><strong>Ímpar ou Par:</strong> Desenvolva um programa que receba um número inteiro. Se o resto da divisão desse número por 2 for zero (<code>numero % 2 == 0</code>), exiba "O número é Par", senão, exiba "O número é Ímpar".</li>
+    </ol>
+
+    <!-- Aplicação Prática -->
+    <h2>5. Aplicação Prática no Mercado de Trabalho</h2>
+    <p>Na vida real, você interage com a estrutura <strong>SE...SENÃO</strong> o tempo todo. Quando você tenta fazer login no seu e-mail ou rede social, o algoritmo no servidor do site executa algo muito parecido com isso:</p>
+    
+    <pre style="background-color: #f4f4f4; color: #333; border: 1px solid #ccc; padding: 15px; border-radius: 8px; overflow-x: auto; font-family: 'Courier New', Courier, monospace;">
 <code>SE (senha_digitada for IGUAL a senha_banco_de_dados) ENTAO
     Iniciar sessão do usuário e carregar página inicial
 SENAO
     Exibir mensagem de erro: "Usuário ou senha incorretos"
 FIMSE</code>
     </pre>
-<p style="margin-top: 20px;">Dominar o uso do <strong>SE...SENÃO</strong> é o primeiro grande passo para criar sistemas interativos, seguros e capazes de tomar decisões dinâmicas com base no comportamento do usuário.</p>
+
+    <p style="margin-top: 20px;">Dominar o uso do <strong>SE...SENÃO</strong> é o primeiro grande passo para criar sistemas interativos, seguros e capazes de tomar decisões dinâmicas com base no comportamento do usuário.</p>
+    
 </section>
 <div class="cards">
-<article class="card"><h3>Conceitos-chave</h3><p>Identifique os conceitos centrais da aula e registre definições com suas próprias palavras.</p></article>
-<article class="card"><h3>Exemplo prático</h3><p>Relacione o conteúdo a uma situação cotidiana ou a um problema que possa ser resolvido por computador.</p></article>
-<article class="card"><h3>Prática</h3><p>Construa, teste ou analise uma solução utilizando o conhecimento estudado.</p></article>
+<article class="card"><h3>Conceitos-chave</h3><section id="conceitos-centrais-aula" style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px;">
+
+    <header style="border-bottom: 2px solid #2c3e50; padding-bottom: 10px; margin-bottom: 20px;">
+        <h2 style="color: #2c3e50; margin: 0;">Sintese da Aula: Conceitos Centrais</h2>
+        <p style="color: #7f8c8d; margin: 5px 0 0 0; font-size: 0.95em;">
+            Registro e definições simplificadas elaboradas com palavras próprias.
+        </p>
+    </header>
+
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+
+        <article style="background-color: #f8f9fa; border-left: 4px solid #e74c3c; padding: 15px; border-radius: 4px;">
+            <h3 style="margin: 0 0 8px 0; color: #c0392b; font-size: 1.1em;">1. Complexidade de Algoritmo (Notacao Big-O)</h3>
+            <p style="margin: 0; color: #333;">
+                <strong>Em minhas palavras:</strong> E a forma de medir o "esforco" do computador. Em vez de medir em segundos (ja que varia de maquina para maquina), medimos quantas operacoes o codigo faz conforme a quantidade de dados cresce. Serve para saber se o programa vai travar quando tiver milhoes de usuarios.
+            </p>
+        </article>
+
+        <article style="background-color: #f8f9fa; border-left: 4px solid #9b59b6; padding: 15px; border-radius: 4px;">
+            <h3 style="margin: 0 0 8px 0; color: #8e44ad; font-size: 1.1em;">2. Recursao</h3>
+            <p style="margin: 0; color: #333;">
+                <strong>Em minhas palavras:</strong> E quando uma funcao resolve um problema chamando a si mesma repetidas vezes em versoes menores do mesmo problema. Funciona como bonecas russas (matrioscas): voce vai abrindo ate encontrar a menorzinha de todas (que e o <em>caso base</em>, de onde o codigo finalmente para e retorna).
+            </p>
+        </article>
+
+        <article style="background-color: #f8f9fa; border-left: 4px solid #2ecc71; padding: 15px; border-radius: 4px;">
+            <h3 style="margin: 0 0 8px 0; color: #27ae60; font-size: 1.1em;">3. Ponteiros e Enderecamento de Memoria</h3>
+            <p style="margin: 0; color: #333;">
+                <strong>Em minhas palavras:</strong> Um ponteiro nao guarda o valor de um dado (como o numero 10), mas sim o <em>endereco do armario</em> na memoria RAM onde esse valor esta guardado. E como ter um papel anotado com o numero do gaveteiro em vez de carregar o objeto no bolso.
+            </p>
+        </article>
+
+        <article style="background-color: #f8f9fa; border-left: 4px solid #f1c40f; padding: 15px; border-radius: 4px;">
+            <h3 style="margin: 0 0 8px 0; color: #d35400; font-size: 1.1em;">4. Algoritmos de Busca e Ordenacao</h3>
+            <p style="margin: 0; color: #333;">
+                <strong>Em minhas palavras:</strong> Sao as estrategias para organizar dados baguncados (como ordenar nomes em ordem alfabetica) e encontrar um item especifico rapidamente. A <em>Busca Binaria</em>, por exemplo, e como procurar uma palavra no dicionario abrindo sempre no meio e descartando a metade inutil.
+            </p>
+        </article>
+
+    </div>
+
+    <footer style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #eee; font-size: 0.85em; color: #7f8c8d; text-align: center;">
+        Anotacoes pessoais e fixacao de conteudo.
+    </footer>
+
+</section></article>
+<article class="card"><h3>Exemplo prático</h3><section id="exemplos-praticos-cotidiano" style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 25px; background-color: #f0f4f8; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+
+    <header style="margin-bottom: 20px;">
+        <h2 style="color: #1a365d; margin: 0; border-left: 5px solid #3182ce; padding-left: 10px;">
+            Na Prática: Conectando a Teoria à Vida Real
+        </h2>
+        <p style="color: #4a5568; margin-top: 8px;">
+            Como os algoritmos e as estruturas de dados resolvem problemas do nosso dia a dia ou de sistemas de computador.
+        </p>
+    </header>
+
+    <div style="display: grid; gap: 20px;">
+
+        <!-- Exemplo 1: GPS -->
+        <article style="background: #ffffff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; border-top: 4px solid #48bb78;">
+            <h3 style="margin: 0 0 10px 0; color: #2f855a; display: flex; align-items: center; gap: 8px;">
+                🗺️ O GPS e a Rota Mais Rápida (Waze / Google Maps)
+            </h3>
+            <p style="margin: 0 0 10px 0; color: #2d3748;">
+                <strong>A Situação:</strong> Você precisa ir para o trabalho, mas quer evitar vias engarrafadas e chegar no menor tempo possível.
+            </p>
+            <p style="margin: 0; color: #4a5568;">
+                <strong>Como o computador resolve:</strong> O mapa é armazenado usando uma estrutura de dados chamada <em>Grafo</em> (onde cada cruzamento é um ponto e cada rua é uma linha ligando eles). O aplicativo então roda um <strong>Algoritmo de Caminho Mais Curto</strong> (como o Algoritmo de Dijkstra). Ele calcula matematicamente todas as rotas possíveis e escolhe a que tem o menor "peso" (tempo ou distância).
+            </p>
+        </article>
+
+        <!-- Exemplo 2: CTRL + Z -->
+        <article style="background: #ffffff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; border-top: 4px solid #ed8936;">
+            <h3 style="margin: 0 0 10px 0; color: #c05621; display: flex; align-items: center; gap: 8px;">
+                ↩️ O Botão "Desfazer" (Ctrl + Z)
+            </h3>
+            <p style="margin: 0 0 10px 0; color: #2d3748;">
+                <strong>A Situação:</strong> Você está escrevendo um texto, apaga um parágrafo por engano e precisa recuperar o que acabou de apagar.
+            </p>
+            <p style="margin: 0; color: #4a5568;">
+                <strong>Como o computador resolve:</strong> Os editores de texto usam uma estrutura de dados chamada <em>Pilha (Stack)</em>. Cada ação que você faz (digitar, apagar, colocar em negrito) é colocada no topo dessa pilha. Quando você aperta "Desfazer", o algoritmo simplesmente remove e reverte a <strong>última ação</strong> que estava no topo (princípio LIFO: o último a entrar é o primeiro a sair).
+            </p>
+        </article>
+
+        <!-- Exemplo 3: Fila de Impressão -->
+        <article style="background: #ffffff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; border-top: 4px solid #4299e1;">
+            <h3 style="margin: 0 0 10px 0; color: #2b6cb0; display: flex; align-items: center; gap: 8px;">
+                🖨️ A Fila da Impressora do Escritório
+            </h3>
+            <p style="margin: 0 0 10px 0; color: #2d3748;">
+                <strong>A Situação:</strong> Cinco pessoas no mesmo escritório clicam em "Imprimir" quase ao mesmo tempo. Como a impressora não entra em colapso?
+            </p>
+            <p style="margin: 0; color: #4a5568;">
+                <strong>Como o computador resolve:</strong> O sistema operacional gerencia as requisições usando uma estrutura de dados chamada <em>Fila (Queue)</em>. O algoritmo garante que o primeiro documento que chegou à memória será o primeiro a ser impresso (princípio FIFO: o primeiro a entrar é o primeiro a sair). Os outros aguardam pacientemente a sua vez, exatamente como uma fila de padaria.
+            </p>
+        </article>
+
+    </div>
+
+</section></article>
+<article class="card"><h3>Prática</h3><section id="mao-na-massa-pratica" style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 25px; background-color: #fafafa; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: 1px solid #ddd;">
+
+    <header style="margin-bottom: 20px; border-bottom: 2px solid #8e44ad; padding-bottom: 10px;">
+        <h2 style="color: #2c3e50; margin: 0; display: flex; align-items: center; gap: 8px;">
+            💻 Mão na Massa: Construção, Teste e Análise
+        </h2>
+        <p style="color: #555; margin-top: 8px;">
+            Aplicando o conceito de <strong>Pilha (Stack)</strong> para criar um sistema de "Desfazer" (Ctrl+Z) em JavaScript.
+        </p>
+    </header>
+
+    <!-- 1. Construção -->
+    <div style="margin-bottom: 25px;">
+        <h3 style="color: #8e44ad; font-size: 1.2em; margin-bottom: 10px;">1. Construindo a Solução</h3>
+        <p style="color: #333; margin-bottom: 10px;">
+            Vamos criar uma classe simples que simula o histórico de digitação de um usuário usando os métodos nativos de array como uma Pilha (onde o último item a entrar é o primeiro a sair - LIFO).
+        </p>
+        <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 6px; overflow-x: auto; font-family: 'Courier New', Courier, monospace; font-size: 0.95em; border-left: 4px solid #8e44ad;">
+<code>class SistemaDesfazer {
+    constructor() {
+        this.pilhaDeAcoes = []; // Nossa estrutura de dados
+    }
+
+    // Adiciona uma nova ação no topo da pilha
+    escrever(texto) {
+        this.pilhaDeAcoes.push(texto);
+        console.log(`Ação salva: "${texto}"`);
+    }
+
+    // Remove e retorna a última ação (Ctrl+Z)
+    desfazer() {
+        if (this.pilhaDeAcoes.length === 0) {
+            return "Nada para desfazer!";
+        }
+        let acaoDesfeita = this.pilhaDeAcoes.pop();
+        console.log(`Desfez: "${acaoDesfeita}"`);
+    }
+}</code></pre>
+    </div>
+
+    <!-- 2. Teste -->
+    <div style="margin-bottom: 25px;">
+        <h3 style="color: #2980b9; font-size: 1.2em; margin-bottom: 10px;">2. Testando o Código</h3>
+        <p style="color: #333; margin-bottom: 10px;">
+            Agora, vamos instanciar nosso sistema, simular a digitação de algumas palavras e, em seguida, testar o botão de desfazer.
+        </p>
+        <div style="background-color: #e8f4f8; padding: 15px; border-radius: 6px; border: 1px solid #bce8f1;">
+            <p style="margin: 0 0 10px 0; font-family: monospace; color: #31708f;">
+                const editor = new SistemaDesfazer();<br>
+                editor.escrever("Olá");<br>
+                editor.escrever("Mundo");<br>
+                editor.desfazer(); // Simula o Ctrl+Z
+            </p>
+            <p style="margin: 0; color: #2c3e50;">
+                <strong>Saída no Console (Resultado):</strong><br>
+                <span style="color: #27ae60;">> Ação salva: "Olá"</span><br>
+                <span style="color: #27ae60;">> Ação salva: "Mundo"</span><br>
+                <span style="color: #c0392b;">> Desfez: "Mundo"</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- 3. Análise -->
+    <div style="margin-bottom: 10px;">
+        <h3 style="color: #27ae60; font-size: 1.2em; margin-bottom: 10px;">3. Análise do Algoritmo</h3>
+        <ul style="color: #333; padding-left: 20px; margin: 0;">
+            <li style="margin-bottom: 8px;">
+                <strong>Estrutura Escolhida:</strong> A Pilha foi perfeita porque só precisamos acessar o <em>último</em> elemento adicionado. Se usássemos uma Fila (Queue), apagaríamos a primeira palavra do texto, o que seria um erro lógico.
+            </li>
+            <li style="margin-bottom: 8px;">
+                <strong>Complexidade de Tempo (Big-O):</strong> Tanto inserir (<code>push</code>) quanto remover (<code>pop</code>) no final de um array têm complexidade <strong>O(1)</strong> (Tempo Constante). Isso significa que, mesmo se o usuário tiver digitado 1 milhão de palavras, o "Desfazer" será instantâneo, pois o computador não precisa procurar a palavra, ele vai direto no topo da pilha.
+            </li>
+            <li>
+                <strong>Complexidade de Espaço:</strong> É <strong>O(n)</strong>, pois o consumo de memória cresce proporcionalmente à quantidade de ações salvas pelo usuário.
+            </li>
+        </ul>
+    </div>
+
+</section> </article>
 </div>
 <section class="mapa-mental-section">
 <h2 class="titulo-secao">🧠 Mapa Mental</h2>
 <p>Use os conceitos desta aula para construir um mapa mental com o tema <strong>SE...SENÃO</strong>.</p>
 <div class="mapa-mental">Tema central → conceitos principais → exemplos → aplicações → conclusão.</div>
+<img src="eomapa.jfif" width="1000" height="1000">
 </section>
-<details class="aula atividades-container"><summary>📝 Atividades de fixação</summary>
+      <h2 class="titulo-secao"> 📹  Video De Exemplo </h2>
+                
+                <video width="1000" height="1000" controls poster="capa.jpg">
+  <source src="Decodificando_a_Lógica.mp4" type="video/mp4">
+  Seu navegador não suporta reprodução de vídeo.
+</video>
 
-<div class="aula-conteudo">
-<p>Responda às questões sobre <strong>SE...SENÃO</strong>. Escolha a quantidade e gere uma atividade para revisão.</p>
-<div class="config-atividade">
-<label for="q-20">Quantidade:</label>
-<select id="q-20">
-<option value="5">5 questões</option><option selected="" value="10">10 questões</option><option value="15">15 questões</option>
-</select>
-<button class="btn-gerar" onclick="gerarAtividade(20)" type="button">🎲 Gerar Atividades</button>
-</div>
-<div id="atividade-20" style="margin-top:15px"></div>
-</div>
+
+<details class="aula atividades-container" style="font-family: Arial, sans-serif; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; max-width: 800px; margin: 0 auto; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+     
+    
+    <summary style="font-size: 1.2em; font-weight: bold; color: #2c3e50; cursor: pointer; padding: 5px;">
+        📝 Atividades de Fixação: Estruturas Condicionais (SE...SENÃO)
+    </summary>
+
+    <div class="aula-conteudo" style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px;">
+        <p style="color: #555; margin-bottom: 15px;">
+            Responda às questões sobre <strong>SE...SENÃO</strong>. Escolha a quantidade de perguntas e clique em gerar para testar seus conhecimentos.
+        </p>
+
+        <div class="config-atividade" style="display: flex; align-items: center; gap: 10px; background-color: #f8f9fa; padding: 12px; border-radius: 6px;">
+            <label for="q-20" style="font-weight: bold; color: #333;">Quantidade:</label>
+            <select id="q-20" style="padding: 6px 12px; border-radius: 4px; border: 1px solid #ccc;">
+                <option value="5">5 questões</option>
+                <option value="10" selected>10 questões</option>
+                <option value="15">15 questões</option>
+            </select>
+            <button type="button" class="btn-gerar" onclick="gerarAtividade(20)" style="background-color: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                🎲 Gerar Atividades
+            </button>
+        </div>
+
+        <!-- Área onde os exercícios aparecerão -->
+        <div id="atividade-20" style="margin-top: 20px;"></div>
+    </div>
+
 </details>
-</div>
-</details>
+
+<script>
+// Banco de dados de questões sobre SE...SENÃO
+const bancoQuestoesSeSenao = [
+    {
+        q: "1. Qual é a principal função da estrutura 'SE' em um algoritmo?",
+        options: ["Repetir um bloco de código várias vezes", "Tomar uma decisão baseada em uma condição verdadeira ou falsa", "Declarar variáveis na memória do computador"],
+        correct: 1
+    },
+    {
+        q: "2. O bloco 'SENÃO' (Else) será executado quando:",
+        options: ["A condição do 'SE' for Verdadeira", "A condição do 'SE' for Falsa", "Sempre, independente da condição"],
+        correct: 1
+    },
+    {
+        q: "3. Dado o código: SE (idade >= 18) ENTÃO escreva('Adulto') SENÃO escreva('Menor'). O que será impresso para idade = 16?",
+        options: ["Adulto", "Menor", "Nenhum resultado"],
+        correct: 1
+    },
+    {
+        q: "4. Qual operador lógico exige que DUAS condições sejam verdadeiras ao mesmo tempo no 'SE'?",
+        options: ["Operador E (AND)", "Operador OU (OR)", "Operador NÃO (NOT)"],
+        correct: 0
+    },
+    {
+        q: "5. O que acontece se uma estrutura 'SE' não tiver um bloco 'SENÃO'?",
+        options: ["O programa gera um erro de compilação", "Se a condição for falsa, o programa simplesmente pula o bloco SE e continua", "O programa trava esperando o SENÃO"],
+        correct: 1
+    },
+    {
+        q: "6. Como é chamada a estrutura onde colocamos um 'SE' dentro de outro 'SE'?",
+        options: ["Estrutura Repetitiva", "Estrutura Aninhada (ou Encadeada)", "Estrutura Sequencial"],
+        correct: 1
+    },
+    {
+        q: "7. Qual o resultado da expressão lógica: (5 > 3) E (2 == 4)?",
+        options: ["Verdadeiro", "Falso", "Indefinido"],
+        correct: 1
+    },
+    {
+        q: "8. Para verificar em um 'SE' se um número N é PAR, usamos qual condição matemática?",
+        options: ["N % 2 == 0 (resto da divisão por 2 igual a zero)", "N / 2 == 1", "N * 2 == 0"],
+        correct: 0
+    },
+    {
+        q: "9. Na expressão (10 > 5) OU (3 > 8), qual é o resultado final?",
+        options: ["Verdadeiro (pois ao menos uma condição é verdadeira)", "Falso", "Erro de sintaxe"],
+        correct: 0
+    },
+    {
+        q: "10. Se saldo = 100 e valorSaque = 150, a condição SE (saldo >= valorSaque) resultará em:",
+        options: ["Verdadeiro", "Falso", "Nulo"],
+        correct: 1
+    },
+    {
+        q: "11. O operador '!=' em uma condição SE serve para testar se dois valores são:",
+        options: ["Iguais", "Diferentes", "Maiores ou iguais"],
+        correct: 1
+    },
+    {
+        q: "12. Qual a vantagem de usar SE...SENÃO SE...SENÃO em vez de vários blocos 'SE' isolados?",
+        options: ["O código fica mais lento", "Evita testes desnecessários após encontrar a primeira condição verdadeira", "Obrigará o programa a executar todas as opções"],
+        correct: 1
+    },
+    {
+        q: "13. Se a condição de um SE for a expressão (NÃO(5 > 2)), ela retornará:",
+        options: ["Verdadeiro", "Falso", "Erro"],
+        correct: 1
+    },
+    {
+        q: "14. Em um sistema de notas: SE (nota >= 7) 'Aprovado' SENÃO SE (nota >= 5) 'Recuperação' SENÃO 'Reprovado'. Qual a situação de um aluno com nota 6.5?",
+        options: ["Aprovado", "Recuperação", "Reprovado"],
+        correct: 1
+    },
+    {
+        q: "15. Uma condição em um comando SE sempre deve retornar um valor do tipo:",
+        options: ["Inteiro (Integer)", "Booleano (Verdadeiro ou Falso)", "Texto (String)"],
+        correct: 1
+    }
+];
+
+function gerarAtividade(id) {
+    const qtd = parseInt(document.getElementById('q-' + id).value);
+    const container = document.getElementById('atividade-' + id);
+    
+    // Seleciona a quantidade solicitada de questões do banco
+    const questoesSelecionadas = bancoQuestoesSeSenao.slice(0, qtd);
+    
+    let htmlContent = '<form id="form-quiz" style="display: flex; flex-direction: column; gap: 15px;">';
+
+    questoesSelecionadas.forEach((item, index) => {
+        htmlContent += `
+            <div style="background-color: #f9f9f9; padding: 12px; border-radius: 6px; border-left: 4px solid #3498db;">
+                <p style="margin: 0 0 10px 0; font-weight: bold; color: #2c3e50;">${item.q}</p>
+                ${item.options.map((opt, optIdx) => `
+                    <label style="display: block; margin-bottom: 5px; cursor: pointer; color: #444;">
+                        <input type="radio" name="q_${index}" value="${optIdx}" style="margin-right: 8px;">
+                        ${opt}
+                    </label>
+                `).join('')}
+            </div>
+        `;
+    });
+
+    htmlContent += `
+        <button type="button" onclick="corrigirAtividade(${qtd})" style="margin-top: 10px; background-color: #3498db; color: white; border: none; padding: 10px; border-radius: 4px; font-weight: bold; cursor: pointer;">
+            ✅ Corrigir Respostas
+        </button>
+    </form>
+    <div id="resultado-quiz" style="margin-top: 15px; font-weight: bold; font-size: 1.1em;"></div>
+    `;
+
+    container.innerHTML = htmlContent;
+}
+
+function corrigirAtividade(qtd) {
+    let acertos = 0;
+    const questoesSelecionadas = bancoQuestoesSeSenao.slice(0, qtd);
+
+    questoesSelecionadas.forEach((item, index) => {
+        const selected = document.querySelector(`input[name="q_${index}"]:checked`);
+        if (selected && parseInt(selected.value) === item.correct) {
+            acertos++;
+        }
+    });
+
+    const resultadoDiv = document.getElementById('resultado-quiz');
+    const porcentagem = Math.round((acertos / qtd) * 100);
+    
+    let cor = "#e74c3c"; // vermelho
+    if (porcentagem >= 70) cor = "#27ae60"; // verde
+    else if (porcentagem >= 50) cor = "#f39c12"; // laranja
+
+    resultadoDiv.innerHTML = `<span style="color: ${cor}">Você acertou ${acertos} de ${qtd} questões (${porcentagem}% de aproveitamento).</span>`;
+}
+</script> 
 <details class="aula" id="aula-21">
 <summary>Aula 21 — Condições encadeadas - MIGUEL SEBASTIAO BOREL DA SILVA</summary>
 <div class="aula-conteudo">
