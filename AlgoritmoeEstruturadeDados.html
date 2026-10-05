@@ -1025,35 +1025,7 @@ console.log("Olá, " + nome);</code></pre>
 <details class="aula atividades-container">
 <summary>📝 Atividades de fixação</summary>
 <div class="aula-conteudo">
-<p>Responda às questões sobre <strong>Entrada de dados</strong>. Escolha a quantidade e gere uma atividade para revisão.</p>
-
-
-        
-        <script>
-function gerarAtividade(numero){
-    const qtd = Number(document.getElementById('q-'+numero).value);
-    const area = document.getElementById('atividade-'+numero);
-    const modelos = [
-        'Explique, qual o tema principal da aula.',
-        'Dê um exemplo prático relacionado ao conteúdo estudado.',
-        'Qual é a finalidade do conceito apresentado nesta aula?',
-        'Descreva as etapas necessárias para aplicar o conhecimento estudado.',
-        'Compare dois conceitos apresentados e indique uma diferença entre eles.',
-        'Como esse conteúdo pode ser utilizado em um programa de computador?',
-        'Identifique uma situação cotidiana que possa ser representada por esse conceito.',
-        'Proponha um pequeno problema e descreva uma possível solução.',
-        'O que poderia acontecer se esse conceito fosse aplicado de forma incorreta?',
-        'Faça um resumo dos principais pontos da aula.'
-    ];
-    let html = '<ol>';
-    for(let i=0;i<qtd;i++){
-        html += '<li style="margin:12px 0">'+modelos[i % modelos.length]+'</li>';
-    }
-    html += '</ol>';
-    area.innerHTML = html;
-}
-</script>
-        
+<p>Responda às questões sobre <strong>Entrada de dados</strong>. Escolha a quantidade e gere uma atividade para revisão.</p>       
 <div class="config-atividade">
 <label for="q-13">Quantidade:</label>
 <select id="q-13">
@@ -1061,7 +1033,29 @@ function gerarAtividade(numero){
 </select>
 <button type="button" class="btn-gerar" onclick="gerarAtividade(13)">🎲 Gerar Atividades</button>
 </div>
-<div id="atividade-13" style="margin-top:15px">   defina oque e entrada de dados </div>
+<div id="atividade-13" style="margin-top:15px">     
+        
+        <ol>
+    <li> 1.O que é entrada de dados e qual é a sua importância para um sistema?</li>
+
+    <li> 2.Cite três exemplos de situações do dia a dia em que ocorre entrada de dados.</li>
+
+    <li> 3.Quais são as principais etapas do processo de entrada de dados? Explique cada uma delas.</li>
+
+    <li> 4.Por que é importante validar os dados antes de armazená-los em um sistema?</li>
+
+    <li> 5.Qual é a função de um formulário na entrada de dados?</li>
+
+    <li> 6.Explique a diferença entre dados e informações dentro de um sistema.</li>
+
+    <li> 7.O que pode acontecer quando um usuário fornece dados incorretos ou incompletos?</li>
+
+    <li> 8.Como a entrada de dados pode ser utilizada em uma empresa para melhorar a organização das informações?</li>
+
+    <li> 9.Imagine que uma escola deseja cadastrar seus alunos em um sistema. Quais dados poderiam ser coletados e como eles poderiam ser utilizados?</li>
+
+    <li> 10.Explique, com suas próprias palavras, por que a entrada de dados é importante para o funcionamento de programas, sites e sistemas digitais.</li>
+</ol> </div> </div>
 </div>
 
 
