@@ -1008,16 +1008,9 @@ console.log("Olá, " + nome);</code></pre>
 <summary>📝 Atividades de fixação</summary>
 <div class="aula-conteudo">
 <p>Responda às questões sobre <strong>Entrada de dados</strong>. Escolha a quantidade e gere uma atividade para revisão.</p>
-<div class="config-atividade">
-<label for="q-13">Quantidade:</label>
-<select id="q-13">
-<option value="5">5 questões</option><option value="10" selected>10 questões</option><option value="15">15 questões</option>
-</select>
-<button type="button" class="btn-gerar" onclick="gerarAtividade(13)">🎲 Gerar Atividades</button>
-</div>
-<div id="atividade-13" style="margin-top:15px">   defina oque e entrada de dados </div>
-</div>
 
+
+        
         <script>
 function gerarAtividade(numero){
     const qtd = Number(document.getElementById('q-'+numero).value);
@@ -1042,6 +1035,17 @@ function gerarAtividade(numero){
     area.innerHTML = html;
 }
 </script>
+        
+<div class="config-atividade">
+<label for="q-13">Quantidade:</label>
+<select id="q-13">
+<option value="5">5 questões</option><option value="10" selected>10 questões</option><option value="15">15 questões</option>
+</select>
+<button type="button" class="btn-gerar" onclick="gerarAtividade(13)">🎲 Gerar Atividades</button>
+</div>
+<div id="atividade-13" style="margin-top:15px">   defina oque e entrada de dados </div>
+</div>
+
 
 
         
