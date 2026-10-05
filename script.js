@@ -1235,3 +1235,283 @@ function iniciarMenuAtivo() {
         }
     });
 }
+
+/*=====================================================
+   SISTEMA DE BUSCA
+=====================================================*/
+
+const formularioBusca = document.querySelector("#formBusca");
+const campoBusca = document.querySelector("#campoBusca");
+const resultadosBusca = document.querySelector("#resultadosBusca");
+const mensagemBusca = document.querySelector("#mensagemBusca");
+
+
+/* Matérias que serão pesquisadas */
+
+const paginasBusca = [
+
+    {
+        nome: "Algoritmo e Estrutura de Dados",
+        arquivo: "AlgoritmoeEstruturadeDados.html"
+    },
+
+    {
+        nome: "Arquitetura de Sistemas",
+        arquivo: "ArquiteturadeSistemas.html"
+    },
+
+    {
+        nome: "Desenvolvimento Front End I",
+        arquivo: "DesenvolvimentoFrontEndI.html"
+    },
+
+    {
+        nome: "Desenvolvimento de Aplicativos",
+        arquivo: "DesenvolvimentodeAplicativos.html"
+    },
+
+    {
+        nome: "Desenvolvimento de Softwares",
+        arquivo: "DesenvolvimentodeSoftwares.html"
+    },
+
+    {
+        nome: "Desenvolvimento Back-End",
+        arquivo: "DesenvolvimentoBackEnd.html"
+    }
+
+];
+
+
+/*=====================================================
+   FUNÇÃO PARA PEGAR O TEXTO DA PÁGINA
+=====================================================*/
+
+async function buscarNaPagina(pagina, pesquisa) {
+
+    try {
+
+        const resposta = await fetch(pagina.arquivo);
+
+        if (!resposta.ok) {
+            return null;
+        }
+
+        const html = await resposta.text();
+
+        const documento = new DOMParser().parseFromString(
+            html,
+            "text/html"
+        );
+
+        const texto = documento.body.innerText;
+
+        const textoMinusculo = texto.toLowerCase();
+
+        const pesquisaMinuscula = pesquisa.toLowerCase();
+
+        const posicao = textoMinusculo.indexOf(
+            pesquisaMinuscula
+        );
+
+        if (posicao === -1) {
+            return null;
+        }
+
+
+        /* Pega um pequeno trecho ao redor do resultado */
+
+        const inicio = Math.max(
+            0,
+            posicao - 120
+        );
+
+        const fim = Math.min(
+            texto.length,
+            posicao + pesquisa.length + 180
+        );
+
+        let trecho = texto.substring(
+            inicio,
+            fim
+        );
+
+
+        /* Destaca o termo pesquisado */
+
+        const regex = new RegExp(
+            `(${pesquisa.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
+            "gi"
+        );
+
+        trecho = trecho.replace(
+            regex,
+            "<mark>$1</mark>"
+        );
+
+
+        return {
+            nome: pagina.nome,
+            arquivo: pagina.arquivo,
+            trecho: trecho
+        };
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao pesquisar:",
+            pagina.arquivo,
+            erro
+        );
+
+        return null;
+    }
+
+}
+
+
+/*=====================================================
+   EXECUTA A BUSCA
+=====================================================*/
+
+async function executarBusca(pesquisa) {
+
+    if (!resultadosBusca || !mensagemBusca) {
+        return;
+    }
+
+
+    resultadosBusca.innerHTML = "";
+
+    mensagemBusca.textContent =
+        `Pesquisando por "${pesquisa}"...`;
+
+
+    const resultados = [];
+
+
+    for (const pagina of paginasBusca) {
+
+        const resultado = await buscarNaPagina(
+            pagina,
+            pesquisa
+        );
+
+        if (resultado) {
+            resultados.push(resultado);
+        }
+
+    }
+
+
+    /* Nenhum resultado */
+
+    if (resultados.length === 0) {
+
+        mensagemBusca.textContent =
+            `Nenhum resultado encontrado para "${pesquisa}".`;
+
+        return;
+    }
+
+
+    /* Resultados encontrados */
+
+    mensagemBusca.textContent =
+        `${resultados.length} matéria(s) encontrada(s) para "${pesquisa}".`;
+
+
+    resultados.forEach(resultado => {
+
+        const card = document.createElement("article");
+
+        card.className = "resultado-busca";
+
+
+        card.innerHTML = `
+
+            <h3>
+                ${resultado.nome}
+            </h3>
+
+            <p>
+                ${resultado.trecho}
+            </p>
+
+            <a
+                href="${resultado.arquivo}"
+                class="btn-menu"
+            >
+                📖 Abrir matéria
+            </a>
+
+        `;
+
+
+        resultadosBusca.appendChild(card);
+
+    });
+
+}
+
+
+/*=====================================================
+   ENVIO DO FORMULÁRIO
+=====================================================*/
+
+if (formularioBusca && campoBusca) {
+
+    formularioBusca.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            const pesquisa =
+                campoBusca.value.trim();
+
+
+            if (pesquisa === "") {
+
+                alert(
+                    "Digite algo para pesquisar."
+                );
+
+                campoBusca.focus();
+
+                return;
+            }
+
+
+            executarBusca(pesquisa);
+
+        }
+    );
+
+}
+
+
+/*=====================================================
+   BUSCA AUTOMÁTICA PELO LINK ?q=
+=====================================================*/
+
+const parametros =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const pesquisaInicial =
+    parametros.get("q");
+
+
+if (
+    pesquisaInicial &&
+    campoBusca &&
+    resultadosBusca
+) {
+
+    campoBusca.value = pesquisaInicial;
+
+    executarBusca(pesquisaInicial);
+
+}
