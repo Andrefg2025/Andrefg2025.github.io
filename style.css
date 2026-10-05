@@ -224,25 +224,6 @@ body {
 
 
 
-/* Botão buscar */
-
-@media (max-width: 600px) {
-
-    .busca-wrapper {
-        padding: 8px 12px;
-    }
-
-    .barra-busca input {
-        height: 42px;
-        font-size: 12px;
-    }
-
-    .btn-busca {
-        height: 42px;
-        padding: 0 14px;
-        font-size: 12px;
-    }
-}
 
 .btn-busca {
     height: 44px;
@@ -275,6 +256,27 @@ body {
     box-shadow:
         0 5px 15px rgba(255, 107, 0, 0.25);
 }
+
+/*---RESPONSIVIDADE----*/
+
+@media (max-width: 600px) {
+
+    .busca-wrapper {
+        padding: 8px 12px;
+    }
+
+    .barra-busca input {
+        height: 42px;
+        font-size: 12px;
+    }
+
+    .btn-busca {
+        height: 42px;
+        padding: 0 14px;
+        font-size: 12px;
+    }
+}
+
 /* =========================================================
    LINKS
 ========================================================= */
