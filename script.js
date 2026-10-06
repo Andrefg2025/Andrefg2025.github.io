@@ -18,33 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/*=====================================================
-   CAMPO DE BUSCA
-=====================================================*/ 
 
-const formularioBusca = document.querySelector(".barra-busca");
-const campoBusca = document.querySelector("#campoBusca");
-
-if (formularioBusca && campoBusca) {
-
-    formularioBusca.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        const pesquisa = campoBusca.value.trim();
-
-        if (pesquisa === "") {
-            alert("Digite algo para pesquisar.");
-            campoBusca.focus();
-            return;
-        }
-
-        window.location.href =
-            "busca.html?q=" + encodeURIComponent(pesquisa);
-
-    });
-
-}
 
 
 /* =========================================================
@@ -1470,7 +1444,6 @@ if (formularioBusca && campoBusca) {
             const pesquisa =
                 campoBusca.value.trim();
 
-
             if (pesquisa === "") {
 
                 alert(
@@ -1482,15 +1455,27 @@ if (formularioBusca && campoBusca) {
                 return;
             }
 
+            /* Se estiver na página de busca,
+               executa a pesquisa */
 
-            executarBusca(pesquisa);
+            if (resultadosBusca) {
+
+                executarBusca(pesquisa);
+
+                return;
+            }
+
+            /* Se estiver em outra página,
+               vai para busca.html */
+
+            window.location.href =
+                "busca.html?q=" +
+                encodeURIComponent(pesquisa);
 
         }
     );
 
 }
-
-
 /*=====================================================
    BUSCA AUTOMÁTICA PELO LINK ?q=
 =====================================================*/
