@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /*=====================================================
    CAMPO DE BUSCA
-=====================================================*/
+=====================================================*/ 
 
 const formularioBusca = document.querySelector(".barra-busca");
 const campoBusca = document.querySelector("#campoBusca");
