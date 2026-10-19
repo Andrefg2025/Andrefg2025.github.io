@@ -1045,38 +1045,606 @@ console.log("Olá, " + nome);</code></pre>
 </details>
 </div>
 </details>
-<details class="aula" id="aula-16">
-<summary>Aula 16 — Operadores relacionais - LETICIA ABALEM DE PAULA</summary>
-<div class="aula-conteudo">
-<h3>Operadores relacionais</h3>
-<p>Esta aula integra a <strong>Unidade 3 — Variáveis e Operadores</strong> e desenvolve os conhecimentos necessários para avançar na sequência de Algoritmos e Estruturas de Dados.</p>
-<p>Estudo orientado sobre <strong>Operadores relacionais</strong>, com conceitos, exemplos, exercícios e aplicação prática.</p>
-<div class="cards">
-<article class="card"><h3>Conceitos-chave</h3><p>Identifique os conceitos centrais da aula e registre definições com suas próprias palavras.</p></article>
-<article class="card"><h3>Exemplo prático</h3><p>Relacione o conteúdo a uma situação cotidiana ou a um problema que possa ser resolvido por computador.</p></article>
-<article class="card"><h3>Prática</h3><p>Construa, teste ou analise uma solução utilizando o conhecimento estudado.</p></article>
-</div>
-<section class="mapa-mental-section">
-<h2 class="titulo-secao">🧠 Mapa Mental</h2>
-<p>Use os conceitos desta aula para construir um mapa mental com o tema <strong>Operadores relacionais</strong>.</p>
-<div class="mapa-mental">Tema central → conceitos principais → exemplos → aplicações → conclusão.</div>
-</section>
-<details class="aula atividades-container"><summary>📝 Atividades de fixação</summary>
 
-<div class="aula-conteudo">
-<p>Responda às questões sobre <strong>Operadores relacionais</strong>. Escolha a quantidade e gere uma atividade para revisão.</p>
-<div class="config-atividade">
-<label for="q-16">Quantidade:</label>
-<select id="q-16">
-<option value="5">5 questões</option><option selected="" value="10">10 questões</option><option value="15">15 questões</option>
-</select>
-<button class="btn-gerar" onclick="gerarAtividade(16)" type="button">🎲 Gerar Atividades</button>
-</div>
-<div id="atividade-16" style="margin-top:15px"></div>
-</div>
+<details class="aula" id="aula-16">
+  <summary>Aula 16 — Operadores relacionais - LETICIA ABALEM DE PAULA</summary>
+
+  <div class="aula-conteudo">
+
+    <h3>🤔 O que são operadores relacionais?</h3>
+
+    <p>
+      Sabe quando você quer saber se uma nota foi maior que 7, se duas
+      pessoas têm a mesma idade ou se o dinheiro que você tem é suficiente
+      para comprar alguma coisa? Para descobrir isso, fazemos comparações.
+    </p>
+
+    <p>
+      Na programação, usamos os <strong>operadores relacionais</strong>
+      para fazer essas comparações. O resultado será sempre
+      <strong>verdadeiro (true) ou falso (false)</strong>.
+    </p>
+
+    <div class="cards">
+      <article class="card">
+        <h3>📚 Entenda</h3>
+        <p>Os operadores relacionais servem para comparar dois valores.</p>
+      </article>
+
+      <article class="card">
+        <h3>💡 Exemplo</h3>
+        <p>Se a nota é 8, a comparação 8 &gt; 7 é verdadeira.</p>
+      </article>
+
+      <article class="card">
+        <h3>💻 Na prática</h3>
+        <p>Podemos usar essas comparações para tomar decisões dentro de um programa.</p>
+      </article>
+    </div>
+
+    <h3>🔎 Conhecendo os operadores</h3>
+
+    <p>
+      Cada operador tem uma função. Veja a tabela para entender melhor:
+    </p>
+
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Operador</th>
+            <th>O que significa?</th>
+            <th>Exemplo</th>
+            <th>Resultado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>===</code></td>
+            <td>Igual a</td>
+            <td><code>5 === 5</code></td>
+            <td>Verdadeiro</td>
+          </tr>
+          <tr>
+            <td><code>!==</code></td>
+            <td>Diferente de</td>
+            <td><code>5 !== 3</code></td>
+            <td>Verdadeiro</td>
+          </tr>
+          <tr>
+            <td><code>&gt;</code></td>
+            <td>Maior que</td>
+            <td><code>10 &gt; 4</code></td>
+            <td>Verdadeiro</td>
+          </tr>
+          <tr>
+            <td><code>&lt;</code></td>
+            <td>Menor que</td>
+            <td><code>2 &lt; 8</code></td>
+            <td>Verdadeiro</td>
+          </tr>
+          <tr>
+            <td><code>&gt;=</code></td>
+            <td>Maior ou igual a</td>
+            <td><code>7 &gt;= 7</code></td>
+            <td>Verdadeiro</td>
+          </tr>
+          <tr>
+            <td><code>&lt;=</code></td>
+            <td>Menor ou igual a</td>
+            <td><code>4 &lt;= 3</code></td>
+            <td>Falso</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      <strong>Dica:</strong> não precisa decorar tudo de uma vez.
+      Tente entender o que cada símbolo está perguntando.
+    </p>
+
+    <h3>🟰 1. Igual a</h3>
+
+    <p>
+      Esse operador verifica se dois valores são iguais. Em JavaScript,
+      usamos <code>===</code> para comparar o valor e o tipo.
+    </p>
+
+    <pre><code>let idade = 18;
+
+console.log(idade === 18); // true
+console.log(idade === 20); // false</code></pre>
+
+    <p>
+      No primeiro caso, o resultado é verdadeiro porque a idade é 18.
+      No segundo, é falso porque 18 não é igual a 20.
+    </p>
+
+    <h3>🔀 2. Diferente de</h3>
+
+    <p>
+      Aqui queremos saber se dois valores são diferentes. Em JavaScript,
+      usamos <code>!==</code> para comparar valor e tipo.
+    </p>
+
+    <pre><code>let senha = "abc";
+
+console.log(senha !== "123"); // true</code></pre>
+
+    <p>
+      Como as duas senhas são diferentes, o resultado é verdadeiro.
+    </p>
+
+    <h3>⬆️ 3. Maior que</h3>
+
+    <p>
+      O símbolo <code>&gt;</code> verifica se um valor é maior que o outro.
+    </p>
+
+    <pre><code>console.log(10 > 5); // true
+console.log(3 > 8);  // false</code></pre>
+
+    <p>
+      Dez é maior que cinco, então o resultado é verdadeiro.
+      Já três não é maior que oito.
+    </p>
+
+    <h3>⬇️ 4. Menor que</h3>
+
+    <p>
+      O símbolo <code>&lt;</code> faz o contrário: verifica se um valor
+      é menor que o outro.
+    </p>
+
+    <pre><code>console.log(2 < 6);  // true
+console.log(9 < 4);  // false</code></pre>
+
+    <h3>☑️ 5. Maior ou igual a</h3>
+
+    <p>
+      O operador <code>&gt;=</code> verifica se um valor é maior
+      ou se é exatamente igual ao outro.
+    </p>
+
+    <pre><code>let nota = 7;
+
+console.log(nota >= 7); // true</code></pre>
+
+    <p>
+      A nota é exatamente 7. Por isso, a comparação é verdadeira.
+      Se fosse apenas <code>&gt;</code>, o resultado seria falso.
+    </p>
+
+    <h3>☑️ 6. Menor ou igual a</h3>
+
+    <p>
+      O operador <code>&lt;=</code> verifica se um valor é menor
+      ou igual ao outro.
+    </p>
+
+    <pre><code>let dinheiro = 50;
+let preco = 50;
+
+console.log(preco <= dinheiro); // true</code></pre>
+
+    <p>
+      O preço é igual ao dinheiro disponível. Então, a comparação
+      é verdadeira.
+    </p>
+
+    <h3>⚠️ Cuidado para não confundir!</h3>
+
+    <p>
+      O sinal de igual pode ter funções diferentes na programação.
+      Veja a diferença:
+    </p>
+
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Símbolo</th>
+            <th>Para que serve?</th>
+            <th>Exemplo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>=</code></td>
+            <td>Guarda um valor em uma variável.</td>
+            <td><code>idade = 18;</code></td>
+          </tr>
+          <tr>
+            <td><code>==</code></td>
+            <td>Compara valores, podendo converter tipos.</td>
+            <td><code>7 == "7"</code> → true</td>
+          </tr>
+          <tr>
+            <td><code>===</code></td>
+            <td>Compara valor e tipo.</td>
+            <td><code>7 === "7"</code> → false</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Em JavaScript, é uma boa prática usar <code>===</code> quando
+      você quer comparar valores sem conversão automática de tipos.
+    </p>
+
+    <h3>💻 Como isso aparece em um programa?</h3>
+
+    <p>
+      Imagine um programa que precisa verificar se um aluno tirou
+      nota suficiente para ser aprovado. Podemos fazer assim:
+    </p>
+
+    <pre><code>let nota = 8;
+
+if (nota >= 7) {
+  console.log("Aprovado!");
+} else {
+  console.log("Não atingiu a média.");
+}</code></pre>
+
+    <p>
+      Como a nota é 8, a condição <code>nota &gt;= 7</code> é verdadeira.
+      Por isso, o programa mostra <strong>"Aprovado!"</strong>.
+    </p>
+
+    <p>
+      Se a nota fosse 5, a condição seria falsa e o programa mostraria
+      a outra mensagem.
+    </p>
+
+    <h3>🎮 Vamos testar na prática?</h3>
+
+    <p>
+      Escolha dois números, selecione um operador e veja o resultado
+      da comparação.
+    </p>
+
+    <div class="card">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;">
+        <div>
+          <label for="rel-a16">Primeiro número</label>
+          <input id="rel-a16" type="number" value="10"
+            style="width:100%;box-sizing:border-box;">
+        </div>
+
+        <div>
+          <label for="rel-op16">Operador</label>
+          <select id="rel-op16" style="width:100%;">
+            <option value="===">Igual (===)</option>
+            <option value="!==">Diferente (!==)</option>
+            <option value=">">Maior (&gt;)</option>
+            <option value="<">Menor (&lt;)</option>
+            <option value=">=">Maior ou igual (&gt;=)</option>
+            <option value="<=">Menor ou igual (&lt;=)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="rel-b16">Segundo número</label>
+          <input id="rel-b16" type="number" value="5"
+            style="width:100%;box-sizing:border-box;">
+        </div>
+      </div>
+
+      <button type="button" onclick="testarRelacional16()"
+        style="margin-top:15px;cursor:pointer;">
+        🔍 Comparar
+      </button>
+
+      <p id="rel-resultado16" aria-live="polite">
+        Escolha os números e clique em Comparar.
+      </p>
+    </div>
+
+    <h3>🧠 Mapa mental</h3>
+
+    <p>
+      Use este resumo para lembrar os pontos mais importantes da aula:
+    </p>
+
+    <div class="mapa-mental-section">
+      <div class="mapa-mental">
+        <p><strong>OPERADORES RELACIONAIS</strong></p>
+        <p>↓</p>
+        <p>Servem para comparar valores</p>
+        <p>↓</p>
+        <p>Igual: <code>===</code> | Diferente: <code>!==</code></p>
+        <p>Maior: <code>&gt;</code> | Menor: <code>&lt;</code></p>
+        <p>Maior ou igual: <code>&gt;=</code></p>
+        <p>Menor ou igual: <code>&lt;=</code></p>
+        <p>↓</p>
+        <p>Resultado: verdadeiro ou falso</p>
+        <p>↓</p>
+        <p>Usamos em condições e decisões</p>
+      </div>
+    </div>
+
+    <h3>📌 Resumindo</h3>
+
+    <ul>
+      <li>Operadores relacionais servem para comparar valores.</li>
+      <li>O resultado de uma comparação é verdadeiro ou falso.</li>
+      <li>Cada símbolo tem um significado diferente.</li>
+      <li>Não confunda o sinal de atribuição <code>=</code> com os operadores de comparação.</li>
+      <li>Esses operadores ajudam o programa a tomar decisões.</li>
+    </ul>
+
+    <details class="aula atividades-container">
+      <summary>📝 Agora é sua vez! — Atividades de fixação</summary>
+
+      <div class="aula-conteudo">
+        <p>
+          Vamos ver o que você aprendeu? Escolha quantas questões quer
+          responder e clique no botão para começar.
+        </p>
+
+        <div class="config-atividade">
+          <label for="q-16">Quantidade de questões:</label>
+
+          <select id="q-16">
+            <option value="5">5 questões</option>
+            <option selected value="10">10 questões</option>
+            <option value="15">15 questões</option>
+          </select>
+
+          <button class="btn-gerar" onclick="gerarAtividade(16)" type="button">
+            🎲 Começar atividade
+          </button>
+        </div>
+
+        <div id="atividade-16" style="margin-top:15px;"></div>
+      </div>
+    </details>
+
+  </div>
 </details>
-</div>
-</details>
+
+<script>
+(function () {
+  const banco16 = [
+    {
+      p: "Para que servem os operadores relacionais?",
+      a: ["Somar números", "Comparar valores", "Criar arquivos", "Apagar variáveis"],
+      c: 1,
+      e: "Eles comparam valores e retornam verdadeiro ou falso."
+    },
+    {
+      p: "Qual é o resultado de 8 > 5?",
+      a: ["Falso", "Verdadeiro", "13", "Erro"],
+      c: 1,
+      e: "Oito é maior que cinco."
+    },
+    {
+      p: "Qual símbolo significa menor que?",
+      a: [">", "===", "<", ">="],
+      c: 2,
+      e: "O símbolo < significa menor que."
+    },
+    {
+      p: "Em JavaScript, qual operador compara valor e tipo?",
+      a: ["=", "==", "===", "!="],
+      c: 2,
+      e: "O operador === compara o valor e o tipo."
+    },
+    {
+      p: "Quanto é 10 <= 10?",
+      a: ["Verdadeiro", "Falso", "20", "Erro"],
+      c: 0,
+      e: "O operador <= também aceita valores iguais."
+    },
+    {
+      p: "Qual é o resultado de 4 !== 4?",
+      a: ["Verdadeiro", "Falso", "4", "Erro"],
+      c: 1,
+      e: "Os dois valores são iguais e têm o mesmo tipo."
+    },
+    {
+      p: "Qual operador significa maior ou igual?",
+      a: ["<=", "===", ">=", "!=="],
+      c: 2,
+      e: "O operador >= verifica se um valor é maior ou igual."
+    },
+    {
+      p: "Para que serve o sinal = em JavaScript?",
+      a: [
+        "Comparar dois valores",
+        "Atribuir um valor a uma variável",
+        "Multiplicar valores",
+        "Verificar se um número é maior"
+      ],
+      c: 1,
+      e: "O sinal = atribui um valor a uma variável."
+    },
+    {
+      p: "Se nota = 6, qual é o resultado de nota >= 7?",
+      a: ["Verdadeiro", "Falso", "7", "6"],
+      c: 1,
+      e: "Seis é menor que sete."
+    },
+    {
+      p: "Qual é o resultado de 3 < 9?",
+      a: ["Falso", "Verdadeiro", "12", "Erro"],
+      c: 1,
+      e: "Três é menor que nove."
+    },
+    {
+      p: "Qual operador verifica se os valores são diferentes, incluindo seus tipos?",
+      a: ["!==", "===", "=", ">"],
+      c: 0,
+      e: "O operador !== compara diferença de valor ou tipo."
+    },
+    {
+      p: "Se idade = 18, quanto é idade >= 18?",
+      a: ["Falso", "Verdadeiro", "Erro", "17"],
+      c: 1,
+      e: "A comparação >= considera também os valores iguais."
+    },
+    {
+      p: "Qual é o resultado de 7 === '7' em JavaScript?",
+      a: ["Verdadeiro", "Falso", "14", "Erro"],
+      c: 1,
+      e: "Um é número e o outro é texto. Os tipos são diferentes."
+    },
+    {
+      p: "Qual operador significa menor ou igual?",
+      a: [">", "<=", "!==", "==="],
+      c: 1,
+      e: "O operador <= verifica se um valor é menor ou igual."
+    },
+    {
+      p: "Por que usamos operadores relacionais em um if?",
+      a: [
+        "Para guardar imagens",
+        "Para verificar condições e tomar decisões",
+        "Para apagar o código",
+        "Para transformar números em arquivos"
+      ],
+      c: 1,
+      e: "O if verifica uma condição para decidir qual bloco executar."
+    }
+  ];
+
+  window.testarRelacional16 = function () {
+    const campoA = document.getElementById("rel-a16");
+    const campoB = document.getElementById("rel-b16");
+    const op = document.getElementById("rel-op16").value;
+    const resultado = document.getElementById("rel-resultado16");
+
+    if (campoA.value.trim() === "" || campoB.value.trim() === "") {
+      resultado.textContent = "Digite os dois números para fazer a comparação.";
+      return;
+    }
+
+    const a = Number(campoA.value);
+    const b = Number(campoB.value);
+    let r;
+
+    switch (op) {
+      case "===": r = a === b; break;
+      case "!==": r = a !== b; break;
+      case ">": r = a > b; break;
+      case "<": r = a < b; break;
+      case ">=": r = a >= b; break;
+      case "<=": r = a <= b; break;
+    }
+
+    resultado.textContent =
+      a + " " + op + " " + b + " → " +
+      (r ? "Verdadeiro! ✅" : "Falso! ❌");
+  };
+
+  window.gerarAtividade = function (numero) {
+    if (Number(numero) !== 16) {
+      alert("Este gerador é da Aula 16.");
+      return;
+    }
+
+    const quantidade = Number(document.getElementById("q-16").value);
+    const destino = document.getElementById("atividade-16");
+
+    const questoes = banco16
+      .map(q => ({ ...q }))
+      .sort(() => Math.random() - 0.5)
+      .slice(0, Math.min(quantidade, banco16.length));
+
+    destino.replaceChildren();
+
+    const formulario = document.createElement("form");
+
+    questoes.forEach((q, i) => {
+      const bloco = document.createElement("fieldset");
+      bloco.style.marginBottom = "18px";
+
+      const legenda = document.createElement("legend");
+      legenda.textContent = (i + 1) + ". " + q.p;
+      bloco.appendChild(legenda);
+
+      q.a.forEach((alternativa, j) => {
+        const rotulo = document.createElement("label");
+        rotulo.style.display = "block";
+        rotulo.style.margin = "8px 0";
+
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "questao16-" + i;
+        radio.value = String(j);
+        radio.required = true;
+
+        rotulo.appendChild(radio);
+        rotulo.appendChild(document.createTextNode(" " + alternativa));
+        bloco.appendChild(rotulo);
+      });
+
+      const feedback = document.createElement("p");
+      feedback.setAttribute("aria-live", "polite");
+      feedback.style.marginTop = "10px";
+      bloco.appendChild(feedback);
+
+      q.feedback = feedback;
+      q.bloco = bloco;
+
+      formulario.appendChild(bloco);
+    });
+
+    const corrigir = document.createElement("button");
+    corrigir.type = "submit";
+    corrigir.className = "btn-gerar";
+    corrigir.textContent = "✅ Conferir minhas respostas";
+    formulario.appendChild(corrigir);
+
+    const resultado = document.createElement("div");
+    resultado.style.marginTop = "15px";
+    resultado.setAttribute("aria-live", "polite");
+
+    formulario.addEventListener("submit", function (evento) {
+      evento.preventDefault();
+
+      let acertos = 0;
+
+      questoes.forEach((q, i) => {
+        const selecionada = formulario.querySelector(
+          'input[name="questao16-' + i + '"]:checked'
+        );
+
+        const correta = Number(selecionada.value) === q.c;
+
+        if (correta) acertos++;
+
+        q.feedback.textContent =
+          (correta ? "✅ Boa! " : "❌ Não foi dessa vez. ") +
+          "Resposta correta: " + q.a[q.c] + ". " + q.e;
+      });
+
+      resultado.textContent =
+        "Você acertou " + acertos + " de " + questoes.length +
+        " questões (" +
+        Math.round(acertos / questoes.length * 100) +
+        "%). " +
+        (acertos === questoes.length
+          ? "Parabéns, você mandou muito bem! 🎉"
+          : "Revise as explicações e tente novamente em outra rodada.");
+
+      corrigir.disabled = true;
+
+      formulario.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.disabled = true;
+      });
+    });
+
+    destino.appendChild(formulario);
+    destino.appendChild(resultado);
+    destino.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+})();
+</script>
+
 <details class="aula" id="aula-17">
 <summary>Aula 17 — Operadores lógicos - MARCOS VINÍCIUS BARBOSA MIRANDA FILHO</summary>
 <div class="aula-conteudo">
