@@ -3932,33 +3932,167 @@ mostrar soma</code></pre>
 <details class="aula" id="aula-48">
 <summary>Aula 48 — Matrizes - LETICIA ABALEM DE PAULA</summary>
 <div class="aula-conteudo">
+
 <h3>Matrizes</h3>
-<p>Esta aula integra a <strong>Unidade 8 — Vetores e Matrizes</strong> e desenvolve os conhecimentos necessários para avançar na sequência de Algoritmos e Estruturas de Dados.</p>
-<p>Estudo orientado sobre <strong>Matrizes</strong>, com conceitos, exemplos, exercícios e aplicação prática.</p>
+
+<p>Esta aula integra a <strong>Unidade 8 — Vetores e Matrizes</strong> e ensina como organizar informações em linhas e colunas usando matrizes.</p>
+
+<p>Vamos aprender o que são matrizes, como acessar seus elementos, ver exemplos e praticar com exercícios.</p>
+
 <div class="cards">
-<article class="card"><h3>Conceitos-chave</h3><p>Identifique os conceitos centrais da aula e registre definições com suas próprias palavras.</p></article>
-<article class="card"><h3>Exemplo prático</h3><p>Relacione o conteúdo a uma situação cotidiana ou a um problema que possa ser resolvido por computador.</p></article>
-<article class="card"><h3>Prática</h3><p>Construa, teste ou analise uma solução utilizando o conhecimento estudado.</p></article>
+    <article class="card">
+        <h3>📚 Conceitos-chave</h3>
+        <p>Uma matriz é uma estrutura que armazena vários valores organizados em linhas e colunas. Ela funciona como uma tabela.</p>
+    </article>
+
+    <article class="card">
+        <h3>💻 Exemplo prático</h3>
+        <p>Uma escola pode usar uma matriz para guardar as notas de vários alunos em diferentes matérias.</p>
+    </article>
+
+    <article class="card">
+        <h3>🎯 Prática</h3>
+        <p>Crie matrizes, acesse seus elementos e pratique como preencher e mostrar os valores armazenados.</p>
+    </article>
 </div>
+
+<section>
+<h3>📖 O que são matrizes?</h3>
+
+<p>Uma matriz é parecida com uma tabela. Ela possui <strong>linhas</strong> e <strong>colunas</strong>, permitindo guardar vários dados em uma única estrutura.</p>
+
+<p>Por exemplo, podemos representar as notas de dois alunos em três provas:</p>
+
+<table>
+<thead>
+<tr>
+<th>Aluno</th>
+<th>Prova 1</th>
+<th>Prova 2</th>
+<th>Prova 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana</td>
+<td>8</td>
+<td>7</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Pedro</td>
+<td>6</td>
+<td>8</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+
+<p>Nesse exemplo, temos uma organização de dados em linhas e colunas, como acontece em uma matriz.</p>
+</section>
+
+<section>
+<h3>🔢 Linhas, colunas e elementos</h3>
+
+<ul>
+    <li><strong>Linhas:</strong> representam os dados organizados horizontalmente.</li>
+    <li><strong>Colunas:</strong> representam os dados organizados verticalmente.</li>
+    <li><strong>Elementos:</strong> são os valores guardados na matriz.</li>
+    <li><strong>Índices:</strong> indicam a posição de cada elemento.</li>
+</ul>
+
+<p>Em muitas linguagens de programação, os índices começam em zero. Assim, a primeira linha e a primeira coluna possuem índice 0.</p>
+</section>
+
+<section>
+<h3>💻 Exemplo de matriz em JavaScript</h3>
+
+<p>Veja como criar uma matriz usando JavaScript:</p>
+
+<pre><code>let numeros = [
+    [10, 20, 30],
+    [40, 50, 60],
+    [70, 80, 90]
+];
+
+console.log(numeros[0][0]); // 10
+console.log(numeros[1][2]); // 60
+console.log(numeros[2][1]); // 80</code></pre>
+
+<p>O primeiro índice indica a linha e o segundo indica a coluna.</p>
+
+<p>Por exemplo, <code>numeros[1][2]</code> acessa o valor 60, que está na segunda linha e na terceira coluna.</p>
+</section>
+
+<section>
+<h3>🛠️ Como preencher e mostrar uma matriz</h3>
+
+<p>Podemos utilizar laços de repetição para percorrer uma matriz e mostrar todos os seus elementos.</p>
+
+<pre><code>let matriz = [
+    [1, 2, 3],
+    [4, 5, 6]
+];
+
+for (let linha = 0; linha &lt; matriz.length; linha++) {
+    for (let coluna = 0; coluna &lt; matriz[linha].length; coluna++) {
+        console.log(matriz[linha][coluna]);
+    }
+}</code></pre>
+
+<p>O primeiro <code>for</code> percorre as linhas, enquanto o segundo percorre as colunas de cada linha.</p>
+</section>
+
+<section>
+<h3>🌎 Onde as matrizes são utilizadas?</h3>
+
+<ul>
+    <li>Em planilhas com dados organizados em tabelas.</li>
+    <li>Em jogos para representar mapas e tabuleiros.</li>
+    <li>Em sistemas escolares para armazenar notas.</li>
+    <li>Em imagens digitais para organizar pixels.</li>
+    <li>Em sistemas que trabalham com cálculos matemáticos.</li>
+</ul>
+</section>
+
 <section class="mapa-mental-section">
 <h2 class="titulo-secao">🧠 Mapa Mental</h2>
-<p>Use os conceitos desta aula para construir um mapa mental com o tema <strong>Matrizes</strong>.</p>
-<div class="mapa-mental">Tema central → conceitos principais → exemplos → aplicações → conclusão.</div>
+
+<div class="mapa-mental">
+    <p><strong>MATRIZES</strong></p>
+    <p>↳ <strong>Estrutura:</strong> linhas e colunas</p>
+    <p>↳ <strong>Elementos:</strong> valores armazenados</p>
+    <p>↳ <strong>Índices:</strong> posição dos elementos</p>
+    <p>↳ <strong>Operações:</strong> criar, acessar, alterar e percorrer</p>
+    <p>↳ <strong>Repetição:</strong> laços dentro de outros laços</p>
+    <p>↳ <strong>Aplicações:</strong> notas, jogos, tabelas e imagens</p>
+</div>
 </section>
-<details class="aula atividades-container"><summary>📝 Atividades de fixação</summary>
+
+<details class="aula atividades-container">
+<summary>📝 Atividades de fixação</summary>
 
 <div class="aula-conteudo">
-<p>Responda às questões sobre <strong>Matrizes</strong>. Escolha a quantidade e gere uma atividade para revisão.</p>
+
+<p>Responda às questões sobre <strong>Matrizes</strong>. Escolha a quantidade e gere uma atividade para revisar o conteúdo.</p>
+
 <div class="config-atividade">
 <label for="q-48">Quantidade:</label>
+
 <select id="q-48">
-<option value="5">5 questões</option><option selected="" value="10">10 questões</option><option value="15">15 questões</option>
+<option value="5">5 questões</option>
+<option selected="" value="10">10 questões</option>
+<option value="15">15 questões</option>
 </select>
+
 <button class="btn-gerar" onclick="gerarAtividade(48)" type="button">🎲 Gerar Atividades</button>
 </div>
+
 <div id="atividade-48" style="margin-top:15px"></div>
+
 </div>
 </details>
+
 </div>
 </details>
 <details class="aula" id="aula-49">
