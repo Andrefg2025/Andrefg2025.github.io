@@ -3877,13 +3877,83 @@ O algoritmo deverá utilizar uma variável global para armazenar o nome do aluno
 <details class="aula" id="aula-44">
 <summary>Aula 44 — Vetores - JOANN SMITH CUSTODIO</summary>
 <div class="aula-conteudo">
-<h3>Vetores</h3>
-<p>Esta aula integra a <strong>Unidade 8 — Vetores e Matrizes</strong> e desenvolve os conhecimentos necessários para avançar na sequência de Algoritmos e Estruturas de Dados.</p>
-<p>Estudo orientado sobre <strong>Vetores</strong>, com conceitos, exemplos, exercícios e aplicação prática.</p>
+<h3>O que são vetores?</h3>
+<p>Vetores são estruturas de dados utilizadas na programação para armazenar vários valores do mesmo tipo em uma única variável. Eles permitem organizar e acessar informações por meio de índices.</p>
+
+<h2>Conceitos</h2>
+<p>Um vetor pode armazenar uma sequência de elementos, como notas, idades ou nomes. Cada elemento ocupa uma posição identificada por um índice, que geralmente começa em zero em linguagens como Python, C e Java.</p>
+
+<p>Os vetores facilitam a organização e a manipulação de conjuntos de dados, permitindo acessar, modificar e percorrer seus elementos por meio de comandos e estruturas de repetição.</p>
+
+<h2>Características</h2>
+<ul>
+<li><strong>Elementos:</strong> valores armazenados dentro do vetor.</li>
+<li><strong>Índices:</strong> posições utilizadas para acessar cada elemento.</li>
+<li><strong>Tamanho:</strong> quantidade de elementos armazenados.</li>
+<li><strong>Tipo de dado:</strong> em vetores tradicionais, os elementos geralmente possuem o mesmo tipo.</li>
+<li><strong>Acesso:</strong> permite consultar ou modificar um elemento por sua posição.</li>
+<li><strong>Percurso:</strong> permite utilizar laços de repetição para acessar vários elementos.</li>
+</ul>
+
+<h2>Vetores no Cotidiano</h2>
+<p>Os vetores podem ser utilizados em diversas situações, como registrar notas de alunos, armazenar preços de produtos ou organizar temperaturas ao longo da semana.</p>
+
+<p><strong>Exemplo do cotidiano:</strong> um professor pode armazenar as notas de cinco alunos em um único vetor:</p>
+<ul>
+<li>Nota 1: 7.5</li>
+<li>Nota 2: 8.0</li>
+<li>Nota 3: 6.5</li>
+<li>Nota 4: 9.0</li>
+<li>Nota 5: 8.5</li>
+</ul>
+
+<p>Com um vetor, essas informações ficam organizadas e podem ser acessadas individualmente ou processadas em conjunto.</p>
+
+<h2>Índices e Elementos</h2>
+<p>Os índices identificam a posição de cada elemento no vetor. Em Python, o primeiro elemento possui índice zero.</p>
+
+<ul>
+<li><strong>Vetor:</strong> notas = [7.5, 8.0, 6.5].</li>
+<li><strong>Índice 0:</strong> valor 7.5.</li>
+<li><strong>Índice 1:</strong> valor 8.0.</li>
+<li><strong>Índice 2:</strong> valor 6.5.</li>
+</ul>
+
+<p>O uso de índices permite acessar diretamente os valores armazenados em cada posição.</p>
+
+<h2>Exemplo Prático em Programação</h2>
+<p>Observe um exemplo de criação e utilização de um vetor em Python:</p>
+
+<pre><code>notas = [7.5, 8.0, 6.5, 9.0, 8.5]
+
+print("Primeira nota:", notas[0])
+print("Segunda nota:", notas[1])
+
+for nota in notas:
+    print(nota)</code></pre>
+
+<p>Nesse exemplo, o vetor armazena cinco notas. O programa acessa elementos específicos pelos índices e utiliza um laço de repetição para exibir todas as notas.</p>
+
+<p>Em Python, listas são frequentemente utilizadas para representar vetores. Em linguagens como C e Java, os vetores tradicionais possuem regras específicas de declaração e tamanho.</p>
+
 <div class="cards">
-<article class="card"><h3>Conceitos-chave</h3><p>Identifique os conceitos centrais da aula e registre definições com suas próprias palavras.</p></article>
-<article class="card"><h3>Exemplo prático</h3><p>Relacione o conteúdo a uma situação cotidiana ou a um problema que possa ser resolvido por computador.</p></article>
-<article class="card"><h3>Prática</h3><p>Construa, teste ou analise uma solução utilizando o conhecimento estudado.</p></article>
+  <article class="card">
+    <h3>Conceitos-chave</h3>
+    <p>Vetores armazenam vários elementos em uma sequência. Seus conceitos principais são elementos, índices, tamanho e acesso às posições.</p>
+  </article>
+
+  <article class="card">
+    <h3>Exemplo prático</h3>
+    <pre><code>frutas = ["Maçã", "Uva", "Pera"]
+
+print(frutas[0])</code></pre>
+    <p>O código cria um vetor de frutas e exibe o primeiro elemento, "Maçã".</p>
+  </article>
+
+  <article class="card">
+    <h3>Prática</h3>
+    <p>Crie um vetor com cinco números, exiba o segundo elemento e utilize um laço de repetição para mostrar todos os valores armazenados.</p>
+  </article>
 </div>
 <section class="mapa-mental-section">
 <h2 class="titulo-secao">🧠 Mapa Mental</h2>
