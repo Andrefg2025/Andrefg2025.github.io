@@ -677,18 +677,103 @@ A identificação de erros ajuda a encontrar e corrigir falhas na lógica do alg
 <details class="aula" id="aula-12">
 <summary>Aula 12 — Tipos de dados - JOANN SMITH CUSTODIO</summary>
 <div class="aula-conteudo">
-<h3>Tipos de dados</h3>
-<p>Esta aula integra a <strong>Unidade 3 — Variáveis e Operadores</strong> e desenvolve os conhecimentos necessários para avançar na sequência de Algoritmos e Estruturas de Dados.</p>
-<p>Estudo orientado sobre <strong>Tipos de dados</strong>, com conceitos, exemplos, exercícios e aplicação prática.</p>
+<h3>O que são tipos de dados?</h3>
+<p>Tipos de dados são classificações utilizadas na programação para definir quais tipos de valores podem ser armazenados e manipulados por uma variável. Eles ajudam a organizar as informações e determinar quais operações podem ser realizadas com cada valor.</p>
+
+<h2>Conceitos</h2>
+<p>Podemos definir os tipos de dados como categorias que identificam a natureza de uma informação utilizada em um programa. Cada tipo de dado possui características próprias e permite realizar determinadas operações. Por exemplo, um número inteiro pode representar a quantidade de alunos em uma sala, enquanto um texto pode armazenar o nome de cada aluno.</p>
+
+<p>Os tipos de dados são fundamentais na programação, pois permitem que os computadores interpretem e processem as informações corretamente. Em uma aplicação escolar, por exemplo, podemos utilizar números para registrar notas, textos para armazenar nomes e valores lógicos para indicar se um aluno está aprovado ou não. A escolha adequada dos tipos de dados contribui para a organização e o funcionamento correto do programa.</p>
+
+<h2>Características</h2>
+<ul>
+<li><strong>Inteiro (int):</strong> armazena números inteiros, positivos, negativos ou zero, como 10, -5 e 0.</li>
+<li><strong>Real (float ou double):</strong> representa números com casas decimais, como 7.5, 3.14 e 9.8.</li>
+<li><strong>Texto (string):</strong> armazena palavras, frases e outros conjuntos de caracteres, como "Olá, mundo!".</li>
+<li><strong>Caractere (char):</strong> representa um único caractere, como 'A', '7' ou '#', em linguagens que possuem esse tipo específico.</li>
+<li><strong>Lógico (boolean):</strong> representa valores de verdadeiro ou falso, geralmente chamados de true e false.</li>
+<li><strong>Armazenamento:</strong> cada tipo de dado possui regras próprias para representar informações na memória do computador.</li>
+<li><strong>Operações:</strong> os tipos de dados influenciam as operações que podem ser realizadas, como somar números ou comparar textos.</li>
+</ul>
+
+<h2>Tipos de Dados no Cotidiano</h2>
+<p>Os tipos de dados estão presentes em diversas situações do dia a dia, principalmente em aplicativos, sites e sistemas informatizados.</p>
+
+<p><strong>Exemplo do cotidiano:</strong> em um cadastro escolar, podemos utilizar diferentes tipos de dados para registrar as informações de um estudante:</p>
+<ul>
+<li>Nome: "Maria" — tipo texto (string).</li>
+<li>Idade: 16 — tipo inteiro (int).</li>
+<li>Altura: 1.65 — tipo real (float).</li>
+<li>Nota: 8.5 — tipo real (float).</li>
+<li>Aprovado: true — tipo lógico (boolean).</li>
+</ul>
+
+<p>Ou seja, cada informação possui uma finalidade e pode ser representada por um tipo de dado adequado. Essa organização facilita o armazenamento, a consulta e o processamento das informações em sistemas computacionais.</p>
+
+<h2>Números, Textos e Valores Lógicos</h2>
+<p>Os tipos de dados podem ser compreendidos por meio de exemplos simples que mostram como as informações são representadas na programação.</p>
+
+<ul>
+<li><strong>Números inteiros:</strong> utilizados para representar quantidades sem casas decimais.</li>
+<li><strong>Exemplo:</strong> idade = 18.</li>
+
+<li><strong>Números reais:</strong> utilizados para representar valores com casas decimais.</li>
+<li><strong>Exemplo:</strong> preco = 19.90.</li>
+
+<li><strong>Textos:</strong> utilizados para armazenar nomes, endereços e mensagens.</li>
+<li><strong>Exemplo:</strong> nome = "João".</li>
+
+<li><strong>Valores lógicos:</strong> utilizados para representar condições verdadeiras ou falsas.</li>
+<li><strong>Exemplo:</strong> tem_cadastro = true.</li>
+</ul>
+
+<p>Esses exemplos mostram que os tipos de dados permitem representar diferentes informações de maneira organizada. A forma de declarar e utilizar cada tipo pode variar de acordo com a linguagem de programação escolhida.</p>
+
+<h2>Exemplo Prático em Programação</h2>
+<p>Observe um exemplo simples de declaração de variáveis utilizando diferentes tipos de dados:</p>
+
+<pre><code>nome = "Ana"
+idade = 17
+altura = 1.68
+aprovada = True
+
+print(nome)
+print(idade)
+print(altura)
+print(aprovada)</code></pre>
+
+<p>Nesse exemplo, utilizamos uma variável para armazenar um texto, outra para um número inteiro, outra para um número decimal e uma última para um valor lógico. O programa apresenta os valores armazenados em cada variável.</p>
+
+<p>O exemplo utiliza a sintaxe do Python, linguagem na qual não é necessário declarar explicitamente o tipo da variável. Em outras linguagens, como C e Java, a declaração dos tipos segue regras diferentes.</p>
+
+<h2>Referências Bibliográficas</h2>
+<p>https://docs.python.org/pt-br/3/library/stdtypes.html <strong>— Documentação oficial do Python: tipos internos</strong></p>
+
+<p>https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Data_structures <strong>— MDN Web Docs: estruturas de dados e tipos</strong></p>
+
+<p>https://www.w3schools.com/c/c_data_types.php <strong>— W3Schools: tipos de dados em C</strong></p>
+
 <div class="cards">
-<article class="card"><h3>Conceitos-chave</h3><p>Identifique os conceitos centrais da aula e registre definições com suas próprias palavras.</p></article>
-<article class="card"><h3>Exemplo prático</h3><p>Relacione o conteúdo a uma situação cotidiana ou a um problema que possa ser resolvido por computador.</p></article>
-<article class="card"><h3>Prática</h3><p>Construa, teste ou analise uma solução utilizando o conhecimento estudado.</p></article>
+  <article class="card">
+    <h3>Conceitos-chave</h3>
+    <p>Identifique os principais tipos de dados, como inteiro, real, texto, caractere e lógico, e registre suas definições com suas próprias palavras.</p>
+  </article>
+
+  <article class="card">
+    <h3>Exemplo prático</h3>
+    <p>Relacione os tipos de dados a uma situação cotidiana, como um cadastro de alunos, uma loja virtual ou um aplicativo de notas escolares.</p>
+  </article>
+
+  <article class="card">
+    <h3>Prática</h3>
+    <p>Crie um pequeno programa com variáveis de diferentes tipos, atribua valores a elas e teste a exibição dessas informações.</p>
+  </article>
 </div>
+
 <section class="mapa-mental-section">
-<h2 class="titulo-secao">🧠 Mapa Mental</h2>
-<p>Use os conceitos desta aula para construir um mapa mental com o tema <strong>Tipos de dados</strong>.</p>
-<div class="mapa-mental">Tema central → conceitos principais → exemplos → aplicações → conclusão.</div>
+  <h2 class="titulo-secao">🧠 Mapa Mental</h2>
+  <p>Use os conceitos desta aula para construir um mapa mental com o tema <strong>O que são tipos de dados?</strong>.</p>
+  <div class="mapa-mental">Tipos de dados → conceitos principais → tipos (inteiro, real, texto e lógico) → exemplos → aplicações na programação → conclusão.</div>
 </section>
 <details class="aula atividades-container"><summary>📝 Atividades de fixação</summary>
 
