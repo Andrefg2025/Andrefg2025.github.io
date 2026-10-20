@@ -4594,17 +4594,56 @@ for (let linha = 0; linha &lt; matriz.length; linha++) {
 <summary>Aula 61 — Remoção de elementos - VITOR EMANUEL LOPES DA SILVA</summary>
 <div class="aula-conteudo">
 <h3>Remoção de elementos</h3>
-<p>Esta aula integra a <strong>Unidade 10 — Listas</strong> e desenvolve os conhecimentos necessários para avançar na sequência de Algoritmos e Estruturas de Dados.</p>
-<p>Estudo orientado sobre <strong>Remoção de elementos</strong>, com conceitos, exemplos, exercícios e aplicação prática.</p>
+<p>
+  A <strong>remoção de elementos</strong> é uma operação fundamental no estudo
+  de listas. Ela consiste em retirar um item da lista, fazendo com que a
+  estrutura fique com um elemento a menos.
+</p>
+<p>
+  A remoção pode ser feita de duas formas: <strong>por posição</strong>,
+  quando informamos o índice do elemento que queremos retirar, ou
+  <strong>por valor</strong>, quando informamos o conteúdo que deve ser
+  procurado e removido.
+</p>
+<p>
+  Quando um elemento é removido, os itens que vinham depois dele voltam uma
+  posição para ocupar o espaço vazio. Por isso, o tamanho da lista diminui e
+  os índices dos elementos seguintes mudam.
+</p>
+<p>
+  É importante verificar se o elemento existe antes de tentar removê-lo. Se o
+  programa tentar remover algo que não está na lista, pode acontecer um erro.
+</p>
+<p>
+  Na prática, esse recurso é muito usado para retirar produtos de um carrinho
+  de compras, apagar tarefas concluídas, excluir cadastros e limpar dados
+  repetidos ou inválidos.
+</p>
 <div class="cards">
-<article class="card"><h3>Conceitos-chave</h3><p>Identifique os conceitos centrais da aula e registre definições com suas próprias palavras.</p></article>
-<article class="card"><h3>Exemplo prático</h3><p>Relacione o conteúdo a uma situação cotidiana ou a um problema que possa ser resolvido por computador.</p></article>
-<article class="card"><h3>Prática</h3><p>Construa, teste ou analise uma solução utilizando o conhecimento estudado.</p></article>
+<article class="card"><h3>Conceitos-chave</h3><p><strong>Remoção de elemento:</strong> retirar um item de uma lista, diminuindo o seu tamanho.</p>
+<p><strong>Por posição ou por valor:</strong> podemos remover informando o índice do item ou o próprio valor que queremos retirar.</p>
+<p><strong>Deslocamento:</strong> os elementos seguintes voltam uma posição, e por isso os índices mudam.</p></article>
+<article class="card"><h3>Exemplo prático</h3><p><strong>Remoção de elemento:</strong> retirar um item de uma lista, diminuindo o seu tamanho.</p>
+<p><strong>Por posição ou por valor:</strong> podemos remover informando o índice do item ou o próprio valor que queremos retirar.</p>
+<p><strong>Deslocamento:</strong> os elementos seguintes voltam uma posição, e por isso os índices mudam.</p></article>
+<article class="card"><h3>Prática</h3><p>Peça um nome ao usuário e remova-o da lista, se ele existir:</p>
+<pre style="overflow-x:auto;"><code>lista = ["Ana", "Bruno", "Carla"]
+
+ler nome
+
+se nome está na lista:
+    remover nome
+
+mostrar lista</code></pre></article>
 </div>
 <section class="mapa-mental-section">
 <h2 class="titulo-secao">🧠 Mapa Mental</h2>
-<p>Use os conceitos desta aula para construir um mapa mental com o tema <strong>Remoção de elementos</strong>.</p>
-<div class="mapa-mental">Tema central → conceitos principais → exemplos → aplicações → conclusão.</div>
+<p><strong>Remoção de elementos</strong>.</p>
+<img
+  src="mapa-remocao-Vitor.svg"
+  alt="Mapa mental sobre remoção de elementos: conceitos principais, exemplos, aplicações e conclusão"
+  style="display:block; width:100%; height:auto; margin-top:20px; border-radius:12px;"
+>
 </section>
 <details class="aula atividades-container"><summary>📝 Atividades de fixação</summary>
 
